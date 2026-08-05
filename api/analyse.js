@@ -80,7 +80,7 @@ export default async function handler(req, res) {
     console.error("Gemini analysis error:", error?.message || error);
     const message = error?.message === "GEMINI_API_KEY_NOT_CONFIGURED"
       ? "La clé Gemini n’est pas configurée sur le serveur."
-      : "L’analyse Gemini n’a pas pu être générée. Le modèle subit actuellement une forte demande. Vos réponses sont enregistrées et vous pourrez rééssayer plus tard l'analyse Gemini sans recommencer le questionnaire.";
+      : "L’analyse Gemini n’a pas pu être générée. Le modèle subit actuellement une forte demande. Vos réponses sont enregistrées et vous pourrez rééssayer l'analyse Gemini plus tard sans recommencer le questionnaire.";
     return res.status(502).json({ error: message });
   }
 }
