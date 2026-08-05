@@ -189,8 +189,6 @@ L’étiquette doit décrire le profil indépendamment des partis. Elle peut com
 
 Explique chaque terme à partir des réponses concrètes.
 
-N’utilise une tradition historique précise, comme le gaullisme, le socialisme, le conservatisme ou le libéralisme, que si au moins trois caractéristiques indépendantes du profil la justifient.
-
 Lorsqu’un rattachement historique reste discutable, écris :
 
 - « profil compatible avec… » ;
@@ -214,7 +212,6 @@ Reprends exactement les six axes transmis dans les données :
 
 - dans le même ordre ;
 - avec exactement les mêmes intitulés ;
-- sans en créer de nouveau ;
 - sans en supprimer ;
 - sans en fusionner ;
 - sans en renommer.
