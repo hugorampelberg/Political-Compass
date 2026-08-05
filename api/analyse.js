@@ -92,10 +92,10 @@ export default async function handler(req, res) {
       message = "Le quota ou la limite de fréquence Gemini est atteint. Réessayez plus tard.";
     } else if (code === "GEMINI_ATTEMPT_TIMEOUT" || status === 504) {
       status = 504;
-      message = "Gemini n’a pas répondu à temps, même après plusieurs tentatives. Réessayez dans quelques minutes.";
+      message = "Gemini n’a pas répondu à temps, même après plusieurs tentatives. Vous pourrez réessayer dans quelques minutes sans avoir besoin de refaire le questionnaire.";
     } else if (status >= 500 || error?.transient) {
       status = 503;
-      message = "Gemini est temporairement saturé ou indisponible. Plusieurs tentatives ont échoué ; réessayez dans quelques minutes.";
+      message = "Gemini est temporairement saturé ou indisponible. Vous pourrez réessayer dans quelques minutes sans avoir besoin de refaire le questionnaire.";
     }
 
     if (status < 400 || status > 599) status = 502;
