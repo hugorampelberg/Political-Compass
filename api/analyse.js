@@ -7,7 +7,7 @@ import {
 } from "../lib/gemini.js";
 
 export const config = {
-  maxDuration: 60
+  maxDuration: 120
 };
 
 async function readBody(req) {
