@@ -1,0 +1,9 @@
+{
+  "name": "boussole-politique",
+  "version": "1.0.1",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "24.x"
+  }
+}
