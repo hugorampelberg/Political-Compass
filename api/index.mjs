@@ -1,7 +1,7 @@
 import { gunzipSync } from "node:zlib";
 
 const API_KEY = process.env.GEMINI_API_KEY || "";
-const MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash";
+const MODEL = process.env.GEMINI_MODEL || "gemini-3.6-flash";
 const API_BASE_URL = String(process.env.GEMINI_API_BASE_URL || "https://generativelanguage.googleapis.com/v1beta").replace(/\/$/, "");
 const SERVICE_TIER = String(process.env.GEMINI_SERVICE_TIER || "unpaid").toLowerCase() === "paid" ? "paid" : "unpaid";
 const MOCK = String(process.env.MOCK_GEMINI || "").toLowerCase() === "true";
