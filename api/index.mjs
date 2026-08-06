@@ -213,7 +213,7 @@ Rédige une introduction de 180 à 260 mots.
 
 Formule une thèse claire sur la logique générale du profil. Ne commence pas par dire simplement qu’il est « complexe », « équilibré », « pragmatique » ou « nuancé ».
 
-Identifie les trois ou quatre principes les plus structurants et montre comment ils se retrouvent dans plusieurs domaines.
+Identifie les trois les plus structurants et montre comment ils se retrouvent dans plusieurs domaines.
 
 Explique les priorités principales, la conception du rôle de l’État, la place de la responsabilité individuelle, les principaux arbitrages et, lorsque les données le permettent, la conception de la justice sociale.
 
@@ -243,11 +243,9 @@ Cette partie doit contenir entre 220 et 320 mots.
 
 3. LECTURE DES SIX AXES
 
-Reprends les six axes transmis dans les données, dans le même ordre et avec exactement les mêmes intitulés. N’en supprime, ne fusionne et ne renomme aucun.
+Reprends les six axes transmis dans les données.
 
-Consacre une section distincte à chacun des six axes.
-
-Il est interdit de transformer des sous-thèmes comme l’État social, les libertés individuelles ou la sécurité en nouveaux axes s’ils ne constituent pas eux-mêmes un axe dans les données.
+Consacre une section distincte à chacun des axes.
 
 Pour chaque axe, présente :
 
