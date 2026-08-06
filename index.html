@@ -796,14 +796,14 @@
     const AXIS_COLORS = { economy:'#d96c57', authority:'#6f63a8', europe:'#4e77a7', ecology:'#2d8c87', immigration:'#d7a744', democracy:'#40556a' };
     const PRIORITY_LABELS = {
       economy:'Économie',
-      authority:'Sécurité intérieure (liberté/autorité)',
+      authority:'Sécurité, justice et libertés publiques',
       europe:'Place de la France dans l’Europe',
       ecology:'Écologie',
-      immigration:'Immigration',
+      immigration:'Immigrations, accueil et intégration',
       democracy:'Démocratie'
     };
     const SCALE_LABELS = { '-3':'Pas du tout d’accord', '-2':'Plutôt pas d’accord', '-1':'Légèrement pas d’accord', '0':'Neutre / partagé', '1':'Légèrement d’accord', '2':'Plutôt d’accord', '3':'Tout à fait d’accord' };
-    const ICONS = { economy:'€', authority:'§', europe:'E', ecology:'◌', immigration:'↔', democracy:'◇' };
+    const ICONS = { economy:'€', authority:'§', europe:'E', ecology:'◉', immigration:'↔', democracy:'◇' };
 
     const initialState = (mode=QUIZ_MODES.FULL) => ({ mode, priority: null, answers: Array(DATA.questions.length).fill(null), questionComments:Array(DATA.questions.length).fill(''), openAnswers:{}, current:0, completed:false, updatedAt:Date.now() });
     let state = loadState() || initialState();
