@@ -12,7 +12,7 @@ En revanche, il ne balaie pas encore assez largement l'ensemble des politiques p
 
 Les classements globaux des partis sont politiquement plausibles. Ils restituent bien les grandes familles : gauche économique, centre pro-européen, droite libérale et restrictive sur l'immigration, droite nationale, etc. Ils ne doivent toutefois pas être présentés comme une mesure exacte de 80 positions officielles. Chaque réponse possède une source, mais deux à quatre documents génériques sont souvent réutilisés pour les 80 questions d'une même organisation. Une partie importante des notes détaillées est donc une inférence à partir de la ligne générale plutôt qu'une position explicitement publiée.
 
-Aucune note de parti, de pays ou aucun coefficient n'a été modifié dans le cadre de cet audit. Les corrections proposées ci-dessous demandent une décision éditoriale explicite.
+L'audit initial n'avait modifié aucune note. Une seconde passe autorisée le 7 août 2026 a corrigé la question 66, les analogues internationaux de l'IFI, la masse de l'axe autorité et tous les scores dérivés. Le détail avant/après figure dans [le journal de recalibrage](CHANGEMENTS_CODAGES_2026-08-07.md). Les autres recommandations ci-dessous restent des propositions éditoriales.
 
 ## Méthode
 
@@ -30,13 +30,13 @@ Une note est classée « forte mais fragile » ci-dessous lorsque sa valeur abso
 | Axe | Questions où l'axe intervient | Questions principalement rattachées à l'axe | Masse réelle | Masse enregistrée dans `axisMasses` |
 |---|---:|---:|---:|---:|
 | Économie | 30 | 27 | 17,4 | 17,4 |
-| Libertés / autorité | 38 | 17 | 23,1 | 22,1 |
+| Libertés / autorité | 38 | 17 | 23,1 | 23,1 |
 | Europe | 5 | 5 | 4,6 | 4,6 |
 | Écologie | 12 | 12 | 8,8 | 8,8 |
 | Immigration / intégration | 15 | 13 | 10,9 | 10,9 |
 | Démocratie / institutions | 6 | 6 | 5,5 | 5,5 |
 
-L'ajout récent d'un coefficient d'autorité de +1 à la question 66 n'a pas été répercuté dans `axisMasses` : la masse réelle vaut désormais 23,1, alors que la donnée enregistrée reste 22,1. Les scores individuels sont normalisés à partir des questions, mais la pondération des correspondances en mode complet utilise la masse enregistrée. Les deux calculs ne travaillent donc plus sur exactement la même base.
+L'ajout du coefficient d'autorité de +1 à la question 66 est désormais répercuté dans `axisMasses` : la masse réelle et la masse enregistrée valent toutes deux 23,1. Les 17 `axisScores` ont également été recalculés.
 
 Même après correction de cette incohérence, l'équilibre restera insuffisant si le résultat final est censé donner « la même importance » aux six axes. Le code conserve leurs masses structurelles : l'autorité pèse beaucoup plus que l'Europe ou la démocratie. Le libellé de l'interface signifie seulement qu'aucun bonus supplémentaire de 30 % n'est appliqué ; il ne signifie pas que les axes ont un poids final identique.
 
@@ -74,7 +74,7 @@ Ajouter dix à douze questions, réparties entre ces domaines, donnerait une rep
 
 | Priorité | Question | Constat | Recommandation |
 |---|---:|---|---|
-| Critique | 66 | La question a été remplacée par une proposition sur l'usage de l'arme à feu lors d'un refus d'obtempérer, mais les masses, les scores d'axe pré-calculés, plusieurs justificatifs et les sources n'ont pas été recalculés ensemble. | Refaire toute la ligne 66, puis recalculer `axisMasses` et les 17 `axisScores`. |
+| Résolue | 66 | La question avait été remplacée sans synchroniser les masses, les scores, les justificatifs et les sources. | Ligne refaite le 7 août 2026 ; masse, 17 scores, justifications et sources recalculés. |
 | Critique | 23 | « Rendre la nationalité plus exigeante » produit bien un déplacement restrictif sur l'immigration (-1), mais aussi un déplacement libertaire sur l'autorité (-0,2). Ce second signe paraît inversé. | Passer le coefficient d'autorité à +0,2 ou le supprimer. |
 | Haute | 11 | L'endettement pour un investissement public rentable est codé à droite économique (+0,2). Cette proposition traverse le clivage gauche/droite et peut même signaler une acceptation de l'investissement public. | Neutraliser le coefficient ou reformuler autour d'une règle budgétaire explicite. |
 | Haute | 16 | La question mélange redistribution, quotas et restrictions de choix. Ces politiques ne mobilisent pas nécessairement le même axe ni la même réponse. | Scinder égalité économique et politiques de quotas en deux questions. |
@@ -110,9 +110,9 @@ La précision au point près n'est cependant pas justifiée partout. Les codages
 
 Le niveau de confiance 3 mérite lui-même un contrôle : plusieurs justifications se limitent à « position centrale ou répétée » sans citer la mesure ni le passage qui la prouve. Par exemple, la page d'accueil de Renaissance est utilisée pour attribuer une confiance élevée sur l'intervention de l'État, l'Europe ou l'IFI. Une URL officielle générique ne devrait pas suffire à obtenir le niveau maximal.
 
-La nouvelle question 66 révèle un défaut plus net : plusieurs niveaux de confiance ont été passés à 3 alors que leur justification dit toujours « estimation prudente ; aucune formulation parfaitement équivalente ». Les textes des justifications décrivent en outre l'ancienne question sur la rapidité des sanctions. Les notes et preuves ne sont donc plus synchronisées.
+La nouvelle question 66 révélait un défaut plus net : plusieurs niveaux de confiance avaient été passés à 3 alors que leur justification disait toujours « estimation prudente ; aucune formulation parfaitement équivalente ». Ce défaut est corrigé : les 11 partis disposent désormais d'une justification et d'une source portant sur l'usage des armes ou sur le scrutin parlementaire le plus proche.
 
-Le cas de LFI est une erreur substantielle identifiable : la donnée actuelle vaut +2, donc un accord avec le tir même sans danger immédiat. LFI demande officiellement l'abrogation de la loi de 2017 qu'elle décrit comme permettant l'usage de l'arme lors des refus d'obtempérer et rappelle que, dans le cas de Nahel, la vie du policier n'était pas en danger. Une note fortement négative est directement étayée. Les -3 du PCF et des Écologistes vont, eux, dans le sens de leurs communiqués officiels, mais les URL enregistrées dans les données ne sont pas les bonnes preuves.
+Le cas de LFI était une erreur substantielle identifiable : la valeur +2 contredisait sa demande officielle d'abrogation de la loi de 2017. La note vaut désormais -3. Les -3 du PCF et des Écologistes ont été conservés et reliés aux bonnes preuves.
 
 ## Audit des gouvernements étrangers
 
@@ -142,21 +142,21 @@ Plusieurs questions ne peuvent pas être transposées littéralement aux gouvern
 - les questions 23, 56 et 59 supposent le droit français de la nationalité ;
 - plusieurs questions fiscales, sociales ou institutionnelles dépendent de systèmes nationaux très différents.
 
-Les notes étrangères correspondantes ne décrivent donc pas toujours une position publique réelle. Le problème est manifeste pour la question 43 : le Danemark reçoit +2 à partir d'un passage général sur l'impôt sur les sociétés et les prestations universelles, et la Suisse +3 à partir d'un document général sur son économie sociale de marché. Ces sources ne répondent pas à la suppression de l'IFI français.
+Les notes étrangères correspondantes ne décrivent donc pas toujours une position publique réelle. Le problème était manifeste pour la question 43 : le Danemark recevait +2 à partir d'un passage général sur l'impôt sur les sociétés et la Suisse +3 à partir d'un document général sur son économie sociale de marché. Les six codages reposent désormais sur des analogues immobiliers ou patrimoniaux explicites ; quatre votes ont changé.
 
-La question 66 pose le même problème de preuve : les six gouvernements étrangers reçoivent +2, mais leurs justifications parlent encore de prévention, d'exécution des décisions ou de police efficace. Aucune ne documente le droit de tirer sur un conducteur lorsque le danger n'est pas immédiat. Ces six notes devraient être neutralisées jusqu'à obtention d'une source juridique ou programmatique directement comparable.
+La question 66 posait le même problème de preuve : les six gouvernements étrangers recevaient +2 avec des justifications génériques. Ils sont désormais codés à partir des règles nationales d'usage des armes. La Suisse reste à 0, car les polices cantonales ne permettent pas d'attribuer une doctrine uniforme au Conseil fédéral.
 
 Deux solutions sont possibles : créer une version internationale reformulée (« faut-il taxer spécifiquement les patrimoines immobiliers élevés ? »), ou marquer ces questions « non applicables » et les exclure du calcul de la distance pour le gouvernement concerné. Tant que ce choix n'est pas fait, les profils de pays doivent être présentés comme des analogies politiques, pas comme des réponses littérales au questionnaire français.
 
 ## Corrections de données à traiter en premier
 
-1. Refaire intégralement la ligne 66 : réponses, confiance, justifications et sources ; corriger LFI ; neutraliser provisoirement les gouvernements sans preuve directe.
-2. Recalculer la masse de l'autorité et les scores d'axe des 17 entités après cette correction. Dans l'état actuel, tous les `axisScores.authority` enregistrés correspondent encore à l'ancienne question 66.
+1. ~~Refaire intégralement la ligne 66 et corriger LFI.~~ Fait le 7 août 2026.
+2. ~~Recalculer la masse de l'autorité et les scores d'axe des 17 entités.~~ Fait le 7 août 2026 ; un contrôle automatisé prévient désormais la désynchronisation.
 3. Refaire le Royaume-Uni à partir des discours et du futur plan Burnham, sans attribuer automatiquement à Burnham toutes les positions Starmer.
 4. Ajouter des sources thématiques à Renaissance, Horizons, LR et Reconquête avant de conserver leurs valeurs fortes de faible confiance.
 5. Réexaminer toutes les notes fortes mais fragiles, en commençant par les questions 11, 13, 16, 31, 52, 64, 65, 75 et 76, qui reviennent souvent.
 6. Pour la Suisse, préciser que le résultat décrit un compromis institutionnel et non le programme homogène d'une majorité.
-7. Neutraliser ou reformuler les questions franco-spécifiques dans la comparaison internationale, en priorité les questions 38 à 43.
+7. Neutraliser ou reformuler les autres questions franco-spécifiques dans la comparaison internationale, en priorité les questions 38 à 42.
 8. Conserver une date de validité par entité et une date par source afin de rendre visibles les changements de direction, de coalition ou de programme.
 
 ## Règle de preuve recommandée
