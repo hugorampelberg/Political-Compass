@@ -17,7 +17,7 @@ export default function handler(req, res) {
     service_tier: SERVICE_TIER,
     configuration_error: !API_KEY
       ? "GEMINI_API_KEY_NOT_CONFIGURED"
-      : SERVICE_TIER !== "paid"
+      : SERVICE_TIER !== "unpaid"
         ? "GEMINI_PAID_TIER_REQUIRED"
         : null
   });
