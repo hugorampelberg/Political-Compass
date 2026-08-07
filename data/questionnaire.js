@@ -1042,13 +1042,13 @@ const QUESTIONNAIRE_DATA = {
     },
     {
       "id": 66,
-      "theme": "Justice",
-      "text": "La justice devrait davantage privilégier la certitude et la rapidité de la sanction que la recherche de peines particulièrement sévères.",
+      "theme": "Sécurité",
+      "text": "Lorsqu’un conducteur refuse d’obtempérer et prend la fuite, les policiers devraient pouvoir utiliser leur arme à feu même si le danger pour leur vie n’est pas immédiat.",
       "defaultAnswer": -1,
       "note": "",
       "coefficients": {
         "economy": 0,
-        "authority": 0,
+        "authority": 1,
         "europe": 0,
         "ecology": 0,
         "immigration": 0,
