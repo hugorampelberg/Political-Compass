@@ -234,6 +234,7 @@ const QUESTIONNAIRE_DATA = {
       "id": 12,
       "theme": "État",
       "text": "L'État devrait intervenir beaucoup plus fortement dans l'économie lorsque le marché produit des résultats jugés socialement indésirables.",
+      "explanation": "Par exemple : encadrer certains prix, subventionner des biens essentiels ou imposer davantage de règles aux entreprises lorsque certains services deviennent trop chers ou insuffisamment accessibles.",
       "defaultAnswer": 1,
       "note": "",
       "coefficients": {
@@ -249,6 +250,7 @@ const QUESTIONNAIRE_DATA = {
       "id": 13,
       "theme": "État",
       "text": "Les citoyens devraient avoir davantage de liberté pour choisir eux-mêmes comment utiliser leur argent plutôt que de passer par des systèmes publics obligatoires.",
+      "explanation": "Par exemple : pouvoir choisir soi-même une plus grande part de sa retraite, de son assurance santé ou de sa protection sociale, plutôt que de cotiser uniquement à des dispositifs obligatoires.",
       "defaultAnswer": 0,
       "note": "",
       "coefficients": {
@@ -294,6 +296,7 @@ const QUESTIONNAIRE_DATA = {
       "id": 16,
       "theme": "Social / société",
       "text": "La priorité donnée à l'égalité des résultats peut parfois justifier de limiter la liberté individuelle.",
+      "explanation": "Par exemple : accepter davantage de redistribution, des quotas ou certaines règles contraignantes afin de réduire les écarts entre groupes, même si cela limite certains choix individuels.",
       "defaultAnswer": -3,
       "note": "",
       "coefficients": {
@@ -624,6 +627,7 @@ const QUESTIONNAIRE_DATA = {
       "id": 38,
       "theme": "Europe",
       "text": "La France devrait transférer davantage de compétences à l'Union européenne afin de renforcer son poids économique et géopolitique.",
+      "explanation": "Par exemple : confier davantage de décisions sur la défense, la fiscalité, l’énergie ou la politique étrangère aux institutions européennes plutôt qu’à chaque État séparément.",
       "defaultAnswer": -2,
       "note": "",
       "coefficients": {
@@ -699,6 +703,7 @@ const QUESTIONNAIRE_DATA = {
       "id": 43,
       "theme": "Fiscalité / patrimoine",
       "text": "Il faudrait supprimer l'IFI et ne plus taxer spécifiquement le patrimoine immobilier au-delà de la fiscalité ordinaire.",
+      "explanation": "L’IFI est un impôt spécifique sur les patrimoines immobiliers élevés. La question demande s’il faut le supprimer et ne conserver que les impôts immobiliers ordinaires.",
       "defaultAnswer": -1,
       "note": "",
       "coefficients": {
