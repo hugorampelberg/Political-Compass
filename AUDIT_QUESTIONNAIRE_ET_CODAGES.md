@@ -2,25 +2,25 @@
 
 Date de l'audit : 7 août 2026
 
-Périmètre : 80 questions fermées, 6 axes, 11 partis français et 6 gouvernements étrangers.
+Périmètre actuel : 87 questions fermées, 6 axes, 13 partis français et 8 gouvernements étrangers.
 
 ## Conclusion générale
 
 Le questionnaire mesure correctement les grands clivages idéologiques qu'il a choisis : économie, libertés/autorité, Europe, écologie, immigration/intégration et institutions. Il est particulièrement fourni sur l'économie, l'autorité, l'immigration et l'écologie.
 
-En revanche, il ne balaie pas encore assez largement l'ensemble des politiques publiques actuelles. La santé, l'éducation, le logement, la défense, la politique étrangère, la décentralisation et le numérique sont trop peu ou pas mesurés. Ce ne sont pas des sujets secondaires dans les programmes officiels : le programme du Nouveau Front populaire consacre par exemple des ensembles complets à la santé, à l'éducation, au logement et à la diplomatie ; le programme de coalition danois de juin 2026 comporte des chapitres distincts sur l'école, le logement, la santé, l'intelligence artificielle et la sécurité européenne.
+La refonte thématique du 7 août 2026 a corrigé les principaux angles morts : santé et hôpital, éducation, logement, défense, fin de vie, dépendance, famille et intelligence artificielle sont désormais représentés par treize questions. Six questions redondantes de sécurité ou d'économie ont été retirées. Le détail figure dans [le journal de la refonte thématique](CHANGEMENTS_QUESTIONS_2026-08-07.md). UDR, La France Humaniste, les Pays-Bas et la Pologne ont ensuite été ajoutés ; leurs sources et scores figurent dans [le journal d'ajout des profils](AJOUT_PROFILS_2026-08-07.md).
 
-Les classements globaux des partis sont politiquement plausibles. Ils restituent bien les grandes familles : gauche économique, centre pro-européen, droite libérale et restrictive sur l'immigration, droite nationale, etc. Ils ne doivent toutefois pas être présentés comme une mesure exacte de 80 positions officielles. Chaque réponse possède une source, mais deux à quatre documents génériques sont souvent réutilisés pour les 80 questions d'une même organisation. Une partie importante des notes détaillées est donc une inférence à partir de la ligne générale plutôt qu'une position explicitement publiée.
+Les classements globaux des partis sont politiquement plausibles. Ils restituent bien les grandes familles : gauche économique, centre pro-européen, droite libérale et restrictive sur l'immigration, droite nationale, etc. Ils ne doivent toutefois pas être présentés comme une mesure exacte de 87 positions officielles. Chaque réponse possède une source, mais des documents génériques restent réutilisés lorsque aucune prise de position parfaitement équivalente n'existe. Une partie des notes détaillées demeure donc une inférence à partir de la ligne générale plutôt qu'une position explicitement publiée ; le niveau de confiance sert à le signaler.
 
-Aucune note de parti, de pays ou aucun coefficient n'a été modifié dans le cadre de cet audit. Les corrections proposées ci-dessous demandent une décision éditoriale explicite.
+L'audit initial n'avait modifié aucune note. Une seconde passe autorisée le 7 août 2026 a corrigé la question 66, les analogues internationaux de l'IFI, la masse de l'axe autorité et tous les scores dérivés. Une troisième passe a ensuite contrôlé les 1 827 couples note/confiance. La branche contient finalement dix-huit modifications de note : neuf étayées par une source officielle ou une déclaration directe et neuf recalibrages de La France Humaniste demandés puis réexaminés avec le propriétaire du questionnaire. La passe exhaustive a réévalué 429 indices de confiance ; une consolidation ultérieure du programme 2026 et du bilan public de Dominique de Villepin a permis d'en relever 42 pour La France Humaniste. Le détail figure dans [le journal de recalibrage](CHANGEMENTS_CODAGES_2026-08-07.md) et dans [l'audit complet des codages](AUDIT_COMPLET_CODAGES_2026-08-07.md).
 
 ## Méthode
 
 L'audit combine quatre vérifications :
 
-1. inventaire exhaustif des thèmes et coefficients des 80 questions ;
+1. inventaire exhaustif des thèmes et coefficients des 87 questions ;
 2. contrôle des signes, des questions sans effet et des formulations multidimensionnelles ;
-3. analyse systématique des 1 360 codages existants, de leur niveau de confiance et de la diversité des sources ;
+3. analyse systématique des 1 827 codages existants, de leur niveau de confiance et de la diversité des sources ;
 4. vérification ciblée des documents officiels et des gouvernements en fonction au 7 août 2026.
 
 Une note est classée « forte mais fragile » ci-dessous lorsque sa valeur absolue est au moins égale à 2 sur 3, alors que son niveau de confiance interne vaut 1 sur 3.
@@ -29,18 +29,18 @@ Une note est classée « forte mais fragile » ci-dessous lorsque sa valeur abso
 
 | Axe | Questions où l'axe intervient | Questions principalement rattachées à l'axe | Masse réelle | Masse enregistrée dans `axisMasses` |
 |---|---:|---:|---:|---:|
-| Économie | 30 | 27 | 17,4 | 17,4 |
-| Libertés / autorité | 38 | 17 | 23,1 | 22,1 |
-| Europe | 5 | 5 | 4,6 | 4,6 |
-| Écologie | 12 | 12 | 8,8 | 8,8 |
-| Immigration / intégration | 15 | 13 | 10,9 | 10,9 |
-| Démocratie / institutions | 6 | 6 | 5,5 | 5,5 |
+| Économie | 37 | 32 | 22,0 | 22,0 |
+| Libertés / autorité | 39 | 16 | 22,4 | 22,4 |
+| Europe | 8 | 8 | 7,2 | 7,2 |
+| Écologie | 11 | 11 | 8,1 | 8,1 |
+| Immigration / intégration | 15 | 14 | 10,9 | 10,9 |
+| Démocratie / institutions | 8 | 7 | 6,3 | 6,3 |
 
-L'ajout récent d'un coefficient d'autorité de +1 à la question 66 n'a pas été répercuté dans `axisMasses` : la masse réelle vaut désormais 23,1, alors que la donnée enregistrée reste 22,1. Les scores individuels sont normalisés à partir des questions, mais la pondération des correspondances en mode complet utilise la masse enregistrée. Les deux calculs ne travaillent donc plus sur exactement la même base.
+La suppression de quatre questions principalement autoritaires réduit la masse de cet axe malgré l'ajout de nouvelles questions de santé, d'éducation, de défense, de fin de vie et de numérique. L'Europe gagne 2,6 points de masse grâce aux questions sur l'Ukraine, la dissuasion et la souveraineté numérique. Les 21 `axisScores` ont été calculés ou recalculés.
 
-Même après correction de cette incohérence, l'équilibre restera insuffisant si le résultat final est censé donner « la même importance » aux six axes. Le code conserve leurs masses structurelles : l'autorité pèse beaucoup plus que l'Europe ou la démocratie. Le libellé de l'interface signifie seulement qu'aucun bonus supplémentaire de 30 % n'est appliqué ; il ne signifie pas que les axes ont un poids final identique.
+Les axes restent normalisés séparément sur une échelle de -10 à +10. Une masse élevée apporte davantage d'observations à l'axe et rend sa mesure moins sensible à une réponse isolée ; elle ne multiplie pas directement son poids dans la comparaison finale.
 
-## Sujets bien couverts et sujets manquants
+## Sujets bien couverts et sujets restant à approfondir
 
 ### Couverture solide
 
@@ -50,33 +50,31 @@ Même après correction de cette incohérence, l'équilibre restera insuffisant 
 - transition écologique, nucléaire, normes, croissance et pesticides ;
 - intégration européenne et souveraineté ;
 - représentation, référendums et équilibre exécutif/Parlement.
+- accès aux soins, organisation hospitalière et financement de la santé ;
+- autonomie scolaire, enseignement privé et mixité sociale ;
+- locations touristiques et pouvoir municipal en matière de logement ;
+- soutien à l'Ukraine et dimension européenne de la dissuasion ;
+- fin de vie, EHPAD, prestations familiales et régulation numérique.
 
-### Angles morts prioritaires
+### Angles restant peu couverts
 
 | Domaine | Pourquoi l'ajouter | Exemple de clivage mesurable |
 |---|---|---|
-| Santé et hôpital | Sujet central de dépense, d'accès territorial et de service public | Planification publique et obligation d'installation contre liberté d'installation des médecins |
-| Éducation | Clivages sur les moyens, l'autonomie, la sélection et le privé | Cadre national uniforme contre autonomie des établissements |
-| Logement | Sujet central dans les programmes français et étrangers | Encadrement des loyers et logement social contre libéralisation de l'offre |
-| Défense | Les dépenses militaires, la dissuasion et l'industrie de défense sont absentes | Hausse durable du budget de défense, même au prix d'autres dépenses |
-| Politique étrangère | L'axe Europe ne couvre pas l'OTAN, l'aide militaire ou le multilatéralisme | Autonomie stratégique française contre intégration accrue dans les alliances |
 | Laïcité et religions | Clivage français distinct de l'immigration | Extension des restrictions sur les signes religieux dans l'espace public |
 | Territoires et outre-mer | La décentralisation n'est évoquée qu'indirectement | Transfert de pouvoirs fiscaux et réglementaires aux collectivités |
-| Numérique et IA | Régulation des plateformes, données et automatisation publique absentes | Encadrement strict de l'IA, même s'il ralentit l'innovation |
 | Agriculture et alimentation | Une seule question agricole, centrée sur les pesticides | Protection des revenus agricoles contre concurrence et prix bas |
-| Dépendance, handicap et famille | Les choix de solidarité hors retraite sont peu mesurés | Assurance publique obligatoire de la dépendance contre couverture individuelle |
+| Handicap | La dépendance des personnes âgées est désormais abordée, mais pas l'autonomie des personnes handicapées | Priorité à l'accessibilité universelle contre compensation individuelle ciblée |
 | Commerce et industrie | Le protectionnisme n'est abordé que par l'écologie | Préférence nationale/européenne dans les marchés publics contre libre-échange |
 | Culture et médias | Financement, concentration et indépendance ne sont pas couverts | Renforcement d'un audiovisuel public financé collectivement |
 
-Ajouter dix à douze questions, réparties entre ces domaines, donnerait une représentation plus fidèle des programmes actuels sans transformer le test en inventaire interminable.
+Ces thèmes peuvent faire l'objet d'une prochaine passe, mais ils sont moins urgents que les angles morts corrigés par les questions 81 à 93.
 
 ## Questions et coefficients à revoir
 
 | Priorité | Question | Constat | Recommandation |
 |---|---:|---|---|
-| Critique | 66 | La question a été remplacée par une proposition sur l'usage de l'arme à feu lors d'un refus d'obtempérer, mais les masses, les scores d'axe pré-calculés, plusieurs justificatifs et les sources n'ont pas été recalculés ensemble. | Refaire toute la ligne 66, puis recalculer `axisMasses` et les 17 `axisScores`. |
+| Résolue | 66 | La question avait été remplacée sans synchroniser les masses, les scores, les justificatifs et les sources. | Ligne refaite le 7 août 2026 ; masse, 17 scores, justifications et sources recalculés. |
 | Critique | 23 | « Rendre la nationalité plus exigeante » produit bien un déplacement restrictif sur l'immigration (-1), mais aussi un déplacement libertaire sur l'autorité (-0,2). Ce second signe paraît inversé. | Passer le coefficient d'autorité à +0,2 ou le supprimer. |
-| Haute | 11 | L'endettement pour un investissement public rentable est codé à droite économique (+0,2). Cette proposition traverse le clivage gauche/droite et peut même signaler une acceptation de l'investissement public. | Neutraliser le coefficient ou reformuler autour d'une règle budgétaire explicite. |
 | Haute | 16 | La question mélange redistribution, quotas et restrictions de choix. Ces politiques ne mobilisent pas nécessairement le même axe ni la même réponse. | Scinder égalité économique et politiques de quotas en deux questions. |
 | Haute | 17 | La correction des discriminations structurelles n'agit que sur l'économie (-0,3), alors qu'elle mesure surtout un clivage social et institutionnel. | Revoir l'axe principal ; ne pas l'assimiler automatiquement à la gauche économique. |
 | Moyenne | 34 | Le nucléaire, clivage majeur, ne pèse que -0,2 sur l'écologie. | Conserver ce faible poids si l'objectif est d'éviter un « test nucléaire » ; sinon le porter à -0,4/-0,5. |
@@ -88,19 +86,21 @@ Ajouter dix à douze questions, réparties entre ces domaines, donnerait une rep
 
 ## Audit des partis français
 
-| Parti | Sources officielles distinctes pour 80 notes | Notes de confiance faible | Notes fortes mais fragiles | Diagnostic |
+| Parti | Sources officielles distinctes pour 87 notes | Notes de confiance faible | Notes fortes mais fragiles | Diagnostic |
 |---|---:|---:|---:|---|
-| LFI | 4 | 20 | 16 | Axes globaux cohérents ; beaucoup de détails sont déduits malgré un programme fourni. |
-| PCF | 4 | 16 | 12 | Cohérence globale forte ; plusieurs sujets secondaires restent extrapolés. |
-| Les Écologistes | 3 | 25 | 18 | Programme très détaillé, mais codages non écologiques parfois inférés. |
-| PS | 4 | 28 | 16 | Orientation plausible ; base documentaire trop générale pour 80 notes précises. |
-| Renaissance | 2 | 27 | 20 | Fragilité élevée : la page d'accueil et un débat parlementaire ne suffisent pas à documenter 80 positions. |
-| MoDem | 4 | 27 | 12 | Beaucoup de valeurs intermédiaires et seulement 15 notes de confiance élevée. |
-| Horizons | 2 | 22 | 18 | Manifeste utile mais trop synthétique pour les notes détaillées. |
-| LR | 2 | 27 | 18 | Grandes orientations crédibles ; précision question par question insuffisamment sourcée. |
-| Nouvelle Énergie | 2 | 19 | 12 | Programme structuré et codage global cohérent ; manque de sources sur les sujets hors programme. |
-| RN | 4 | 20 | 10 | Programmes nationaux et européens solides pour les grands clivages ; détails sociétaux parfois inférés. |
-| Reconquête | 2 | 19 | 14 | Orientation globale nette ; page d'accueil trop générale pour soutenir seule la plupart des notes. |
+| LFI | 12 | 24 | 19 | Axes globaux cohérents ; les nouveaux scrutins améliorent la traçabilité. |
+| PCF | 11 | 19 | 15 | Cohérence globale forte ; plusieurs sujets secondaires restent extrapolés. |
+| Les Écologistes | 7 | 25 | 17 | Programme très détaillé, mais codages non écologiques parfois inférés. |
+| PS | 11 | 26 | 13 | Orientation plausible ; les nouveaux votes et documents thématiques renforcent la base. |
+| Renaissance | 8 | 26 | 18 | Les scrutins améliorent plusieurs notes, mais des thèmes restent documentés par une ligne générale. |
+| MoDem | 9 | 30 | 11 | Beaucoup de valeurs intermédiaires et d'estimations prudentes. |
+| Horizons | 7 | 23 | 17 | Manifeste utile mais encore trop synthétique pour certains détails. |
+| LR | 7 | 29 | 18 | Grandes orientations crédibles ; précision question par question parfois insuffisamment sourcée. |
+| Nouvelle Énergie | 3 | 26 | 12 | Programme structuré ; manque de sources sur les sujets hors programme. |
+| La France Humaniste | 15 | 12 | 7 | Programme actuel complété par les prises de position et le bilan public de Dominique de Villepin ; les archives anciennes restent plafonnées à une confiance moyenne. |
+| RN | 10 | 26 | 11 | Programmes et scrutins solides pour les grands clivages ; détails sociaux parfois inférés. |
+| UDR | 10 | 60 | 48 | Ligne économique, migratoire et régalienne nette ; les autres thèmes sont plus souvent extrapolés et désormais signalés en faible confiance. |
+| Reconquête | 3 | 28 | 21 | Orientation globale nette ; peu de positions parlementaires directement comparables. |
 
 ### Verdict sur les notes des partis
 
@@ -108,22 +108,24 @@ Les positions agrégées sont crédibles comme repères idéologiques relatifs. 
 
 La précision au point près n'est cependant pas justifiée partout. Les codages les plus fragiles sont les valeurs ±2 ou ±3 associées à une confiance de 1. Les cinq questions nouvellement expliquées illustrent le problème : plusieurs organisations obtiennent une note forte sur les questions 13 ou 16 alors que la source invoquée décrit seulement leur philosophie générale. Ces notes devraient soit recevoir une source ciblée, soit être ramenées vers 0/±1, soit être affichées comme « estimation ».
 
-Le niveau de confiance 3 mérite lui-même un contrôle : plusieurs justifications se limitent à « position centrale ou répétée » sans citer la mesure ni le passage qui la prouve. Par exemple, la page d'accueil de Renaissance est utilisée pour attribuer une confiance élevée sur l'intervention de l'État, l'Europe ou l'IFI. Une URL officielle générique ne devrait pas suffire à obtenir le niveau maximal.
+Le niveau de confiance 3 a été contrôlé lors de la passe exhaustive. Les 368 justifications qui se limitaient à « position centrale ou répétée » sans citer une mesure directement équivalente sont passées à 2. Les 25 lignes dont la justification reconnaissait l'absence de formulation équivalente sont passées à 1. Les notes elles-mêmes ont été conservées, conformément à la règle de prudence demandée.
 
-La nouvelle question 66 révèle un défaut plus net : plusieurs niveaux de confiance ont été passés à 3 alors que leur justification dit toujours « estimation prudente ; aucune formulation parfaitement équivalente ». Les textes des justifications décrivent en outre l'ancienne question sur la rapidité des sanctions. Les notes et preuves ne sont donc plus synchronisées.
+La nouvelle question 66 révélait un défaut plus net : plusieurs niveaux de confiance avaient été passés à 3 alors que leur justification disait toujours « estimation prudente ; aucune formulation parfaitement équivalente ». Ce défaut est corrigé : les 13 partis disposent désormais d'une justification et d'une source portant sur l'usage des armes ou sur le scrutin parlementaire le plus proche.
 
-Le cas de LFI est une erreur substantielle identifiable : la donnée actuelle vaut +2, donc un accord avec le tir même sans danger immédiat. LFI demande officiellement l'abrogation de la loi de 2017 qu'elle décrit comme permettant l'usage de l'arme lors des refus d'obtempérer et rappelle que, dans le cas de Nahel, la vie du policier n'était pas en danger. Une note fortement négative est directement étayée. Les -3 du PCF et des Écologistes vont, eux, dans le sens de leurs communiqués officiels, mais les URL enregistrées dans les données ne sont pas les bonnes preuves.
+Le cas de LFI était une erreur substantielle identifiable : la valeur +2 contredisait sa demande officielle d'abrogation de la loi de 2017. La note vaut désormais -3. Les -3 du PCF et des Écologistes ont été conservés et reliés aux bonnes preuves.
 
 ## Audit des gouvernements étrangers
 
 | Gouvernement | Sources officielles distinctes | Notes de confiance faible | Notes fortes mais fragiles | Diagnostic |
 |---|---:|---:|---:|---|
-| Allemagne — Merz | 3 | 8 | 3 | Gouvernement et coalition correctement identifiés ; contrat de coalition pertinent. |
-| Espagne — Sánchez | 3 | 15 | 6 | Sources officielles riches et encore actuelles ; quelques thèmes demandent des textes sectoriels. |
-| Suisse — Conseil fédéral | 4 | 18 | 3 | Sources fiables, mais un score unique masque la composition multipartite et la collégialité. |
+| Allemagne — Merz | 10 | 8 | 2 | Gouvernement et coalition correctement identifiés ; contrat de coalition pertinent. |
+| Espagne — Sánchez | 10 | 14 | 6 | Sources officielles riches et encore actuelles ; quelques thèmes demandent des textes sectoriels. |
+| Suisse — Conseil fédéral | 15 | 22 | 3 | Sources fiables, mais un score unique masque la composition multipartite et la collégialité. |
 | Finlande — Orpo | 3 | 22 | 10 | Gouvernement et programme correctement identifiés ; trop d'extrapolations sur les sujets non traités. |
-| Royaume-Uni — Burnham | 4 | 22 | 3 | Gouvernement actuel correctement nommé, mais plusieurs sources et notes proviennent encore du gouvernement Starmer. |
-| Danemark — Frederiksen III | 2 | 20 | 4 | Coalition et programme de juin 2026 correctement identifiés ; le document de 77 pages est une bonne base, mais une seconde source sectorielle ne couvre pas tous les écarts. |
+| Royaume-Uni — Burnham | 10 | 21 | 2 | Gouvernement actuel correctement nommé, mais plusieurs sources et notes proviennent encore du gouvernement Starmer. |
+| Danemark — Frederiksen III | 8 | 20 | 2 | Coalition et programme de juin 2026 correctement identifiés ; le document de 77 pages est une bonne base, mais une seconde source sectorielle ne couvre pas tous les écarts. |
+| Pays-Bas — Jetten | 3 | 38 | 15 | L'accord de coalition 2026–2030 couvre directement de nombreux sujets ; les questions absentes du texte restent en faible confiance. |
+| Pologne — Tusk | 6 | 57 | 17 | Sources gouvernementales solides sur économie, défense, Europe et migration ; coalition divisée et nombreux silences sur les sujets sociétaux. |
 
 ### Points temporels vérifiés
 
@@ -132,6 +134,8 @@ Le cas de LFI est une erreur substantielle identifiable : la donnée actuelle va
 - Le gouvernement finlandais Orpo réunit bien KOK, les Finlandais, le Parti populaire suédois et les Chrétiens-démocrates.
 - Andy Burnham est devenu Premier ministre britannique le 20 juillet 2026. Le « Plan for Change » utilisé dans les données date pourtant du 5 décembre 2024 et le King's Speech cité date du 12 mai 2026, sous Keir Starmer. Burnham a annoncé qu'un nouveau plan décennal serait présenté plus tard en 2026 : le profil britannique doit donc être considéré comme provisoire.
 - Le programme danois de juin 2026 est signé par Mette Frederiksen, Pia Olsen Dyhr, Lars Løkke Rasmussen et Martin Lidegaard, ce qui confirme la coalition S-SF-M-RV.
+- Le gouvernement néerlandais Jetten, formé par D66, VVD et CDA, est entré en fonction le 23 février 2026 ; l'accord de coalition 2026–2030 sert de source centrale au profil.
+- Le profil polonais décrit le gouvernement Tusk et sa coalition KO–PSL–Polska 2050–Nouvelle Gauche ; les désaccords internes sont rapprochés de zéro et assortis d'une confiance faible.
 
 ### Limite de comparabilité internationale
 
@@ -142,21 +146,21 @@ Plusieurs questions ne peuvent pas être transposées littéralement aux gouvern
 - les questions 23, 56 et 59 supposent le droit français de la nationalité ;
 - plusieurs questions fiscales, sociales ou institutionnelles dépendent de systèmes nationaux très différents.
 
-Les notes étrangères correspondantes ne décrivent donc pas toujours une position publique réelle. Le problème est manifeste pour la question 43 : le Danemark reçoit +2 à partir d'un passage général sur l'impôt sur les sociétés et les prestations universelles, et la Suisse +3 à partir d'un document général sur son économie sociale de marché. Ces sources ne répondent pas à la suppression de l'IFI français.
+Les notes étrangères correspondantes ne décrivent donc pas toujours une position publique réelle. Le problème était manifeste pour la question 43 : le Danemark recevait +2 à partir d'un passage général sur l'impôt sur les sociétés et la Suisse +3 à partir d'un document général sur son économie sociale de marché. Les six codages reposent désormais sur des analogues immobiliers ou patrimoniaux explicites ; quatre votes ont changé.
 
-La question 66 pose le même problème de preuve : les six gouvernements étrangers reçoivent +2, mais leurs justifications parlent encore de prévention, d'exécution des décisions ou de police efficace. Aucune ne documente le droit de tirer sur un conducteur lorsque le danger n'est pas immédiat. Ces six notes devraient être neutralisées jusqu'à obtention d'une source juridique ou programmatique directement comparable.
+La question 66 posait le même problème de preuve : les six gouvernements étrangers recevaient +2 avec des justifications génériques. Ils sont désormais codés à partir des règles nationales d'usage des armes. La Suisse reste à 0, car les polices cantonales ne permettent pas d'attribuer une doctrine uniforme au Conseil fédéral.
 
 Deux solutions sont possibles : créer une version internationale reformulée (« faut-il taxer spécifiquement les patrimoines immobiliers élevés ? »), ou marquer ces questions « non applicables » et les exclure du calcul de la distance pour le gouvernement concerné. Tant que ce choix n'est pas fait, les profils de pays doivent être présentés comme des analogies politiques, pas comme des réponses littérales au questionnaire français.
 
 ## Corrections de données à traiter en premier
 
-1. Refaire intégralement la ligne 66 : réponses, confiance, justifications et sources ; corriger LFI ; neutraliser provisoirement les gouvernements sans preuve directe.
-2. Recalculer la masse de l'autorité et les scores d'axe des 17 entités après cette correction. Dans l'état actuel, tous les `axisScores.authority` enregistrés correspondent encore à l'ancienne question 66.
+1. ~~Refaire intégralement la ligne 66 et corriger LFI.~~ Fait le 7 août 2026.
+2. ~~Recalculer la masse de l'autorité et les scores d'axe des 17 entités initiales.~~ Fait le 7 août 2026 ; les quatre profils ajoutés ensuite ont été calculés avec la même formule et un contrôle automatisé prévient désormais la désynchronisation.
 3. Refaire le Royaume-Uni à partir des discours et du futur plan Burnham, sans attribuer automatiquement à Burnham toutes les positions Starmer.
-4. Ajouter des sources thématiques à Renaissance, Horizons, LR et Reconquête avant de conserver leurs valeurs fortes de faible confiance.
-5. Réexaminer toutes les notes fortes mais fragiles, en commençant par les questions 11, 13, 16, 31, 52, 64, 65, 75 et 76, qui reviennent souvent.
+4. ~~Réévaluer les confiances maximales fondées sur une formule générique ou une absence de proposition équivalente.~~ Fait le 7 août 2026 sur les 1 827 codages : 429 indices ont été réévalués lors de la passe exhaustive, puis 42 confiances de La France Humaniste ont été relevées après consolidation documentaire.
+5. Ajouter progressivement des sources thématiques à Renaissance, Horizons, LR, Reconquête et UDR afin de consolider les notes fortes désormais signalées en faible confiance. La France Humaniste a fait l'objet d'une consolidation dédiée ; douze estimations prudentes subsistent.
 6. Pour la Suisse, préciser que le résultat décrit un compromis institutionnel et non le programme homogène d'une majorité.
-7. Neutraliser ou reformuler les questions franco-spécifiques dans la comparaison internationale, en priorité les questions 38 à 43.
+7. Neutraliser ou reformuler les autres questions franco-spécifiques dans la comparaison internationale, en priorité les questions 38 à 42.
 8. Conserver une date de validité par entité et une date par source afin de rendre visibles les changements de direction, de coalition ou de programme.
 
 ## Règle de preuve recommandée
@@ -185,3 +189,7 @@ Une absence de position officielle devrait produire 0 avec le statut « inconnue
 - [Royaume-Uni — Plan for Change de 2024](https://www.gov.uk/government/publications/plan-for-change)
 - [Royaume-Uni — premier discours d'Andy Burnham, 20 juillet 2026](https://www.gov.uk/government/speeches/andy-burnhams-first-speech-as-prime-minister-20-july-2026)
 - [Danemark — programme de coalition, juin 2026](https://stm.dk/media/rc1ktdmg/det-politiske-grundlag-for-firkloeverregeringen.pdf)
+- [UDR — ligne générale officielle](https://www.udr.fr/)
+- [La France Humaniste — Le moment français](https://lafrancehumaniste.fr/articles/le-moment-francais-sorbonne.html)
+- [Pays-Bas — accord de coalition Jetten 2026–2030](https://www.government.nl/site/binaries/site-content/collections/documents/2026/02/23/2026-2030-coalition-agreement-lets-get-to-work---building-a-better-netherlands/2026-2030-coalition-agreement-let%E2%80%99s-get-to-work-building-a-better-netherlands.pdf)
+- [Pologne — exposé du gouvernement Tusk](https://www.gov.pl/web/primeminister/expose)
