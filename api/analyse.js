@@ -2,8 +2,7 @@ import {
   MAX_BODY_BYTES,
   analyse,
   clientIp,
-  rateAllowed,
-  validatePayload
+  rateAllowed
 } from "../lib/gemini.js";
 
 export const config = {
@@ -45,6 +44,41 @@ async function readBody(req) {
   });
 }
 
+function textLength(value, max) {
+  return typeof value === "string" && value.length <= max;
+}
+
+// Validation locale afin d'accepter la version complète (80 réponses)
+// et la version rapide (40 réponses), sans modifier lib/gemini.js ni les directives IA.
+function validateQuizPayload(payload) {
+  if (!payload || typeof payload !== "object") return false;
+  if (payload.consent !== true || payload.age_confirmed !== true) return false;
+  if (!payload.axis_scores || typeof payload.axis_scores !== "object") return false;
+  if (!Array.isArray(payload.question_responses)) return false;
+
+  const responseCount = payload.question_responses.length;
+  if (responseCount !== 40 && responseCount !== 80) return false;
+  if (payload.question_count !== undefined && payload.question_count !== responseCount) return false;
+  if (payload.quiz_mode === "quick" && responseCount !== 40) return false;
+  if (payload.quiz_mode === "full" && responseCount !== 80) return false;
+
+  const ids = new Set();
+  for (const item of payload.question_responses) {
+    if (!item || typeof item !== "object") return false;
+    if (!Number.isInteger(item.id) || item.id < 1 || item.id > 80 || ids.has(item.id)) return false;
+    ids.add(item.id);
+    if (!Number.isInteger(item.answer) || item.answer < -3 || item.answer > 3) return false;
+    if (!textLength(item.question, 1_200) || !textLength(item.theme || "", 200)) return false;
+    if (!textLength(item.answer_label || "", 120) || !textLength(item.comment || "", 6_000)) return false;
+  }
+
+  if (!Array.isArray(payload.open_answers) || payload.open_answers.length > 10) return false;
+  if (payload.open_answers.some(x => !x || !textLength(x.question || "", 1_200) || !textLength(x.answer || "", 8_000))) return false;
+  if (!Array.isArray(payload.party_ranking) || payload.party_ranking.length < 1 || payload.party_ranking.length > 20) return false;
+  if (!Array.isArray(payload.government_ranking) || payload.government_ranking.length > 12) return false;
+  return JSON.stringify(payload).length <= 220_000;
+}
+
 export default async function handler(req, res) {
   res.setHeader("Cache-Control", "no-store");
   res.setHeader("X-Content-Type-Options", "nosniff");
@@ -67,7 +101,7 @@ export default async function handler(req, res) {
     return res.status(status).json({ error: "Requête invalide ou trop volumineuse." });
   }
 
-  if (!validatePayload(payload)) {
+  if (!validateQuizPayload(payload)) {
     return res.status(400).json({
       error: "Les résultats transmis, le consentement ou la confirmation d’âge sont incomplets."
     });
@@ -93,9 +127,6 @@ export default async function handler(req, res) {
     if (code === "GEMINI_API_KEY_NOT_CONFIGURED") {
       status = 503;
       message = "La clé Gemini n’est pas configurée sur le serveur.";
-    } else if (code === "GEMINI_PAID_TIER_REQUIRED") {
-      status = 503;
-      message = "L’analyse est désactivée tant que Gemini n’est pas configuré comme service payant.";
     } else if (status === 401 || status === 403) {
       message = "La clé Gemini est invalide ou n’a pas accès au modèle demandé.";
     } else if (status === 429) {
