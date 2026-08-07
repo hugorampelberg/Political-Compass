@@ -981,14 +981,56 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
     function userAxisScores(){ return axisScoresFromAnswers(state.answers); }
     function entityAxisScores(entity){ return state.mode===QUIZ_MODES.FULL ? {...entity.axisScores} : axisScoresFromAnswers(entity.responses); }
-    function detailedAxisSimilarity(entity, axisKey){
-      let num=0, den=0;
-      activeQuestions().forEach(({q,i})=>{
-        const w=Math.abs(q.coefficients[axisKey]); const c=entity.confidence[i]||0;
-        if(w>0 && c>0){ const gap=(state.answers[i]??0)-entity.responses[i]; num+=gap*gap*w*c; den+=36*w*c; }
-      });
-      return den ? clamp(100*(1-Math.sqrt(num/den)),0,100) : 0;
+    function politicalDistance(user, party) {
+  const raw = Math.abs(user - party) / 6;
+
+  const opposite =
+    user !== 0 &&
+    party !== 0 &&
+    Math.sign(user) !== Math.sign(party);
+
+  if (!opposite) return raw;
+
+  const oppositionStrength =
+    Math.min(Math.abs(user), Math.abs(party)) / 3;
+
+  return Math.min(
+    1,
+    raw +
+      0.75 *
+      oppositionStrength *
+      (1 - raw)
+  );
+}
+
+function detailedAxisSimilarity(entity, axisKey) {
+  let num = 0;
+  let den = 0;
+
+  activeQuestions().forEach(({ q, i }) => {
+    const w = Math.abs(q.coefficients[axisKey]);
+    const c = entity.confidence[i] || 0;
+
+    if (w > 0 && c > 0) {
+      const user = state.answers[i] ?? 0;
+      const party = entity.responses[i];
+
+      const distance =
+        politicalDistance(user, party);
+
+      num += distance * distance * w * c;
+      den += w * c;
     }
+  });
+
+  return den
+    ? clamp(
+        100 * (1 - Math.sqrt(num / den)),
+        0,
+        100
+      )
+    : 0;
+}
     function entityResult(entity, userScores, weights){
       const axisScores=entityAxisScores(entity);
       const detailed={}; DATA.axes.forEach(a=>detailed[a.key]=detailedAxisSimilarity(entity,a.key));
@@ -1086,7 +1128,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     function questionImportance(q){ return Math.max(...DATA.axes.map(a=>Math.abs(q.coefficients[a.key])*(state.priority===a.key?1.3:1))); }
     function driversFor(entity){
       const items=activeQuestions().map(({q,i})=>{
-        const gap=Math.abs((state.answers[i]??0)-entity.responses[i]); const imp=questionImportance(q)*(entity.confidence[i]||0); return {q,i,gap,score:gap*gap*imp,imp};
+        const user = state.answers[i] ?? 0;
+const party = entity.responses[i];
+
+const distance =
+  politicalDistance(user, party);
+
+const imp =
+  questionImportance(q) *
+  (entity.confidence[i] || 0);
+
+return {
+  q,
+  i,
+  gap: Math.abs(user - party),
+  distance,
+  score: distance * distance * imp,
+  imp
+};
       }).filter(x=>x.imp>0);
       const disagree=[...items].sort((a,b)=>b.score-a.score).slice(0,5);
       const agree=items.filter(x=>x.gap<=1).sort((a,b)=>b.imp-a.imp).slice(0,5);
