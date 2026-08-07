@@ -418,6 +418,153 @@ setField(
   'Source fédérale directe.'
 );
 
+// Dernière passe transversale : les règles de nationalité comparées sont
+// codées sur le mécanisme précis de la Q59 (automaticité liée à la naissance
+// et à la croissance dans le pays), et non sur l'ouverture migratoire générale
+// du gouvernement. Une voie facilitée mais soumise à une demande reste donc
+// moins favorable que l'automaticité demandée par la question.
+for (const [entityId, response, source, justification] of [
+  [
+    'allemagne',
+    2,
+    'https://www.bmi.bund.de/DE/themen/verfassung/staatsangehoerigkeit/geburt-in-deutschland/geburt-in-deutschland.html',
+    'Accord net : un enfant né en Allemagne de parents étrangers acquiert automatiquement la nationalité lorsqu’un parent réside légalement dans le pays depuis au moins cinq ans avec un droit de séjour permanent ; l’automaticité existe donc, mais sous une condition parentale.'
+  ],
+  [
+    'espagne',
+    -2,
+    'https://www.mjusticia.gob.es/es/ciudadania/nacionalidad/que-es-nacionalidad/como-adquiere-nacionalidad/espanoles-origen',
+    'Désaccord net : la naissance en Espagne de parents étrangers ne confère la nationalité d’origine que dans des cas limités ; les autres personnes nées dans le pays doivent engager une procédure de nationalité par résidence, sans acquisition automatique à la majorité.'
+  ],
+  [
+    'suisse',
+    -3,
+    'https://www.sem.admin.ch/sem/en/home/integration-einbuergerung/schweizer-werden.html',
+    'Désaccord fort : la Suisse applique principalement le droit du sang et exige une demande de naturalisation ainsi que des conditions de résidence et d’intégration ; naître et grandir dans le pays ne rend pas automatiquement suisse à la majorité.'
+  ],
+  [
+    'finlande',
+    -3,
+    'https://migri.fi/en/child-born-in-finland',
+    'Désaccord fort : un enfant né en Finlande de parents étrangers n’acquiert la nationalité par le lieu de naissance que dans des cas exceptionnels, notamment pour éviter l’apatridie ; aucune automaticité générale n’existe à la majorité.'
+  ],
+  [
+    'royaume-uni',
+    1,
+    'https://www.gov.uk/apply-citizenship-born-uk',
+    'Accord modéré : une personne née au Royaume-Uni qui y a vécu jusqu’à dix ans dispose d’une voie de droit à l’enregistrement, mais doit accomplir une démarche ; l’acquisition n’est automatique à la naissance que si un parent est britannique ou établi.'
+  ],
+  [
+    'danemark',
+    -3,
+    'https://lifeindenmark.borger.dk/settle-in-denmark/danish-citizenship/conditions-for-foreign-citizens--acquisition-of-danish-citizenship',
+    'Désaccord fort : la naissance et l’enfance au Danemark ne suffisent pas ; l’acquisition ordinaire exige une naturalisation et, en principe, neuf années de résidence ainsi que d’autres conditions.'
+  ]
+]) {
+  const entity = getEntity(governments, entityId);
+  setField(
+    entity,
+    59,
+    'responses',
+    response,
+    'Correction fondée sur la règle officielle de nationalité comparable au mécanisme exact de la Q59.'
+  );
+  setConfidence(
+    entity,
+    59,
+    3,
+    'La règle juridique officielle vise directement la naissance, la résidence et le mode d’acquisition de la nationalité.',
+    justification
+  );
+  setField(
+    entity,
+    59,
+    'sources',
+    source,
+    'Source gouvernementale directe sur le droit de la nationalité.'
+  );
+}
+
+// Analogues internationaux de l'IFI : le système néerlandais de Box 3
+// continue d'inclure les résidences secondaires et les biens loués parmi les
+// actifs imposables. Il ne s'agit pas d'un IFI français à l'identique, d'où une
+// confiance 2 et une opposition modérée seulement.
+setField(
+  netherlands,
+  43,
+  'responses',
+  -1,
+  'Le régime néerlandais conserve une imposition patrimoniale de Box 3 incluant les résidences secondaires et d’autres biens immobiliers.'
+);
+setConfidence(
+  netherlands,
+  43,
+  2,
+  'Analogie fiscale directe, mais le champ de Box 3 est plus large que celui de l’IFI français.',
+  'Réserve : les résidences secondaires, logements loués et autres biens immobiliers sont déclarés comme actifs en Box 3 ; le système ne correspond toutefois pas exactement à un IFI ciblant le seul patrimoine immobilier élevé.'
+);
+setField(
+  netherlands,
+  43,
+  'sources',
+  'https://www.belastingdienst.nl/wps/wcm/connect/en/income-in-box-3/content/box-3-provisional-assessment-2026',
+  'Source directe de l’administration fiscale néerlandaise.'
+);
+
+const nouvelleEnergie = getEntity(parties, 'nouvelle-energie');
+setField(
+  nouvelleEnergie,
+  50,
+  'responses',
+  -2,
+  'Le programme fixe une norme d’âge à 65 ans et dit vouloir mettre fin aux débats récurrents sur sa hausse liée au vieillissement, ce qui contredit une indexation automatique.'
+);
+setConfidence(
+  nouvelleEnergie,
+  50,
+  3,
+  'Le programme traite directement de l’âge de départ et de son évolution avec le vieillissement.',
+  'Désaccord net : Nouvelle Énergie fixe une norme de départ à 65 ans et présente sa réforme comme un moyen d’en finir avec les hausses récurrentes liées au vieillissement, plutôt que d’indexer automatiquement l’âge légal sur l’espérance de vie.'
+);
+setField(
+  nouvelleEnergie,
+  50,
+  'sources',
+  'https://www.unenouvelleenergie.fr/notre-programme/reussir-une-nouvelle-ambition-francaise/',
+  'Programme officiel directement comparable.'
+);
+
+setField(
+  nouvelleEnergie,
+  92,
+  'responses',
+  -3,
+  'David Lisnard et Nouvelle Énergie rejettent explicitement l’interdiction d’accès aux réseaux sociaux pour les moins de 15 ans.'
+);
+setConfidence(
+  nouvelleEnergie,
+  92,
+  3,
+  'Prise de position officielle visant exactement l’interdiction de la Q92.',
+  'Désaccord fort : Nouvelle Énergie qualifie l’interdiction des réseaux sociaux aux moins de 15 ans d’aveu d’impuissance publique et lui préfère la responsabilisation des plateformes et une régulation de leurs modèles addictifs.'
+);
+setField(
+  nouvelleEnergie,
+  92,
+  'sources',
+  'https://www.unenouvelleenergie.fr/reseaux-sociaux-linterdiction-est-le-dernier-refuge-de-limpuissance-publique/',
+  'Prise de position officielle directement équivalente.'
+);
+
+const rassemblementNational = getEntity(parties, 'rn');
+setField(
+  rassemblementNational,
+  28,
+  'justifications',
+  'Réserve : estimation prudente fondée sur la priorité donnée à l’effectivité et au durcissement des sanctions ; aucune formulation officielle parfaitement équivalente à l’arbitrage entre prévention, réinsertion et augmentation des sanctions n’a été identifiée.',
+  'Correction de cohérence entre le signe de la note et sa justification, sans modification de la note faute de preuve directe contraire.'
+);
+
 for (const entity of [...parties, ...governments]) {
   entity.justifications.forEach((justification, index) => {
     const normalized = justification.replace(/ {2,}:/g, ' :');

@@ -46,6 +46,9 @@ neuf recalibrages réexaminés de La France Humaniste, les 429 indices réévalu
 lors de la passe exhaustive et les 42 relèvements documentaires ultérieurs de
 ce profil. Il combine désormais le programme 2026 et le bilan public de
 Dominique de Villepin.
+Le [bilan final du 8 août 2026](AUDIT_FINAL_CODAGES_2026-08-08.md) documente la
+dernière vérification juridique et programmatique, les huit corrections
+supplémentaires et les scores recalculés des 21 entités.
 
 Après toute modification des questions, coefficients, réponses ou niveaux de
 confiance, lancer :
