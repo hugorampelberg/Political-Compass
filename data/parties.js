@@ -72,7 +72,7 @@ const PARTIES_DATA = [
       -1,
       2,
       2,
-      2,
+      -3,
       3,
       3,
       -3,
@@ -236,7 +236,7 @@ const PARTIES_DATA = [
       "Réserve : position centrale ou répétée dans les documents publics du parti sur libertés / sécurité.",
       "Accord net : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
       "Accord net : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
-      "Accord net : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
+      "Désaccord fort : LFI demande l’abrogation de l’article L. 435-1 du code de la sécurité intérieure et le retour à une doctrine d’usage des armes strictement nécessaire et proportionnée.",
       "Accord fort : position centrale ou répétée dans les documents publics du parti sur écologie.",
       "Accord fort : position centrale ou répétée dans les documents publics du parti sur écologie.",
       "Désaccord fort : position centrale ou répétée dans les documents publics du parti sur écologie.",
@@ -318,7 +318,7 @@ const PARTIES_DATA = [
       "https://lafranceinsoumise.fr/wp-content/uploads/2024/06/Programme-nouveaufrontpopulaire.pdf",
       "https://lafranceinsoumise.fr/wp-content/uploads/2024/06/Programme-nouveaufrontpopulaire.pdf",
       "https://lafranceinsoumise.fr/wp-content/uploads/2024/06/Programme-nouveaufrontpopulaire.pdf",
-      "https://lafranceinsoumise.fr/wp-content/uploads/2024/06/Programme-nouveaufrontpopulaire.pdf",
+      "https://lafranceinsoumise.fr/2023/11/06/abrogation-de-la-loi-cazeneuve-de-2017/",
       "https://lafranceinsoumise.fr/wp-content/uploads/2024/06/Programme-nouveaufrontpopulaire.pdf",
       "https://lafranceinsoumise.fr/wp-content/uploads/2024/06/Programme-nouveaufrontpopulaire.pdf",
       "https://lafranceinsoumise.fr/wp-content/uploads/2024/06/Programme-nouveaufrontpopulaire.pdf",
@@ -335,14 +335,14 @@ const PARTIES_DATA = [
       "https://lafranceinsoumise.fr/2026/05/05/halte-aux-magouilles-entre-la-droite-et-le-rn-pour-reautoriser-en-douce-un-poison/"
     ],
     "axisScores": {
-      "economy": -8.773946360153257,
-      "authority": -4.419306184012066,
+      "economy": -8.773946360153253,
+      "authority": -4.6608946608946615,
       "europe": -3.91304347826087,
       "ecology": 9.431818181818182,
-      "immigration": 7.767584097859327,
+      "immigration": 7.767584097859326,
       "democracy": 6.484848484848484
     },
-    "averageConfidence": 0.7916666666666666
+    "averageConfidence": 0.8
   },
   {
     "id": "pcf",
@@ -580,7 +580,7 @@ const PARTIES_DATA = [
       "Position équilibrée ou non tranchée : codage cohérent avec la ligne programmatique générale du parti sur libertés / sécurité.",
       "Accord net : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
       "Accord net : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
-      "Accord net : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
+      "Désaccord fort : le PCF affirme qu’un refus d’obtempérer ne doit pas entraîner la mort et demande l’abrogation de la loi de 2017 qui a élargi l’usage des armes.",
       "Accord fort : position centrale ou répétée dans les documents publics du parti sur écologie.",
       "Accord net : position centrale ou répétée dans les documents publics du parti sur écologie.",
       "Accord net : position centrale ou répétée dans les documents publics du parti sur écologie.",
@@ -662,7 +662,7 @@ const PARTIES_DATA = [
       "https://www.pcf.fr/immigration_est_un_enjeu_de_classe",
       "https://www.pcf.fr/immigration_est_un_enjeu_de_classe",
       "https://www.pcf.fr/immigration_est_un_enjeu_de_classe",
-      "https://www.pcf.fr/immigration_est_un_enjeu_de_classe",
+      "https://www.pcf.fr/pour_la_verite_et_la_justice_pour_nahel",
       "https://www.pcf.fr/europe_le_programme_un_argumentaire_utile_aux_militants_et_un_outil_de_campagne_efficace",
       "https://www.pcf.fr/europe_le_programme_un_argumentaire_utile_aux_militants_et_un_outil_de_campagne_efficace",
       "https://www.pcf.fr/europe_le_programme_un_argumentaire_utile_aux_militants_et_un_outil_de_campagne_efficace",
@@ -679,14 +679,14 @@ const PARTIES_DATA = [
       "https://www.pcf.fr/lettre_roussel_bayrou_loi_duplomb"
     ],
     "axisScores": {
-      "economy": -9.272030651340996,
-      "authority": -3.2730015082956254,
+      "economy": -9.272030651340993,
+      "authority": -3.5642135642135635,
       "europe": -3.91304347826087,
       "ecology": 8.219696969696969,
       "immigration": 6.697247706422018,
       "democracy": 6.363636363636363
     },
-    "averageConfidence": 0.7833333333333333
+    "averageConfidence": 0.7916666666666666
   },
   {
     "id": "les-ecologistes",
@@ -924,7 +924,7 @@ const PARTIES_DATA = [
       "Réserve : position centrale ou répétée dans les documents publics du parti sur libertés / sécurité.",
       "Accord net : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
       "Accord net : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
-      "Accord net : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
+      "Désaccord fort : le programme écologiste demande d’abroger les dispositions de la loi Cazeneuve sur l’ouverture du feu et de rétablir la condition d’absolue nécessité.",
       "Accord fort : position centrale ou répétée dans les documents publics du parti sur écologie.",
       "Accord fort : position centrale ou répétée dans les documents publics du parti sur écologie.",
       "Désaccord fort : position centrale ou répétée dans les documents publics du parti sur écologie.",
@@ -1006,7 +1006,7 @@ const PARTIES_DATA = [
       "https://lesecologistes.fr/pages/358vv7W974UgosGhCBbIPT/notre-projet",
       "https://lesecologistes.fr/pages/358vv7W974UgosGhCBbIPT/notre-projet",
       "https://lesecologistes.fr/pages/358vv7W974UgosGhCBbIPT/notre-projet",
-      "https://lesecologistes.fr/pages/358vv7W974UgosGhCBbIPT/notre-projet",
+      "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf",
       "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf",
       "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf",
       "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf",
@@ -1023,14 +1023,14 @@ const PARTIES_DATA = [
       "https://questions.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-extraordinaire-de-2025-2026/deuxieme-seance-du-lundi-20-juillet-2026"
     ],
     "axisScores": {
-      "economy": -8.448275862068966,
-      "authority": -4.78129713423831,
+      "economy": -8.448275862068963,
+      "authority": -5.007215007215008,
       "europe": 9.420289855072465,
       "ecology": 9.469696969696969,
       "immigration": 7.859327217125381,
       "democracy": 5.878787878787879
     },
-    "averageConfidence": 0.7583333333333333
+    "averageConfidence": 0.7666666666666667
   },
   {
     "id": "ps",
@@ -1104,7 +1104,7 @@ const PARTIES_DATA = [
       0,
       2,
       2,
-      -2,
+      -3,
       3,
       3,
       0,
@@ -1186,7 +1186,7 @@ const PARTIES_DATA = [
       3,
       1,
       1,
-      1,
+      3,
       3,
       3,
       3,
@@ -1268,7 +1268,7 @@ const PARTIES_DATA = [
       "Position équilibrée ou non tranchée : position centrale ou répétée dans les documents publics du parti sur libertés / sécurité.",
       "Accord net : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
       "Accord net : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
-      "Accord net : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
+      "Désaccord fort : lors du scrutin du 7 juillet 2026 sur la présomption de légitime défense des forces de l’ordre, les 62 députés socialistes ayant pris part au vote ont voté contre.",
       "Accord fort : position centrale ou répétée dans les documents publics du parti sur écologie.",
       "Accord fort : position centrale ou répétée dans les documents publics du parti sur écologie.",
       "Position équilibrée ou non tranchée : position centrale ou répétée dans les documents publics du parti sur écologie.",
@@ -1350,7 +1350,7 @@ const PARTIES_DATA = [
       "https://www.parti-socialiste.fr/pour_une_politique_migratoire_internationale_et_europeenne",
       "https://www.parti-socialiste.fr/pour_une_politique_migratoire_internationale_et_europeenne",
       "https://www.parti-socialiste.fr/pour_une_politique_migratoire_internationale_et_europeenne",
-      "https://www.parti-socialiste.fr/pour_une_politique_migratoire_internationale_et_europeenne",
+      "https://www.assemblee-nationale.fr/dyn/17/scrutins/7987",
       "https://parti-socialiste.fr/vie-parlementaire/notre-declaration-politique-17eme-legislature/",
       "https://parti-socialiste.fr/vie-parlementaire/notre-declaration-politique-17eme-legislature/",
       "https://parti-socialiste.fr/vie-parlementaire/notre-declaration-politique-17eme-legislature/",
@@ -1368,13 +1368,13 @@ const PARTIES_DATA = [
     ],
     "axisScores": {
       "economy": -5.957854406130268,
-      "authority": -3.227752639517345,
+      "authority": -3.52092352092352,
       "europe": 9.420289855072465,
       "ecology": 7.575757575757575,
       "immigration": 6.269113149847095,
       "democracy": 4.666666666666667
     },
-    "averageConfidence": 0.7375
+    "averageConfidence": 0.7458333333333333
   },
   {
     "id": "renaissance",
@@ -1448,7 +1448,7 @@ const PARTIES_DATA = [
       2,
       1,
       1,
-      1,
+      2,
       2,
       2,
       3,
@@ -1530,7 +1530,7 @@ const PARTIES_DATA = [
       3,
       1,
       1,
-      3,
+      2,
       3,
       3,
       3,
@@ -1612,7 +1612,7 @@ const PARTIES_DATA = [
       "Accord net : position centrale ou répétée dans les documents publics du parti sur libertés / sécurité.",
       "Accord modéré : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
       "Accord modéré : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
-      "Accord net : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
+      "Accord net mais non unanime : lors du scrutin du 7 juillet 2026, le groupe Ensemble pour la République a voté majoritairement pour la présomption de légitime défense des forces de l’ordre (55 pour, 12 contre).",
       "Accord net : position centrale ou répétée dans les documents publics du parti sur écologie.",
       "Accord net : position centrale ou répétée dans les documents publics du parti sur écologie.",
       "Accord fort : position centrale ou répétée dans les documents publics du parti sur écologie.",
@@ -1694,7 +1694,7 @@ const PARTIES_DATA = [
       "https://parti-renaissance.fr/",
       "https://parti-renaissance.fr/",
       "https://parti-renaissance.fr/",
-      "https://parti-renaissance.fr/",
+      "https://www.assemblee-nationale.fr/dyn/17/scrutins/7987",
       "https://parti-renaissance.fr/",
       "https://parti-renaissance.fr/",
       "https://parti-renaissance.fr/",
@@ -1712,13 +1712,13 @@ const PARTIES_DATA = [
     ],
     "axisScores": {
       "economy": 3.2375478927203067,
-      "authority": 0.980392156862745,
+      "authority": 1.2265512265512266,
       "europe": 10,
       "ecology": 2.348484848484848,
-      "immigration": -0.33639143730886834,
+      "immigration": -0.3363914373088683,
       "democracy": -2.8484848484848486
     },
-    "averageConfidence": 0.7375
+    "averageConfidence": 0.7416666666666667
   },
   {
     "id": "modem",
@@ -1956,7 +1956,7 @@ const PARTIES_DATA = [
       "Accord modéré : position centrale ou répétée dans les documents publics du parti sur libertés / sécurité.",
       "Accord net : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
       "Accord net : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
-      "Accord net : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
+      "Accord net : lors du scrutin du 7 juillet 2026, le groupe Les Démocrates a très majoritairement voté pour la présomption de légitime défense des forces de l’ordre (28 pour, 1 contre, 5 abstentions).",
       "Accord net : codage cohérent avec la ligne programmatique générale du parti sur écologie.",
       "Accord net : codage cohérent avec la ligne programmatique générale du parti sur écologie.",
       "Accord net : codage cohérent avec la ligne programmatique générale du parti sur écologie.",
@@ -2038,7 +2038,7 @@ const PARTIES_DATA = [
       "https://www.mouvementdemocrate.fr/",
       "https://www.mouvementdemocrate.fr/",
       "https://www.mouvementdemocrate.fr/",
-      "https://www.mouvementdemocrate.fr/",
+      "https://www.assemblee-nationale.fr/dyn/17/scrutins/7987",
       "https://www.mouvementdemocrate.fr/vers-une-transition-ecologique-solidaire-7925",
       "https://www.mouvementdemocrate.fr/vers-une-transition-ecologique-solidaire-7925",
       "https://www.mouvementdemocrate.fr/vers-une-transition-ecologique-solidaire-7925",
@@ -2055,14 +2055,14 @@ const PARTIES_DATA = [
       "https://questions.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-extraordinaire-de-2025-2026/deuxieme-seance-du-lundi-20-juillet-2026"
     ],
     "axisScores": {
-      "economy": 0.3256704980842912,
-      "authority": -0.5279034690799396,
+      "economy": 0.32567049808429105,
+      "authority": -0.21645021645021637,
       "europe": 10,
       "ecology": 5.303030303030303,
       "immigration": 1.6513761467889907,
       "democracy": 0.30303030303030304
     },
-    "averageConfidence": 0.6083333333333333
+    "averageConfidence": 0.6166666666666667
   },
   {
     "id": "horizons",
@@ -2136,7 +2136,7 @@ const PARTIES_DATA = [
       2,
       2,
       2,
-      2,
+      3,
       2,
       1,
       3,
@@ -2300,7 +2300,7 @@ const PARTIES_DATA = [
       "Accord net : position centrale ou répétée dans les documents publics du parti sur libertés / sécurité.",
       "Accord net : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
       "Accord net : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
-      "Accord net : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
+      "Accord fort : les 31 députés Horizons ayant pris part au scrutin du 7 juillet 2026 ont tous voté pour la présomption de légitime défense des forces de l’ordre.",
       "Accord net : codage cohérent avec la ligne programmatique générale du parti sur écologie.",
       "Accord modéré : codage cohérent avec la ligne programmatique générale du parti sur écologie.",
       "Accord fort : codage cohérent avec la ligne programmatique générale du parti sur écologie.",
@@ -2382,7 +2382,7 @@ const PARTIES_DATA = [
       "https://horizonsleparti.fr/le-manifeste/",
       "https://horizonsleparti.fr/le-manifeste/",
       "https://horizonsleparti.fr/le-manifeste/",
-      "https://horizonsleparti.fr/le-manifeste/",
+      "https://www.assemblee-nationale.fr/dyn/17/scrutins/7987",
       "https://horizonsleparti.fr/le-manifeste/",
       "https://horizonsleparti.fr/le-manifeste/",
       "https://horizonsleparti.fr/le-manifeste/",
@@ -2399,14 +2399,14 @@ const PARTIES_DATA = [
       "https://questions.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-extraordinaire-de-2025-2026/deuxieme-seance-du-lundi-20-juillet-2026"
     ],
     "axisScores": {
-      "economy": 5.2107279693486594,
-      "authority": 1.5082956259426845,
+      "economy": 5.210727969348659,
+      "authority": 1.875901875901876,
       "europe": 7.246376811594203,
       "ecology": 1.477272727272727,
       "immigration": -2.8440366972477062,
       "democracy": -2.8484848484848486
     },
-    "averageConfidence": 0.625
+    "averageConfidence": 0.6333333333333333
   },
   {
     "id": "lr",
@@ -2644,7 +2644,7 @@ const PARTIES_DATA = [
       "Accord fort : position centrale ou répétée dans les documents publics du parti sur libertés / sécurité.",
       "Accord net : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
       "Accord net : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
-      "Accord modéré : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
+      "Accord fort : la proposition de loi a été portée par un député LR et les 48 députés Droite Républicaine ayant pris part au scrutin du 7 juillet 2026 ont tous voté pour.",
       "Position équilibrée ou non tranchée : position centrale ou répétée dans les documents publics du parti sur écologie.",
       "Désaccord net : position centrale ou répétée dans les documents publics du parti sur écologie.",
       "Accord fort : position centrale ou répétée dans les documents publics du parti sur écologie.",
@@ -2726,7 +2726,7 @@ const PARTIES_DATA = [
       "https://republicains.fr/nos-idees/",
       "https://republicains.fr/nos-idees/",
       "https://republicains.fr/nos-idees/",
-      "https://republicains.fr/nos-idees/",
+      "https://www.assemblee-nationale.fr/dyn/17/scrutins/7987",
       "https://republicains.fr/nos-idees/",
       "https://republicains.fr/nos-idees/",
       "https://republicains.fr/nos-idees/",
@@ -2743,14 +2743,14 @@ const PARTIES_DATA = [
       "https://questions.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-extraordinaire-de-2025-2026/deuxieme-seance-du-lundi-20-juillet-2026"
     ],
     "axisScores": {
-      "economy": 6.9348659003831425,
-      "authority": 2.850678733031674,
+      "economy": 6.93486590038314,
+      "authority": 3.1601731601731613,
       "europe": -0.7246376811594204,
       "ecology": -2.6515151515151514,
       "immigration": -5.871559633027522,
-      "democracy": -3.515151515151515
+      "democracy": -3.5151515151515156
     },
-    "averageConfidence": 0.7375
+    "averageConfidence": 0.7458333333333333
   },
   {
     "id": "nouvelle-energie",
@@ -2906,7 +2906,7 @@ const PARTIES_DATA = [
       3,
       1,
       1,
-      2,
+      1,
       3,
       3,
       3,
@@ -2988,7 +2988,7 @@ const PARTIES_DATA = [
       "Accord fort : position centrale ou répétée dans les documents publics du parti sur libertés / sécurité.",
       "Accord fort : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
       "Accord fort : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
-      "Accord modéré : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
+      "Accord modéré, codé prudemment : la ligne du parti est sécuritaire et favorable à une protection juridique renforcée des forces de l’ordre, mais aucune formulation exactement équivalente n’a été identifiée.",
       "Accord modéré : position centrale ou répétée dans les documents publics du parti sur écologie.",
       "Désaccord net : position centrale ou répétée dans les documents publics du parti sur écologie.",
       "Accord fort : position centrale ou répétée dans les documents publics du parti sur écologie.",
@@ -3087,8 +3087,8 @@ const PARTIES_DATA = [
       "https://www.unenouvelleenergie.fr/notre-programme/agriculture/"
     ],
     "axisScores": {
-      "economy": 7.413793103448277,
-      "authority": 1.6289592760180993,
+      "economy": 7.413793103448276,
+      "authority": 1.702741702741703,
       "europe": -1.4492753623188408,
       "ecology": -1.25,
       "immigration": -6.269113149847095,
@@ -3332,7 +3332,7 @@ const PARTIES_DATA = [
       "Accord fort : position centrale ou répétée dans les documents publics du parti sur libertés / sécurité.",
       "Accord net : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
       "Accord net : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
-      "Position équilibrée ou non tranchée : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
+      "Accord fort : les 122 députés RN ont voté pour la proposition de loi et des députés RN ont aussi déposé un texte instituant une présomption de légitime défense pour les forces de l’ordre.",
       "Réserve : position centrale ou répétée dans les documents publics du parti sur écologie.",
       "Désaccord fort : position centrale ou répétée dans les documents publics du parti sur écologie.",
       "Accord fort : position centrale ou répétée dans les documents publics du parti sur écologie.",
@@ -3414,7 +3414,7 @@ const PARTIES_DATA = [
       "https://rassemblementnational.fr/livrets-thematiques",
       "https://rassemblementnational.fr/livrets-thematiques",
       "https://rassemblementnational.fr/livrets-thematiques",
-      "https://rassemblementnational.fr/livrets-thematiques",
+      "https://www.assemblee-nationale.fr/dyn/17/scrutins/7987",
       "https://rassemblementnational.fr/documents/202411-programme-europeennes.pdf",
       "https://rassemblementnational.fr/documents/202411-programme-europeennes.pdf",
       "https://rassemblementnational.fr/documents/202411-programme-europeennes.pdf",
@@ -3431,14 +3431,14 @@ const PARTIES_DATA = [
       "https://questions.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-extraordinaire-de-2025-2026/deuxieme-seance-du-lundi-20-juillet-2026"
     ],
     "axisScores": {
-      "economy": 0.4597701149425289,
-      "authority": 2.745098039215686,
-      "europe": -6.231884057971015,
+      "economy": 0.45977011494252873,
+      "authority": 3.059163059163059,
+      "europe": -6.231884057971016,
       "ecology": -5.492424242424242,
-      "immigration": -8.74617737003058,
+      "immigration": -8.746177370030583,
       "democracy": 3.3333333333333335
     },
-    "averageConfidence": 0.7916666666666666
+    "averageConfidence": 0.8
   },
   {
     "id": "reconquete",
@@ -3676,7 +3676,7 @@ const PARTIES_DATA = [
       "Accord fort : position centrale ou répétée dans les documents publics du parti sur libertés / sécurité.",
       "Accord fort : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
       "Accord fort : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
-      "Position équilibrée ou non tranchée : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
+      "Accord fort : Reconquête défend explicitement une présomption de légitime défense pour les policiers et les gendarmes en cas d’usage de leur arme.",
       "Réserve : codage cohérent avec la ligne programmatique générale du parti sur écologie.",
       "Désaccord fort : codage cohérent avec la ligne programmatique générale du parti sur écologie.",
       "Accord fort : codage cohérent avec la ligne programmatique générale du parti sur écologie.",
@@ -3758,7 +3758,7 @@ const PARTIES_DATA = [
       "https://www.parti-reconquete.fr/",
       "https://www.parti-reconquete.fr/",
       "https://www.parti-reconquete.fr/",
-      "https://www.parti-reconquete.fr/",
+      "https://fede44.parti-reconquete.fr/communique-de-presse/reconquete-loire-atlantique-soutient-les-policiers-dans-la-lutte-contre-la-chienlit",
       "https://www.parti-reconquete.fr/",
       "https://www.parti-reconquete.fr/",
       "https://www.parti-reconquete.fr/",
@@ -3775,13 +3775,13 @@ const PARTIES_DATA = [
       "https://fede94.parti-reconquete.fr/communique-de-presse/reconquete-val-de-marne-soutient-les-agriculteurs"
     ],
     "axisScores": {
-      "economy": 8.295019157088124,
-      "authority": 2.745098039215686,
-      "europe": -6.231884057971015,
+      "economy": 8.295019157088122,
+      "authority": 3.059163059163059,
+      "europe": -6.231884057971016,
       "ecology": -5.378787878787878,
       "immigration": -9.388379204892965,
       "democracy": 1.2727272727272732
     },
-    "averageConfidence": 0.675
+    "averageConfidence": 0.6833333333333333
   }
 ];
