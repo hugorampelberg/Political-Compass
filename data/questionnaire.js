@@ -1200,7 +1200,6 @@ const QUESTIONNAIRE_DATA = {
       "id": 82,
       "theme": "Santé / assurance maladie",
       "text": "L'Assurance maladie devrait rembourser intégralement les soins essentiels, quitte à réduire fortement le rôle des complémentaires santé.",
-      "explanation": "Cette proposition, parfois appelée « 100 % Sécu », ferait prendre en charge par le régime public la part aujourd'hui souvent remboursée par les mutuelles.",
       "defaultAnswer": 0,
       "note": "",
       "coefficients": {
@@ -1216,7 +1215,6 @@ const QUESTIONNAIRE_DATA = {
       "id": 83,
       "theme": "Santé / hôpital",
       "text": "Il faut accepter de fermer ou regrouper certaines petites maternités et certains services d'urgence afin de concentrer les équipes et les équipements dans des établissements plus importants.",
-      "explanation": "Le dilemme oppose la proximité territoriale des soins à la concentration des personnels, de l'activité et des équipements spécialisés.",
       "defaultAnswer": 0,
       "note": "",
       "coefficients": {
@@ -1231,7 +1229,7 @@ const QUESTIONNAIRE_DATA = {
     {
       "id": 84,
       "theme": "Éducation / autonomie",
-      "text": "Les chefs d'établissement scolaire devraient pouvoir recruter une partie de leurs enseignants et peser davantage dans leur évaluation.",
+      "text": "Les chefs d'établissement scolaire devraient pouvoir recruter eux-même une partie de leurs enseignants et peser davantage dans leur évaluation.",
       "explanation": "Aujourd'hui, l'affectation et la carrière des enseignants relèvent principalement de règles nationales et de l'administration de l'Éducation nationale.",
       "defaultAnswer": 0,
       "note": "",
@@ -1248,7 +1246,7 @@ const QUESTIONNAIRE_DATA = {
       "id": 85,
       "theme": "Éducation / mixité sociale",
       "text": "Le financement public des établissements privés sous contrat devrait être conditionné à des objectifs mesurables de mixité sociale.",
-      "explanation": "Un établissement qui accueille durablement très peu d'élèves défavorisés pourrait perdre une partie de ses financements publics s'il ne respecte pas les objectifs fixés.",
+      "explanation": "Un établissement qui accueille durablement très peu d'élèves défavorisés pourrait perdre une partie de ses financements publics s'il ne respecte pas les objectifs de mixité fixés.",
       "defaultAnswer": 0,
       "note": "",
       "coefficients": {
@@ -1264,7 +1262,6 @@ const QUESTIONNAIRE_DATA = {
       "id": 86,
       "theme": "Logement / locations touristiques",
       "text": "Dans les zones où le logement manque, une commune devrait pouvoir interdire la location touristique régulière d'un logement qui n'est pas la résidence principale de son propriétaire.",
-      "explanation": "La mesure viserait surtout les meublés loués toute l'année sur des plateformes, et non la location occasionnelle de sa résidence principale.",
       "defaultAnswer": 0,
       "note": "",
       "coefficients": {
@@ -1280,7 +1277,6 @@ const QUESTIONNAIRE_DATA = {
       "id": 87,
       "theme": "Défense / Ukraine",
       "text": "La France devrait continuer à fournir une aide militaire et financière importante à l'Ukraine tant que son territoire reste occupé, même si la guerre se prolonge.",
-      "explanation": "La question porte sur le maintien durable du soutien, et pas seulement sur une aide ponctuelle ou humanitaire.",
       "defaultAnswer": 0,
       "note": "",
       "coefficients": {
@@ -1296,7 +1292,6 @@ const QUESTIONNAIRE_DATA = {
       "id": 88,
       "theme": "Défense / dissuasion nucléaire",
       "text": "La dissuasion nucléaire française devrait aussi protéger les partenaires européens, tout en laissant à la France seule la décision finale de l'employer.",
-      "explanation": "Il s'agirait d'élargir explicitement les intérêts protégés par l'arme nucléaire française sans transférer le contrôle de cette arme à l'Union européenne ou à l'OTAN.",
       "defaultAnswer": 0,
       "note": "",
       "coefficients": {
@@ -1312,7 +1307,6 @@ const QUESTIONNAIRE_DATA = {
       "id": 89,
       "theme": "Santé / fin de vie",
       "text": "Une personne majeure atteinte d'une maladie grave et incurable provoquant des souffrances insupportables devrait pouvoir recevoir une aide médicale à mourir dans un cadre strictement contrôlé.",
-      "explanation": "La mesure suppose une demande libre et éclairée, plusieurs contrôles médicaux et des conditions légales précises.",
       "defaultAnswer": 0,
       "note": "",
       "coefficients": {
@@ -1327,8 +1321,7 @@ const QUESTIONNAIRE_DATA = {
     {
       "id": 90,
       "theme": "Dépendance / EHPAD",
-      "text": "Les groupes privés à but lucratif ne devraient plus pouvoir gérer d'EHPAD.",
-      "explanation": "Les établissements existants devraient progressivement devenir publics ou non lucratifs ; la proposition ne concerne pas les associations et mutuelles sans but lucratif.",
+      "text": "Les groupes privés à but lucratif ne devraient plus pouvoir gérer d'EHPAD. Les établissements existants devraient progressivement devenir publics ou non lucratifs.",
       "defaultAnswer": 0,
       "note": "",
       "coefficients": {
@@ -1344,7 +1337,6 @@ const QUESTIONNAIRE_DATA = {
       "id": 91,
       "theme": "Famille / prestations",
       "text": "Les allocations familiales devraient être versées à toutes les familles selon le nombre d'enfants, sans diminuer lorsque les revenus augmentent.",
-      "explanation": "La question oppose une prestation universelle liée aux enfants à une prestation davantage ciblée sur les ménages modestes.",
       "defaultAnswer": 0,
       "note": "",
       "coefficients": {
@@ -1360,7 +1352,6 @@ const QUESTIONNAIRE_DATA = {
       "id": 92,
       "theme": "Numérique / mineurs",
       "text": "L'accès aux réseaux sociaux devrait être interdit aux moins de 15 ans, même avec l'accord de leurs parents.",
-      "explanation": "La mesure impliquerait une vérification de l'âge et ne laisserait pas aux parents la possibilité d'autoriser une inscription avant 15 ans.",
       "defaultAnswer": 0,
       "note": "",
       "coefficients": {
@@ -1376,7 +1367,6 @@ const QUESTIONNAIRE_DATA = {
       "id": 93,
       "theme": "Numérique / intelligence artificielle",
       "text": "Les administrations publiques devraient privilégier des modèles d'intelligence artificielle hébergés en Europe, même s'ils sont temporairement moins performants ou plus coûteux que leurs concurrents étrangers.",
-      "explanation": "L'objectif est de réduire la dépendance technologique et de mieux contrôler les données publiques, au prix éventuel d'un surcoût ou de performances moindres.",
       "defaultAnswer": 0,
       "note": "",
       "coefficients": {
