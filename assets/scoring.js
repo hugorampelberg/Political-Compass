@@ -11,7 +11,7 @@ export function calculateAxisMasses(axes, questions, questionIndexes = questions
   }));
 }
 
-export function calculateAxisWeights(axes, masses, priority, priorityMultiplier = 1.3) {
+export function calculateAxisWeights(axes, masses, priority, priorityMultiplier = 1.25) {
   return Object.fromEntries(axes.map((axis) => [
     axis.key,
     masses[axis.key] * (priority === axis.key ? priorityMultiplier : 1)
