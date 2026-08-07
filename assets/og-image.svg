@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#20364d"/>
+      <stop offset="1" stop-color="#2d8c87"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#background)"/>
+  <circle cx="1050" cy="90" r="360" fill="url(#glow)"/>
+  <circle cx="950" cy="315" r="205" fill="none" stroke="#ffffff" stroke-opacity=".18" stroke-width="3"/>
+  <circle cx="950" cy="315" r="120" fill="none" stroke="#ffffff" stroke-opacity=".14" stroke-width="3"/>
+  <path d="M950 80v470M715 315h470" stroke="#ffffff" stroke-opacity=".17" stroke-width="3"/>
+  <path d="m1026 200-53 112-112 53 53-112 112-53Z" fill="#d7a744"/>
+  <circle cx="950" cy="315" r="15" fill="#ffffff"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="88" y="116" fill="#d9f3ef" font-size="28" font-weight="700" letter-spacing="2">TEST POLITIQUE GRATUIT</text>
+    <text x="82" y="244" fill="#ffffff" font-size="79" font-weight="800">Compas politique</text>
+    <text x="82" y="328" fill="#ffffff" font-size="79" font-weight="800">français</text>
+    <text x="88" y="400" fill="#d9f3ef" font-size="31">Situez votre profil et comparez vos réponses</text>
+    <rect x="86" y="470" width="480" height="70" rx="35" fill="#ffffff" fill-opacity=".12" stroke="#ffffff" stroke-opacity=".25"/>
+    <text x="326" y="515" text-anchor="middle" fill="#ffffff" font-size="27" font-weight="700">40 ou 80 questions · 6 axes</text>
+  </g>
+</svg>

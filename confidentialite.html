@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#20364d">
+  <title>Politique de confidentialité – Compas politique français</title>
+  <meta name="description" content="Données locales, analyse Gemini facultative, mesure d’audience et droits RGPD du Compas politique français.">
+  <link rel="canonical" href="https://www.frenchpoliticalcompass.com/confidentialite.html">
+  <link rel="icon" type="image/png" sizes="512x512" href="/logo.png">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="stylesheet" href="/assets/privacy.css">
+</head>
+<body>
+  <main class="privacy-main">
+    <p><a href="/">← Retour au questionnaire</a></p>
+    <h1>Politique de confidentialité</h1>
+    <p class="privacy-updated">Dernière mise à jour : 7 août 2026</p>
+
+    <p class="privacy-summary"><strong>En bref :</strong> le calcul ordinaire se déroule dans votre navigateur. Vos réponses politiques ne quittent pas votre appareil, sauf si vous demandez volontairement l’analyse Gemini après avoir donné votre consentement explicite. Les outils de mesure d’audience ne sont chargés qu’après votre acceptation et ne reçoivent pas vos réponses.</p>
+
+    <h2>1. Responsable du traitement</h2>
+    <p>Le responsable du traitement du site <strong>frenchpoliticalcompass.com</strong> est :</p>
+    <p>Hugo Rampelberg<br>Contact : <a href="mailto:hugorampelberg1977@gmail.com">hugorampelberg1977@gmail.com</a></p>
+
+    <h2>2. Réponses et calcul local</h2>
+    <p>Les réponses fermées, commentaires facultatifs, réponses ouvertes, préférences de pondération et données de progression sont conservés dans le stockage local de votre navigateur. Ils servent à calculer vos résultats et à reprendre un questionnaire interrompu.</p>
+    <p>Ces informations peuvent révéler des opinions politiques et constituent donc des <a href="https://www.cnil.fr/fr/definition/donnee-sensible" target="_blank" rel="noopener">données sensibles</a>. Pour le calcul ordinaire, elles ne sont ni envoyées au serveur ni accessibles au responsable du site.</p>
+    <p>Ce stockage local est strictement nécessaire au service que vous demandez : sans lui, le questionnaire ne peut pas conserver vos réponses ni calculer votre résultat. Il n’est pas utilisé pour suivre votre navigation sur d’autres sites.</p>
+    <p>Vous pouvez les supprimer avec le bouton « Recommencer » ou en effaçant les données du site dans les réglages de votre navigateur. Comme ces informations restent sur votre appareil, le responsable ne peut pas les retrouver ni les supprimer à votre place.</p>
+
+    <h2 id="gemini">3. Analyse facultative par Google Gemini</h2>
+    <p>L’analyse Gemini n’est jamais nécessaire pour obtenir les résultats. Elle ne démarre qu’après trois actions : cocher le consentement explicite, confirmer avoir au moins 18 ans, puis cliquer sur le bouton de génération.</p>
+    <p>Lorsque vous la demandez, le site transmet à l’API Google Gemini :</p>
+    <ul>
+      <li>les notes données aux questions et leur libellé ;</li>
+      <li>les commentaires et réponses ouvertes éventuellement saisis ;</li>
+      <li>les scores calculés et les classements des partis et gouvernements ;</li>
+      <li>le mode de questionnaire et la pondération choisis.</li>
+    </ul>
+    <p><strong>Finalité :</strong> générer une analyse personnalisée de vos résultats. <strong>Base juridique :</strong> votre consentement, au titre de l’article 6, paragraphe 1, a) du RGPD, et votre consentement explicite pour les opinions politiques, au titre de l’article 9, paragraphe 2, a).</p>
+    <p>La requête transite par une fonction serveur Vercel afin de garder la clé API secrète, puis est adressée à Google. Le site ne l’enregistre pas dans une base de données et ne conserve pas l’analyse après la réponse ; elle reste affichée dans la page courante. Évitez toute information permettant de vous identifier dans les champs libres.</p>
+    <p>Cette fonctionnalité est techniquement désactivée si le service Gemini n’est pas configuré comme service payant. Google indique que les contenus des services payants ne sont pas utilisés pour améliorer ses produits, tout en pouvant appliquer des traitements limités de sécurité et de prévention des abus selon ses conditions. Consultez les <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener">conditions de l’API Gemini</a> et la <a href="https://ai.google.dev/gemini-api/docs/zdr" target="_blank" rel="noopener">documentation sur la conservation des contenus</a>.</p>
+    <p>Vous pouvez retirer votre consentement pour l’avenir en n’utilisant plus la fonction. Le retrait ne peut pas annuler une analyse déjà demandée et transmise.</p>
+
+    <h2>4. Hébergement et journaux techniques</h2>
+    <p>Vercel héberge le site et ses fonctions. Lors d’une connexion, des données techniques telles que l’adresse IP, la date, l’URL demandée, le navigateur et les événements de sécurité peuvent être traitées afin d’afficher le site, prévenir les abus et diagnostiquer les erreurs.</p>
+    <p>Ce traitement repose sur l’intérêt légitime à fournir et sécuriser le service. La durée dépend des réglages et du plan d’hébergement ; les données sont supprimées ou agrégées lorsqu’elles ne sont plus nécessaires à ces finalités.</p>
+
+    <h2 id="traceurs">5. Mesure d’audience, traceurs et stockage local</h2>
+    <p>Au premier accès, vous pouvez accepter ou refuser la mesure d’audience. Le refus n’empêche aucune fonction du questionnaire. Tant que vous n’avez pas accepté, le site ne télécharge ni Google Tag Manager ni Vercel Analytics.</p>
+    <p><strong>Finalité :</strong> comprendre l’usage général du site et améliorer son fonctionnement. <strong>Base juridique :</strong> votre consentement, au titre de l’article 6, paragraphe 1, a) du RGPD et des règles applicables aux traceurs. Vous pouvez le retirer aussi facilement que vous l’avez donné.</p>
+    <p>Après acceptation, Google Tag Manager peut déclencher les balises Google Analytics configurées pour mesurer les pages vues, le type d’appareil, le navigateur et une localisation approximative. Vercel Analytics mesure également l’usage général du site. Le code du questionnaire ne leur envoie ni réponses politiques, ni commentaires, ni scores, ni parti le plus proche.</p>
+    <p>Le site n’utilise actuellement ni Google AdSense ni traceur publicitaire. Les signaux publicitaires de Google restent refusés, même lorsque vous acceptez la mesure d’audience.</p>
+
+    <div class="privacy-table-wrap">
+      <table class="privacy-table">
+        <thead><tr><th>Élément</th><th>Finalité</th><th>Durée ou critère</th></tr></thead>
+        <tbody>
+          <tr><td><code>boussole-politique-state-v2</code> (stockage local)</td><td>Progression, réponses et résultats locaux</td><td>Jusqu’au bouton « Recommencer » ou à l’effacement par l’utilisateur</td></tr>
+          <tr><td><code>boussole-privacy-choice-v1</code> (stockage local)</td><td>Mémoriser l’acceptation ou le refus</td><td>6 mois, puis le choix est redemandé</td></tr>
+          <tr><td>Cookies <code>_ga</code>, <code>_ga_*</code> et équivalents éventuels</td><td>Mesure d’audience Google, seulement après acceptation</td><td>Selon la configuration de Google Analytics, ou jusqu’au retrait et à leur suppression</td></tr>
+          <tr><td>Vercel Analytics</td><td>Mesure agrégée, seulement après acceptation</td><td>Vercel indique ne pas utiliser de cookies pour ce service</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Vous pouvez changer d’avis à tout moment avec le bouton « Gérer mes traceurs » en bas du site. En cas de retrait, le site envoie un signal de refus, supprime les cookies analytiques accessibles et recharge la page sans balises. Vous pouvez aussi effacer les cookies depuis votre navigateur.</p>
+
+    <h2>6. Destinataires et transferts internationaux</h2>
+    <p>Selon les fonctions que vous utilisez ou acceptez, les destinataires sont Vercel (hébergement et fonctions), Google (Gemini, Google Tag Manager et Google Analytics) et leurs sous-traitants techniques. Des traitements peuvent avoir lieu hors de l’Espace économique européen. Les prestataires indiquent s’appuyer, selon les cas, sur une décision d’adéquation, le cadre de protection des données UE–États-Unis ou des clauses contractuelles types.</p>
+    <p>Vous pouvez consulter les informations de <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">Vercel</a> et de <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google</a>.</p>
+
+    <h2>7. Durées de conservation</h2>
+    <ul>
+      <li>les réponses ordinaires restent sur votre appareil jusqu’à leur suppression ;</li>
+      <li>le choix relatif à la mesure d’audience est redemandé après six mois ;</li>
+      <li>le site ne constitue pas de base de données des requêtes Gemini ;</li>
+      <li>les journaux et données traités par Vercel ou Google suivent leurs réglages contractuels et leurs politiques applicables.</li>
+    </ul>
+
+    <h2>8. Vos droits</h2>
+    <p>Lorsque le responsable détient des données vous concernant, vous pouvez demander leur accès, rectification, effacement, limitation, portabilité lorsque celle-ci s’applique, ou vous opposer à un traitement fondé sur l’intérêt légitime. Vous pouvez retirer un consentement à tout moment sans remettre en cause la licéité du traitement antérieur.</p>
+    <p>Pour exercer ces droits, écrivez à <a href="mailto:hugorampelberg1977@gmail.com">hugorampelberg1977@gmail.com</a> en précisant votre demande. Une preuve d’identité ne sera demandée qu’en cas de doute raisonnable. Vous pouvez aussi adresser une réclamation à la <a href="https://www.cnil.fr/fr/plaintes" target="_blank" rel="noopener">CNIL</a>.</p>
+
+    <h2>9. Calcul automatisé</h2>
+    <p>Les scores et classements sont produits automatiquement à partir de vos réponses et de coefficients éditoriaux. Ils ont une finalité exclusivement informative, ne produisent aucun effet juridique et ne servent pas à prendre une décision à votre égard. L’analyse Gemini, lorsqu’elle est demandée, est un texte explicatif facultatif et non une recommandation de vote.</p>
+
+    <h2>10. Sécurité et mises à jour</h2>
+    <p>Le site limite les données transmises, garde la clé Gemini côté serveur, applique des en-têtes de sécurité et ne journalise pas volontairement le contenu des réponses. Aucun service en ligne ne peut toutefois garantir une sécurité absolue.</p>
+    <p>Cette politique sera mise à jour si les fonctionnalités, prestataires ou règles applicables changent. La date affichée en tête indique sa version en vigueur.</p>
+  </main>
+
+  <footer class="privacy-footer"><div class="shell"><a href="/">Questionnaire</a> · <button class="footer-link" id="manage-consent" type="button">Gérer mes traceurs</button></div></footer>
+  <script type="module" src="/assets/consent.js"></script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-import { API_KEY, MODEL, SERVICE_TIER, MOCK } from "../lib/gemini.js";
+import { AI_ENABLED, API_KEY, MODEL, SERVICE_TIER } from "../lib/gemini.js";
 
 export default function handler(req, res) {
   res.setHeader("Cache-Control", "no-store");
@@ -11,10 +11,14 @@ export default function handler(req, res) {
 
   return res.status(200).json({
     ok: true,
-    ai_enabled: Boolean(API_KEY || MOCK),
+    ai_enabled: AI_ENABLED,
     provider: "Google Gemini",
-    model: MOCK ? "mode démonstration" : MODEL,
+    model: MODEL,
     service_tier: SERVICE_TIER,
-    unpaid_data_use_warning: SERVICE_TIER === "unpaid"
+    configuration_error: !API_KEY
+      ? "GEMINI_API_KEY_NOT_CONFIGURED"
+      : SERVICE_TIER !== "paid"
+        ? "GEMINI_PAID_TIER_REQUIRED"
+        : null
   });
 }
