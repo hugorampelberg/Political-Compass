@@ -33,5 +33,16 @@ questions change, mettre également à jour `meta.questionCount`. La sélection 
 
 L'[audit du questionnaire et des codages](AUDIT_QUESTIONNAIRE_ET_CODAGES.md)
 recense la couverture thématique, les coefficients à revoir, la qualité des
-sources et les codages prioritaires à vérifier. Il ne modifie pas les scores
-existants.
+sources et les codages prioritaires à vérifier. Le
+[journal du recalibrage du 7 août 2026](CHANGEMENTS_CODAGES_2026-08-07.md)
+liste séparément chaque vote modifié et les analogues internationaux retenus.
+
+Après toute modification des questions, coefficients, réponses ou niveaux de
+confiance, lancer :
+
+```sh
+node scripts/validate-data.js
+```
+
+Le contrôle vérifie les longueurs des tableaux, les masses d'axe, les 17
+`axisScores` et les moyennes de confiance pré-calculées.
