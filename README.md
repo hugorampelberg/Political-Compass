@@ -19,6 +19,7 @@ Les 80 questions fermées sont dans le tableau `questions` de
 - `id` : identifiant stable de la question ;
 - `theme` : thème affiché dans le questionnaire ;
 - `text` : formulation affichée ;
+- `explanation` : exemple ou précision affiché sous la question, facultatif ;
 - `defaultAnswer` : réponse utilisée uniquement pour la démonstration ;
 - `note` : précision éditoriale facultative ;
 - `coefficients` : contribution aux six axes.
@@ -27,3 +28,10 @@ Les questions ouvertes se trouvent dans `openQuestions`. Si le nombre total de
 questions change, mettre également à jour `meta.questionCount`. La sélection des
 40 questions du mode rapide est définie par `QUICK_QUESTION_IDS` au début de
 `scripts/app.js`.
+
+## Audit éditorial
+
+L'[audit du questionnaire et des codages](AUDIT_QUESTIONNAIRE_ET_CODAGES.md)
+recense la couverture thématique, les coefficients à revoir, la qualité des
+sources et les codages prioritaires à vérifier. Il ne modifie pas les scores
+existants.
