@@ -48,8 +48,8 @@ function textLength(value, max) {
   return typeof value === "string" && value.length <= max;
 }
 
-// Validation locale afin d'accepter la version complète (80 réponses)
-// et la version rapide (40 réponses), sans modifier lib/gemini.js ni les directives IA.
+// Validation de la version complète (87 réponses) et de la version rapide
+// (40 réponses), synchronisée avec la validation défensive de lib/gemini.js.
 function validateQuizPayload(payload) {
   if (!payload || typeof payload !== "object") return false;
   if (payload.consent !== true || payload.age_confirmed !== true) return false;
@@ -57,15 +57,15 @@ function validateQuizPayload(payload) {
   if (!Array.isArray(payload.question_responses)) return false;
 
   const responseCount = payload.question_responses.length;
-  if (responseCount !== 40 && responseCount !== 80) return false;
+  if (responseCount !== 40 && responseCount !== 87) return false;
   if (payload.question_count !== undefined && payload.question_count !== responseCount) return false;
   if (payload.quiz_mode === "quick" && responseCount !== 40) return false;
-  if (payload.quiz_mode === "full" && responseCount !== 80) return false;
+  if (payload.quiz_mode === "full" && responseCount !== 87) return false;
 
   const ids = new Set();
   for (const item of payload.question_responses) {
     if (!item || typeof item !== "object") return false;
-    if (!Number.isInteger(item.id) || item.id < 1 || item.id > 80 || ids.has(item.id)) return false;
+    if (!Number.isInteger(item.id) || item.id < 1 || item.id > 93 || ids.has(item.id)) return false;
     ids.add(item.id);
     if (!Number.isInteger(item.answer) || item.answer < -3 || item.answer > 3) return false;
     if (!textLength(item.question, 1_200) || !textLength(item.theme || "", 200)) return false;
@@ -112,7 +112,7 @@ export default async function handler(req, res) {
   payload.question_count = responseCount;
   payload.analysis_scope_instruction = responseCount === 40
     ? "Version rapide : analyse exactement les 40 réponses transmises. Ne suppose pas que les 40 questions absentes ont reçu une réponse. Les scores de la personne, des partis et des gouvernements ont tous été recalculés sur ce même sous-ensemble de 40 questions."
-    : "Version complète : analyse les 80 réponses transmises.";
+    : "Version complète : analyse les 87 réponses transmises.";
 
   try {
     const analysis = await analyse(payload);

@@ -13,7 +13,7 @@ suivantes dans l'ordre :
 
 ## Modifier une question
 
-Les 80 questions fermées sont dans le tableau `questions` de
+Les 87 questions fermées sont dans le tableau `questions` de
 `data/questionnaire.js`. Chaque entrée contient :
 
 - `id` : identifiant stable de la question ;
@@ -33,5 +33,27 @@ questions change, mettre également à jour `meta.questionCount`. La sélection 
 
 L'[audit du questionnaire et des codages](AUDIT_QUESTIONNAIRE_ET_CODAGES.md)
 recense la couverture thématique, les coefficients à revoir, la qualité des
-sources et les codages prioritaires à vérifier. Il ne modifie pas les scores
-existants.
+sources et les codages prioritaires à vérifier. Le
+[journal du recalibrage du 7 août 2026](CHANGEMENTS_CODAGES_2026-08-07.md)
+liste séparément chaque vote modifié et les analogues internationaux retenus.
+Le [journal de la refonte thématique du 7 août 2026](CHANGEMENTS_QUESTIONS_2026-08-07.md)
+détaille les questions retirées et ajoutées, ainsi que leur contribution aux axes.
+Le [journal d'ajout des profils du 7 août 2026](AJOUT_PROFILS_2026-08-07.md)
+documente UDR, La France Humaniste, les Pays-Bas et la Pologne.
+L'[audit complet des 1 827 codages du 7 août 2026](AUDIT_COMPLET_CODAGES_2026-08-07.md)
+liste les neuf notes corrigées sur preuve officielle ou déclaration directe, les
+neuf recalibrages réexaminés de La France Humaniste, les 429 indices réévalués
+lors de la passe exhaustive et les 42 relèvements documentaires ultérieurs de
+ce profil. Il combine désormais le programme 2026 et le bilan public de
+Dominique de Villepin.
+
+Après toute modification des questions, coefficients, réponses ou niveaux de
+confiance, lancer :
+
+```sh
+node scripts/validate-data.js
+```
+
+Le contrôle vérifie l'ordre des questions fermées et ouvertes, les longueurs des
+tableaux, les masses d'axe, les 21 `axisScores` et les moyennes de confiance
+pré-calculées.

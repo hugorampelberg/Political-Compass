@@ -1,6 +1,6 @@
-const STORAGE_KEY = 'boussole-politique-state-v2';
+const STORAGE_KEY = 'boussole-politique-state-v4';
 const QUIZ_MODES = { FULL:'full', QUICK:'quick' };
-const QUICK_QUESTION_IDS = new Set([1,3,5,7,9,10,11,14,19,20,21,24,25,26,27,28,29,32,34,35,38,39,40,42,46,49,50,56,63,64,66,67,70,71,72,74,76,77,78,79]);
+const QUICK_QUESTION_IDS = new Set([1,3,5,7,9,10,14,19,20,21,24,25,26,27,28,29,32,34,35,38,39,40,42,46,49,50,56,63,64,66,67,71,72,74,76,77,78,79,81,87]);
 const AXIS_COLORS = { economy:'#d96c57', authority:'#6f63a8', europe:'#4e77a7', ecology:'#2d8c87', immigration:'#d7a744', democracy:'#40556a' };
 const PRIORITY_LABELS = {
   economy:'Économie',

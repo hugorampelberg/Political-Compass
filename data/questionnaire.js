@@ -4,7 +4,7 @@ const QUESTIONNAIRE_DATA = {
     "title": "French Political Compass",
     "subtitle": "Test politique multidimensionnel",
     "version": "2026-08-07",
-    "questionCount": 80,
+    "questionCount": 87,
     "openQuestionCount": 5,
     "scale": {
       "min": -3,
@@ -56,12 +56,12 @@ const QUESTIONNAIRE_DATA = {
     }
   ],
   "axisMasses": {
-    "economy": 17.4,
-    "authority": 22.1,
-    "europe": 4.6,
-    "ecology": 8.8,
+    "economy": 22,
+    "authority": 22.4,
+    "europe": 7.2,
+    "ecology": 8.1,
     "immigration": 10.9,
-    "democracy": 5.5
+    "democracy": 6.3
   },
   "defaultPriority": "economy",
   "questions": [
@@ -208,21 +208,6 @@ const QUESTIONNAIRE_DATA = {
       "note": "",
       "coefficients": {
         "economy": -0.7,
-        "authority": 0,
-        "europe": 0,
-        "ecology": 0,
-        "immigration": 0,
-        "democracy": 0
-      }
-    },
-    {
-      "id": 11,
-      "theme": "État",
-      "text": "Il est acceptable de s'endetter davantage pour financer des investissements publics rentables à long terme.",
-      "defaultAnswer": 3,
-      "note": "",
-      "coefficients": {
-        "economy": 0.2,
         "authority": 0,
         "europe": 0,
         "ecology": 0,
@@ -512,21 +497,6 @@ const QUESTIONNAIRE_DATA = {
       "coefficients": {
         "economy": 0,
         "authority": 1,
-        "europe": 0,
-        "ecology": 0,
-        "immigration": 0,
-        "democracy": 0
-      }
-    },
-    {
-      "id": 31,
-      "theme": "Sécurité / justice",
-      "text": "La liberté individuelle doit généralement primer sur les considérations de sécurité lorsque les deux entrent en conflit.",
-      "defaultAnswer": 0,
-      "note": "",
-      "coefficients": {
-        "economy": 0,
-        "authority": -1,
         "europe": 0,
         "ecology": 0,
         "immigration": 0,
@@ -836,21 +806,6 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 52,
-      "theme": "État / entreprises",
-      "text": "Lorsqu'une entreprise stratégique est en difficulté, l'État devrait privilégier les prêts, garanties ou prises de participation temporaires plutôt que les subventions sans contrepartie.",
-      "defaultAnswer": 1,
-      "note": "",
-      "coefficients": {
-        "economy": 0.3,
-        "authority": 0,
-        "europe": 0,
-        "ecology": 0,
-        "immigration": 0,
-        "democracy": 0
-      }
-    },
-    {
       "id": 53,
       "theme": "État / entreprises",
       "text": "Une entreprise qui reçoit plusieurs milliards d'euros d'aides publiques devrait pouvoir être contrainte de limiter ses dividendes et les rémunérations de ses dirigeants tant que l'aide n'est pas remboursée.",
@@ -986,21 +941,6 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 62,
-      "theme": "Libertés / sécurité",
-      "text": "Il faudrait accepter davantage de surveillance numérique de la population si cela permettait de réduire significativement le terrorisme et la criminalité.",
-      "defaultAnswer": 1,
-      "note": "",
-      "coefficients": {
-        "economy": 0,
-        "authority": 1,
-        "europe": 0,
-        "ecology": 0,
-        "immigration": 0,
-        "democracy": 0
-      }
-    },
-    {
       "id": 63,
       "theme": "Libertés / sécurité",
       "text": "Pour lutter contre le terrorisme, l'État devrait pouvoir surveiller préventivement une personne considérée comme présentant un risque sérieux, même sans preuve suffisante pour engager des poursuites pénales.",
@@ -1020,21 +960,6 @@ const QUESTIONNAIRE_DATA = {
       "theme": "Libertés / expression",
       "text": "Une personne qui tient publiquement des propos profondément offensants mais qui n'appelle ni à la violence ni à commettre une infraction devrait être protégée par la liberté d'expression.",
       "defaultAnswer": 1,
-      "note": "",
-      "coefficients": {
-        "economy": 0,
-        "authority": -1,
-        "europe": 0,
-        "ecology": 0,
-        "immigration": 0,
-        "democracy": 0
-      }
-    },
-    {
-      "id": 65,
-      "theme": "Libertés / expression",
-      "text": "La liberté d'expression devrait protéger les opinions politiques radicales, y compris lorsqu'elles remettent en cause des valeurs fondamentales de la République.",
-      "defaultAnswer": 2,
       "note": "",
       "coefficients": {
         "economy": 0,
@@ -1101,21 +1026,6 @@ const QUESTIONNAIRE_DATA = {
         "authority": 0,
         "europe": 0,
         "ecology": -0.3,
-        "immigration": 0,
-        "democracy": 0
-      }
-    },
-    {
-      "id": 70,
-      "theme": "Écologie / commerce",
-      "text": "La France devrait imposer une taxe carbone aux produits importés provenant de pays qui ne respectent pas suffisamment les objectifs climatiques, même si cela augmente les prix pour les consommateurs français.",
-      "defaultAnswer": 2,
-      "note": "",
-      "coefficients": {
-        "economy": 0,
-        "authority": 0.2,
-        "europe": 0,
-        "ecology": 0.7,
         "immigration": 0,
         "democracy": 0
       }
@@ -1269,35 +1179,243 @@ const QUESTIONNAIRE_DATA = {
         "immigration": 0,
         "democracy": 0
       }
+    },
+    {
+      "id": 81,
+      "theme": "Santé / accès aux soins",
+      "text": "Dans les zones où l'accès aux soins est insuffisant, l'Assurance maladie devrait pouvoir limiter le conventionnement de nouveaux médecins dans les zones déjà bien dotées afin d'encourager leur installation dans les déserts médicaux.",
+      "explanation": "Un médecin non conventionné peut toujours s'installer, mais ses patients sont beaucoup moins remboursés. La mesure vise donc à orienter les installations sans imposer directement un lieu d'exercice.",
+      "defaultAnswer": 0,
+      "note": "",
+      "coefficients": {
+        "economy": -0.7,
+        "authority": 0,
+        "europe": 0,
+        "ecology": 0,
+        "immigration": 0,
+        "democracy": 0
+      }
+    },
+    {
+      "id": 82,
+      "theme": "Santé / assurance maladie",
+      "text": "L'Assurance maladie devrait rembourser intégralement les soins essentiels, quitte à réduire fortement le rôle des complémentaires santé.",
+      "explanation": "Cette proposition, parfois appelée « 100 % Sécu », ferait prendre en charge par le régime public la part aujourd'hui souvent remboursée par les mutuelles.",
+      "defaultAnswer": 0,
+      "note": "",
+      "coefficients": {
+        "economy": -1,
+        "authority": 0,
+        "europe": 0,
+        "ecology": 0,
+        "immigration": 0,
+        "democracy": 0
+      }
+    },
+    {
+      "id": 83,
+      "theme": "Santé / hôpital",
+      "text": "Il faut accepter de fermer ou regrouper certaines petites maternités et certains services d'urgence afin de concentrer les équipes et les équipements dans des établissements plus importants.",
+      "explanation": "Le dilemme oppose la proximité territoriale des soins à la concentration des personnels, de l'activité et des équipements spécialisés.",
+      "defaultAnswer": 0,
+      "note": "",
+      "coefficients": {
+        "economy": 0.2,
+        "authority": 0,
+        "europe": 0,
+        "ecology": 0,
+        "immigration": 0,
+        "democracy": -0.5
+      }
+    },
+    {
+      "id": 84,
+      "theme": "Éducation / autonomie",
+      "text": "Les chefs d'établissement scolaire devraient pouvoir recruter une partie de leurs enseignants et peser davantage dans leur évaluation.",
+      "explanation": "Aujourd'hui, l'affectation et la carrière des enseignants relèvent principalement de règles nationales et de l'administration de l'Éducation nationale.",
+      "defaultAnswer": 0,
+      "note": "",
+      "coefficients": {
+        "economy": 0.5,
+        "authority": 0.4,
+        "europe": 0,
+        "ecology": 0,
+        "immigration": 0,
+        "democracy": 0
+      }
+    },
+    {
+      "id": 85,
+      "theme": "Éducation / mixité sociale",
+      "text": "Le financement public des établissements privés sous contrat devrait être conditionné à des objectifs mesurables de mixité sociale.",
+      "explanation": "Un établissement qui accueille durablement très peu d'élèves défavorisés pourrait perdre une partie de ses financements publics s'il ne respecte pas les objectifs fixés.",
+      "defaultAnswer": 0,
+      "note": "",
+      "coefficients": {
+        "economy": -0.5,
+        "authority": 0,
+        "europe": 0,
+        "ecology": 0,
+        "immigration": 0,
+        "democracy": 0
+      }
+    },
+    {
+      "id": 86,
+      "theme": "Logement / locations touristiques",
+      "text": "Dans les zones où le logement manque, une commune devrait pouvoir interdire la location touristique régulière d'un logement qui n'est pas la résidence principale de son propriétaire.",
+      "explanation": "La mesure viserait surtout les meublés loués toute l'année sur des plateformes, et non la location occasionnelle de sa résidence principale.",
+      "defaultAnswer": 0,
+      "note": "",
+      "coefficients": {
+        "economy": -0.6,
+        "authority": 0,
+        "europe": 0,
+        "ecology": 0,
+        "immigration": 0,
+        "democracy": 0.3
+      }
+    },
+    {
+      "id": 87,
+      "theme": "Défense / Ukraine",
+      "text": "La France devrait continuer à fournir une aide militaire et financière importante à l'Ukraine tant que son territoire reste occupé, même si la guerre se prolonge.",
+      "explanation": "La question porte sur le maintien durable du soutien, et pas seulement sur une aide ponctuelle ou humanitaire.",
+      "defaultAnswer": 0,
+      "note": "",
+      "coefficients": {
+        "economy": 0,
+        "authority": 0.2,
+        "europe": 0.9,
+        "ecology": 0,
+        "immigration": 0,
+        "democracy": 0
+      }
+    },
+    {
+      "id": 88,
+      "theme": "Défense / dissuasion nucléaire",
+      "text": "La dissuasion nucléaire française devrait aussi protéger les partenaires européens, tout en laissant à la France seule la décision finale de l'employer.",
+      "explanation": "Il s'agirait d'élargir explicitement les intérêts protégés par l'arme nucléaire française sans transférer le contrôle de cette arme à l'Union européenne ou à l'OTAN.",
+      "defaultAnswer": 0,
+      "note": "",
+      "coefficients": {
+        "economy": 0,
+        "authority": 0.2,
+        "europe": 1,
+        "ecology": 0,
+        "immigration": 0,
+        "democracy": 0
+      }
+    },
+    {
+      "id": 89,
+      "theme": "Santé / fin de vie",
+      "text": "Une personne majeure atteinte d'une maladie grave et incurable provoquant des souffrances insupportables devrait pouvoir recevoir une aide médicale à mourir dans un cadre strictement contrôlé.",
+      "explanation": "La mesure suppose une demande libre et éclairée, plusieurs contrôles médicaux et des conditions légales précises.",
+      "defaultAnswer": 0,
+      "note": "",
+      "coefficients": {
+        "economy": 0,
+        "authority": -0.8,
+        "europe": 0,
+        "ecology": 0,
+        "immigration": 0,
+        "democracy": 0
+      }
+    },
+    {
+      "id": 90,
+      "theme": "Dépendance / EHPAD",
+      "text": "Les groupes privés à but lucratif ne devraient plus pouvoir gérer d'EHPAD.",
+      "explanation": "Les établissements existants devraient progressivement devenir publics ou non lucratifs ; la proposition ne concerne pas les associations et mutuelles sans but lucratif.",
+      "defaultAnswer": 0,
+      "note": "",
+      "coefficients": {
+        "economy": -0.9,
+        "authority": 0,
+        "europe": 0,
+        "ecology": 0,
+        "immigration": 0,
+        "democracy": 0
+      }
+    },
+    {
+      "id": 91,
+      "theme": "Famille / prestations",
+      "text": "Les allocations familiales devraient être versées à toutes les familles selon le nombre d'enfants, sans diminuer lorsque les revenus augmentent.",
+      "explanation": "La question oppose une prestation universelle liée aux enfants à une prestation davantage ciblée sur les ménages modestes.",
+      "defaultAnswer": 0,
+      "note": "",
+      "coefficients": {
+        "economy": -0.5,
+        "authority": 0,
+        "europe": 0,
+        "ecology": 0,
+        "immigration": 0,
+        "democracy": 0
+      }
+    },
+    {
+      "id": 92,
+      "theme": "Numérique / mineurs",
+      "text": "L'accès aux réseaux sociaux devrait être interdit aux moins de 15 ans, même avec l'accord de leurs parents.",
+      "explanation": "La mesure impliquerait une vérification de l'âge et ne laisserait pas aux parents la possibilité d'autoriser une inscription avant 15 ans.",
+      "defaultAnswer": 0,
+      "note": "",
+      "coefficients": {
+        "economy": 0,
+        "authority": 0.9,
+        "europe": 0,
+        "ecology": 0,
+        "immigration": 0,
+        "democracy": 0
+      }
+    },
+    {
+      "id": 93,
+      "theme": "Numérique / intelligence artificielle",
+      "text": "Les administrations publiques devraient privilégier des modèles d'intelligence artificielle hébergés en Europe, même s'ils sont temporairement moins performants ou plus coûteux que leurs concurrents étrangers.",
+      "explanation": "L'objectif est de réduire la dépendance technologique et de mieux contrôler les données publiques, au prix éventuel d'un surcoût ou de performances moindres.",
+      "defaultAnswer": 0,
+      "note": "",
+      "coefficients": {
+        "economy": -0.2,
+        "authority": 0,
+        "europe": 0.7,
+        "ecology": 0,
+        "immigration": 0,
+        "democracy": 0
+      }
     }
   ],
   "openQuestions": [
     {
-      "id": 81,
+      "id": 94,
       "theme": "Question ouverte",
       "text": "Quel est actuellement le plus gros problème économique de la France ?",
       "defaultAnswer": ""
     },
     {
-      "id": 82,
+      "id": 95,
       "theme": "Question ouverte",
       "text": "Si tu devenais président demain et que tu ne pouvais prendre que trois mesures économiques, lesquelles choisirais-tu ?",
       "defaultAnswer": ""
     },
     {
-      "id": 83,
+      "id": 96,
       "theme": "Question ouverte",
       "text": "Quelle est la limite acceptable de l'immigration en France ? Et qu'est-ce qui devrait déterminer cette limite ?",
       "defaultAnswer": ""
     },
     {
-      "id": 84,
+      "id": 97,
       "theme": "Question ouverte",
       "text": "Jusqu'où l'État peut-il légitimement aller pour lutter contre le changement climatique si cela impose des contraintes importantes aux citoyens ?",
       "defaultAnswer": ""
     },
     {
-      "id": 85,
+      "id": 98,
       "theme": "Question ouverte",
       "text": "Qu'est-ce qui te ferait voter pour un parti de gauche plutôt que pour un parti de droite, et inversement ?",
       "defaultAnswer": ""
