@@ -57,7 +57,7 @@ const QUESTIONNAIRE_DATA = {
   ],
   "axisMasses": {
     "economy": 17.4,
-    "authority": 22.1,
+    "authority": 23.1,
     "europe": 4.6,
     "ecology": 8.8,
     "immigration": 10.9,
