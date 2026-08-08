@@ -83,7 +83,7 @@ const QUESTIONNAIRE_DATA = {
     {
       "id": 2,
       "theme": "Économie",
-      "text": "Les inégalités économiques sont acceptables tant qu'elles résultent principalement du mérite, du travail ou de la prise de risque.",
+      "text": "Les inégalités économiques sont acceptables tant qu'elles résultent principalement du travail ou de la prise de risque.",
       "defaultAnswer": 1,
       "note": "",
       "coefficients": {
@@ -159,6 +159,7 @@ const QUESTIONNAIRE_DATA = {
       "id": 7,
       "theme": "Économie",
       "text": "L'État devrait pouvoir nationaliser temporairement ou durablement une entreprise privée lorsqu'elle contrôle une activité stratégique pour le pays.",
+      "explanation": "Par exemple permettre à l’État de prendre le contrôle, temporairement ou définitivement, d’une entreprise privée dont l’activité est essentielle à la sécurité ou à l’indépendance du pays, notamment dans l’énergie ou la défense.",
       "defaultAnswer": -2,
       "note": "",
       "coefficients": {
@@ -174,6 +175,7 @@ const QUESTIONNAIRE_DATA = {
       "id": 8,
       "theme": "Économie",
       "text": "La concurrence est généralement préférable à la réglementation pour améliorer les prix, la qualité et l'innovation.",
+      "explanation": "Par exemple : laisser plusieurs entreprises se concurrencer sur les prix et la qualité plutôt que d’imposer des prix, des normes ou des règles détaillées pour encadrer leurs produits et services.",
       "defaultAnswer": 0,
       "note": "",
       "coefficients": {
@@ -266,6 +268,7 @@ const QUESTIONNAIRE_DATA = {
       "id": 15,
       "theme": "Social / société",
       "text": "L'État devrait être très prudent avant d'imposer des normes morales ou comportementales aux individus.",
+      "explanation": "Par exemple : être prudent avant de réglementer la tenue vestimentaire, la consommation d’alcool, les relations entre adultes consentants ou d’autres choix relevant principalement de la vie privée.",
       "defaultAnswer": 1,
       "note": "",
       "coefficients": {
@@ -280,7 +283,7 @@ const QUESTIONNAIRE_DATA = {
     {
       "id": 16,
       "theme": "Social / société",
-      "text": "La priorité donnée à l'égalité des résultats peut parfois justifier de limiter la liberté individuelle.",
+      "text": "Réduire les inégalités peut parfois justifier de restreindre certaines libertés individuelles.",
       "explanation": "Par exemple : accepter davantage de redistribution, des quotas ou certaines règles contraignantes afin de réduire les écarts entre groupes, même si cela limite certains choix individuels.",
       "defaultAnswer": -3,
       "note": "",
@@ -446,7 +449,7 @@ const QUESTIONNAIRE_DATA = {
     {
       "id": 27,
       "theme": "Sécurité / justice",
-      "text": "Les peines de prison devraient être plus sévères, même si cela augmente fortement la population carcérale.",
+      "text": "Les peines de prison effectives devraient être plus sévères, même si cela augmente fortement la population carcérale.",
       "defaultAnswer": 2,
       "note": "",
       "coefficients": {
@@ -581,7 +584,7 @@ const QUESTIONNAIRE_DATA = {
     {
       "id": 37,
       "theme": "Écologie",
-      "text": "Les pays riches devraient supporter une part disproportionnée du coût de la transition écologique mondiale.",
+      "text": "Les pays riches devraient supporter une part prépondérante du coût de la transition écologique mondiale.",
       "defaultAnswer": 1,
       "note": "",
       "coefficients": {
@@ -688,7 +691,7 @@ const QUESTIONNAIRE_DATA = {
     {
       "id": 44,
       "theme": "Fiscalité / patrimoine",
-      "text": "L'héritage devrait être davantage taxé, même si cela conduit certaines familles à transmettre moins de patrimoine à leurs enfants.",
+      "text": "L'héritage devrait être davantage taxé au-delà d'un certain seuil de patrimoine transmis, même si cela conduit certaines familles à transmettre moins de patrimoine à leurs enfants.",
       "defaultAnswer": 0,
       "note": "",
       "coefficients": {
@@ -748,7 +751,8 @@ const QUESTIONNAIRE_DATA = {
     {
       "id": 48,
       "theme": "Travail / chômage",
-      "text": "Le CDI protège trop fortement certains salariés et contribue à créer une dualité entre insiders et outsiders.",
+      "text": "Le CDI protège trop fortement les salariés déjà en poste et peut rendre plus difficile l’accès à l’emploi stable, au détriment des jeunes, chômeurs ou travailleurs en contrats précaires.",
+      "explanation": "Par exemple : une entreprise devrait pouvoir se séparer plus facilement d’un salarié peu performant, même s’il est déjà bien intégré et protégé par son CDI.",
       "defaultAnswer": -2,
       "note": "",
       "coefficients": {
@@ -824,6 +828,7 @@ const QUESTIONNAIRE_DATA = {
       "id": 54,
       "theme": "État / entreprises",
       "text": "L'État devrait davantage utiliser son pouvoir d'actionnaire pour orienter les grandes entreprises françaises vers des objectifs industriels de long terme.",
+      "explanation": "Par exemple : lorsque l’État détient des parts dans une grande entreprise, il pourrait peser sur ses décisions pour favoriser l’investissement, l’emploi en France ou le maintien d’activités jugées stratégiques à long terme.",
       "defaultAnswer": 1,
       "note": "",
       "coefficients": {
@@ -988,7 +993,7 @@ const QUESTIONNAIRE_DATA = {
     {
       "id": 67,
       "theme": "Écologie",
-      "text": "Si une taxe carbone réduit les émissions de CO₂ mais diminue le pouvoir d'achat des ménages modestes, il faut la maintenir et compenser les ménages concernés par des transferts ciblés.",
+      "text": "Une taxe carbone qui réduit les émissions de CO₂ devrait être maintenue même si elle diminue le pouvoir d’achat des ménages modestes, à condition de compenser ces derniers par des aides ciblées.",
       "defaultAnswer": 1,
       "note": "",
       "coefficients": {
@@ -1018,7 +1023,7 @@ const QUESTIONNAIRE_DATA = {
     {
       "id": 69,
       "theme": "Écologie",
-      "text": "Si le nucléaire permet de réduire fortement les émissions sans réduire significativement le niveau de vie, il faut privilégier le nucléaire même si cela conduit à réduire certains investissements dans les renouvelables.",
+      "text": "Il faut privilégier le nucléaire même si cela conduit à réduire certains investissements dans les renouvelables.",
       "defaultAnswer": -1,
       "note": "",
       "coefficients": {
@@ -1124,6 +1129,7 @@ const QUESTIONNAIRE_DATA = {
       "id": 77,
       "theme": "Institutions",
       "text": "La proportionnelle intégrale serait préférable au système actuel, même si elle rendait plus fréquentes les coalitions et les gouvernements instables.",
+      "explanation": "Avec la proportionnelle intégrale, le nombre de députés de chaque parti correspondrait directement à son pourcentage de voix au niveau national. Les petits partis seraient donc mieux représentés, mais il serait plus rare qu’un seul parti dispose d’une majorité, ce qui obligerait plus souvent plusieurs partis à gouverner ensemble.",
       "defaultAnswer": 1,
       "note": "",
       "coefficients": {
