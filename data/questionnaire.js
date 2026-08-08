@@ -786,7 +786,7 @@ const QUESTIONNAIRE_DATA = {
       "defaultAnswer": -3,
       "note": "",
       "coefficients": {
-        "economy": 0.3,
+        "economy": 1,
         "authority": 0,
         "europe": 0,
         "ecology": 0,
@@ -1224,12 +1224,12 @@ const QUESTIONNAIRE_DATA = {
       "defaultAnswer": 0,
       "note": "",
       "coefficients": {
-        "economy": 0.2,
+        "economy": 0.3,
         "authority": 0,
         "europe": 0,
         "ecology": 0,
         "immigration": 0,
-        "democracy": -0.5
+        "democracy": -0.3
       }
     },
     {
@@ -1241,7 +1241,7 @@ const QUESTIONNAIRE_DATA = {
       "note": "",
       "coefficients": {
         "economy": 0.5,
-        "authority": 0.4,
+        "authority": 0.2,
         "europe": 0,
         "ecology": 0,
         "immigration": 0,
@@ -1272,7 +1272,7 @@ const QUESTIONNAIRE_DATA = {
       "note": "",
       "coefficients": {
         "economy": -0.6,
-        "authority": 0,
+        "authority": 0.8,
         "europe": 0,
         "ecology": 0,
         "immigration": 0,
