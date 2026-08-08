@@ -306,17 +306,357 @@ function renderMatches(category){
 }
 
 function renderCompass(){
-  const w=760,h=520,pad=54; const x=v=>pad+(v+10)/20*(w-2*pad); const y=v=>h-pad-(v+10)/20*(h-2*pad);
-  const grid=[-10,-5,0,5,10].map(v=>`<line x1="${x(v)}" y1="${pad}" x2="${x(v)}" y2="${h-pad}" stroke="${v===0?'#9aa7ae':'#dfe3e1'}" stroke-width="${v===0?2:1}"/><line x1="${pad}" y1="${y(v)}" x2="${w-pad}" y2="${y(v)}" stroke="${v===0?'#9aa7ae':'#dfe3e1'}" stroke-width="${v===0?2:1}"/>`).join('');
-  const points=results.entities.map((e,i)=>{
-    const px=x(e.axisScores.economy), py=y(e.axisScores.authority);
-    const placeLeft=px>w-175, anchor=placeLeft?'end':'start', labelX=px+(placeLeft?-8:8);
-    const offsets=[-12,14,-22,24,-4,8], labelY=clamp(py+offsets[i%offsets.length],pad+12,h-pad-5);
-    const color=e.category==='party'?'#2d8c87':'#6f63a8';
-    return `<g><circle cx="${px}" cy="${py}" r="${e.category==='party'?5:4.5}" fill="${color}" opacity=".84"><title>${esc(e.name)} — économie ${fmt(e.axisScores.economy)}, autorité ${fmt(e.axisScores.authority)}</title></circle><text x="${labelX}" y="${labelY}" text-anchor="${anchor}" fill="${color}" font-size="${e.category==='party'?10.5:9.5}" font-weight="750" paint-order="stroke" stroke="#fbfbf8" stroke-width="4" stroke-linejoin="round">${esc(e.shortName)}</text></g>`;
+  const w = 760, h = 520, pad = 54;
+
+  const x = v => pad + (v + 10) / 20 * (w - 2 * pad);
+  const y = v => h - pad - (v + 10) / 20 * (h - 2 * pad);
+
+  const grid = [-10, -5, 0, 5, 10].map(v =>
+    `<line x1="${x(v)}" y1="${pad}" x2="${x(v)}" y2="${h-pad}"
+      stroke="${v===0?'#9aa7ae':'#dfe3e1'}"
+      stroke-width="${v===0?2:1}"/>
+     <line x1="${pad}" y1="${y(v)}" x2="${w-pad}" y2="${y(v)}"
+      stroke="${v===0?'#9aa7ae':'#dfe3e1'}"
+      stroke-width="${v===0?2:1}"/>`
+  ).join('');
+
+  const entityPoints = results.entities.map(e => ({
+    entity: e,
+    px: x(e.axisScores.economy),
+    py: y(e.axisScores.authority)
+  }));
+
+  const ux = x(results.userScores.economy);
+  const uy = y(results.userScores.authority);
+
+  // Zones déjà occupées : on réserve d'abord les points eux-mêmes.
+  const occupied = [
+    ...entityPoints.map(p => ({
+      x1: p.px - 7,
+      x2: p.px + 7,
+      y1: p.py - 7,
+      y2: p.py + 7
+    })),
+    {
+      x1: ux - 18,
+      x2: ux + 18,
+      y1: uy - 18,
+      y2: uy + 18
+    }
+  ];
+
+  const overlaps = (a, b, gap = 3) =>
+    a.x1 < b.x2 + gap &&
+    a.x2 > b.x1 - gap &&
+    a.y1 < b.y2 + gap &&
+    a.y2 > b.y1 - gap;
+
+  const labelBox = (lx, ly, width, height, anchor) => {
+    const x1 = anchor === 'end' ? lx - width : lx;
+    const x2 = anchor === 'end' ? lx : lx + width;
+
+    return {
+      x1,
+      x2,
+      y1: ly - height,
+      y2: ly + 3
+    };
+  };
+
+  const insideChart = box =>
+    box.x1 >= pad &&
+    box.x2 <= w - pad &&
+    box.y1 >= pad &&
+    box.y2 <= h - pad;
+
+  // Différentes positions possibles autour d'un point.
+  const baseCandidates = [
+    { dx: 10,  dy: -10, anchor: 'start' },
+    { dx: 10,  dy: 16,  anchor: 'start' },
+    { dx: -10, dy: -10, anchor: 'end' },
+    { dx: -10, dy: 16,  anchor: 'end' },
+
+    { dx: 10,  dy: -25, anchor: 'start' },
+    { dx: 10,  dy: 30,  anchor: 'start' },
+    { dx: -10, dy: -25, anchor: 'end' },
+    { dx: -10, dy: 30,  anchor: 'end' },
+
+    { dx: 18,  dy: -40, anchor: 'start' },
+    { dx: 18,  dy: 45,  anchor: 'start' },
+    { dx: -18, dy: -40, anchor: 'end' },
+    { dx: -18, dy: 45,  anchor: 'end' }
+  ];
+
+  function placeLabel(px, py, text, fontSize, index = 0) {
+    const width = Math.max(
+      24,
+      text.length * fontSize * 0.62 + 6
+    );
+
+    const height = fontSize + 5;
+
+    // On fait varier l'ordre de préférence pour éviter
+    // que toutes les étiquettes partent du même côté.
+    const candidates = [
+      ...baseCandidates.slice(index % 4),
+      ...baseCandidates.slice(0, index % 4)
+    ];
+
+    for (const candidate of candidates) {
+      const lx = px + candidate.dx;
+      const ly = clamp(
+        py + candidate.dy,
+        pad + height,
+        h - pad - 4
+      );
+
+      const box = labelBox(
+        lx,
+        ly,
+        width,
+        height,
+        candidate.anchor
+      );
+
+      if (
+        insideChart(box) &&
+        !occupied.some(other => overlaps(box, other))
+      ) {
+        occupied.push(box);
+
+        return {
+          x: lx,
+          y: ly,
+          anchor: candidate.anchor,
+          box
+        };
+      }
+    }
+
+    // Cas très dense : on cherche progressivement plus loin.
+    for (let ring = 1; ring <= 8; ring++) {
+      const verticalDistance = 35 + ring * 13;
+
+      for (const direction of [-1, 1]) {
+        for (const side of [-1, 1]) {
+          const anchor = side === 1 ? 'start' : 'end';
+
+          const lx = px + side * (12 + ring * 3);
+          const ly = clamp(
+            py + direction * verticalDistance,
+            pad + height,
+            h - pad - 4
+          );
+
+          const box = labelBox(
+            lx,
+            ly,
+            width,
+            height,
+            anchor
+          );
+
+          if (
+            insideChart(box) &&
+            !occupied.some(other => overlaps(box, other))
+          ) {
+            occupied.push(box);
+
+            return {
+              x: lx,
+              y: ly,
+              anchor,
+              box
+            };
+          }
+        }
+      }
+    }
+
+    // Sécurité si absolument aucune zone n'est libre.
+    const fallbackX = clamp(px + 10, pad, w - pad - width);
+    const fallbackY = clamp(py - 10, pad + height, h - pad);
+
+    const box = labelBox(
+      fallbackX,
+      fallbackY,
+      width,
+      height,
+      'start'
+    );
+
+    occupied.push(box);
+
+    return {
+      x: fallbackX,
+      y: fallbackY,
+      anchor: 'start',
+      box
+    };
+  }
+
+  // On place "Vous" en premier : cette étiquette est prioritaire.
+  const userLabel = placeLabel(
+    ux,
+    uy,
+    'Vous',
+    11,
+    0
+  );
+
+  const points = entityPoints.map((p, i) => {
+    const e = p.entity;
+    const fontSize = e.category === 'party' ? 10.5 : 9.5;
+
+    const label = placeLabel(
+      p.px,
+      p.py,
+      e.shortName,
+      fontSize,
+      i + 1
+    );
+
+    const color =
+      e.category === 'party'
+        ? '#2d8c87'
+        : '#6f63a8';
+
+    const displacement = Math.hypot(
+      label.x - p.px,
+      label.y - p.py
+    );
+
+    // Si l'étiquette a dû être éloignée,
+    // un petit trait montre clairement son point d'origine.
+    const leaderLine = displacement > 28
+      ? `<line
+          x1="${p.px}"
+          y1="${p.py}"
+          x2="${label.x + (label.anchor === 'start' ? -3 : 3)}"
+          y2="${label.y - 3}"
+          stroke="${color}"
+          stroke-width="0.8"
+          opacity="0.45"
+        />`
+      : '';
+
+    return `
+      <g>
+        ${leaderLine}
+
+        <circle
+          cx="${p.px}"
+          cy="${p.py}"
+          r="${e.category === 'party' ? 5 : 4.5}"
+          fill="${color}"
+          opacity=".84"
+        >
+          <title>
+            ${esc(e.name)} — économie ${fmt(e.axisScores.economy)},
+            autorité ${fmt(e.axisScores.authority)}
+          </title>
+        </circle>
+
+        <text
+          x="${label.x}"
+          y="${label.y}"
+          text-anchor="${label.anchor}"
+          fill="${color}"
+          font-size="${fontSize}"
+          font-weight="750"
+          paint-order="stroke"
+          stroke="#fbfbf8"
+          stroke-width="4"
+          stroke-linejoin="round"
+        >${esc(e.shortName)}</text>
+      </g>
+    `;
   }).join('');
-  const ux=x(results.userScores.economy), uy=y(results.userScores.authority);
-  $('#compass-box').innerHTML=`<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="Political compass économie et libertés"><rect width="${w}" height="${h}" fill="#fbfbf8"/>${grid}<text x="${w/2}" y="28" text-anchor="middle" fill="#40556a" font-size="13" font-weight="700">Autoritaire</text><text x="${w/2}" y="${h-12}" text-anchor="middle" fill="#40556a" font-size="13" font-weight="700">Libertaire</text><text x="16" y="${h/2}" text-anchor="middle" transform="rotate(-90 16 ${h/2})" fill="#40556a" font-size="13" font-weight="700">Gauche économique</text><text x="${w-16}" y="${h/2}" text-anchor="middle" transform="rotate(90 ${w-16} ${h/2})" fill="#40556a" font-size="13" font-weight="700">Droite économique</text>${points}<circle cx="${ux}" cy="${uy}" r="10" fill="#d7a744" stroke="white" stroke-width="4"><title>Votre profil</title></circle><circle cx="${ux}" cy="${uy}" r="16" fill="none" stroke="#d7a744" stroke-width="2" opacity=".55"/><text x="${ux+13}" y="${clamp(uy-13,pad+12,h-pad-5)}" fill="#8a671d" font-size="11" font-weight="850" paint-order="stroke" stroke="#fbfbf8" stroke-width="4">Vous</text></svg>`;
+
+  $('#compass-box').innerHTML = `
+    <svg
+      viewBox="0 0 ${w} ${h}"
+      role="img"
+      aria-label="Political compass économie et libertés"
+    >
+      <rect width="${w}" height="${h}" fill="#fbfbf8"/>
+
+      ${grid}
+
+      <text
+        x="${w/2}"
+        y="28"
+        text-anchor="middle"
+        fill="#40556a"
+        font-size="13"
+        font-weight="700"
+      >Autoritaire</text>
+
+      <text
+        x="${w/2}"
+        y="${h-12}"
+        text-anchor="middle"
+        fill="#40556a"
+        font-size="13"
+        font-weight="700"
+      >Libertaire</text>
+
+      <text
+        x="16"
+        y="${h/2}"
+        text-anchor="middle"
+        transform="rotate(-90 16 ${h/2})"
+        fill="#40556a"
+        font-size="13"
+        font-weight="700"
+      >Gauche économique</text>
+
+      <text
+        x="${w-16}"
+        y="${h/2}"
+        text-anchor="middle"
+        transform="rotate(90 ${w-16} ${h/2})"
+        fill="#40556a"
+        font-size="13"
+        font-weight="700"
+      >Droite économique</text>
+
+      ${points}
+
+      <circle
+        cx="${ux}"
+        cy="${uy}"
+        r="10"
+        fill="#d7a744"
+        stroke="white"
+        stroke-width="4"
+      >
+        <title>Votre profil</title>
+      </circle>
+
+      <circle
+        cx="${ux}"
+        cy="${uy}"
+        r="16"
+        fill="none"
+        stroke="#d7a744"
+        stroke-width="2"
+        opacity=".55"
+      />
+
+      <text
+        x="${userLabel.x}"
+        y="${userLabel.y}"
+        text-anchor="${userLabel.anchor}"
+        fill="#8a671d"
+        font-size="11"
+        font-weight="850"
+        paint-order="stroke"
+        stroke="#fbfbf8"
+        stroke-width="4"
+      >Vous</text>
+    </svg>
+  `;
 }
 
 function renderBestDetail(entity){
