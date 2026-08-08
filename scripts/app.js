@@ -138,7 +138,7 @@ function renderQuestion(){
   comment.placeholder=state.current===0
     ? 'Cette case peut servir à apporter de la nuance à votre réponse. Par exemple : « Je ne pense pas qu’il faille diminuer les charges patronales : en théorie, cela pourrait faire baisser les prix ou permettre d’augmenter les salaires, mais en pratique les entreprises pourraient conserver une partie des bénéfices. »'
     : 'Expliquez une réserve, une condition ou une nuance…';
-  commentDetails.open=Boolean(comment.value.trim());
+  commentDetails.open = state.current === 0 || Boolean(comment.value.trim());
   comment.oninput=()=>{ state.questionComments[originalIndex]=comment.value; saveState(); };
   $('#question-card').animate([{opacity:.2,transform:'translateY(8px)'},{opacity:1,transform:'translateY(0)'}],{duration:230,easing:'ease-out'});
 }
