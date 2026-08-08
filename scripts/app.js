@@ -1,5 +1,6 @@
 const STORAGE_KEY = 'boussole-politique-state-v4';
 const QUIZ_MODES = { FULL:'full', QUICK:'quick' };
+const STRUCTURAL_WEIGHT_SHARE = 0.3;
 const QUICK_QUESTION_IDS = new Set([1,3,5,7,9,10,14,19,20,21,24,25,26,27,28,29,32,34,35,38,39,40,42,46,49,50,56,63,64,66,67,71,72,74,76,77,78,79,81,87]);
 const AXIS_COLORS = { economy:'#d96c57', authority:'#6f63a8', europe:'#4e77a7', ecology:'#2d8c87', immigration:'#d7a744', democracy:'#40556a' };
 const PRIORITY_LABELS = {
@@ -82,13 +83,13 @@ function refreshResume(){
 
 function renderPriority(){
   const grid=$('#priority-grid');
-  const equalChoice=`<button type="button" class="axis-choice equal-choice ${state.priority===EQUAL_PRIORITY?'selected':''}" data-axis="${EQUAL_PRIORITY}" aria-pressed="${state.priority===EQUAL_PRIORITY?'true':'false'}"><span class="axis-icon">＝</span><span><strong>Tous les axes ont la même importance</strong><small>Aucun axe ne reçoit de poids plus important</small></span><span class="radio-dot"></span></button>`;
+  const equalChoice=`<button type="button" class="axis-choice equal-choice ${state.priority===EQUAL_PRIORITY?'selected':''}" data-axis="${EQUAL_PRIORITY}" aria-pressed="${state.priority===EQUAL_PRIORITY?'true':'false'}"><span class="axis-icon">＝</span><span><strong>Aucun axe prioritaire</strong><small>La pondération structurelle lissée s’applique sans bonus</small></span><span class="radio-dot"></span></button>`;
   grid.innerHTML=equalChoice+DATA.axes.map(a=>`<button type="button" class="axis-choice ${state.priority===a.key?'selected':''}" data-axis="${a.key}" aria-pressed="${state.priority===a.key?'true':'false'}"><span class="axis-icon" style="color:${AXIS_COLORS[a.key]}">${ICONS[a.key]}</span><span><strong>${esc(PRIORITY_LABELS[a.key])}</strong></span><span class="radio-dot"></span></button>`).join('');
   const chosen=DATA.axes.find(a=>a.key===state.priority);
   const equalSelected=state.priority===EQUAL_PRIORITY;
   const hasChoice=Boolean(chosen)||equalSelected;
   const required=$('#priority-required');
-  required.textContent=equalSelected ? 'Choix sélectionné : les six axes ont la même importance.' : chosen ? `Axe choisi comme plus important : ${PRIORITY_LABELS[chosen.key]}.` : 'Choisissez une option avant de commencer.';
+  required.textContent=equalSelected ? 'Choix sélectionné : aucun axe prioritaire.' : chosen ? `Axe choisi comme plus important : ${PRIORITY_LABELS[chosen.key]}.` : 'Choisissez une option avant de commencer.';
   required.classList.toggle('chosen',hasChoice);
   $('#priority-next').disabled=!hasChoice;
   $$('.axis-choice').forEach(btn=>btn.addEventListener('click',()=>{
@@ -157,7 +158,17 @@ function axisMassesForMode(){
   DATA.axes.forEach(a=>masses[a.key]=activeQuestions().reduce((sum,{q})=>sum+Math.abs(q.coefficients[a.key]),0));
   return masses;
 }
-function axisWeights(){ const masses=axisMassesForMode(), out={}; DATA.axes.forEach(a=>out[a.key]=masses[a.key]*(state.priority===a.key?1.3:1)); return out; }
+function axisWeights(){
+  const masses=axisMassesForMode();
+  const averageMass=Object.values(masses).reduce((sum,mass)=>sum+mass,0)/DATA.axes.length;
+  const out={};
+  DATA.axes.forEach(a=>{
+    const structuralRatio=averageMass ? masses[a.key]/averageMass : 1;
+    const smoothedWeight=(1-STRUCTURAL_WEIGHT_SHARE)+STRUCTURAL_WEIGHT_SHARE*structuralRatio;
+    out[a.key]=smoothedWeight*(state.priority===a.key?1.3:1);
+  });
+  return out;
+}
 function axisScoresFromAnswers(answers){
   const out={}; const selected=activeQuestions();
   DATA.axes.forEach(a=>{
@@ -272,7 +283,7 @@ function renderResults(){
   const desc=descriptors(results.userScores).sort((a,b)=>Math.abs(b.value)-Math.abs(a.value)).slice(0,4);
   $('#result-badges').innerHTML=desc.map(d=>`<span class="result-badge">${esc(d.text)}</span>`).join('');
   const priorityAxis=DATA.axes.find(a=>a.key===state.priority);
-  $('#priority-badge').textContent=state.priority===EQUAL_PRIORITY ? 'Tous les axes ont la même importance' : `Axe plus important : ${PRIORITY_LABELS[priorityAxis.key]}`;
+  $('#priority-badge').textContent=state.priority===EQUAL_PRIORITY ? 'Aucun axe prioritaire' : `Axe plus important : ${PRIORITY_LABELS[priorityAxis.key]}`;
   $('#ai-question-count-copy').textContent=`vos notes aux ${activeQuestionCount()} questions de la version ${state.mode===QUIZ_MODES.QUICK?'rapide':'complète'} ;`;
   renderAxes(); renderMatches(activeMatchTab); renderCompass(); renderBestDetail(topParty); refreshResume();
   if(aiAnalysisResult) renderAIAnalysis(aiAnalysisResult);
@@ -403,7 +414,7 @@ function buildAIAnalysisPayload(){
     quiz_mode_label:modeLabel(),
     question_count:activeQuestionCount(),
     profile_title:makeProfileTitle(results.userScores),
-    priority:state.priority===EQUAL_PRIORITY?'Tous les axes ont la même importance':PRIORITY_LABELS[state.priority],
+    priority:state.priority===EQUAL_PRIORITY?'Aucun axe prioritaire — pondération structurelle lissée':PRIORITY_LABELS[state.priority],
     axis_scores:Object.fromEntries(DATA.axes.map(a=>[PRIORITY_LABELS[a.key],Number(results.userScores[a.key].toFixed(2))])),
     question_responses:questionResponses,
     party_ranking:partyRanking,

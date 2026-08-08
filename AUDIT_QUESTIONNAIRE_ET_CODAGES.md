@@ -38,7 +38,7 @@ Une note est classée « forte mais fragile » ci-dessous lorsque sa valeur abso
 
 La suppression de quatre questions principalement autoritaires réduit la masse de cet axe malgré l'ajout de nouvelles questions de santé, d'éducation, de défense, de fin de vie et de numérique. L'Europe gagne 2,6 points de masse grâce aux questions sur l'Ukraine, la dissuasion et la souveraineté numérique. Les 21 `axisScores` ont été calculés ou recalculés.
 
-Les axes restent normalisés séparément sur une échelle de -10 à +10. Une masse élevée apporte davantage d'observations à l'axe et rend sa mesure moins sensible à une réponse isolée ; elle ne multiplie pas directement son poids dans la comparaison finale.
+Les axes restent normalisés séparément sur une échelle de -10 à +10. Une masse élevée apporte davantage d'observations à l'axe et rend sa mesure moins sensible à une réponse isolée. Dans la comparaison finale, le poids de chaque axe combine désormais 70 % de poids commun et 30 % de sa masse structurelle relative : les différences de couverture sont conservées, mais fortement resserrées par rapport à une pondération directement proportionnelle aux masses.
 
 ## Sujets bien couverts et sujets restant à approfondir
 
