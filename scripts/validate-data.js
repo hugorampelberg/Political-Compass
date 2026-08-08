@@ -81,6 +81,26 @@ for (const entity of entities) {
       Number.isInteger(response) && response >= -3 && response <= 3,
       `${entity.id}.responses[${index}] doit être un entier compris entre -3 et 3.`
     );
+
+    const justification = (entity.justifications[index] || '').trim();
+    const source = (entity.sources[index] || '').trim();
+    const prefix = justification.split(':')[0].toLocaleLowerCase('fr');
+    assert(
+      justification.length > 0,
+      `${entity.id}.justifications[${index}] ne doit pas être vide.`
+    );
+    assert(
+      source.startsWith('https://'),
+      `${entity.id}.sources[${index}] doit être une URL HTTPS.`
+    );
+    assert(
+      !(response < 0 && prefix.includes('accord') && !prefix.includes('désaccord')),
+      `${entity.id}.justifications[${index}] annonce un accord pour une note négative.`
+    );
+    assert(
+      !(response > 0 && (prefix.includes('désaccord') || prefix.includes('réserve'))),
+      `${entity.id}.justifications[${index}] annonce une réserve ou un désaccord pour une note positive.`
+    );
   });
 
   entity.confidence.forEach((confidence, index) => {
@@ -126,5 +146,5 @@ for (const entity of entities) {
 }
 
 console.log(
-  `Validation OK : ${questionCount} questions, ${entities.length} entités et ${axes.length} axes cohérents.`
+  `Validation OK : ${questionCount} questions fermées + ${openQuestionCount} ouvertes = ${questionCount + openQuestionCount}, ${entities.length} entités et ${axes.length} axes cohérents.`
 );

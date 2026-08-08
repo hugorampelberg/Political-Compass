@@ -3402,7 +3402,7 @@ const PARTIES_DATA = [
       3,
       3,
       3,
-      -1,
+      -2,
       3,
       1,
       1,
@@ -3440,7 +3440,7 @@ const PARTIES_DATA = [
       -1,
       -3,
       3,
-      1,
+      -3,
       1
     ],
     "confidence": [
@@ -3491,7 +3491,7 @@ const PARTIES_DATA = [
       1,
       1,
       2,
-      1,
+      3,
       2,
       2,
       1,
@@ -3529,7 +3529,7 @@ const PARTIES_DATA = [
       1,
       2,
       2,
-      1,
+      3,
       1
     ],
     "justifications": [
@@ -3580,7 +3580,7 @@ const PARTIES_DATA = [
       "Accord fort : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
       "Accord fort : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
-      "Accord modéré : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
+      "Désaccord net : Nouvelle Énergie fixe une norme de départ à 65 ans et présente sa réforme comme un moyen d’en finir avec les hausses récurrentes liées au vieillissement, plutôt que d’indexer automatiquement l’âge légal sur l’espérance de vie.",
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord modéré : codage cohérent avec la ligne programmatique générale du parti sur état / entreprises.",
       "Accord modéré : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
@@ -3618,7 +3618,7 @@ const PARTIES_DATA = [
       "Réserve : le vote, la loi ou la position gouvernementale sur l'aide à mourir fournit un équivalent direct ou très proche. Niveau de preuve : estimation prudente à partir de la ligne générale.",
       "Désaccord fort : le programme social et sanitaire permet d'estimer la place laissée aux opérateurs lucratifs dans la dépendance. Niveau de preuve : faisceau d’indices cohérent, sans équivalent toujours parfaitement identique.",
       "Accord fort : le modèle de prestations familiales et la ligne programmatique permettent d'estimer la préférence pour l'universalité ou le ciblage. Niveau de preuve : faisceau d’indices cohérent, sans équivalent toujours parfaitement identique.",
-      "Accord modéré : le vote ou la politique publique sur l'âge d'accès aux réseaux sociaux permet de distinguer interdiction stricte, autorisation parentale et régulation plus souple. Niveau de preuve : estimation prudente à partir de la ligne générale.",
+      "Désaccord fort : Nouvelle Énergie qualifie l’interdiction des réseaux sociaux aux moins de 15 ans d’aveu d’impuissance publique et lui préfère la responsabilisation des plateformes et une régulation de leurs modèles addictifs.",
       "Accord modéré : la stratégie numérique permet d'estimer la priorité accordée à la souveraineté européenne par rapport au coût et à la performance. Niveau de preuve : estimation prudente à partir de la ligne générale."
     ],
     "sources": [
@@ -3669,7 +3669,7 @@ const PARTIES_DATA = [
       "https://www.unenouvelleenergie.fr/notre-programme/",
       "https://www.unenouvelleenergie.fr/notre-programme/",
       "https://www.unenouvelleenergie.fr/notre-programme/",
-      "https://www.unenouvelleenergie.fr/notre-programme/",
+      "https://www.unenouvelleenergie.fr/notre-programme/reussir-une-nouvelle-ambition-francaise/",
       "https://www.unenouvelleenergie.fr/notre-programme/",
       "https://www.unenouvelleenergie.fr/notre-programme/",
       "https://www.unenouvelleenergie.fr/notre-programme/",
@@ -3707,18 +3707,18 @@ const PARTIES_DATA = [
       "https://www.unenouvelleenergie.fr/notre-programme/",
       "https://www.unenouvelleenergie.fr/notre-programme/",
       "https://www.unenouvelleenergie.fr/notre-programme/",
-      "https://www.unenouvelleenergie.fr/notre-programme/",
+      "https://www.unenouvelleenergie.fr/reseaux-sociaux-linterdiction-est-le-dernier-refuge-de-limpuissance-publique/",
       "https://www.unenouvelleenergie.fr/notre-programme/"
     ],
     "axisScores": {
-      "economy": 7.333333333333333,
-      "authority": 2.0684523809523814,
+      "economy": 7.287878787878786,
+      "authority": 1.5327380952380951,
       "europe": 1.1111111111111112,
       "ecology": -2.2222222222222223,
       "immigration": -6.269113149847095,
       "democracy": -3.386243386243386
     },
-    "averageConfidence": 0.578544061302682
+    "averageConfidence": 0.5938697318007663
   },
   {
     "id": "udr",
@@ -4303,7 +4303,7 @@ const PARTIES_DATA = [
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Désaccord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
-      "Accord modéré : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
+      "Réserve : estimation prudente fondée sur la priorité donnée à l’effectivité et au durcissement des sanctions ; aucune formulation officielle parfaitement équivalente à l’arbitrage entre prévention, réinsertion et augmentation des sanctions n’a été identifiée.",
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Position équilibrée ou non tranchée : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",

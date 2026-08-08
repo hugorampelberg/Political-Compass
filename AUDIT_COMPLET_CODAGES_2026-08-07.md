@@ -1,5 +1,10 @@
 # Audit complet des codages — 7 août 2026
 
+> Une dernière passe juridique, programmatique et structurelle a été effectuée
+> le 8 août 2026. Son bilan consolidé se trouve dans
+> `AUDIT_FINAL_CODAGES_2026-08-08.md` et remplace les totaux intermédiaires de
+> ce document lorsque les deux diffèrent.
+
 ## Périmètre et règle de preuve
 
 La passe couvre les **1 827 couples note/confiance** du questionnaire :
