@@ -341,7 +341,7 @@ const QUESTIONNAIRE_DATA = {
     {
       "id": 20,
       "theme": "Immigration",
-      "text": "La France devrait réduire significativement le nombre d'immigrants qu'elle accueille chaque année.",
+      "text": "La France devrait réduire le nombre d'immigrants qu'elle accueille chaque année.",
       "defaultAnswer": 2,
       "note": "",
       "coefficients": {
