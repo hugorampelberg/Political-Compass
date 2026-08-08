@@ -163,7 +163,7 @@ const QUESTIONNAIRE_DATA = {
       "defaultAnswer": -2,
       "note": "",
       "coefficients": {
-        "economy": -0.8,
+        "economy": -0.6,
         "authority": 0,
         "europe": 0,
         "ecology": 0,
@@ -253,7 +253,7 @@ const QUESTIONNAIRE_DATA = {
       "id": 14,
       "theme": "Social / société",
       "text": "La société devrait accepter beaucoup plus largement les différents modes de vie, même lorsqu'ils s'éloignent des normes traditionnelles.",
-      "defaultAnswer": -1,
+      "defaultAnswer": -0.7,
       "note": "",
       "coefficients": {
         "economy": 0,
@@ -591,7 +591,7 @@ const QUESTIONNAIRE_DATA = {
         "economy": -0.5,
         "authority": 0,
         "europe": 0,
-        "ecology": 0.6,
+        "ecology": 0,8,
         "immigration": 0,
         "democracy": 0
       }
@@ -832,7 +832,7 @@ const QUESTIONNAIRE_DATA = {
       "defaultAnswer": 1,
       "note": "",
       "coefficients": {
-        "economy": -0.4,
+        "economy": -0.2,
         "authority": 0,
         "europe": 0,
         "ecology": 0,
@@ -938,7 +938,7 @@ const QUESTIONNAIRE_DATA = {
       "note": "",
       "coefficients": {
         "economy": 0,
-        "authority": -0.8,
+        "authority": -0.7,
         "europe": 0,
         "ecology": 0,
         "immigration": 0.8,
@@ -1030,7 +1030,7 @@ const QUESTIONNAIRE_DATA = {
         "economy": 0,
         "authority": 0,
         "europe": 0,
-        "ecology": -0.3,
+        "ecology": -0.8,
         "immigration": 0,
         "democracy": 0
       }
@@ -1134,7 +1134,7 @@ const QUESTIONNAIRE_DATA = {
       "note": "",
       "coefficients": {
         "economy": 0,
-        "authority": -0.3,
+        "authority": -0,
         "europe": 0,
         "ecology": 0,
         "immigration": 0,
@@ -1272,11 +1272,11 @@ const QUESTIONNAIRE_DATA = {
       "note": "",
       "coefficients": {
         "economy": -0.6,
-        "authority": 0.8,
+        "authority": 0.5,
         "europe": 0,
         "ecology": 0,
         "immigration": 0,
-        "democracy": 0.3
+        "democracy": 0.2
       }
     },
     {
@@ -1288,7 +1288,7 @@ const QUESTIONNAIRE_DATA = {
       "coefficients": {
         "economy": 0,
         "authority": 0.2,
-        "europe": 0.9,
+        "europe": 0.7,
         "ecology": 0,
         "immigration": 0,
         "democracy": 0
