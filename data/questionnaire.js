@@ -782,7 +782,7 @@ const QUESTIONNAIRE_DATA = {
     {
       "id": 50,
       "theme": "Retraites",
-      "text": "L'âge légal de départ à la retraite devrait être automatiquement indexé sur l'espérance de vie.",
+      "text": "L'âge légal de départ à la retraite devrait être automatiquement indexé sur l'espérance de vie nationale.",
       "defaultAnswer": -3,
       "note": "",
       "coefficients": {
