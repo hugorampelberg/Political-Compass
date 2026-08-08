@@ -257,7 +257,7 @@ const QUESTIONNAIRE_DATA = {
       "note": "",
       "coefficients": {
         "economy": 0,
-        "authority": -1,
+        "authority": -0.7,
         "europe": 0,
         "ecology": 0,
         "immigration": 0,
@@ -591,7 +591,7 @@ const QUESTIONNAIRE_DATA = {
         "economy": -0.5,
         "authority": 0,
         "europe": 0,
-        "ecology": 0,8,
+        "ecology": 0.8,
         "immigration": 0,
         "democracy": 0
       }
