@@ -394,7 +394,7 @@ const QUESTIONNAIRE_DATA = {
       "note": "",
       "coefficients": {
         "economy": 0,
-        "authority": -0.2,
+        "authority": 0.2,
         "europe": 0,
         "ecology": 0,
         "immigration": -1,
