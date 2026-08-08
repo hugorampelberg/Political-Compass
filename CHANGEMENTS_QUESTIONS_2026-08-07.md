@@ -72,9 +72,11 @@ Une case vide vaut zéro.
 
 La refonte réduit donc la surreprésentation de l'autorité et augmente nettement
 la capacité de l'axe européen à distinguer les profils. Les axes sont toujours
-normalisés séparément sur une échelle de -10 à +10 : la masse d'un axe influe
-sur la stabilité de sa mesure, pas directement sur son poids dans l'affichage
-final.
+normalisés séparément sur une échelle de -10 à +10. Pour la similitude globale,
+le poids de chaque axe combine désormais 70 % de poids commun et 30 % de sa
+masse structurelle relative : la couverture continue donc à compter, avec des
+écarts fortement resserrés par rapport à une pondération directement
+proportionnelle aux masses.
 
 ## Codages ajoutés
 
