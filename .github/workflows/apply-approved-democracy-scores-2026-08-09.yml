@@ -1,0 +1,159 @@
+name: Apply approved democracy score updates
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/apply-approved-democracy-scores-2026-08-09.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Apply approved democracy scores
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const vm = require('vm');
+
+          const context = {};
+          vm.createContext(context);
+          for (const path of ['data/questionnaire.js', 'data/parties.js']) {
+            const source = fs.readFileSync(path, 'utf8');
+            vm.runInContext(source.replace(/^const /gm, 'var '), context, { filename: path });
+          }
+
+          const questionnaire = context.QUESTIONNAIRE_DATA;
+          const parties = context.PARTIES_DATA;
+          const questionIndex = new Map(questionnaire.questions.map((q, i) => [q.id, i]));
+          const original = JSON.parse(JSON.stringify(parties));
+
+          const changes = [
+            { shortName: 'LFI', q: 76, from: -2, to: -3,
+              justification: "Désaccord fort : LFI veut rompre avec l'hyperprésidentialisme de la Ve République, réduire les pouvoirs du président et renforcer le Parlement ; c'est l'opposé direct de la proposition." },
+            { shortName: 'PCF', q: 72, from: -1, to: -2,
+              justification: "Désaccord net : le PCF critique le dessaisissement des élus au profit d'une décision technocratique ; il ne rejette pas l'expertise, mais refuse qu'elle remplace le pouvoir politique démocratique." },
+            { shortName: 'PCF', q: 76, from: -2, to: -3,
+              justification: "Désaccord fort : le PCF propose explicitement de réduire les prérogatives présidentielles et de renforcer le Parlement et le Premier ministre ; la direction est exactement inverse à la question." },
+            { shortName: 'PS', q: 76, from: -1, to: -3,
+              justification: "Désaccord fort : le projet socialiste 2026 veut déprésidentialiser la Ve République, renforcer le Parlement et rééquilibrer le pouvoir exécutif ; il s'oppose directement à un renforcement du président." },
+            { shortName: 'MoDem', q: 77, from: 1, to: 2,
+              justification: "Accord net : François Bayrou et le MoDem défendent de longue date une forte dose de proportionnelle, parfois proche de la proportionnelle intégrale, mais les modalités précises varient ; +2 reflète mieux cette intensité." },
+            { shortName: 'LFH', q: 15, from: -1, to: 2,
+              justification: "Accord net : Dominique de Villepin admet qu'en cas de blocage budgétaire persistant, des mécanismes exceptionnels permettent d'adopter le budget sans vote parlementaire ordinaire ; il les présente toutefois comme un dernier recours, d'où +2." },
+            { shortName: 'LR', q: 77, from: -2, to: -3,
+              justification: "Désaccord fort : LR rejette explicitement la proportionnelle en invoquant précisément le risque de coalitions instables et de difficultés à dégager une majorité ; cela correspond presque exactement au désaccord décrit par la question." },
+            { shortName: 'Nouvelle Énergie', q: 72, from: 1, to: -1,
+              justification: "Désaccord modéré : Nouvelle Énergie critique le pouvoir technocratique et le dessaisissement des responsables élus, tout en valorisant l'expertise et l'évaluation ; -1 traduit cette réserve sans surestimer l'opposition." },
+            { shortName: 'Nouvelle Énergie', q: 74, from: 2, to: 3,
+              justification: "Accord fort : Nouvelle Énergie veut généraliser les référendums, permettre de soumettre largement les sujets au pays et rendre effectif le référendum d'initiative citoyenne ; la correspondance avec la question est très directe." },
+            { shortName: 'Nouvelle Énergie', q: 77, from: -2, to: -3,
+              justification: "Désaccord fort : David Lisnard et Nouvelle Énergie rejettent explicitement la proportionnelle intégrale, notamment parce qu'elle affaiblirait la capacité de l'exécutif à gouverner ; opposition directe à la question." }
+          ];
+
+          const changedKeys = new Set();
+          for (const change of changes) {
+            const party = parties.find(p => p.shortName === change.shortName);
+            if (!party) throw new Error(`Parti introuvable: ${change.shortName}`);
+            const index = questionIndex.get(change.q);
+            if (index === undefined) throw new Error(`Question introuvable: Q${change.q}`);
+            if (party.responses[index] !== change.from) {
+              throw new Error(`${change.shortName} Q${change.q}: attendu ${change.from}, trouvé ${party.responses[index]}`);
+            }
+            party.responses[index] = change.to;
+            party.justifications[index] = change.justification;
+            changedKeys.add(`${party.id}:${index}`);
+          }
+
+          // Aucune autre réponse, confiance, source ou justification ne doit changer.
+          for (let p = 0; p < parties.length; p++) {
+            const now = parties[p];
+            const before = original[p];
+            if (now.id !== before.id) throw new Error('Ordre des partis modifié');
+            for (let i = 0; i < now.responses.length; i++) {
+              const key = `${now.id}:${i}`;
+              if (!changedKeys.has(key) && now.responses[i] !== before.responses[i]) {
+                throw new Error(`Réponse non autorisée modifiée: ${now.id} index ${i}`);
+              }
+              if (now.confidence[i] !== before.confidence[i]) {
+                throw new Error(`Confiance modifiée: ${now.id} index ${i}`);
+              }
+              if (now.sources[i] !== before.sources[i]) {
+                throw new Error(`Source modifiée: ${now.id} index ${i}`);
+              }
+              if (!changedKeys.has(key) && now.justifications[i] !== before.justifications[i]) {
+                throw new Error(`Justification non autorisée modifiée: ${now.id} index ${i}`);
+              }
+            }
+          }
+
+          // Recalcule tous les scores d'axe avec la formule du dépôt.
+          const axes = questionnaire.axes.map(axis => axis.key);
+          for (const party of parties) {
+            for (const axis of axes) {
+              let numerator = 0;
+              let mass = 0;
+              questionnaire.questions.forEach((question, index) => {
+                const coefficient = question.coefficients[axis] || 0;
+                numerator += party.responses[index] * coefficient;
+                mass += Math.abs(coefficient);
+              });
+              party.axisScores[axis] = mass ? 10 * numerator / (3 * mass) : 0;
+            }
+            party.averageConfidence = party.confidence.reduce((sum, value) => sum + value, 0)
+              / (questionnaire.questions.length * 3);
+          }
+
+          // Contrôles structurels et validation des dix valeurs demandées.
+          for (const party of parties) {
+            for (const field of ['responses', 'confidence', 'justifications', 'sources']) {
+              if (party[field].length !== questionnaire.questions.length) {
+                throw new Error(`${party.id}.${field}: longueur incohérente`);
+              }
+            }
+            for (const axis of axes) {
+              let numerator = 0;
+              let mass = 0;
+              questionnaire.questions.forEach((question, index) => {
+                const coefficient = question.coefficients[axis] || 0;
+                numerator += party.responses[index] * coefficient;
+                mass += Math.abs(coefficient);
+              });
+              const expected = mass ? 10 * numerator / (3 * mass) : 0;
+              if (Math.abs(party.axisScores[axis] - expected) > 1e-12) {
+                throw new Error(`${party.id}.${axis}: score d'axe incohérent`);
+              }
+            }
+          }
+
+          for (const change of changes) {
+            const party = parties.find(p => p.shortName === change.shortName);
+            const index = questionIndex.get(change.q);
+            if (party.responses[index] !== change.to) {
+              throw new Error(`Validation finale échouée: ${change.shortName} Q${change.q}`);
+            }
+          }
+
+          const output = `// Profils documentés des partis politiques français.\nconst PARTIES_DATA = ${JSON.stringify(parties, null, 2)};\n`;
+          fs.writeFileSync('data/parties.js', output, 'utf8');
+          console.log('Validation ciblée OK : 10 réponses démocratie modifiées, autres réponses/confiances/sources inchangées, scores d’axe recalculés.');
+          NODE
+
+          if git diff --quiet -- data/parties.js; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/parties.js
+          git commit -m "Update approved democracy party scores"
+          git push origin HEAD:main
