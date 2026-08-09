@@ -690,13 +690,79 @@ return {
   const agree=items.filter(x=>x.gap<=1).sort((a,b)=>b.imp-a.imp).slice(0,5);
   return {agree,disagree};
 }
-
+function axisPositionLabel(axis, value){
+  if(Math.abs(value) < 0.75) return 'Position intermédiaire';
+  return value < 0 ? axis.negative : axis.positive;
+}
 function openEntity(id){
   const e=results.entities.find(x=>x.id===id); if(!e) return;
   const {agree,disagree}=driversFor(e);
   $('#modal-title').textContent=e.name;
   $('#modal-subtitle').textContent=`Similitude globale : ${fmt(e.global)} % · Confiance documentaire moyenne : ${Math.round(e.averageConfidence*100)} %`;
-  const axisRows=DATA.axes.map(a=>{ const u=results.userScores[a.key], v=e.axisScores[a.key]; return `<div class="compare-axis-row"><strong>${esc(a.name)}</strong><div class="two-marker-track"><span class="two-marker marker-user" style="left:${(u+10)/20*100}%" title="Vous : ${fmt(u)}"></span><span class="two-marker marker-entity" style="left:${(v+10)/20*100}%" title="${esc(e.shortName)} : ${fmt(v)}"></span></div><span style="text-align:right;font-weight:800">${fmt(e.detailed[a.key])} %</span></div>`; }).join('');
+  const axisRows = DATA.axes.map(a => {
+  const u = results.userScores[a.key];
+  const v = e.axisScores[a.key];
+
+  const userLabel = axisPositionLabel(a, u);
+  const entityLabel = axisPositionLabel(a, v);
+
+  return `
+    <div class="compare-axis-row">
+
+      <div class="compare-axis-title">
+        <strong>${esc(a.name)}</strong>
+        <span class="compare-axis-similarity">
+          ${fmt(e.detailed[a.key])} % de similitude
+        </span>
+      </div>
+
+      <div class="compare-axis-visual">
+
+        <div
+          class="two-marker-track"
+          aria-label="${esc(a.negative)} à ${esc(a.positive)}"
+        >
+          <span
+            class="two-marker marker-user"
+            style="left:${(u + 10) / 20 * 100}%"
+            title="Vous : ${esc(userLabel)} (${fmt(u)})"
+          ></span>
+
+          <span
+            class="two-marker marker-entity"
+            style="left:${(v + 10) / 20 * 100}%"
+            title="${esc(e.shortName)} : ${esc(entityLabel)} (${fmt(v)})"
+          ></span>
+        </div>
+
+        <div class="compare-axis-endpoints">
+          <span>${esc(a.negative)}</span>
+          <span>${esc(a.positive)}</span>
+        </div>
+
+        <div class="compare-axis-reading">
+
+          <span class="compare-reading-user">
+            <i class="compare-reading-dot marker-user"></i>
+            <strong>Vous :</strong>
+            ${esc(userLabel)}
+            <b>${u > 0 ? '+' : ''}${fmt(u)}</b>
+          </span>
+
+          <span class="compare-reading-entity">
+            <i class="compare-reading-dot marker-entity"></i>
+            <strong>${esc(e.shortName)} :</strong>
+            ${esc(entityLabel)}
+            <b>${v > 0 ? '+' : ''}${fmt(v)}</b>
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+  `;
+}).join('');
   const itemHtml=x=>`<div class="driver-item">${esc(x.q.text)}<span class="driver-score">Vous ${formatAnswer(state.answers[x.i])} · ${esc(e.shortName)} ${formatAnswer(e.responses[x.i])}</span></div>`;
   const uniqueSources=[...new Set(e.sources.filter(Boolean))].slice(0,4);
   $('#modal-body').innerHTML=`<div style="display:flex;gap:18px;flex-wrap:wrap;margin-bottom:22px"><span class="eyebrow">Score calculé ${fmt(e.global)} %</span></div><h3>Indices détaillés par axe</h3>${axisRows}<div style="display:flex;gap:16px;align-items:center;color:var(--muted);font-size:.82rem;margin-top:14px"><span class="dot dot-user"></span>Vous <span class="dot dot-party"></span>${esc(e.shortName)}</div><div class="drivers"><div class="driver-box agree"><h3>Principaux accords</h3>${agree.map(itemHtml).join('')}</div><div class="driver-box disagree"><h3>Principales divergences</h3>${disagree.map(itemHtml).join('')}</div></div>${uniqueSources.length?`<h3 style="margin-top:26px">Sources documentaires</h3><ul class="source-list">${uniqueSources.map(s=>`<li><a href="${esc(s)}" target="_blank" rel="noopener">${esc(s)}</a></li>`).join('')}</ul>`:''}`;
