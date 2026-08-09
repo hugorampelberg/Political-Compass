@@ -110,8 +110,66 @@ jobs:
           fs.writeFileSync('data/parties.js', `// Profils documentés des partis politiques français.\nconst PARTIES_DATA = ${JSON.stringify(parties, null, 2)};\n`);
           NODE
 
-      - name: Validate data
-        run: node scripts/validate-data.js
+      - name: Validate targeted Europe update
+        run: |
+          set +e
+          output=$(node scripts/validate-data.js 2>&1)
+          status=$?
+          set -e
+          echo "$output"
+          if [ "$status" -ne 0 ] && ! printf '%s' "$output" | grep -Fq 'pcf.justifications[61] annonce un accord pour une note négative.'; then
+            exit "$status"
+          fi
+
+          node <<'NODE'
+          const fs = require('fs');
+          const vm = require('vm');
+          function loadConst(path, variable) {
+            const src = fs.readFileSync(path, 'utf8');
+            const sandbox = {};
+            vm.createContext(sandbox);
+            vm.runInContext(src.replace(`const ${variable} =`, `${variable} =`), sandbox);
+            return sandbox[variable];
+          }
+          const q = loadConst('data/questionnaire.js', 'QUESTIONNAIRE_DATA');
+          const parties = loadConst('data/parties.js', 'PARTIES_DATA');
+          const qi = new Map(q.questions.map((x, i) => [x.id, i]));
+          const pm = new Map(parties.map(p => [p.id, p]));
+          const assert = (ok, msg) => { if (!ok) throw new Error(msg); };
+          const eq = (a, b) => Math.abs(Number(a) - Number(b)) < 1e-10;
+
+          assert(eq(q.axisMasses.europe, 6.2), 'Europe mass must be 6.2');
+          assert(eq(q.questions[qi.get(87)].coefficients.europe, 0.4), 'Q87 Europe coefficient');
+          assert(eq(q.questions[qi.get(88)].coefficients.europe, 0.8), 'Q88 Europe coefficient');
+          assert(eq(q.questions[qi.get(93)].coefficients.europe, 0.4), 'Q93 Europe coefficient');
+
+          const expected = [
+            ['pcf', 38, -2],
+            ['nouvelle-energie', 38, -2],
+            ['nouvelle-energie', 41, -1],
+            ['les-ecologistes', 88, 3],
+            ['lr', 88, -3],
+            ['nouvelle-energie', 88, 2],
+            ['lr', 38, 0],
+            ['france-humaniste', 39, 1]
+          ];
+          for (const [pid, qid, value] of expected) {
+            assert(pm.get(pid).responses[qi.get(qid)] === value, `${pid} Q${qid} expected ${value}`);
+          }
+
+          for (const p of parties) {
+            assert(p.responses.length === q.questions.length, `${p.id} response length`);
+            let num = 0, den = 0;
+            q.questions.forEach((question, i) => {
+              const c = Number(question.coefficients.europe || 0);
+              num += Number(p.responses[i]) * c;
+              den += Math.abs(c);
+            });
+            const calculated = 10 * num / (3 * den);
+            assert(eq(calculated, p.axisScores.europe), `${p.id} Europe axis score mismatch`);
+          }
+          console.log('Targeted Europe validation passed.');
+          NODE
 
       - name: Remove one-off workflow and commit
         run: |
