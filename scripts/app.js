@@ -743,18 +743,16 @@ function openEntity(id){
         <div class="compare-axis-reading">
 
           <span class="compare-reading-user">
-            <i class="compare-reading-dot marker-user"></i>
-            <strong>Vous :</strong>
-            ${esc(userLabel)}
-            <b>${u > 0 ? '+' : ''}${fmt(u)}</b>
-          </span>
+  <i class="compare-reading-dot marker-user"></i>
+  <strong>Vous :</strong>
+  <b>${u > 0 ? '+' : ''}${fmt(u)}</b>
+</span>
 
-          <span class="compare-reading-entity">
-            <i class="compare-reading-dot marker-entity"></i>
-            <strong>${esc(e.shortName)} :</strong>
-            ${esc(entityLabel)}
-            <b>${v > 0 ? '+' : ''}${fmt(v)}</b>
-          </span>
+<span class="compare-reading-entity">
+  <i class="compare-reading-dot marker-entity"></i>
+  <strong>${esc(e.shortName)} :</strong>
+  <b>${v > 0 ? '+' : ''}${fmt(v)}</b>
+</span>
 
         </div>
 
