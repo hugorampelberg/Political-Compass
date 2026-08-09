@@ -370,7 +370,7 @@ const GOVERNMENTS_DATA = [
       "immigration": -2.342342342342342,
       "democracy": 1.2037037037037035
     },
-    "averageConfidence": 0.7394636015325671
+    "averageConfidence": 2.218390804597701
   },
   {
     "id": "espagne",
@@ -414,7 +414,7 @@ const GOVERNMENTS_DATA = [
       0,
       2,
       2,
-      2,
+      3,
       -2,
       3,
       3,
@@ -592,7 +592,7 @@ const GOVERNMENTS_DATA = [
       "Position de compromis : La transition écologique, les renouvelables et la réglementation climatique sont des priorités gouvernementales. Transposition ou inférence prudente.",
       "Accord net : La transition écologique, les renouvelables et la réglementation climatique sont des priorités gouvernementales. Position directement documentée.",
       "Accord net : La transition écologique, les renouvelables et la réglementation climatique sont des priorités gouvernementales. Transposition ou inférence prudente.",
-      "Accord net : Le gouvernement Sánchez est fortement pro-européen et favorable à davantage d’action commune. Position directement documentée.",
+      "Accord fort : Pedro Sánchez défend explicitement une Europe plus intégrée et plus souveraine, avec une Union de la sécurité et de la défense, davantage de souveraineté financière et la perspective d’une armée européenne. Cela correspond à une volonté forte de renforcer les capacités et compétences exercées au niveau européen : +3.",
       "Désaccord net : Le gouvernement Sánchez est fortement pro-européen et favorable à davantage d’action commune. Transposition ou inférence prudente.",
       "Accord fort : Le gouvernement Sánchez est fortement pro-européen et favorable à davantage d’action commune. Position directement documentée.",
       "Accord fort : Le gouvernement Sánchez est fortement pro-européen et favorable à davantage d’action commune. Position directement documentée.",
@@ -681,7 +681,7 @@ const GOVERNMENTS_DATA = [
       "https://www.lamoncloa.gob.es/Documents/2025/appendix-II-map-of-commitments-december.pdf",
       "https://www.lamoncloa.gob.es/Documents/2025/appendix-II-map-of-commitments-december.pdf",
       "https://www.lamoncloa.gob.es/Documents/2025/appendix-II-map-of-commitments-december.pdf",
-      "https://www.lamoncloa.gob.es/Documents/2025/appendix-II-map-of-commitments-december.pdf",
+      "https://www.lamoncloa.gob.es/lang/en/presidente/intervenciones/Paginas/2026/20260410-european-pulse-forum-speech.aspx",
       "https://www.lamoncloa.gob.es/Documents/2025/appendix-II-map-of-commitments-december.pdf",
       "https://www.lamoncloa.gob.es/Documents/2025/appendix-II-map-of-commitments-december.pdf",
       "https://www.lamoncloa.gob.es/Documents/2025/appendix-II-map-of-commitments-december.pdf",
@@ -737,12 +737,12 @@ const GOVERNMENTS_DATA = [
     "axisScores": {
       "economy": -4.703389830508472,
       "authority": -0.029761904761904726,
-      "europe": 6.129032258064516,
+      "europe": 6.666666666666666,
       "ecology": 4.573643410852713,
       "immigration": 3.393393393393393,
       "democracy": 1.9444444444444444
     },
-    "averageConfidence": 0.7509578544061303
+    "averageConfidence": 2.2528735632183907
   },
   {
     "id": "suisse",
@@ -831,13 +831,13 @@ const GOVERNMENTS_DATA = [
       2,
       -1,
       1,
-      -3,
+      -2,
       -3,
       2,
       -2,
       2,
       -1,
-      -2
+      0
     ],
     "confidence": [
       3,
@@ -1009,13 +1009,13 @@ const GOVERNMENTS_DATA = [
       "Accord net : la position est estimée à partir des propositions d'autonomie des établissements, de recrutement et de gestion des enseignants. Niveau de preuve : faisceau d’indices cohérent, sans équivalent toujours parfaitement identique.",
       "Réserve : la position est estimée à partir des propositions sur l'enseignement privé, son financement et la mixité sociale. Niveau de preuve : estimation prudente à partir de la ligne générale.",
       "Accord modéré : la source retenue précise le degré de régulation souhaité pour les meublés touristiques et les pouvoirs locaux. Niveau de preuve : estimation prudente à partir de la ligne générale.",
-      "Désaccord fort : le vote ou la politique officielle sur le soutien durable à l'Ukraine constitue l'indicateur principal. Niveau de preuve : preuve directe ou politique explicitement documentée.",
+      "Désaccord net : la neutralité suisse exclut l’aide militaire directe demandée par la question, mais la Confédération fournit une aide financière, humanitaire et de reconstruction très importante à l’Ukraine et condamne l’agression russe. Le désaccord porte donc surtout sur la composante militaire : -2 plutôt que -3.",
       "Désaccord fort : la source retenue porte sur l'extension européenne de la dissuasion ou, pour les pays non dotés, sur la protection nucléaire alliée. Niveau de preuve : preuve directe ou politique explicitement documentée.",
       "Accord net : le vote, la loi ou la position gouvernementale sur l'aide à mourir fournit un équivalent direct ou très proche. Niveau de preuve : preuve directe ou politique explicitement documentée.",
       "Désaccord net : le programme social et sanitaire permet d'estimer la place laissée aux opérateurs lucratifs dans la dépendance. Niveau de preuve : faisceau d’indices cohérent, sans équivalent toujours parfaitement identique.",
       "Accord net : le modèle de prestations familiales et la ligne programmatique permettent d'estimer la préférence pour l'universalité ou le ciblage. Niveau de preuve : faisceau d’indices cohérent, sans équivalent toujours parfaitement identique.",
       "Réserve : le vote ou la politique publique sur l'âge d'accès aux réseaux sociaux permet de distinguer interdiction stricte, autorisation parentale et régulation plus souple. Niveau de preuve : estimation prudente à partir de la ligne générale.",
-      "Désaccord net : la stratégie numérique permet d'estimer la priorité accordée à la souveraineté européenne par rapport au coût et à la performance. Niveau de preuve : faisceau d’indices cohérent, sans équivalent toujours parfaitement identique."
+      "Position neutre ou conditionnelle : la Confédération recherche une forte souveraineté numérique pour les usages sensibles, tout en appliquant une stratégie hybride multi-cloud qui autorise aussi le recours à des fournisseurs publics étrangers lorsque c’est la solution la plus adaptée. Elle ne privilégie donc pas systématiquement l’hébergement européen au prix d’une moindre performance ou d’un surcoût : 0."
     ],
     "sources": [
       "https://www.bfs.admin.ch/bfs/en/home/statistics/cross-sectional-topics/monitoring-legislature-plan.html",
@@ -1098,23 +1098,23 @@ const GOVERNMENTS_DATA = [
       "https://www.aboutswitzerland.eda.admin.ch/en/education",
       "https://www.aboutswitzerland.eda.admin.ch/en/education",
       "https://www.aboutswitzerland.eda.admin.ch/en/political-system",
-      "https://www.admin.ch/fr/newnsb/TH6DWe30NGhy7ClVBW22P",
+      "https://www.eda.admin.ch/en/support-of-the-confederation-for-the-people-affected-by-the-war-in-ukraine",
       "https://www.eda.admin.ch/en/foreign-policy-strategy-2024-27",
       "https://www.bag.admin.ch/fr/suicide-assiste",
       "https://www.bag.admin.ch/fr/soins-de-longue-duree",
       "https://www.bsv.admin.ch/bsv/fr/home/assurances-sociales/famz.html",
       "https://www.admin.ch/gov/fr/accueil/documentation/communiques.msg-id-104729.html",
-      "https://www.admin.ch/gov/fr/accueil/documentation/communiques.msg-id-104729.html"
+      "https://www.bk.admin.ch/en/cloud-6"
     ],
     "axisScores": {
-      "economy": 2.8813559322033893,
-      "authority": -0.8779761904761905,
-      "europe": -5.591397849462367,
+      "economy": 2.8248587570621466,
+      "authority": -0.8482142857142857,
+      "europe": -4.946236559139785,
       "ecology": 0.42635658914728686,
       "immigration": -2.7627627627627622,
       "democracy": 4.907407407407407
     },
-    "averageConfidence": 0.6781609195402298
+    "averageConfidence": 2.0344827586206895
   },
   {
     "id": "finlande",
@@ -1158,10 +1158,10 @@ const GOVERNMENTS_DATA = [
       2,
       0,
       0,
-      2,
+      1,
       -1,
       3,
-      2,
+      1,
       -2,
       2,
       -1,
@@ -1336,10 +1336,10 @@ const GOVERNMENTS_DATA = [
       "Accord net : La Finlande poursuit la neutralité carbone en privilégiant la technologie, le nucléaire, les renouvelables et la compétitivité. Transposition ou inférence prudente.",
       "Position de compromis : La Finlande poursuit la neutralité carbone en privilégiant la technologie, le nucléaire, les renouvelables et la compétitivité. Transposition ou inférence prudente.",
       "Position de compromis : La Finlande poursuit la neutralité carbone en privilégiant la technologie, le nucléaire, les renouvelables et la compétitivité. Transposition ou inférence prudente.",
-      "Accord net : La Finlande est pro-UE et pro-euro, tout en demandant une responsabilité budgétaire accrue des États membres. Position directement documentée.",
+      "Accord modéré : la Finlande veut une Union européenne forte et capable d’agir, mais sa doctrine officielle demande que l’UE soit grande sur les grands sujets et petite sur les petits, respecte la subsidiarité et conserve une division claire des compétences entre Union et États membres. Elle soutient donc des transferts ciblés plutôt qu’une extension générale des compétences : +1.",
       "Réserve : La Finlande est pro-UE et pro-euro, tout en demandant une responsabilité budgétaire accrue des États membres. Transposition ou inférence prudente.",
       "Accord fort : La Finlande est pro-UE et pro-euro, tout en demandant une responsabilité budgétaire accrue des États membres. Position directement documentée.",
-      "Accord net : La Finlande est pro-UE et pro-euro, tout en demandant une responsabilité budgétaire accrue des États membres. Position directement documentée.",
+      "Accord modéré : la Finlande accepte des règles communes lorsque l’échelle européenne apporte une vraie valeur ajoutée, mais insiste officiellement sur la subsidiarité, la proportionnalité, une division claire des compétences et la simplification de la réglementation européenne. Cela justifie +1 plutôt que +2.",
       "Désaccord net : La Finlande est pro-UE et pro-euro, tout en demandant une responsabilité budgétaire accrue des États membres. Transposition ou inférence prudente.",
       "Accord net par analogie : la Finlande repose sur une fiscalité immobilière ordinaire ; le programme Orpo prévoit d’en réformer les valeurs fiscales, sans impôt spécifique sur les hauts patrimoines immobiliers.",
       "Réserve : Le programme Orpo privilégie le travail, l’entrepreneuriat, la réduction du déficit, les réformes du marché du travail et la baisse des obstacles réglementaires. Comparabilité limitée ou position peu explicite.",
@@ -1425,10 +1425,10 @@ const GOVERNMENTS_DATA = [
       "https://valtioneuvosto.fi/en/governments/government-programme",
       "https://valtioneuvosto.fi/en/governments/government-programme",
       "https://valtioneuvosto.fi/en/governments/government-programme",
+      "https://valtioneuvosto.fi/en/finlands-eu-policy/finland-in-the-european-union",
       "https://valtioneuvosto.fi/en/governments/government-programme",
       "https://valtioneuvosto.fi/en/governments/government-programme",
-      "https://valtioneuvosto.fi/en/governments/government-programme",
-      "https://valtioneuvosto.fi/en/governments/government-programme",
+      "https://valtioneuvosto.fi/en/finlands-eu-policy/finland-in-the-european-union",
       "https://valtioneuvosto.fi/en/governments/government-programme",
       "https://valtioneuvosto.fi/en/governments/government-programme",
       "https://valtioneuvosto.fi/en/governments/government-programme",
@@ -1481,12 +1481,12 @@ const GOVERNMENTS_DATA = [
     "axisScores": {
       "economy": 4.0677966101694905,
       "authority": 1.9047619047619055,
-      "europe": 6.774193548387096,
+      "europe": 5.698924731182795,
       "ecology": -1.7441860465116281,
       "immigration": -4.414414414414413,
       "democracy": 1.2037037037037037
     },
-    "averageConfidence": 0.7088122605363985
+    "averageConfidence": 2.1264367816091956
   },
   {
     "id": "royaume-uni",
@@ -1581,7 +1581,7 @@ const GOVERNMENTS_DATA = [
       -2,
       -2,
       3,
-      -2
+      0
     ],
     "confidence": [
       2,
@@ -1670,7 +1670,7 @@ const GOVERNMENTS_DATA = [
       2,
       3,
       3,
-      3
+      2
     ],
     "justifications": [
       "Position de compromis : Le gouvernement Labour combine croissance, investissement public, renforcement des droits du travail et discipline budgétaire modérée. Transposition ou inférence prudente.",
@@ -1759,7 +1759,7 @@ const GOVERNMENTS_DATA = [
       "Désaccord net : le programme social et sanitaire permet d'estimer la place laissée aux opérateurs lucratifs dans la dépendance. Niveau de preuve : faisceau d’indices cohérent, sans équivalent toujours parfaitement identique.",
       "Désaccord net : le Child Benefit est juridiquement universel, mais son montant est progressivement récupéré par l’impôt pour les revenus individuels élevés et peut être entièrement repris. Il n’est donc pas réellement indépendant du revenu : -2.",
       "Accord fort : le vote ou la politique publique sur l'âge d'accès aux réseaux sociaux permet de distinguer interdiction stricte, autorisation parentale et régulation plus souple. Niveau de preuve : preuve directe ou politique explicitement documentée.",
-      "Désaccord net : la stratégie numérique permet d'estimer la priorité accordée à la souveraineté européenne par rapport au coût et à la performance. Niveau de preuve : preuve directe ou politique explicitement documentée."
+      "Position neutre : le gouvernement britannique développe explicitement des capacités d’IA souveraines et une infrastructure nationale de calcul, ce qui contredit une préférence pour la dépendance technologique étrangère. Mais cette stratégie est britannique, pas spécifiquement européenne, et n’établit pas qu’il accepterait une solution européenne moins performante ou plus coûteuse : 0."
     ],
     "sources": [
       "https://www.gov.uk/government/publications/plan-for-change",
@@ -1848,17 +1848,17 @@ const GOVERNMENTS_DATA = [
       "https://www.gov.uk/government/publications/plan-for-change",
       "https://www.gov.uk/child-benefit-tax-charge",
       "https://www.gov.uk/government/news/social-media-to-be-banned-for-under-16s-in-landmark-government-move-to-givekids-their-childhood-back",
-      "https://www.gov.uk/government/news/ai-firms-pioneering-drug-discovery-cheaper-supercomputing-and-more-get-first-backing-through-uks-sovereign-ai"
+      "https://www.gov.uk/government/publications/expression-of-interest-airr-heterogeneous-supercomputer-host-site-selection"
     ],
     "axisScores": {
-      "economy": -1.8644067796610162,
+      "economy": -1.9209039548022593,
       "authority": 2.1279761904761902,
-      "europe": 0.10752688172043019,
+      "europe": 0.5376344086021506,
       "ecology": 4.224806201550388,
       "immigration": -0.33033033033033027,
       "democracy": 0.18518518518518512
     },
-    "averageConfidence": 0.7241379310344828
+    "averageConfidence": 2.160919540229885
   },
   {
     "id": "danemark",
@@ -1905,7 +1905,7 @@ const GOVERNMENTS_DATA = [
       2,
       -2,
       0,
-      3,
+      2,
       -3,
       -2,
       -1,
@@ -1948,7 +1948,7 @@ const GOVERNMENTS_DATA = [
       1,
       2,
       3,
-      1,
+      2,
       0,
       -1,
       -1,
@@ -1994,7 +1994,7 @@ const GOVERNMENTS_DATA = [
       3,
       2,
       1,
-      3,
+      2,
       3,
       3,
       1,
@@ -2037,7 +2037,7 @@ const GOVERNMENTS_DATA = [
       1,
       2,
       3,
-      1,
+      3,
       1,
       2,
       2,
@@ -2083,7 +2083,7 @@ const GOVERNMENTS_DATA = [
       "Accord net : Le programme place l’UE au cœur de la politique danoise et défend une Europe plus intégrée et capable d’agir, tout en conservant la monnaie danoise. Position directement documentée.",
       "Désaccord net : Le programme place l’UE au cœur de la politique danoise et défend une Europe plus intégrée et capable d’agir, tout en conservant la monnaie danoise. Transposition ou inférence prudente.",
       "Position de compromis : Le programme place l’UE au cœur de la politique danoise et défend une Europe plus intégrée et capable d’agir, tout en conservant la monnaie danoise. Position peu explicite ou comparaison institutionnelle limitée.",
-      "Accord fort : Le programme place l’UE au cœur de la politique danoise et défend une Europe plus intégrée et capable d’agir, tout en conservant la monnaie danoise. Position directement documentée.",
+      "Accord net mais non maximal : le Danemark soutient une Union capable d’agir davantage dans des domaines communs comme la sécurité, le climat ou la compétitivité, mais cela ne revient pas à souhaiter systématiquement davantage de réglementation européenne dans tous les domaines. La formulation générale de la question justifie +2 plutôt que +3.",
       "Désaccord fort : Le programme place l’UE au cœur de la politique danoise et défend une Europe plus intégrée et capable d’agir, tout en conservant la monnaie danoise. Position directement documentée.",
       "Désaccord net par analogie : la taxe danoise sur la valeur immobilière applique un taux supérieur à la fraction de valeur dépassant 9,2 millions de couronnes.",
       "Réserve : Le programme combine baisse de l’impôt sur les sociétés et de certains impôts supérieurs, soutien aux entreprises, plein emploi et renforcement de prestations universelles. Position peu explicite ou comparaison institutionnelle limitée.",
@@ -2126,7 +2126,7 @@ const GOVERNMENTS_DATA = [
       "Accord modéré : la position est estimée à partir des propositions sur l'enseignement privé, son financement et la mixité sociale. Niveau de preuve : estimation prudente à partir de la ligne générale.",
       "Accord net : la source retenue précise le degré de régulation souhaité pour les meublés touristiques et les pouvoirs locaux. Niveau de preuve : faisceau d’indices cohérent, sans équivalent toujours parfaitement identique.",
       "Accord fort : le vote ou la politique officielle sur le soutien durable à l'Ukraine constitue l'indicateur principal. Niveau de preuve : preuve directe ou politique explicitement documentée.",
-      "Accord modéré : la source retenue porte sur l'extension européenne de la dissuasion ou, pour les pays non dotés, sur la protection nucléaire alliée. Niveau de preuve : estimation prudente à partir de la ligne générale.",
+      "Accord net : Mette Frederiksen a accepté en mars 2026 l’invitation française à un dialogue stratégique renforcé sur la dissuasion nucléaire européenne et française, incluant consultations régulières et participation danoise à des exercices, tout en maintenant le cadre de l’OTAN et sans stationnement d’armes françaises au Danemark. C’est un accord clair mais encadré : +2.",
       "Position neutre, partagée ou non arrêtée : le vote, la loi ou la position gouvernementale sur l'aide à mourir fournit un équivalent direct ou très proche. Niveau de preuve : estimation prudente à partir de la ligne générale.",
       "Réserve : le programme social et sanitaire permet d'estimer la place laissée aux opérateurs lucratifs dans la dépendance. Niveau de preuve : faisceau d’indices cohérent, sans équivalent toujours parfaitement identique.",
       "Réserve : le modèle de prestations familiales et la ligne programmatique permettent d'estimer la préférence pour l'universalité ou le ciblage. Niveau de preuve : faisceau d’indices cohérent, sans équivalent toujours parfaitement identique.",
@@ -2172,7 +2172,7 @@ const GOVERNMENTS_DATA = [
       "https://stm.dk/media/rc1ktdmg/det-politiske-grundlag-for-firkloeverregeringen.pdf",
       "https://stm.dk/media/rc1ktdmg/det-politiske-grundlag-for-firkloeverregeringen.pdf",
       "https://stm.dk/media/rc1ktdmg/det-politiske-grundlag-for-firkloeverregeringen.pdf",
-      "https://stm.dk/media/rc1ktdmg/det-politiske-grundlag-for-firkloeverregeringen.pdf",
+      "https://regeringen.dk/om-regeringen/regeringer-siden-1848/regeringen-mette-frederiksen-iii/",
       "https://stm.dk/media/rc1ktdmg/det-politiske-grundlag-for-firkloeverregeringen.pdf",
       "https://skat.dk/en-us/individuals/property/introduction-to-property-in-denmark",
       "https://stm.dk/media/rc1ktdmg/det-politiske-grundlag-for-firkloeverregeringen.pdf",
@@ -2215,7 +2215,7 @@ const GOVERNMENTS_DATA = [
       "https://stm.dk/media/rc1ktdmg/det-politiske-grundlag-for-firkloeverregeringen.pdf",
       "https://stm.dk/media/rc1ktdmg/det-politiske-grundlag-for-firkloeverregeringen.pdf",
       "https://regeringen.dk/aktuelt/nyheder/2025/pressemoede-med-costa-von-der-leyen-og-zelenskyy-den-3-juli-2025/",
-      "https://stm.dk/media/rc1ktdmg/det-politiske-grundlag-for-firkloeverregeringen.pdf",
+      "https://stm.dk/presse/pressemoedearkiv/2026/pressemoede-den-2-marts-2026/",
       "https://regeringen.dk/aktuelt/statsministerens-aabningstale/statsministerens-aabningstale-2023/",
       "https://stm.dk/media/rc1ktdmg/det-politiske-grundlag-for-firkloeverregeringen.pdf",
       "https://stm.dk/media/rc1ktdmg/det-politiske-grundlag-for-firkloeverregeringen.pdf",
@@ -2224,13 +2224,13 @@ const GOVERNMENTS_DATA = [
     ],
     "axisScores": {
       "economy": -0.19774011299435018,
-      "authority": 1.4732142857142865,
-      "europe": 6.559139784946238,
+      "authority": 1.5029761904761911,
+      "europe": 6.451612903225807,
       "ecology": 5.852713178294574,
       "immigration": -3.603603603603603,
       "democracy": 1.0648148148148147
     },
-    "averageConfidence": 0.7126436781609196
+    "averageConfidence": 2.1494252873563218
   },
   {
     "id": "pays-bas",
@@ -2602,7 +2602,7 @@ const GOVERNMENTS_DATA = [
       "immigration": -2.7627627627627627,
       "democracy": 2.083333333333333
     },
-    "averageConfidence": 0.6934865900383141
+    "averageConfidence": 2.0804597701149423
   },
   {
     "id": "pologne",
@@ -2646,11 +2646,11 @@ const GOVERNMENTS_DATA = [
       2,
       0,
       0,
-      2,
       1,
+      0,
       -1,
       1,
-      1,
+      -2,
       2,
       -2,
       -1,
@@ -2692,7 +2692,7 @@ const GOVERNMENTS_DATA = [
       1,
       1,
       3,
-      1,
+      2,
       -2,
       -1,
       3,
@@ -2736,10 +2736,10 @@ const GOVERNMENTS_DATA = [
       1,
       1,
       3,
+      2,
       1,
       1,
-      1,
-      1,
+      3,
       1,
       1,
       1,
@@ -2781,7 +2781,7 @@ const GOVERNMENTS_DATA = [
       1,
       1,
       3,
-      1,
+      3,
       1,
       1,
       3,
@@ -2824,11 +2824,11 @@ const GOVERNMENTS_DATA = [
       "Accord net : codage fondé sur les documents officiels retenus pour le thème « Écologie ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
       "Position neutre, partagée ou non arrêtée : codage fondé sur les documents officiels retenus pour le thème « Écologie ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
       "Position neutre, partagée ou non arrêtée : codage fondé sur les documents officiels retenus pour le thème « Écologie ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
-      "Accord net : codage fondé sur les documents officiels retenus pour le thème « Europe ». Niveau de preuve : position ou mesure explicitement documentée.",
-      "Accord modéré : codage fondé sur les documents officiels retenus pour le thème « Europe ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
+      "Accord modéré : le gouvernement Tusk veut une Europe beaucoup plus capable d’agir, notamment en défense, mais présente les instruments européens comme SAFE comme des moyens de renforcer simultanément la souveraineté polonaise. La ligne est donc celle d’une coopération européenne ambitieuse plus que d’un transfert général de compétences : +1.",
+      "Position neutre : Donald Tusk défend à la fois une Pologne souveraine et une Europe capable d’agir de manière autonome, en rejetant explicitement le repli derrière les frontières nationales. Sa doctrine ne consiste donc pas à privilégier la souveraineté nationale même au prix d’une influence européenne moindre : 0.",
       "Réserve : codage fondé sur les documents officiels retenus pour le thème « Europe ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
       "Accord modéré : codage fondé sur les documents officiels retenus pour le thème « Europe ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
-      "Accord modéré : codage fondé sur les documents officiels retenus pour le thème « Europe ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
+      "Désaccord net : le gouvernement Tusk a fait du rétablissement de l’État de droit et du respect des obligations découlant du droit de l’Union et de la jurisprudence de la CJUE une priorité, ce qui a permis la clôture de la procédure de l’article 7. Il peut contester politiquement certaines règles européennes, mais pas défendre comme principe la désobéissance nationale : -2.",
       "Accord net : codage fondé sur les documents officiels retenus pour le thème « Fiscalité / patrimoine ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
       "Désaccord net : codage fondé sur les documents officiels retenus pour le thème « Fiscalité / patrimoine ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
       "Réserve : codage fondé sur les documents officiels retenus pour le thème « Fiscalité / patrimoine ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
@@ -2870,7 +2870,7 @@ const GOVERNMENTS_DATA = [
       "Accord modéré : codage fondé sur les documents officiels retenus pour le thème « Éducation / mixité sociale ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
       "Accord modéré : codage fondé sur les documents officiels retenus pour le thème « Logement / locations touristiques ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
       "Accord fort : codage fondé sur les documents officiels retenus pour le thème « Défense / Ukraine ». Niveau de preuve : position ou mesure explicitement documentée.",
-      "Accord modéré : codage fondé sur les documents officiels retenus pour le thème « Défense / dissuasion nucléaire ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
+      "Accord net : la Pologne et la France ont créé en juillet 2026 un groupe de pilotage pour des consultations sur la coopération nucléaire et la dissuasion avancée française, avec l’objectif explicite de renforcer la sécurité de la Pologne, de la France et de l’Europe. La coopération est substantielle mais encore en phase de consultation : +2.",
       "Désaccord net : codage fondé sur les documents officiels retenus pour le thème « Santé / fin de vie ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
       "Réserve : codage fondé sur les documents officiels retenus pour le thème « Dépendance / EHPAD ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
       "Accord fort : codage fondé sur les documents officiels retenus pour le thème « Famille / prestations ». Niveau de preuve : position ou mesure explicitement documentée.",
@@ -2913,11 +2913,11 @@ const GOVERNMENTS_DATA = [
       "https://www.gov.pl/web/primeminister/poland-a-year-of-breakthrough---the-prime-minister-unveils-polands-2025-economic-plan",
       "https://www.gov.pl/web/primeminister/poland-a-year-of-breakthrough---the-prime-minister-unveils-polands-2025-economic-plan",
       "https://www.gov.pl/web/primeminister/poland-a-year-of-breakthrough---the-prime-minister-unveils-polands-2025-economic-plan",
+      "https://www.gov.pl/web/primeminister/safe-polands-blueprint-for-european-security-and-domestic-defence-growth",
+      "https://www.gov.pl/web/primeminister/poland-can-stand-as-europes-beacon-of-hope",
       "https://www.gov.pl/web/primeminister/poland-doubles-down-on-alliances-as-pm-tusk-returns-from-epc-summit",
       "https://www.gov.pl/web/primeminister/poland-doubles-down-on-alliances-as-pm-tusk-returns-from-epc-summit",
-      "https://www.gov.pl/web/primeminister/poland-doubles-down-on-alliances-as-pm-tusk-returns-from-epc-summit",
-      "https://www.gov.pl/web/primeminister/poland-doubles-down-on-alliances-as-pm-tusk-returns-from-epc-summit",
-      "https://www.gov.pl/web/primeminister/poland-doubles-down-on-alliances-as-pm-tusk-returns-from-epc-summit",
+      "https://www.gov.pl/web/justice/the-european-commission-intends-to-close-article-7-procedure-against-poland",
       "https://www.gov.pl/web/primeminister/poland-a-year-of-breakthrough---the-prime-minister-unveils-polands-2025-economic-plan",
       "https://www.gov.pl/web/primeminister/poland-a-year-of-breakthrough---the-prime-minister-unveils-polands-2025-economic-plan",
       "https://www.gov.pl/web/primeminister/poland-a-year-of-breakthrough---the-prime-minister-unveils-polands-2025-economic-plan",
@@ -2959,7 +2959,7 @@ const GOVERNMENTS_DATA = [
       "https://www.gov.pl/web/primeminister/expose",
       "https://www.gov.pl/web/primeminister/expose",
       "https://www.gov.pl/web/primeminister/safe-polands-blueprint-for-european-security-and-domestic-defence-growth",
-      "https://www.gov.pl/web/primeminister/safe-polands-blueprint-for-european-security-and-domestic-defence-growth",
+      "https://www.gov.pl/web/diplomacy/first-meeting-of-polishfrench-steering-group-for-nuclear-cooperation",
       "https://www.gov.pl/web/primeminister/expose",
       "https://www.gov.pl/web/primeminister/expose",
       "https://www.gov.pl/web/primeminister/expose",
@@ -2968,12 +2968,12 @@ const GOVERNMENTS_DATA = [
     ],
     "axisScores": {
       "economy": -0.15536723163841812,
-      "authority": 1.681547619047619,
-      "europe": 1.7204301075268815,
+      "authority": 1.7113095238095242,
+      "europe": 3.4408602150537626,
       "ecology": -1.9767441860465118,
       "immigration": -4.564564564564564,
       "democracy": 2.1759259259259265
     },
-    "averageConfidence": 0.5632183908045977
+    "averageConfidence": 1.7471264367816093
   }
 ];
