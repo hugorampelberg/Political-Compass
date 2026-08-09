@@ -34,6 +34,18 @@ jobs:
             return { text, value: JSON.parse(text.slice(jsonStart, end).trim()) };
           }
 
+          function labelFor(value) {
+            return ({
+              '-3': 'Désaccord fort',
+              '-2': 'Désaccord net',
+              '-1': 'Réserve',
+              '0': 'Position équilibrée ou non tranchée',
+              '1': 'Accord modéré',
+              '2': 'Accord net',
+              '3': 'Accord fort'
+            })[String(value)];
+          }
+
           const questionnaire = parseConstFile('data/questionnaire.js', 'QUESTIONNAIRE_DATA').value;
           const parsedParties = parseConstFile('data/parties.js', 'PARTIES_DATA');
           const parties = parsedParties.value;
@@ -65,6 +77,12 @@ jobs:
             if (idx === undefined) throw new Error(`Unknown question Q${questionId}`);
             const oldValue = party.responses[idx];
             party.responses[idx] = newValue;
+
+            const justification = party.justifications[idx] || '';
+            const colon = justification.indexOf(':');
+            const body = colon >= 0 ? justification.slice(colon + 1).trim() : justification.trim();
+            party.justifications[idx] = `${labelFor(newValue)} : ${body || 'codage mis à jour.'}`;
+
             affected.add(partyId);
             audit.push(`${party.name} Q${questionId}: ${oldValue} -> ${newValue} (responses[${idx}])`);
           }
@@ -91,6 +109,9 @@ jobs:
           console.log('Applied changes:');
           for (const line of audit) console.log(`- ${line}`);
           console.log('Recalculated parties:', [...affected].join(', '));
+          for (const partyId of affected) {
+            console.log(`${partyId} axisScores=${JSON.stringify(byId.get(partyId).axisScores)}`);
+          }
           NODE
 
       - name: Validate data
