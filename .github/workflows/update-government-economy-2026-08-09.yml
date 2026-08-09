@@ -1,0 +1,160 @@
+name: Update government economy 2026-08-09
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/update-government-economy-2026-08-09.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.event.head_commit.message == 'Apply approved government economy updates'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Apply approved scores
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const vm = require('vm');
+
+          function loadConst(path, variable) {
+            const src = fs.readFileSync(path, 'utf8');
+            const sandbox = {};
+            vm.createContext(sandbox);
+            vm.runInContext(src.replace(`const ${variable} =`, `${variable} =`), sandbox);
+            return sandbox[variable];
+          }
+
+          const questionnaire = loadConst('data/questionnaire.js', 'QUESTIONNAIRE_DATA');
+          const governments = loadConst('data/governments.js', 'GOVERNMENTS_DATA');
+          const qIndex = new Map(questionnaire.questions.map((q, i) => [q.id, i]));
+          const govById = new Map(governments.map(g => [g.id, g]));
+
+          const changes = [
+            ['allemagne', 7, 1, 3, "Accord modéré : le gouvernement Merz a décidé une prise de participation publique de 40 % dans KNDS afin de préserver une influence stratégique sur l’industrie de défense. Cela valide le principe d’une prise de contrôle publique dans un secteur stratégique, sans aller jusqu’à une nationalisation intégrale : +1.", 'https://www.bundeswirtschaftsministerium.de/Redaktion/DE/Pressemitteilungen/2026/06/20260622-zitat-reiche-knds.html'],
+            ['allemagne', 46, 3, 3, "Accord fort : la nouvelle Grundsicherung prévoit des réductions importantes de prestations en cas de refus répété de coopérer avec le retour à l’emploi, pouvant aller jusqu’à la suppression temporaire du montant standard. Le mécanisme correspond directement à la question : +3.", 'https://www.bundesregierung.de/breg-de/aktuelles/neue-grundsicherung-2399562'],
+            ['allemagne', 49, 2, 3, "Accord net : la réforme des retraites prévoit une composante obligatoire de capitalisation individuelle en complément de la répartition, mais avec une cotisation limitée à environ 2 %. Le système reste principalement fondé sur la répartition : +2.", 'https://www.bundesregierung.de/breg-de/schwerpunkte/reformen-fuer-deutschland/gesundheitspolitik-rentenpolitik-2446878'],
+
+            ['espagne', 5, 3, 3, "Accord fort : le gouvernement Sánchez a mené une hausse structurelle et répétée du salaire minimum, passé d’environ 735 € à plus de 1 200 € sur quatorze mensualités depuis 2018, avec l’objectif de le maintenir autour de 60 % du salaire moyen : +3.", 'https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/trabajo14/Paginas/2023/140223-salario-minimo-interprofesional.aspx'],
+            ['espagne', 46, 3, 3, "Accord fort : en Espagne, le refus injustifié d’une offre d’emploi adéquate peut entraîner trois mois de suspension des prestations, puis six mois et enfin leur extinction en cas de récidive. C’est un équivalent direct de la proposition : +3.", 'https://www.sepe.es/HomeSepe/prestaciones-desempleo/quiero-cobrar-el-paro/obligaciones-infracciones-sanciones'],
+            ['espagne', 48, -2, 3, "Désaccord net : les réformes du marché du travail du gouvernement Sánchez ont cherché à réduire fortement la précarité et à généraliser les contrats permanents. La ligne suivie renforce donc le CDI plutôt qu’elle ne considère sa protection comme excessive : -2.", 'https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/inclusion/Paginas/2026/020726-afiliados-junio.aspx'],
+            ['espagne', 49, 1, 3, "Accord modéré : le gouvernement Sánchez a développé un deuxième pilier de fonds de pension professionnels capitalisés, mais la retraite publique par répartition demeure très largement centrale. Il existe donc une ouverture réelle à la capitalisation, sans basculement structurel du système : +1.", 'https://www.lamoncloa.gob.es/lang/en/gobierno/news/paginas/2026/20260511-open-government-week.aspx'],
+            ['espagne', 82, 3, 3, "Accord fort : le système national de santé espagnol finance publiquement l’essentiel du panier commun de soins, avec un rôle beaucoup plus limité des assurances complémentaires que dans le modèle français. La logique de la question est très directement réalisée : +3.", 'https://www.sanidad.gob.es/profesionales/prestacionesSanitarias/CarteraDeServicios/home.htm'],
+
+            ['suisse', 34, 0, 2, "Position neutre, partagée ou non arrêtée : la Suisse utilise bien la TVA pour financer une partie de l’AVS, mais il ne s’agit pas d’un remplacement explicite des cotisations sociales par la TVA afin d’augmenter le salaire net et de réduire le coût du travail. Le mécanisme est donc seulement partiellement comparable : 0.", 'https://www.bsv.admin.ch/fr/avs-21'],
+            ['suisse', 48, 2, 3, "Accord net : le droit suisse du travail repose sur une liberté de résiliation relativement large, avec délais de préavis et protections ciblées plutôt qu’une forte protection générale de l’emploi comparable au CDI français. La proposition correspond assez bien au modèle suisse : +2.", 'https://www.seco.admin.ch/fr/faq-resiliation-du-contrat'],
+            ['suisse', 50, -2, 3, "Désaccord net : dans la réforme AVS 2030 mise en consultation en 2026, le Conseil fédéral indique qu’un relèvement de l’âge de référence n’est pas envisagé. Une indexation automatique sur l’espérance de vie n’est donc pas la ligne actuelle : -2.", 'https://www.bsv.admin.ch/fr/avs-2030-fr'],
+
+            ['finlande', 7, 2, 3, "Accord net : l’État finlandais conserve des participations importantes, parfois majoritaires, dans des entreprises stratégiques comme Finnair, Fortum, Neste ou Posti afin de protéger des intérêts nationaux essentiels. Cela valide clairement le principe d’un contrôle public stratégique : +2.", 'https://valtioneuvosto.fi/government-ownership-steering/companies'],
+            ['finlande', 54, 3, 3, "Accord fort : la Finlande dispose d’une politique explicite d’État actionnaire et utilise ses participations publiques pour fixer des objectifs de long terme dans des entreprises jugées stratégiques. C’est un équivalent direct de la proposition : +3.", 'https://valtioneuvosto.fi/government-ownership-steering/companies'],
+            ['finlande', 49, 3, 3, "Accord fort : le système finlandais de retraites professionnelles combine structurellement répartition et capitalisation partielle obligatoire. La proposition correspond donc directement au fonctionnement existant : +3.", 'https://www.etk.fi/en/finnish-pension-system/financing-and-investments/financing-principles/'],
+            ['finlande', 50, 3, 3, "Accord fort : pour les générations nées à partir de 1965, l’âge de la retraite en Finlande est légalement lié à l’évolution de l’espérance de vie. C’est pratiquement la formulation exacte de la question : +3.", 'https://www.etk.fi/en/research-statistics-and-projections/projections/long-term-projections/latest-projections/'],
+
+            ['royaume-uni', 7, 2, 3, "Accord net : le gouvernement Labour accepte explicitement la prise de contrôle public d’entreprises stratégiques, notamment avec le retour de British Steel dans le secteur public et la renationalisation ferroviaire. La pratique est nette, mais le recours reste ciblé : +2.", 'https://www.gov.uk/government/news/government-brings-british-steel-into-public-ownership-to-protect-uk-steelmaking'],
+            ['royaume-uni', 46, 2, 3, "Accord net : Universal Credit prévoit des sanctions longues après refus injustifié d’un emploi ou non-respect d’obligations de recherche d’emploi. Le principe de réduction substantielle des prestations est bien appliqué, mais avec des garanties et procédures : +2.", 'https://www.gov.uk/guidance/universal-credit-sanctions'],
+            ['royaume-uni', 51, 2, 3, "Accord net : une part importante des prestations britanniques destinées aux personnes en âge de travailler est soumise à des obligations de recherche d’emploi, d’activité ou de disponibilité. Cette conditionnalité est forte mais ne concerne pas toutes les prestations sociales : +2.", 'https://www.gov.uk/guidance/universal-credit-sanctions'],
+            ['royaume-uni', 48, -2, 3, "Désaccord net : le Labour renforce les protections contre le licenciement, notamment en réduisant à six mois la durée nécessaire pour bénéficier de la protection ordinaire contre le licenciement abusif. La réforme va dans le sens opposé à l’énoncé : -2.", 'https://www.business.gov.uk/campaign/employment-changes/employers/unfair-dismissal-rights/'],
+            ['royaume-uni', 49, 2, 3, "Accord net : l’auto-enrolment inscrit automatiquement les salariés éligibles dans une retraite professionnelle capitalisée avec contribution de l’employeur. Comme le salarié peut sortir du dispositif, le modèle n’est pas entièrement obligatoire : +2.", 'https://www.gov.uk/workplace-pensions/joining-a-workplace-pension'],
+            ['royaume-uni', 91, -2, 3, "Désaccord net : le Child Benefit est juridiquement universel, mais son montant est progressivement récupéré par l’impôt pour les revenus individuels élevés et peut être entièrement repris. Il n’est donc pas réellement indépendant du revenu : -2.", 'https://www.gov.uk/child-benefit-tax-charge'],
+
+            ['danemark', 49, 3, 3, "Accord fort : le système danois combine pension publique, ATP obligatoire capitalisé et pensions professionnelles collectives largement généralisées. La combinaison structurelle entre répartition et capitalisation correspond directement à la question : +3.", 'https://www.atp.dk/en/our-tasks/atp-livslang-pension-lifelong-pension/pay-slip-payment'],
+
+            ['pologne', 5, 1, 3, "Accord modéré : le salaire minimum polonais augmente encore en 2026, mais la hausse est d’environ 3 %, proche de l’inflation prévue. Il s’agit d’une revalorisation réelle mais pas d’une augmentation particulièrement forte : +1.", 'https://www.gov.pl/web/premier/propozycja-wysokosci-minimalnego-wynagrodzenia-za-prace-oraz-minimalnej-stawki-godzinowej-w-2026-r']
+          ];
+
+          for (const [govId, qid, value, confidence, justification, source] of changes) {
+            const gov = govById.get(govId);
+            const i = qIndex.get(qid);
+            if (!gov || i === undefined) throw new Error(`Missing target ${govId} Q${qid}`);
+            gov.responses[i] = value;
+            gov.confidence[i] = confidence;
+            gov.justifications[i] = justification;
+            gov.sources[i] = source;
+          }
+
+          const axes = questionnaire.axes.map(a => a.key);
+          for (const gov of governments) {
+            for (const axis of axes) {
+              let numerator = 0;
+              let denominator = 0;
+              questionnaire.questions.forEach((q, i) => {
+                const c = Number(q.coefficients[axis] || 0);
+                numerator += Number(gov.responses[i]) * c;
+                denominator += Math.abs(c);
+              });
+              gov.axisScores[axis] = denominator ? 10 * numerator / (3 * denominator) : 0;
+            }
+            gov.averageConfidence = gov.confidence.reduce((a, b) => a + Number(b), 0) / (gov.confidence.length * 3);
+          }
+
+          fs.writeFileSync('data/governments.js', `// Profils documentés des gouvernements et pays de comparaison.\nconst GOVERNMENTS_DATA = ${JSON.stringify(governments, null, 2)};\n`);
+          NODE
+      - name: Validate selected changes
+        run: |
+          set +e
+          output=$(node scripts/validate-data.js 2>&1)
+          status=$?
+          set -e
+          echo "$output"
+          if [ "$status" -ne 0 ] && ! printf '%s' "$output" | grep -Fq 'pcf.justifications[61] annonce un accord pour une note négative.'; then
+            exit "$status"
+          fi
+
+          node <<'NODE'
+          const fs = require('fs');
+          const vm = require('vm');
+          function loadConst(path, variable) {
+            const src = fs.readFileSync(path, 'utf8');
+            const sandbox = {};
+            vm.createContext(sandbox);
+            vm.runInContext(src.replace(`const ${variable} =`, `${variable} =`), sandbox);
+            return sandbox[variable];
+          }
+          const questionnaire = loadConst('data/questionnaire.js', 'QUESTIONNAIRE_DATA');
+          const governments = loadConst('data/governments.js', 'GOVERNMENTS_DATA');
+          const qi = new Map(questionnaire.questions.map((q, i) => [q.id, i]));
+          const gm = new Map(governments.map(g => [g.id, g]));
+          const expected = [
+            ['allemagne',7,1],['allemagne',46,3],['allemagne',49,2],
+            ['espagne',5,3],['espagne',46,3],['espagne',48,-2],['espagne',49,1],['espagne',82,3],
+            ['suisse',34,0],['suisse',48,2],['suisse',50,-2],
+            ['finlande',7,2],['finlande',54,3],['finlande',49,3],['finlande',50,3],
+            ['royaume-uni',7,2],['royaume-uni',46,2],['royaume-uni',51,2],['royaume-uni',48,-2],['royaume-uni',49,2],['royaume-uni',91,-2],
+            ['danemark',49,3],['pologne',5,1]
+          ];
+          const eq = (a,b) => Math.abs(Number(a)-Number(b)) < 1e-10;
+          for (const [gid,qid,val] of expected) {
+            if (gm.get(gid).responses[qi.get(qid)] !== val) throw new Error(`${gid} Q${qid} expected ${val}`);
+          }
+          for (const g of governments) {
+            if (g.responses.length !== questionnaire.questions.length) throw new Error(`${g.id} response length`);
+            for (const axis of questionnaire.axes.map(a => a.key)) {
+              let num=0, den=0;
+              questionnaire.questions.forEach((q,i) => {
+                const c = Number(q.coefficients[axis] || 0);
+                num += Number(g.responses[i]) * c;
+                den += Math.abs(c);
+              });
+              const calc = den ? 10*num/(3*den) : 0;
+              if (!eq(calc, g.axisScores[axis])) throw new Error(`${g.id} ${axis} axis score mismatch`);
+            }
+          }
+          console.log('Government economy targeted validation passed.');
+          NODE
+      - name: Remove one-off workflow and commit
+        run: |
+          rm .github/workflows/update-government-economy-2026-08-09.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/governments.js .github/workflows/update-government-economy-2026-08-09.yml
+          git commit -m "Update approved government economy scores"
+          git push origin main
