@@ -365,7 +365,7 @@ const PARTIES_DATA = [
     "axisScores": {
       "economy": -9.011299435028247,
       "authority": -3.958333333333332,
-      "europe": -4.333333333333334,
+      "europe": -4.408602150537635,
       "ecology": 8.410852713178297,
       "immigration": 8.768768768768767,
       "democracy": 6.759259259259259
@@ -414,7 +414,7 @@ const PARTIES_DATA = [
       -2,
       3,
       3,
-      -1,
+      -2,
       2,
       0,
       0,
@@ -503,7 +503,7 @@ const PARTIES_DATA = [
       2,
       2,
       2,
-      2,
+      3,
       2,
       2,
       2,
@@ -592,7 +592,7 @@ const PARTIES_DATA = [
       "Désaccord net : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "Accord fort : codage cohérent avec la ligne programmatique générale du parti sur écologie.",
       "Accord fort : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
-      "Réserve : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
+      "Désaccord net : le PCF défend une Europe de nations et de peuples souverains et associés et demande des traités respectant davantage la souveraineté nationale. Il soutient des coopérations européennes fortes, mais pas un transfert général de compétences supplémentaires à l’Union : -2.",
       "Accord net : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Position équilibrée ou non tranchée : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Position équilibrée ou non tranchée : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
@@ -681,7 +681,7 @@ const PARTIES_DATA = [
       "https://www.pcf.fr/europe_le_programme_un_argumentaire_utile_aux_militants_et_un_outil_de_campagne_efficace",
       "https://www.pcf.fr/europe_le_programme_un_argumentaire_utile_aux_militants_et_un_outil_de_campagne_efficace",
       "https://www.pcf.fr/europe_le_programme_un_argumentaire_utile_aux_militants_et_un_outil_de_campagne_efficace",
-      "https://www.pcf.fr/europe_le_programme_un_argumentaire_utile_aux_militants_et_un_outil_de_campagne_efficace",
+      "https://www.pcf.fr/pacte_2025_paix",
       "https://www.pcf.fr/europe_le_programme_un_argumentaire_utile_aux_militants_et_un_outil_de_campagne_efficace",
       "https://www.pcf.fr/europe_le_programme_un_argumentaire_utile_aux_militants_et_un_outil_de_campagne_efficace",
       "https://www.pcf.fr/europe_le_programme_un_argumentaire_utile_aux_militants_et_un_outil_de_campagne_efficace",
@@ -737,12 +737,12 @@ const PARTIES_DATA = [
     "axisScores": {
       "economy": -9.279661016949149,
       "authority": -2.663690476190477,
-      "europe": -4,
+      "europe": -4.731182795698924,
       "ecology": 5.271317829457365,
       "immigration": 8.138138138138137,
       "democracy": 7.129629629629629
     },
-    "averageConfidence": 0.7471264367816092
+    "averageConfidence": 0.7509578544061303
   },
   {
     "id": "les-ecologistes",
@@ -832,7 +832,7 @@ const PARTIES_DATA = [
       3,
       3,
       3,
-      -2,
+      3,
       3,
       2,
       0,
@@ -921,7 +921,7 @@ const PARTIES_DATA = [
       2,
       3,
       3,
-      2,
+      3,
       3,
       2,
       1,
@@ -1010,7 +1010,7 @@ const PARTIES_DATA = [
       "Accord fort : la position est estimée à partir des propositions sur l'enseignement privé, son financement et la mixité sociale. Niveau de preuve : faisceau d’indices cohérent, sans équivalent toujours parfaitement identique.",
       "Accord fort : la source retenue précise le degré de régulation souhaité pour les meublés touristiques et les pouvoirs locaux. Niveau de preuve : preuve directe ou politique explicitement documentée.",
       "Accord fort : le vote ou la politique officielle sur le soutien durable à l'Ukraine constitue l'indicateur principal. Niveau de preuve : preuve directe ou politique explicitement documentée.",
-      "Désaccord net : la source retenue porte sur l'extension européenne de la dissuasion ou, pour les pays non dotés, sur la protection nucléaire alliée. Niveau de preuve : faisceau d’indices cohérent, sans équivalent toujours parfaitement identique.",
+      "Accord fort : en mars 2026, Les Écologistes ont explicitement soutenu l’extension de la garantie nucléaire française aux partenaires européens tout en maintenant la décision finale d’emploi entre les mains de la France. La position correspond presque exactement à la question : +3.",
       "Accord fort : le vote, la loi ou la position gouvernementale sur l'aide à mourir fournit un équivalent direct ou très proche. Niveau de preuve : preuve directe ou politique explicitement documentée.",
       "Accord net : le programme social et sanitaire permet d'estimer la place laissée aux opérateurs lucratifs dans la dépendance. Niveau de preuve : faisceau d’indices cohérent, sans équivalent toujours parfaitement identique.",
       "Position neutre, partagée ou non arrêtée : le modèle de prestations familiales et la ligne programmatique permettent d'estimer la préférence pour l'universalité ou le ciblage. Niveau de preuve : estimation prudente à partir de la ligne générale.",
@@ -1099,7 +1099,7 @@ const PARTIES_DATA = [
       "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf",
       "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf",
       "https://www.assemblee-nationale.fr/dyn/17/scrutins/988",
-      "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf",
+      "https://lesecologistes.fr/posts/6YuLYtJ93SyLv73EnfIgeW/communique-de-presse-concernant-le-discours-du-president-de-la-republique-du-2-mars-2026-sur-la-dissuasion-nucleaire",
       "https://www.assemblee-nationale.fr/dyn/17/scrutins/2107",
       "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf",
       "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf",
@@ -1108,13 +1108,13 @@ const PARTIES_DATA = [
     ],
     "axisScores": {
       "economy": -7.937853107344628,
-      "authority": -3.6607142857142856,
-      "europe": 6.904761904761905,
+      "authority": -3.511904761904762,
+      "europe": 9.35483870967742,
       "ecology": 9.069767441860465,
       "immigration": 8.018018018018017,
       "democracy": 5.833333333333333
     },
-    "averageConfidence": 0.7088122605363985
+    "averageConfidence": 0.7126436781609196
   },
   {
     "id": "ps",
@@ -1481,7 +1481,7 @@ const PARTIES_DATA = [
     "axisScores": {
       "economy": -5.946327683615818,
       "authority": -2.2916666666666665,
-      "europe": 9.285714285714286,
+      "europe": 9.35483870967742,
       "ecology": 6.86046511627907,
       "immigration": 6.726726726726727,
       "democracy": 3.0555555555555554
@@ -1853,7 +1853,7 @@ const PARTIES_DATA = [
     "axisScores": {
       "economy": 2.8107344632768356,
       "authority": 1.5178571428571435,
-      "europe": 8.238095238095237,
+      "europe": 8.172043010752688,
       "ecology": 1.7054263565891474,
       "immigration": -0.7507507507507507,
       "democracy": -3.1018518518518516
@@ -2223,12 +2223,12 @@ const PARTIES_DATA = [
       "https://www.mouvementdemocrate.fr/"
     ],
     "axisScores": {
-      "economy": 0.46610169491525427,
-      "authority": 0.654761904761905,
-      "europe": 7.857142857142857,
+      "economy": 0.46610169491525416,
+      "authority": 0.6547619047619049,
+      "europe": 7.741935483870967,
       "ecology": 3.914728682170543,
-      "immigration": 1.5015015015015016,
-      "democracy": -1.111111111111111
+      "immigration": 1.5015015015015014,
+      "democracy": -1.1111111111111107
     },
     "averageConfidence": 0.6398467432950191
   },
@@ -2595,11 +2595,11 @@ const PARTIES_DATA = [
       "https://horizonsleparti.fr/le-manifeste/"
     ],
     "axisScores": {
-      "economy": 4.307909604519773,
+      "economy": 4.307909604519774,
       "authority": 2.232142857142857,
-      "europe": 7.857142857142857,
-      "ecology": 0.42635658914728675,
-      "immigration": -2.612612612612613,
+      "europe": 7.741935483870967,
+      "ecology": 0.4263565891472871,
+      "immigration": -2.612612612612612,
       "democracy": -3.3796296296296293
     },
     "averageConfidence": 0.6436781609195402
@@ -2968,11 +2968,11 @@ const PARTIES_DATA = [
     ],
     "axisScores": {
       "economy": -1.0169491525423726,
-      "authority": -1.2053571428571428,
-      "europe": 3.6666666666666665,
+      "authority": -1.2053571428571426,
+      "europe": 3.333333333333333,
       "ecology": 5.271317829457365,
-      "immigration": 1.2012012012012012,
-      "democracy": 4.953703703703704
+      "immigration": 1.201201201201201,
+      "democracy": 4.953703703703703
     },
     "averageConfidence": 0.7777777777777778
   },
@@ -3064,7 +3064,7 @@ const PARTIES_DATA = [
       -2,
       -1,
       3,
-      -2,
+      -3,
       -2,
       -2,
       3,
@@ -3242,7 +3242,7 @@ const PARTIES_DATA = [
       "Désaccord net : la position est estimée à partir des propositions sur l'enseignement privé, son financement et la mixité sociale. Niveau de preuve : estimation prudente à partir de la ligne générale.",
       "Réserve : la source retenue précise le degré de régulation souhaité pour les meublés touristiques et les pouvoirs locaux. Niveau de preuve : estimation prudente à partir de la ligne générale.",
       "Accord fort : le vote ou la politique officielle sur le soutien durable à l'Ukraine constitue l'indicateur principal. Niveau de preuve : preuve directe ou politique explicitement documentée.",
-      "Désaccord net : Bruno Retailleau refuse explicitement d’élargir la vocation protectrice de la dissuasion nucléaire française à l’Europe dans son ensemble et insiste sur son caractère national et autonome, tout en acceptant des coopérations européennes conventionnelles.",
+      "Désaccord fort : Bruno Retailleau rejette explicitement l’idée d’élargir la vocation protectrice de la dissuasion nucléaire française à l’Europe et insiste sur son caractère strictement national et autonome. C’est un refus direct du principe posé par la question : -3.",
       "Désaccord net : le vote, la loi ou la position gouvernementale sur l'aide à mourir fournit un équivalent direct ou très proche. Niveau de preuve : preuve directe ou politique explicitement documentée.",
       "Désaccord net : le programme social et sanitaire permet d'estimer la place laissée aux opérateurs lucratifs dans la dépendance. Niveau de preuve : estimation prudente à partir de la ligne générale.",
       "Accord fort : Bruno Retailleau propose un revenu familial versé par enfant quel que soit le niveau de revenus des parents, ce qui correspond directement au principe d’allocations familiales universelles posé par la question.",
@@ -3340,8 +3340,8 @@ const PARTIES_DATA = [
     ],
     "axisScores": {
       "economy": 5.240112994350282,
-      "authority": 3.035714285714286,
-      "europe": 0.2380952380952379,
+      "authority": 3.0059523809523805,
+      "europe": -0.7526881720430108,
       "ecology": -3.8759689922480622,
       "immigration": -6.186186186186185,
       "democracy": -3.009259259259259
@@ -3390,10 +3390,10 @@ const PARTIES_DATA = [
       3,
       0,
       0,
-      0,
+      -2,
       2,
       2,
-      0,
+      -1,
       2,
       3,
       -3,
@@ -3436,7 +3436,7 @@ const PARTIES_DATA = [
       -3,
       -2,
       2,
-      1,
+      2,
       -1,
       -3,
       2,
@@ -3479,10 +3479,10 @@ const PARTIES_DATA = [
       2,
       2,
       1,
+      3,
       2,
       2,
-      2,
-      2,
+      3,
       2,
       2,
       2,
@@ -3525,7 +3525,7 @@ const PARTIES_DATA = [
       3,
       1,
       2,
-      1,
+      3,
       1,
       2,
       2,
@@ -3568,10 +3568,10 @@ const PARTIES_DATA = [
       "Accord fort : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
       "Position équilibrée ou non tranchée : codage cohérent avec la ligne programmatique générale du parti sur écologie.",
       "Position équilibrée ou non tranchée : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
-      "Position équilibrée ou non tranchée : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
+      "Désaccord net : Nouvelle Énergie estime que les compétences de l’Union se sont étendues à trop de domaines au détriment de la souveraineté des États et veut réattribuer certaines compétences au niveau national, tout en conservant une coopération européenne forte lorsqu’elle apporte une réelle valeur ajoutée : -2.",
       "Accord net : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
-      "Position équilibrée ou non tranchée : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
+      "Réserve : Nouvelle Énergie critique l’accumulation de normes européennes et défend strictement le principe de subsidiarité, mais accepte des règles communes dans les domaines où l’échelle européenne est pertinente, notamment le numérique, l’énergie ou les technologies stratégiques : -1.",
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Désaccord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
@@ -3614,7 +3614,7 @@ const PARTIES_DATA = [
       "Désaccord fort : la position est estimée à partir des propositions sur l'enseignement privé, son financement et la mixité sociale. Niveau de preuve : preuve directe ou politique explicitement documentée.",
       "Désaccord net : la source retenue précise le degré de régulation souhaité pour les meublés touristiques et les pouvoirs locaux. Niveau de preuve : estimation prudente à partir de la ligne générale.",
       "Accord fort : le vote ou la politique officielle sur le soutien durable à l'Ukraine constitue l'indicateur principal. Niveau de preuve : faisceau d’indices cohérent, sans équivalent toujours parfaitement identique.",
-      "Accord modéré : la source retenue porte sur l'extension européenne de la dissuasion ou, pour les pays non dotés, sur la protection nucléaire alliée. Niveau de preuve : estimation prudente à partir de la ligne générale.",
+      "Accord net mais conditionnel : David Lisnard considère que l’extension de la couverture nucléaire française aux partenaires européens peut aller dans le bon sens à condition absolue que la France demeure seule décisionnaire. L’accord est clair mais assorti de fortes réserves : +2.",
       "Réserve : le vote, la loi ou la position gouvernementale sur l'aide à mourir fournit un équivalent direct ou très proche. Niveau de preuve : estimation prudente à partir de la ligne générale.",
       "Désaccord fort : le programme social et sanitaire permet d'estimer la place laissée aux opérateurs lucratifs dans la dépendance. Niveau de preuve : faisceau d’indices cohérent, sans équivalent toujours parfaitement identique.",
       "Accord fort : le modèle de prestations familiales et la ligne programmatique permettent d'estimer la préférence pour l'universalité ou le ciblage. Niveau de preuve : faisceau d’indices cohérent, sans équivalent toujours parfaitement identique.",
@@ -3657,10 +3657,10 @@ const PARTIES_DATA = [
       "https://www.unenouvelleenergie.fr/notre-programme/",
       "https://www.unenouvelleenergie.fr/notre-programme/",
       "https://www.unenouvelleenergie.fr/notre-programme/",
+      "https://www.unenouvelleenergie.fr/notre-programme/etre-maitre-de-notre-destin/",
       "https://www.unenouvelleenergie.fr/notre-programme/",
       "https://www.unenouvelleenergie.fr/notre-programme/",
-      "https://www.unenouvelleenergie.fr/notre-programme/",
-      "https://www.unenouvelleenergie.fr/notre-programme/",
+      "https://www.unenouvelleenergie.fr/notre-programme/etre-maitre-de-notre-destin/",
       "https://www.unenouvelleenergie.fr/notre-programme/",
       "https://www.unenouvelleenergie.fr/notre-programme/",
       "https://www.unenouvelleenergie.fr/notre-programme/",
@@ -3703,7 +3703,7 @@ const PARTIES_DATA = [
       "https://www.unenouvelleenergie.fr/notre-programme/education/",
       "https://www.unenouvelleenergie.fr/notre-programme/",
       "https://www.unenouvelleenergie.fr/notre-programme/",
-      "https://www.unenouvelleenergie.fr/notre-programme/",
+      "https://www.unenouvelleenergie.fr/dissuasion-nucleaire-ce-que-le-discours-du-president-de-la-republique-dit-et-ce-quil-ne-dit-pas/",
       "https://www.unenouvelleenergie.fr/notre-programme/",
       "https://www.unenouvelleenergie.fr/notre-programme/",
       "https://www.unenouvelleenergie.fr/notre-programme/",
@@ -3712,13 +3712,13 @@ const PARTIES_DATA = [
     ],
     "axisScores": {
       "economy": 6.045197740112993,
-      "authority": 1.3988095238095237,
-      "europe": 0.5238095238095237,
+      "authority": 1.4285714285714284,
+      "europe": -1.182795698924731,
       "ecology": -2.906976744186047,
       "immigration": -6.576576576576576,
       "democracy": -1.111111111111111
     },
-    "averageConfidence": 0.7164750957854407
+    "averageConfidence": 0.7318007662835249
   },
   {
     "id": "udr",
@@ -4085,7 +4085,7 @@ const PARTIES_DATA = [
     "axisScores": {
       "economy": 6.0310734463276825,
       "authority": 2.0535714285714293,
-      "europe": -4.523809523809524,
+      "europe": -4.731182795698924,
       "ecology": -5.968992248062016,
       "immigration": -8.048048048048049,
       "democracy": 0.462962962962963
@@ -4455,11 +4455,11 @@ const PARTIES_DATA = [
       "https://rassemblementnational.fr/documents/202406-programme.pdf"
     ],
     "axisScores": {
-      "economy": 0.6638418079096045,
+      "economy": 0.6638418079096047,
       "authority": 3.5863095238095237,
-      "europe": -5.857142857142857,
+      "europe": -6.129032258064517,
       "ecology": -5.891472868217055,
-      "immigration": -8.88888888888889,
+      "immigration": -8.888888888888888,
       "democracy": 2.777777777777778
     },
     "averageConfidence": 0.6513409961685823
@@ -4827,9 +4827,9 @@ const PARTIES_DATA = [
       "https://www.parti-reconquete.fr/"
     ],
     "axisScores": {
-      "economy": 6.0310734463276825,
+      "economy": 6.031073446327682,
       "authority": 2.4553571428571432,
-      "europe": -6.523809523809524,
+      "europe": -6.559139784946238,
       "ecology": -6.162790697674419,
       "immigration": -9.3993993993994,
       "democracy": 1.388888888888889

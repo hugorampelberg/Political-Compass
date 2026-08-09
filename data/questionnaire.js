@@ -58,7 +58,7 @@ const QUESTIONNAIRE_DATA = {
   "axisMasses": {
     "economy": 23.6,
     "authority": 22.4,
-    "europe": 7.0,
+    "europe": 6.2,
     "ecology": 8.6,
     "immigration": 11.1,
     "democracy": 7.2
@@ -1288,7 +1288,7 @@ const QUESTIONNAIRE_DATA = {
       "coefficients": {
         "economy": 0,
         "authority": 0.2,
-        "europe": 0.7,
+        "europe": 0.4,
         "ecology": 0,
         "immigration": 0,
         "democracy": 0
@@ -1303,7 +1303,7 @@ const QUESTIONNAIRE_DATA = {
       "coefficients": {
         "economy": 0,
         "authority": 0.2,
-        "europe": 1,
+        "europe": 0.8,
         "ecology": 0,
         "immigration": 0,
         "democracy": 0
@@ -1378,7 +1378,7 @@ const QUESTIONNAIRE_DATA = {
       "coefficients": {
         "economy": -0.2,
         "authority": 0,
-        "europe": 0.7,
+        "europe": 0.4,
         "ecology": 0,
         "immigration": 0,
         "democracy": 0
