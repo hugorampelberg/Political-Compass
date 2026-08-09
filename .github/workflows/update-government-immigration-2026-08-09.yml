@@ -1,0 +1,159 @@
+name: Update government immigration 2026-08-09
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/update-government-immigration-2026-08-09.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.event.head_commit.message == 'Apply approved government immigration updates'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Apply approved immigration scores
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const vm = require('vm');
+
+          function loadConst(path, variable) {
+            const src = fs.readFileSync(path, 'utf8');
+            const sandbox = {};
+            vm.createContext(sandbox);
+            vm.runInContext(src.replace(`const ${variable} =`, `${variable} =`), sandbox);
+            return sandbox[variable];
+          }
+
+          const questionnaire = loadConst('data/questionnaire.js', 'QUESTIONNAIRE_DATA');
+          const governments = loadConst('data/governments.js', 'GOVERNMENTS_DATA');
+          const qIndex = new Map(questionnaire.questions.map((q, i) => [q.id, i]));
+          const govById = new Map(governments.map(g => [g.id, g]));
+
+          const changes = [
+            ['allemagne', 26, -1, -2, 4, "Désaccord net : le gouvernement Merz maintient le droit d’asile mais cherche explicitement à réduire les admissions, notamment par la suspension du regroupement familial pour les bénéficiaires de protection subsidiaire, la fin de programmes volontaires et l’accélération des procédures. Cela justifie -2 plutôt que -1.", 'https://www.bundesregierung.de/breg-de/schwerpunkte/schwerpunkt-innere-sicherheit-2342568'],
+            ['allemagne', 57, 2, 1, 3, "Accord modéré : l’accès aux prestations dépend fortement du statut de séjour, mais un étranger légalement installé peut accéder à la Grundsicherung sous conditions. Il n’existe donc pas d’exclusion générale de plusieurs années pour tous les immigrés : +1.", 'https://www.arbeitsagentur.de/grundsicherung/infos-fuer-menschen-aus-dem-ausland'],
+            ['allemagne', 78, 2, 3, 4, "Accord fort : la politique allemande lie explicitement l’installation durable à des efforts d’intégration, notamment la langue, l’autonomie et le respect des règles du pays. Le principe d’« intégrer et exiger l’intégration » correspond directement à la proposition : +3.", 'https://www.bundesregierung.de/breg-fr/recherche/conseil-ministres-naturalisation-2351976'],
+
+            ['espagne', 21, 2, 3, 4, "Accord fort : le gouvernement Sánchez présente explicitement l’immigration comme une opportunité économique, souligne sa contribution à l’emploi et organise des voies légales de mobilité professionnelle répondant aux besoins de l’économie : +3.", 'https://www.lamoncloa.gob.es/lang/en/presidente/news/Paginas/2026/20260630-integration-and-citizenship-plan.aspx'],
+            ['espagne', 56, 2, 1, 4, "Accord modéré : l’Espagne offre une voie normale vers la nationalité mais la naturalisation ordinaire exige généralement dix ans de résidence légale, ainsi qu’une bonne conduite civique et une intégration suffisante. Les délais réduits pour certaines nationalités justifient néanmoins +1 plutôt que 0.", 'https://www.mjusticia.gob.es/es/ciudadania/tramites/nacionalidad-residencia'],
+            ['espagne', 78, 1, -1, 4, "Désaccord modéré : la résidence de longue durée s’acquiert normalement après cinq ans de résidence régulière et n’est pas conditionnée de manière générale à une maîtrise linguistique ou à une assimilation culturelle. L’Espagne encourage l’intégration sans en faire une condition générale du séjour durable : -1.", 'https://www.inclusion.gob.es/fr/web/migraciones/w/49.-autorizacion-de-residencia-de-larga-duracion-nacional'],
+
+            ['suisse', 56, 2, 0, 4, "Position neutre : la naturalisation ordinaire suisse suppose en principe dix ans de résidence, un permis C, des exigences linguistiques, une intégration réussie, une participation économique et parfois des conditions cantonales supplémentaires. La voie existe mais ne peut pas être qualifiée de relativement facile : 0.", 'https://www.sem.admin.ch/sem/fr/home/integration-einbuergerung/schweizer-werden/ordentlich.html'],
+            ['suisse', 57, 2, 0, 4, "Position neutre : les personnes séjournant légalement et durablement en Suisse peuvent recevoir l’aide sociale lorsqu’elles sont dans le besoin. Cette aide peut avoir des conséquences sur certains titres ou la naturalisation, mais il n’existe pas de limitation générale de plusieurs années correspondant à la proposition : 0.", 'https://www.sem.admin.ch/sem/fr/home/themen/aufenthalt/faq.html'],
+
+            ['finlande', 20, 3, 2, 3, "Accord net : le gouvernement Orpo veut réduire et mieux contrôler plusieurs flux migratoires, mais reconnaît parallèlement le besoin d’immigration de travail, notamment qualifiée. La volonté de diminution globale existe sans être absolue : +2.", 'https://valtioneuvosto.fi/en/-/1410877/report-points-based-labour-migration-system-can-be-used-for-different-purposes'],
+            ['finlande', 23, 2, 3, 4, "Accord fort : le gouvernement Orpo a successivement renforcé la durée de résidence, les critères d’intégrité et de ressources et prévoit un test de citoyenneté. Le durcissement de l’accès à la nationalité est explicite et systématique : +3.", 'https://valtioneuvosto.fi/en/-/1410869/citizenship-test-to-be-introduced-in-early-2027?languageId=en_US'],
+            ['finlande', 56, 1, -1, 4, "Désaccord modéré : après les réformes Orpo, l’accès à la nationalité suppose des conditions renforcées de résidence, de ressources, d’intégrité et bientôt un test de citoyenneté. Une personne bien intégrée conserve une voie d’accès, mais celle-ci n’est plus relativement facile : -1.", 'https://valtioneuvosto.fi/en/-/1410869/citizenship-test-to-be-introduced-in-early-2027?languageId=en_US'],
+            ['finlande', 78, 2, 3, 4, "Accord fort : depuis janvier 2026, le permis de résidence permanente exige en règle générale six ans de résidence, une maîtrise suffisante du finnois ou du suédois et une participation professionnelle. Cela correspond presque exactement à la proposition : +3.", 'https://valtioneuvosto.fi/en/-/1410869/stricter-conditions-for-permanent-residence-permits-as-of-8-january'],
+
+            ['royaume-uni', 23, 1, 2, 3, "Accord net : la politique britannique évolue vers une logique de citoyenneté et d’installation davantage « earned », fondée sur la contribution, la conduite, le travail et l’intégration. Le durcissement est clair mais une partie du dispositif reste en cours de mise en œuvre : +2.", 'https://www.gov.uk/government/speeches/home-secretarys-speech-on-immigration-5-march-2026'],
+            ['royaume-uni', 56, 2, 1, 3, "Accord modéré : une voie normale vers la citoyenneté subsiste pour les personnes intégrées, mais l’allongement du parcours vers le statut permanent et le renforcement des exigences rendent une note de +2 trop favorable : +1.", 'https://www.gov.uk/government/speeches/home-secretarys-speech-on-immigration-5-march-2026'],
+            ['royaume-uni', 57, 1, 3, 4, "Accord fort : la majorité des migrants temporaires sont soumis à la condition No Recourse to Public Funds, qui exclut l’accès à de nombreuses prestations jusqu’à l’obtention d’un statut permettant l’accès aux fonds publics. La logique correspond directement à la proposition : +3.", 'https://www.gov.uk/government/publications/public-funds/public-funds-accessible'],
+            ['royaume-uni', 59, 1, -1, 4, "Désaccord modéré : depuis 1983, naître au Royaume-Uni de parents étrangers ne donne pas automatiquement la citoyenneté si aucun parent n’est britannique ou settled. Des voies d’enregistrement ultérieures existent toutefois, ce qui justifie -1 plutôt qu’un désaccord plus fort.", 'https://www.gov.uk/check-british-citizenship/your-parents-immigration-status-when-you-were-born'],
+            ['royaume-uni', 78, 1, 2, 4, "Accord net : le Royaume-Uni lie de plus en plus l’installation durable à la maîtrise de l’anglais, au travail, à la contribution et au respect des règles. La réforme earned settlement va directement dans ce sens, sans être encore intégralement mise en œuvre : +2.", 'https://www.gov.uk/government/speeches/home-secretarys-speech-on-immigration-5-march-2026'],
+
+            ['danemark', 26, 0, -1, 3, "Désaccord modéré : le gouvernement Frederiksen III poursuit une ligne visant à réduire les arrivées de demandeurs d’asile et défend des centres d’accueil et de retour hors d’Europe. Il ne rejette pas le droit d’asile, mais n’est clairement pas favorable à accueillir davantage de réfugiés : -1.", 'https://stm.dk/presse/pressemeddelelser/2026/danmark-og-et-flertal-af-eu-lande-presser-paa-for-udrejse-og-modtagecentre-uden-for-europa/'],
+            ['danemark', 56, 2, -1, 4, "Désaccord modéré : la naturalisation danoise ordinaire exige généralement neuf ans de résidence, un permis permanent, une forte autonomie financière, plusieurs années d’emploi, la maîtrise du danois et un examen de citoyenneté. Elle ne peut pas être qualifiée de relativement facile : -1.", 'https://lifeindenmark.borger.dk/settle-in-denmark/danish-citizenship/conditions-for-foreign-citizens--acquisition-of-danish-citizenship'],
+            ['danemark', 57, 2, 3, 4, "Accord fort : pour accéder aux taux ordinaires de l’aide sociale, les nouveaux arrivants concernés doivent notamment satisfaire de longues conditions de résidence et de travail. Le système danois correspond très directement à une limitation importante des prestations pendant les premières années : +3.", 'https://lifeindenmark.borger.dk/money-and-tax/social-benefits/social-assistance'],
+
+            ['pays-bas', 20, 2, 1, 3, "Accord modéré : le gouvernement Jetten veut reprendre le contrôle des flux en fonction de la capacité d’accueil et des besoins du pays, mais maintient l’immigration professionnelle utile et qualifiée. Une réduction générale est souhaitée de façon sélective plutôt qu’absolue : +1.", 'https://www.government.nl/government/coalition-agreement'],
+            ['pays-bas', 56, 2, 1, 4, "Accord modéré : la coalition maintient une voie normale vers la naturalisation mais relève les exigences, notamment de résidence et d’intégration. Une personne bien intégrée peut toujours devenir néerlandaise, mais l’accès n’est pas suffisamment facile pour justifier +2 : +1.", 'https://www.government.nl/government/coalition-agreement/the-netherlands-in-the-world'],
+            ['pays-bas', 60, 2, 1, 3, "Accord modéré : les Pays-Bas imposent de réelles obligations d’intégration et de connaissance de la société, mais cela ne constitue pas une règle générale permettant de refuser l’entrée à toute personne légalement admissible sur la seule anticipation d’une mauvaise intégration culturelle : +1.", 'https://www.government.nl/themes/migration-and-travel/integration-in-the-netherlands/civic-integration-in-the-netherlands'],
+
+            ['pologne', 25, 2, 3, 4, "Accord fort : le gouvernement Tusk affirme explicitement que l’immigration doit apporter des bénéfices tangibles, rester compatible avec les capacités de l’État et ne pas nuire à la cohésion sociale. La formulation correspond directement à la proposition : +3.", 'https://www.gov.pl/web/mswia-en/eight-times-fewer-visas-to-poland-for-foreign-nationals--we-have-regained-control-over-immigration-the-governments-migration-policy-is-proving-effective']
+          ];
+
+          for (const [govId, qid, expectedOld, value, confidence, justification, source] of changes) {
+            const gov = govById.get(govId);
+            if (!gov) throw new Error(`Government not found: ${govId}`);
+            const idx = qIndex.get(qid);
+            if (idx === undefined) throw new Error(`Question not found: Q${qid}`);
+            if (gov.responses[idx] !== expectedOld) {
+              throw new Error(`${govId} Q${qid}: expected old ${expectedOld}, got ${gov.responses[idx]}`);
+            }
+            gov.responses[idx] = value;
+            gov.confidence[idx] = confidence;
+            gov.justifications[idx] = justification;
+            gov.sources[idx] = source;
+          }
+
+          const axes = questionnaire.axes.map(a => a.key);
+          for (const gov of governments) {
+            gov.axisScores = {};
+            for (const axis of axes) {
+              let numerator = 0;
+              let mass = 0;
+              questionnaire.questions.forEach((q, i) => {
+                const c = Number(q.coefficients?.[axis] || 0);
+                numerator += Number(gov.responses[i]) * c;
+                mass += Math.abs(c);
+              });
+              gov.axisScores[axis] = mass ? 10 * numerator / (3 * mass) : 0;
+            }
+            gov.averageConfidence = gov.confidence.reduce((a, b) => a + Number(b), 0) / gov.confidence.length;
+          }
+
+          fs.writeFileSync('data/governments.js', `// Profils documentés des gouvernements et pays de comparaison.\nconst GOVERNMENTS_DATA = ${JSON.stringify(governments, null, 2)};\n`);
+          NODE
+      - name: Validate selected changes and scores
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const vm = require('vm');
+          function loadConst(path, variable) {
+            const src = fs.readFileSync(path, 'utf8');
+            const sandbox = {};
+            vm.createContext(sandbox);
+            vm.runInContext(src.replace(`const ${variable} =`, `${variable} =`), sandbox);
+            return sandbox[variable];
+          }
+          const q = loadConst('data/questionnaire.js', 'QUESTIONNAIRE_DATA');
+          const gs = loadConst('data/governments.js', 'GOVERNMENTS_DATA');
+          const qi = new Map(q.questions.map((x, i) => [x.id, i]));
+          const expected = [
+            ['allemagne',26,-2],['allemagne',57,1],['allemagne',78,3],
+            ['espagne',21,3],['espagne',56,1],['espagne',78,-1],
+            ['suisse',56,0],['suisse',57,0],
+            ['finlande',20,2],['finlande',23,3],['finlande',56,-1],['finlande',78,3],
+            ['royaume-uni',23,2],['royaume-uni',56,1],['royaume-uni',57,3],['royaume-uni',59,-1],['royaume-uni',78,2],
+            ['danemark',26,-1],['danemark',56,-1],['danemark',57,3],
+            ['pays-bas',20,1],['pays-bas',56,1],['pays-bas',60,1],
+            ['pologne',25,3]
+          ];
+          for (const [id,qid,val] of expected) {
+            const g = gs.find(x => x.id === id);
+            if (!g || g.responses[qi.get(qid)] !== val) throw new Error(`Validation failed: ${id} Q${qid}`);
+          }
+          for (const g of gs) {
+            for (const key of ['responses','confidence','justifications','sources']) {
+              if (!Array.isArray(g[key]) || g[key].length !== q.questions.length) throw new Error(`${g.id}.${key} length`);
+            }
+            const avg = g.confidence.reduce((a,b)=>a+Number(b),0)/g.confidence.length;
+            if (Math.abs(avg-g.averageConfidence)>1e-12) throw new Error(`${g.id} averageConfidence`);
+            for (const axis of q.axes.map(a=>a.key)) {
+              let num=0,mass=0;
+              q.questions.forEach((question,i)=>{const c=Number(question.coefficients?.[axis]||0);num+=Number(g.responses[i])*c;mass+=Math.abs(c);});
+              const score=mass?10*num/(3*mass):0;
+              if (Math.abs(score-g.axisScores[axis])>1e-12) throw new Error(`${g.id} ${axis} axisScore`);
+            }
+          }
+          console.log('Validated 24 approved immigration changes and all government axis scores.');
+          NODE
+      - name: Remove one-off workflow and commit
+        run: |
+          rm "$GITHUB_WORKFLOW"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/governments.js "$GITHUB_WORKFLOW"
+          git commit -m "Update approved government immigration scores"
+          git push
