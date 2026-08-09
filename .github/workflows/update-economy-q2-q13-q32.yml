@@ -1,0 +1,94 @@
+name: Update economy Q2 Q13 Q32
+
+on:
+  push:
+    branches:
+      - update-economy-q2-q13-q32
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: update-economy-q2-q13-q32
+          fetch-depth: 0
+
+      - name: Apply approved score changes
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+
+          function parseConst(path, name) {
+            const text = fs.readFileSync(path, 'utf8');
+            const marker = `const ${name} = `;
+            const start = text.indexOf(marker);
+            if (start < 0) throw new Error(`Missing ${name}`);
+            const end = text.lastIndexOf(';');
+            return JSON.parse(text.slice(start + marker.length, end).trim());
+          }
+
+          function label(v) {
+            return ({
+              '-3':'Désaccord fort','-2':'Désaccord net','-1':'Réserve',
+              '0':'Position équilibrée ou non tranchée',
+              '1':'Accord modéré','2':'Accord net','3':'Accord fort'
+            })[String(v)];
+          }
+
+          const questionnaire = parseConst('data/questionnaire.js', 'QUESTIONNAIRE_DATA');
+          const parties = parseConst('data/parties.js', 'PARTIES_DATA');
+          const qIndex = new Map(questionnaire.questions.map((q,i)=>[q.id,i]));
+          const byId = new Map(parties.map(p=>[p.id,p]));
+
+          const changes = [
+            ['renaissance', 2, 2],
+            ['renaissance', 13, 1],
+            ['nouvelle-energie', 32, 0]
+          ];
+
+          const affected = new Set();
+          for (const [partyId,qid,newValue] of changes) {
+            const p = byId.get(partyId);
+            const idx = qIndex.get(qid);
+            if (!p || idx === undefined) throw new Error(`Missing ${partyId} Q${qid}`);
+            const old = p.responses[idx];
+            p.responses[idx] = newValue;
+            const j = p.justifications[idx] || '';
+            const colon = j.indexOf(':');
+            const body = colon >= 0 ? j.slice(colon+1).trim() : j.trim();
+            p.justifications[idx] = `${label(newValue)} : ${body || 'codage mis à jour.'}`;
+            affected.add(partyId);
+            console.log(`${partyId} Q${qid}: ${old} -> ${newValue} at responses[${idx}]`);
+          }
+
+          for (const partyId of affected) {
+            const p = byId.get(partyId);
+            const scores = {};
+            for (const axis of questionnaire.axes) {
+              const key = axis.key;
+              const den = 3 * questionnaire.questions.reduce((s,q)=>s+Math.abs(q.coefficients[key]),0);
+              const num = questionnaire.questions.reduce((s,q,i)=>s+(p.responses[i] ?? 0)*q.coefficients[key],0);
+              scores[key] = den ? 10*num/den : 0;
+            }
+            p.axisScores = scores;
+            console.log(`${partyId} axisScores=${JSON.stringify(scores)}`);
+          }
+
+          fs.writeFileSync('data/parties.js', '// Profils documentés des partis politiques français.\nconst PARTIES_DATA = ' + JSON.stringify(parties, null, 2) + ';\n');
+          NODE
+
+      - name: Check diff
+        run: git diff --check
+
+      - name: Commit parties.js
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/parties.js
+          git commit -m "Update approved economy question scores"
+          git push origin HEAD:update-economy-q2-q13-q32
