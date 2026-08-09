@@ -89,6 +89,7 @@ jobs:
             const q = questionnaire.questions[qIndex.get(id)];
             q.coefficients.europe = weight;
           }
+          questionnaire.axisMasses.europe = 6.2;
 
           const axes = questionnaire.axes.map(a => a.key);
           for (const p of parties) {
