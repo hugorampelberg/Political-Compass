@@ -76,7 +76,7 @@ const PARTIES_DATA = [
       0,
       2,
       -2,
-      -2,
+      -3,
       3,
       0,
       3,
@@ -254,7 +254,7 @@ const PARTIES_DATA = [
       "Position équilibrée ou non tranchée : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
       "Accord net : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Désaccord net : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
-      "Désaccord net : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
+      "Désaccord fort : LFI veut rompre avec l'hyperprésidentialisme de la Ve République, réduire les pouvoirs du président et renforcer le Parlement ; c'est l'opposé direct de la proposition.",
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Position équilibrée ou non tranchée : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
@@ -364,11 +364,11 @@ const PARTIES_DATA = [
     ],
     "axisScores": {
       "economy": -9.011299435028247,
-      "authority": -3.958333333333332,
+      "authority": -4.0476190476190474,
       "europe": -4.408602150537635,
       "ecology": 8.410852713178297,
       "immigration": 8.768768768768767,
-      "democracy": 6.759259259259259
+      "democracy": 7.222222222222221
     },
     "averageConfidence": 0.7241379310344828
   },
@@ -444,11 +444,11 @@ const PARTIES_DATA = [
       2,
       2,
       2,
-      -1,
+      -2,
       0,
       3,
       -3,
-      -2,
+      -3,
       3,
       -1,
       3,
@@ -622,11 +622,11 @@ const PARTIES_DATA = [
       "Accord net : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord net : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord fort : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
-      "Réserve : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
+      "Désaccord net : le PCF critique le dessaisissement des élus au profit d'une décision technocratique ; il ne rejette pas l'expertise, mais refuse qu'elle remplace le pouvoir politique démocratique.",
       "Position équilibrée ou non tranchée : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Désaccord fort : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
-      "Désaccord net : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
+      "Désaccord fort : le PCF propose explicitement de réduire les prérogatives présidentielles et de renforcer le Parlement et le Premier ministre ; la direction est exactement inverse à la question.",
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Réserve : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
@@ -736,11 +736,11 @@ const PARTIES_DATA = [
     ],
     "axisScores": {
       "economy": -9.279661016949149,
-      "authority": -2.782738095238096,
+      "authority": -2.9017857142857153,
       "europe": -4.731182795698924,
       "ecology": 5.271317829457365,
       "immigration": 8.258258258258257,
-      "democracy": 7.129629629629629
+      "democracy": 8.055555555555555
     },
     "averageConfidence": 0.7509578544061303
   },
@@ -1192,7 +1192,7 @@ const PARTIES_DATA = [
       0,
       2,
       -2,
-      -1,
+      -3,
       2,
       1,
       3,
@@ -1370,7 +1370,7 @@ const PARTIES_DATA = [
       "Position équilibrée ou non tranchée : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
       "Accord net : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Désaccord net : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
-      "Réserve : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
+      "Désaccord fort : le projet socialiste 2026 veut déprésidentialiser la Ve République, renforcer le Parlement et rééquilibrer le pouvoir exécutif ; il s'oppose directement à un renforcement du président.",
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord modéré : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
@@ -1480,11 +1480,11 @@ const PARTIES_DATA = [
     ],
     "axisScores": {
       "economy": -6.468926553672316,
-      "authority": -2.0833333333333335,
+      "authority": -2.261904761904762,
       "europe": 9.35483870967742,
       "ecology": 6.86046511627907,
       "immigration": 6.726726726726727,
-      "democracy": 3.0555555555555554
+      "democracy": 3.9814814814814814
     },
     "averageConfidence": 0.6934865900383141
   },
@@ -1937,7 +1937,7 @@ const PARTIES_DATA = [
       1,
       -2,
       1,
-      1,
+      2,
       2,
       0,
       2,
@@ -2115,7 +2115,7 @@ const PARTIES_DATA = [
       "Accord modéré : codage cohérent avec la ligne programmatique générale du parti sur institutions.",
       "Désaccord net : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
       "Accord modéré : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
-      "Accord modéré : le MoDem participe explicitement en 2026 à une proposition de scrutin proportionnel avec mécanisme compensatoire. Cela documente une préférence pour davantage de proportionnelle, mais pas pour une proportionnelle intégrale pure.",
+      "Accord net : François Bayrou et le MoDem défendent de longue date une forte dose de proportionnelle, parfois proche de la proportionnelle intégrale, mais les modalités précises varient ; +2 reflète mieux cette intensité.",
       "Accord net : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Position équilibrée ou non tranchée : le MoDem mobilise à la fois des facteurs sociaux, éducatifs, économiques, démographiques et culturels pour expliquer la délinquance, sans établir que les inégalités sociales expliquent davantage les écarts que la culture d’origine.",
       "Accord net mais conditionnel : Les Démocrates disent s’être collectivement opposés à la réintroduction de l’acétamipride et veulent que la décision repose sur l’expertise scientifique. Leur position reste moins absolue qu’une interdiction de principe quelles que soient les circonstances.",
@@ -2228,7 +2228,7 @@ const PARTIES_DATA = [
       "europe": 7.741935483870967,
       "ecology": 3.914728682170543,
       "immigration": -0.12012012012012001,
-      "democracy": -1.1111111111111107
+      "democracy": -0.787037037037037
     },
     "averageConfidence": 0.6398467432950191
   },
@@ -2624,7 +2624,7 @@ const PARTIES_DATA = [
       1,
       -2,
       2,
-      -1,
+      2,
       -1,
       2,
       2,
@@ -2802,7 +2802,7 @@ const PARTIES_DATA = [
       "Accord modéré : l'État doit être arbitre, stratège et planificateur lorsque le marché échoue, mais Villepin présente explicitement son modèle comme un compromis entre marché et dirigisme, et non comme une intervention systématique.",
       "Désaccord net directement documenté : le texte rejette le « chacun pour soi » et la privatisation de la santé, de l’éducation et des retraites au profit de systèmes solidaires obligatoires.",
       "Accord net : La France Humaniste défend une conception universaliste et pluraliste de la société française, compatible avec des modes de vie éloignés des normes traditionnelles tant qu'ils respectent le cadre républicain commun. +2 traduit cet accord avec une réserve sur ce socle commun.",
-      "Dominique de Villepin décrit le recours répété au 49.3 et aux artifices budgétaires comme un régime d’exception et privilégie un gouvernement appuyé sur une majorité claire : désaccord net mais pas abolition explicitement formulée.",
+      "Accord net : Dominique de Villepin admet qu'en cas de blocage budgétaire persistant, des mécanismes exceptionnels permettent d'adopter le budget sans vote parlementaire ordinaire ; il les présente toutefois comme un dernier recours, d'où +2.",
       "Réserve étayée : le projet combine égalité réelle des chances et défense des libertés individuelles, sans subordonner systématiquement celles-ci à l’égalité des résultats.",
       "Accord net : codage fondé sur les documents officiels retenus pour le thème « Social / société ». Niveau de preuve : position ou mesure explicitement documentée.",
       "Accord net : codage fondé sur les documents officiels retenus pour le thème « Social / société ». Niveau de preuve : position ou mesure explicitement documentée.",
@@ -2972,7 +2972,7 @@ const PARTIES_DATA = [
       "europe": 3.333333333333333,
       "ecology": 5.271317829457365,
       "immigration": 1.201201201201201,
-      "democracy": 4.953703703703703
+      "democracy": 3.5648148148148144
     },
     "averageConfidence": 0.7777777777777778
   },
@@ -3053,7 +3053,7 @@ const PARTIES_DATA = [
       2,
       -1,
       2,
-      -2,
+      -3,
       3,
       -1,
       -3,
@@ -3231,7 +3231,7 @@ const PARTIES_DATA = [
       "Accord net : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Désaccord modéré : Les Républicains restent attachés au principe d'égalité politique des citoyens et au suffrage universel. Ils ne défendent pas une pondération du vote en fonction des connaissances ; -1 traduit ce désaccord sans extrapoler une opposition doctrinale explicite à l'hypothèse précise.",
       "Accord net : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
-      "Désaccord net : le Bureau politique des Républicains s’est opposé à l’unanimité à l’introduction de la proportionnelle pour les élections législatives ; la question portant sur une proportionnelle intégrale, le désaccord est directement documenté.",
+      "Désaccord fort : LR rejette explicitement la proportionnelle en invoquant précisément le risque de coalitions instables et de difficultés à dégager une majorité ; cela correspond presque exactement au désaccord décrit par la question.",
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Réserve : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Désaccord fort : la Droite républicaine défend les dérogations lorsque des filières agricoles sont sans alternative et critique les contraintes nationales qui pénalisent les agriculteurs face à la concurrence, tout en renvoyant l’évaluation sanitaire à l’expertise scientifique.",
@@ -3344,7 +3344,7 @@ const PARTIES_DATA = [
       "europe": -0.7526881720430108,
       "ecology": -3.8759689922480622,
       "immigration": -6.576576576576577,
-      "democracy": -3.009259259259259
+      "democracy": -3.333333333333333
     },
     "averageConfidence": 0.6781609195402298
   },
@@ -3420,12 +3420,12 @@ const PARTIES_DATA = [
       -2,
       3,
       -1,
+      -1,
       1,
-      1,
-      2,
+      3,
       -1,
       2,
-      -2,
+      -3,
       3,
       -1,
       -3,
@@ -3598,12 +3598,12 @@ const PARTIES_DATA = [
       "Désaccord net : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord fort : preuve primaire directe ou proposition officielle très proche ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "Réserve : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
+      "Désaccord modéré : Nouvelle Énergie critique le pouvoir technocratique et le dessaisissement des responsables élus, tout en valorisant l'expertise et l'évaluation ; -1 traduit cette réserve sans surestimer l'opposition.",
       "Accord modéré : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
-      "Accord modéré : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
-      "Accord net : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
+      "Accord fort : Nouvelle Énergie veut généraliser les référendums, permettre de soumettre largement les sujets au pays et rendre effectif le référendum d'initiative citoyenne ; la correspondance avec la question est très directe.",
       "Désaccord modéré : Nouvelle Énergie défend la légitimité du suffrage universel et le recours accru au référendum, sans proposer de donner davantage de poids politique aux citoyens selon leur niveau de connaissance. -1 traduit cette réserve sans surinterpréter sa doctrine.",
       "Accord net : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
-      "Désaccord net : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
+      "Désaccord fort : David Lisnard et Nouvelle Énergie rejettent explicitement la proportionnelle intégrale, notamment parce qu'elle affaiblirait la capacité de l'exécutif à gouverner ; opposition directe à la question.",
       "Accord fort : preuve primaire directe ou proposition officielle très proche ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "Réserve : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Désaccord fort : Nouvelle Énergie veut mettre fin aux surtranspositions françaises, aligner les règles sur le marché commun et autoriser un usage raisonné des produits phytosanitaires sur base scientifique ; le programme refuse explicitement les normes qui affaiblissent la compétitivité sans bénéfice démontré.",
@@ -3712,11 +3712,11 @@ const PARTIES_DATA = [
     ],
     "axisScores": {
       "economy": 6.045197740112993,
-      "authority": 1.4583333333333335,
+      "authority": 1.3690476190476197,
       "europe": -1.182795698924731,
       "ecology": -2.906976744186047,
       "immigration": -6.756756756756756,
-      "democracy": -1.111111111111111
+      "democracy": -0.13888888888888865
     },
     "averageConfidence": 0.7318007662835249
   },
