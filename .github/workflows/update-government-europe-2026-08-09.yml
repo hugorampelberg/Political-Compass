@@ -1,0 +1,150 @@
+name: Update government Europe 2026-08-09
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/update-government-europe-2026-08-09.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.event.head_commit.message == 'Apply approved government Europe updates'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Apply approved Europe scores
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const vm = require('vm');
+
+          function loadConst(path, variable) {
+            const src = fs.readFileSync(path, 'utf8');
+            const sandbox = {};
+            vm.createContext(sandbox);
+            vm.runInContext(src.replace(`const ${variable} =`, `${variable} =`), sandbox);
+            return sandbox[variable];
+          }
+
+          const questionnaire = loadConst('data/questionnaire.js', 'QUESTIONNAIRE_DATA');
+          const governments = loadConst('data/governments.js', 'GOVERNMENTS_DATA');
+          const qIndex = new Map(questionnaire.questions.map((q, i) => [q.id, i]));
+          const govById = new Map(governments.map(g => [g.id, g]));
+
+          const changes = [
+            ['espagne', 38, 2, 3, 3, "Accord fort : Pedro Sánchez défend explicitement une Europe plus intégrée et plus souveraine, avec une Union de la sécurité et de la défense, davantage de souveraineté financière et la perspective d’une armée européenne. Cela correspond à une volonté forte de renforcer les capacités et compétences exercées au niveau européen : +3.", 'https://www.lamoncloa.gob.es/lang/en/presidente/intervenciones/Paginas/2026/20260410-european-pulse-forum-speech.aspx'],
+
+            ['suisse', 87, -3, -2, 3, "Désaccord net : la neutralité suisse exclut l’aide militaire directe demandée par la question, mais la Confédération fournit une aide financière, humanitaire et de reconstruction très importante à l’Ukraine et condamne l’agression russe. Le désaccord porte donc surtout sur la composante militaire : -2 plutôt que -3.", 'https://www.eda.admin.ch/en/support-of-the-confederation-for-the-people-affected-by-the-war-in-ukraine'],
+            ['suisse', 93, -2, 0, 2, "Position neutre ou conditionnelle : la Confédération recherche une forte souveraineté numérique pour les usages sensibles, tout en appliquant une stratégie hybride multi-cloud qui autorise aussi le recours à des fournisseurs publics étrangers lorsque c’est la solution la plus adaptée. Elle ne privilégie donc pas systématiquement l’hébergement européen au prix d’une moindre performance ou d’un surcoût : 0.", 'https://www.bk.admin.ch/en/cloud-6'],
+
+            ['finlande', 38, 2, 1, 3, "Accord modéré : la Finlande veut une Union européenne forte et capable d’agir, mais sa doctrine officielle demande que l’UE soit grande sur les grands sujets et petite sur les petits, respecte la subsidiarité et conserve une division claire des compétences entre Union et États membres. Elle soutient donc des transferts ciblés plutôt qu’une extension générale des compétences : +1.", 'https://valtioneuvosto.fi/en/finlands-eu-policy/finland-in-the-european-union'],
+            ['finlande', 41, 2, 1, 3, "Accord modéré : la Finlande accepte des règles communes lorsque l’échelle européenne apporte une vraie valeur ajoutée, mais insiste officiellement sur la subsidiarité, la proportionnalité, une division claire des compétences et la simplification de la réglementation européenne. Cela justifie +1 plutôt que +2.", 'https://valtioneuvosto.fi/en/finlands-eu-policy/finland-in-the-european-union'],
+
+            ['royaume-uni', 93, -2, 0, 2, "Position neutre : le gouvernement britannique développe explicitement des capacités d’IA souveraines et une infrastructure nationale de calcul, ce qui contredit une préférence pour la dépendance technologique étrangère. Mais cette stratégie est britannique, pas spécifiquement européenne, et n’établit pas qu’il accepterait une solution européenne moins performante ou plus coûteuse : 0.", 'https://www.gov.uk/government/publications/expression-of-interest-airr-heterogeneous-supercomputer-host-site-selection'],
+
+            ['danemark', 41, 3, 2, 2, "Accord net mais non maximal : le Danemark soutient une Union capable d’agir davantage dans des domaines communs comme la sécurité, le climat ou la compétitivité, mais cela ne revient pas à souhaiter systématiquement davantage de réglementation européenne dans tous les domaines. La formulation générale de la question justifie +2 plutôt que +3.", 'https://regeringen.dk/om-regeringen/regeringer-siden-1848/regeringen-mette-frederiksen-iii/'],
+            ['danemark', 88, 1, 2, 3, "Accord net : Mette Frederiksen a accepté en mars 2026 l’invitation française à un dialogue stratégique renforcé sur la dissuasion nucléaire européenne et française, incluant consultations régulières et participation danoise à des exercices, tout en maintenant le cadre de l’OTAN et sans stationnement d’armes françaises au Danemark. C’est un accord clair mais encadré : +2.", 'https://stm.dk/presse/pressemoedearkiv/2026/pressemoede-den-2-marts-2026/'],
+
+            ['pologne', 38, 2, 1, 3, "Accord modéré : le gouvernement Tusk veut une Europe beaucoup plus capable d’agir, notamment en défense, mais présente les instruments européens comme SAFE comme des moyens de renforcer simultanément la souveraineté polonaise. La ligne est donc celle d’une coopération européenne ambitieuse plus que d’un transfert général de compétences : +1.", 'https://www.gov.pl/web/primeminister/safe-polands-blueprint-for-european-security-and-domestic-defence-growth'],
+            ['pologne', 39, 1, 0, 2, "Position neutre : Donald Tusk défend à la fois une Pologne souveraine et une Europe capable d’agir de manière autonome, en rejetant explicitement le repli derrière les frontières nationales. Sa doctrine ne consiste donc pas à privilégier la souveraineté nationale même au prix d’une influence européenne moindre : 0.", 'https://www.gov.pl/web/primeminister/poland-can-stand-as-europes-beacon-of-hope'],
+            ['pologne', 42, 1, -2, 3, "Désaccord net : le gouvernement Tusk a fait du rétablissement de l’État de droit et du respect des obligations découlant du droit de l’Union et de la jurisprudence de la CJUE une priorité, ce qui a permis la clôture de la procédure de l’article 7. Il peut contester politiquement certaines règles européennes, mais pas défendre comme principe la désobéissance nationale : -2.", 'https://www.gov.pl/web/justice/the-european-commission-intends-to-close-article-7-procedure-against-poland'],
+            ['pologne', 88, 1, 2, 3, "Accord net : la Pologne et la France ont créé en juillet 2026 un groupe de pilotage pour des consultations sur la coopération nucléaire et la dissuasion avancée française, avec l’objectif explicite de renforcer la sécurité de la Pologne, de la France et de l’Europe. La coopération est substantielle mais encore en phase de consultation : +2.", 'https://www.gov.pl/web/diplomacy/first-meeting-of-polishfrench-steering-group-for-nuclear-cooperation']
+          ];
+
+          for (const [govId, qid, expectedOld, value, confidence, justification, source] of changes) {
+            const gov = govById.get(govId);
+            if (!gov) throw new Error(`Government not found: ${govId}`);
+            const idx = qIndex.get(qid);
+            if (idx === undefined) throw new Error(`Question not found: Q${qid}`);
+            if (gov.responses[idx] !== expectedOld) {
+              throw new Error(`${govId} Q${qid}: expected current value ${expectedOld}, found ${gov.responses[idx]}`);
+            }
+            gov.responses[idx] = value;
+            gov.confidence[idx] = confidence;
+            gov.justifications[idx] = justification;
+            if (Array.isArray(gov.sources)) gov.sources[idx] = source;
+          }
+
+          const axes = questionnaire.axes.map(a => a.key);
+          function calculateAxisScore(responses, axis) {
+            let numerator = 0;
+            let denominator = 0;
+            questionnaire.questions.forEach((q, i) => {
+              const coefficient = Number(q.coefficients?.[axis] || 0);
+              if (!coefficient) return;
+              numerator += Number(responses[i] || 0) * coefficient;
+              denominator += Math.abs(coefficient);
+            });
+            return denominator ? 10 * numerator / (3 * denominator) : 0;
+          }
+
+          for (const gov of governments) {
+            gov.axisScores = Object.fromEntries(axes.map(axis => [axis, calculateAxisScore(gov.responses, axis)]));
+            gov.averageConfidence = gov.confidence.reduce((sum, x) => sum + Number(x || 0), 0) / gov.confidence.length;
+          }
+
+          fs.writeFileSync('data/governments.js', `// Profils documentés des gouvernements et pays de comparaison.\nconst GOVERNMENTS_DATA = ${JSON.stringify(governments, null, 2)};\n`);
+          NODE
+      - name: Validate selected changes and scores
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const vm = require('vm');
+          function loadConst(path, variable) {
+            const src = fs.readFileSync(path, 'utf8');
+            const sandbox = {};
+            vm.createContext(sandbox);
+            vm.runInContext(src.replace(`const ${variable} =`, `${variable} =`), sandbox);
+            return sandbox[variable];
+          }
+          const questionnaire = loadConst('data/questionnaire.js', 'QUESTIONNAIRE_DATA');
+          const governments = loadConst('data/governments.js', 'GOVERNMENTS_DATA');
+          const qi = new Map(questionnaire.questions.map((q,i)=>[q.id,i]));
+          const byId = new Map(governments.map(g=>[g.id,g]));
+          const expected = [
+            ['espagne',38,3],
+            ['suisse',87,-2],['suisse',93,0],
+            ['finlande',38,1],['finlande',41,1],
+            ['royaume-uni',93,0],
+            ['danemark',41,2],['danemark',88,2],
+            ['pologne',38,1],['pologne',39,0],['pologne',42,-2],['pologne',88,2]
+          ];
+          for (const [id,qid,val] of expected) {
+            const g=byId.get(id), idx=qi.get(qid);
+            if (!g || idx===undefined || g.responses[idx]!==val) throw new Error(`Mismatch ${id} Q${qid}`);
+          }
+          for (const g of governments) {
+            if (g.responses.length !== questionnaire.questions.length) throw new Error(`${g.id}: response length mismatch`);
+            if (g.confidence.length !== questionnaire.questions.length) throw new Error(`${g.id}: confidence length mismatch`);
+            for (const axis of questionnaire.axes.map(a=>a.key)) {
+              let num=0, den=0;
+              questionnaire.questions.forEach((q,i)=>{
+                const c=Number(q.coefficients?.[axis]||0);
+                if (!c) return;
+                num += Number(g.responses[i]||0)*c;
+                den += Math.abs(c);
+              });
+              const fresh=den ? 10*num/(3*den) : 0;
+              if (Math.abs(Number(g.axisScores[axis])-fresh)>1e-10) throw new Error(`${g.id} ${axis}: stale axis score`);
+            }
+            const avg=g.confidence.reduce((s,x)=>s+Number(x||0),0)/g.confidence.length;
+            if (Math.abs(Number(g.averageConfidence)-avg)>1e-10) throw new Error(`${g.id}: stale average confidence`);
+          }
+          console.log('Validated 12 approved Europe changes and all government axis scores.');
+          NODE
+      - name: Remove one-off workflow and commit
+        run: |
+          rm .github/workflows/update-government-europe-2026-08-09.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/governments.js .github/workflows/update-government-europe-2026-08-09.yml
+          git commit -m "Update approved government Europe scores"
+          git push origin main
