@@ -76,3 +76,5 @@ fs.writeFileSync(
 );
 
 console.log('Country-specific question updates applied and government axis scores recomputed.');
+
+// Triggered after workflow creation.
