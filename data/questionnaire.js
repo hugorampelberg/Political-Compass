@@ -57,11 +57,11 @@ const QUESTIONNAIRE_DATA = {
   ],
   "axisMasses": {
     "economy": 23.700000000000003,
-    "authority": 21.59999999999999,
+    "authority": 20.399999999999995,
     "europe": 6.2,
     "ecology": 8.5,
-    "immigration": 11.100000000000001,
-    "democracy": 7
+    "immigration": 11.400000000000002,
+    "democracy": 7.8
   },
   "defaultPriority": "economy",
   "questions": [
@@ -313,17 +313,17 @@ const QUESTIONNAIRE_DATA = {
     },
     {
       "id": 18,
-      "theme": "Social / société",
-      "text": "La liberté d'expression devrait être protégée même lorsque des propos sont considérés comme offensants ou choquants.",
-      "defaultAnswer": 2,
+      "theme": "Institutions / territoires",
+      "text": "Les régions devraient pouvoir adopter des règles différentes en matière économique, sociale ou environnementale plutôt que d’appliquer partout les mêmes règles nationales.",
+      "defaultAnswer": 0,
       "note": "",
       "coefficients": {
         "economy": 0,
-        "authority": -1,
+        "authority": 0,
         "europe": 0,
         "ecology": 0,
         "immigration": 0,
-        "democracy": 0
+        "democracy": 0.8
       }
     },
     {
@@ -858,16 +858,16 @@ const QUESTIONNAIRE_DATA = {
     },
     {
       "id": 56,
-      "theme": "Immigration / assimilation",
-      "text": "Un immigré légal qui travaille, paie ses impôts, maîtrise correctement le français et respecte les lois devrait pouvoir obtenir la nationalité française relativement facilement, même s'il conserve une partie importante de sa culture d'origine.",
-      "defaultAnswer": 2,
+      "theme": "Immigration / régularisation",
+      "text": "Un étranger en situation irrégulière qui travaille de façon stable en France depuis plusieurs années et n’a commis aucun délit devrait pouvoir être régularisé, même s’il est entré ou est resté sur le territoire sans autorisation.",
+      "defaultAnswer": 0,
       "note": "",
       "coefficients": {
         "economy": 0,
-        "authority": -0.2,
+        "authority": 0,
         "europe": 0,
         "ecology": 0,
-        "immigration": 0.7,
+        "immigration": 1,
         "democracy": 0
       }
     },
