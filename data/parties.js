@@ -90,7 +90,7 @@ const PARTIES_DATA = [
       -2,
       -3,
       3,
-      2,
+      3,
       2,
       -3,
       1
@@ -179,7 +179,7 @@ const PARTIES_DATA = [
       3,
       2,
       3,
-      2,
+      3,
       1,
       3,
       2
@@ -268,7 +268,7 @@ const PARTIES_DATA = [
       "Désaccord fort : le vote ou la politique officielle sur le soutien durable à l'Ukraine constitue l'indicateur principal. Niveau de preuve : preuve directe ou politique explicitement documentée.",
       "Désaccord fort : la source retenue porte sur l'extension européenne de la dissuasion ou, pour les pays non dotés, sur la protection nucléaire alliée. Niveau de preuve : faisceau d’indices cohérent, sans équivalent toujours parfaitement identique.",
       "Accord fort : le vote, la loi ou la position gouvernementale sur l'aide à mourir fournit un équivalent direct ou très proche. Niveau de preuve : preuve directe ou politique explicitement documentée.",
-      "Accord net : le programme social et sanitaire permet d'estimer la place laissée aux opérateurs lucratifs dans la dépendance. Niveau de preuve : faisceau d’indices cohérent, sans équivalent toujours parfaitement identique.",
+      "Accord fort : des députés LFI ont déposé une proposition de loi visant explicitement à mettre fin aux EHPAD privés à but lucratif et à privilégier les établissements publics ou privés non lucratifs. La proposition correspond presque exactement au principe posé par la question.",
       "Accord net : le modèle de prestations familiales et la ligne programmatique permettent d'estimer la préférence pour l'universalité ou le ciblage. Niveau de preuve : estimation prudente à partir de la ligne générale.",
       "Désaccord fort : le vote ou la politique publique sur l'âge d'accès aux réseaux sociaux permet de distinguer interdiction stricte, autorisation parentale et régulation plus souple. Niveau de preuve : preuve directe ou politique explicitement documentée.",
       "Accord modéré : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse."
@@ -357,20 +357,20 @@ const PARTIES_DATA = [
       "https://www.assemblee-nationale.fr/dyn/17/scrutins/988",
       "https://lafranceinsoumise.fr/2019/02/05/question-ecrite-sur-la-dissuasion-nucleaire-dans-le-traite-daix-la-chapelle/",
       "https://www.assemblee-nationale.fr/dyn/17/scrutins/2107",
-      "https://lafranceinsoumise.fr/wp-content/uploads/2018/10/LIVRET-ContreBudget-1.pdf",
+      "https://www.assemblee-nationale.fr/dyn/docs/PIONANR5L15B5251.raw",
       "https://lafranceinsoumise.fr/wp-content/uploads/2024/06/Programme-nouveaufrontpopulaire.pdf",
       "https://www.assemblee-nationale.fr/dyn/17/scrutins/8431",
       "https://lafranceinsoumise.fr/wp-content/uploads/2024/06/Programme-nouveaufrontpopulaire.pdf"
     ],
     "axisScores": {
-      "economy": -8.95747599451303,
+      "economy": -9.080932784636486,
       "authority": -3.9424703891708974,
       "europe": -4.408602150537635,
       "ecology": 8.03921568627451,
       "immigration": 8.801169590643275,
       "democracy": 5.47008547008547
     },
-    "averageConfidence": 2.218390804597701
+    "averageConfidence": 2.2298850574712645
   },
   {
     "id": "pcf",
@@ -1206,7 +1206,7 @@ const PARTIES_DATA = [
       3,
       3,
       3,
-      2,
+      -1,
       -2,
       1,
       2
@@ -1295,7 +1295,7 @@ const PARTIES_DATA = [
       3,
       3,
       3,
-      1,
+      3,
       2,
       3,
       2
@@ -1384,7 +1384,7 @@ const PARTIES_DATA = [
       "Accord fort : le vote ou la politique officielle sur le soutien durable à l'Ukraine constitue l'indicateur principal. Niveau de preuve : preuve directe ou politique explicitement documentée.",
       "Accord fort : la source retenue porte sur l'extension européenne de la dissuasion ou, pour les pays non dotés, sur la protection nucléaire alliée. Niveau de preuve : preuve directe ou politique explicitement documentée.",
       "Accord fort : le vote, la loi ou la position gouvernementale sur l'aide à mourir fournit un équivalent direct ou très proche. Niveau de preuve : preuve directe ou politique explicitement documentée.",
-      "Accord net : le programme social et sanitaire permet d'estimer la place laissée aux opérateurs lucratifs dans la dépendance. Niveau de preuve : estimation prudente à partir de la ligne générale.",
+      "Désaccord modéré : les socialistes veulent encadrer et taxer les profits excessifs des EHPAD lucratifs et conditionner davantage les financements publics, mais leurs propositions n'interdisent pas aux opérateurs privés lucratifs de continuer à gérer des établissements. La disparition progressive de tout EHPAD lucratif va donc plus loin que leur position actuelle.",
       "Désaccord net : le modèle de prestations familiales et la ligne programmatique permettent d'estimer la préférence pour l'universalité ou le ciblage. Niveau de preuve : faisceau d’indices cohérent, sans équivalent toujours parfaitement identique.",
       "Accord modéré : le vote ou la politique publique sur l'âge d'accès aux réseaux sociaux permet de distinguer interdiction stricte, autorisation parentale et régulation plus souple. Niveau de preuve : preuve directe ou politique explicitement documentée.",
       "Accord net : la stratégie numérique permet d'estimer la priorité accordée à la souveraineté européenne par rapport au coût et à la performance. Niveau de preuve : faisceau d’indices cohérent, sans équivalent toujours parfaitement identique."
@@ -1473,20 +1473,20 @@ const PARTIES_DATA = [
       "https://www.assemblee-nationale.fr/dyn/17/scrutins/988",
       "https://parti-socialiste.fr/communiques-de-presse/dissuasion-nucleaire-francaise-le-ps-salue-une-ambition-europeenne-desormais-a-demontrer/",
       "https://www.assemblee-nationale.fr/dyn/17/scrutins/2107",
-      "https://parti-socialiste.fr/vie-parlementaire/notre-declaration-politique-17eme-legislature/",
+      "https://www.senat.fr/cra/s20241017/s20241017_2.html",
       "https://parti-socialiste.fr/vie-parlementaire/notre-declaration-politique-17eme-legislature/",
       "https://www.assemblee-nationale.fr/dyn/17/scrutins/8431",
       "https://parti-socialiste.fr/vie-parlementaire/notre-declaration-politique-17eme-legislature/"
     ],
     "axisScores": {
-      "economy": -6.584362139917695,
+      "economy": -6.2139917695473255,
       "authority": -2.3857868020304576,
       "europe": 9.35483870967742,
       "ecology": 6.9411764705882355,
       "immigration": 6.812865497076024,
       "democracy": 4.188034188034188
     },
-    "averageConfidence": 2.1264367816091956
+    "averageConfidence": 2.1494252873563218
   },
   {
     "id": "renaissance",
@@ -2831,7 +2831,7 @@ const PARTIES_DATA = [
       "Position partagée étayée : le projet recherche une souveraineté européenne renforcée tout en préservant la capacité d’initiative et les intérêts stratégiques français.",
       "Désaccord net : Dominique de Villepin s’est déclaré directement favorable au retour d’un ISF adapté et à une taxation minimale des très hauts patrimoines, à l’opposé de la suppression de l’IFI.",
       "Accord modéré directement documenté : le projet propose de taxer à la succession certaines plus-values latentes plutôt que de supprimer toute fiscalité spécifique sur les patrimoines immobiliers élevés.",
-      "Position non tranchée : LFH défend une fiscalité plus progressive et la lutte contre l'évasion, mais la source retenue ne permet pas d'établir une taxation du patrimoine mondial après expatriation. Neutralisation plutôt qu'inférence forte.",
+      "Accord modéré et prudent : Dominique de Villepin défend une contribution accrue des très hauts patrimoines et s'est montré favorable au principe d'une taxation minimale des grandes fortunes. En revanche, aucune position suffisamment précise n'établit qu'il souhaite maintenir une imposition française du patrimoine mondial après l'expatriation ; l'accord est donc limité à +1.",
       "Accord modéré : le projet rejette une simple indemnisation passive et prévoit des dispositifs soumis à une conditionnalité stricte de recherche active d'emploi ; il ne prévoit toutefois pas explicitement la sanction exacte décrite dans la question.",
       "La France Humaniste insiste sur la solidarité nationale, la justice des distances et le rééquilibrage territorial. Aucune proposition ultramarine de subvention des prix aussi précise n’est publiée ; accord prudent retenu à +1.",
       "Accord net au regard du bilan politique de Villepin : le CPE/CNE visait précisément à réduire le risque d'embauche lié à la rigidité de la rupture du contrat pour faciliter l'accès à l'emploi, notamment des jeunes, même si LFH insiste aujourd'hui davantage sur la sécurité des parcours.",
@@ -3397,7 +3397,7 @@ const PARTIES_DATA = [
       2,
       3,
       -3,
-      1,
+      -1,
       2,
       -1,
       3,
@@ -3486,7 +3486,7 @@ const PARTIES_DATA = [
       2,
       2,
       2,
-      2,
+      3,
       2,
       2,
       3,
@@ -3575,7 +3575,7 @@ const PARTIES_DATA = [
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Désaccord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
-      "Accord limité : la position retenue reste prudente sur ce mécanisme très spécifique d'imposition après expatriation ; aucune adhésion à une taxation extraterritoriale générale n'est établie, ce qui limite l'intensité à +1.",
+      "Désaccord modéré : Nouvelle Énergie, notamment par David Lisnard, rejette la taxe Zucman sur les très hauts patrimoines et met en avant le risque de fuite des capitaux et des contribuables, ce qui va à l'encontre d'une taxation française maintenue après expatriation. Aucune proposition ne traite toutefois directement d'une imposition du patrimoine mondial après le départ de France ; le désaccord est donc limité à -1.",
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Nouvelle Énergie privilégie la baisse des dépenses, la concurrence et un État recentré ; une solidarité territoriale ciblée reste possible, mais une subvention nationale durable des prix va plutôt à l’encontre de sa doctrine budgétaire.",
       "Accord fort : le programme de Nouvelle Énergie décrit explicitement la dualité CDI/CDD comme une source de « sclérose et d’injustice » et propose un contrat unique avec protection progressive ; le diagnostic selon lequel le CDI peut exclure les nouveaux entrants est donc directement documenté.",
@@ -3664,7 +3664,7 @@ const PARTIES_DATA = [
       "https://www.unenouvelleenergie.fr/notre-programme/",
       "https://www.unenouvelleenergie.fr/notre-programme/",
       "https://www.unenouvelleenergie.fr/notre-programme/",
-      "https://www.unenouvelleenergie.fr/notre-programme/",
+      "https://www.unenouvelleenergie.fr/taxe-zucman-les-francais-meritent-mieux-que-des-illusions-fiscales/",
       "https://www.unenouvelleenergie.fr/notre-programme/",
       "https://www.unenouvelleenergie.fr/notre-programme/",
       "https://www.unenouvelleenergie.fr/notre-programme/reussir-une-nouvelle-ambition-francaise/",
@@ -3711,14 +3711,14 @@ const PARTIES_DATA = [
       "https://www.unenouvelleenergie.fr/notre-programme/"
     ],
     "axisScores": {
-      "economy": 5.802469135802469,
-      "authority": 1.4890016920473776,
+      "economy": 5.912208504801097,
+      "authority": 1.4213197969543154,
       "europe": -1.182795698924731,
       "ecology": -4.392156862745098,
       "immigration": -7.660818713450292,
       "democracy": 1.0683760683760688
     },
-    "averageConfidence": 2.218390804597701
+    "averageConfidence": 2.2298850574712645
   },
   {
     "id": "udr",
@@ -3945,7 +3945,7 @@ const PARTIES_DATA = [
       "Accord modéré : codage fondé sur les documents officiels retenus pour le thème « Europe ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
       "Désaccord net : codage fondé sur les documents officiels retenus pour le thème « Europe ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
       "Accord net : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
-      "Désaccord fort : l’UDR défend explicitement la suppression de l’IFI dans ses propositions économiques, ce qui correspond directement à la première partie de la question.",
+      "Accord fort : l'UDR défend explicitement la suppression de l'IFI dans ses propositions économiques, ce qui correspond directement à la question.",
       "Désaccord fort : preuve primaire directe ou proposition officielle très proche ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "Désaccord net : codage fondé sur les documents officiels retenus pour le thème « Fiscalité / patrimoine ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
       "Accord net : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
@@ -4178,7 +4178,7 @@ const PARTIES_DATA = [
       -2,
       1,
       -2,
-      1,
+      -2,
       0,
       -3,
       -3,
@@ -4267,7 +4267,7 @@ const PARTIES_DATA = [
       2,
       1,
       1,
-      1,
+      3,
       3,
       3,
       3,
@@ -4356,7 +4356,7 @@ const PARTIES_DATA = [
       "Désaccord net : le document retenu permet d'arbitrer entre maintien de la proximité hospitalière et concentration des moyens. Niveau de preuve : faisceau d’indices cohérent, sans équivalent toujours parfaitement identique.",
       "Accord modéré : la position est estimée à partir des propositions d'autonomie des établissements, de recrutement et de gestion des enseignants. Niveau de preuve : estimation prudente à partir de la ligne générale.",
       "Désaccord net : la position est estimée à partir des propositions sur l'enseignement privé, son financement et la mixité sociale. Niveau de preuve : estimation prudente à partir de la ligne générale.",
-      "Accord modéré : la source retenue précise le degré de régulation souhaité pour les meublés touristiques et les pouvoirs locaux. Niveau de preuve : estimation prudente à partir de la ligne générale.",
+      "Désaccord net : lors du vote final de la loi renforçant les outils de régulation locale des meublés touristiques, le groupe RN a très majoritairement voté contre. La question va plus loin que ce texte puisqu'elle permettrait une interdiction municipale des locations touristiques régulières hors résidence principale ; -2 traduit donc une opposition claire sans extrapoler jusqu'à un rejet maximal.",
       "Position neutre, partagée ou non arrêtée : le vote ou la politique officielle sur le soutien durable à l'Ukraine constitue l'indicateur principal. Niveau de preuve : preuve directe ou politique explicitement documentée.",
       "Désaccord fort : la source retenue porte sur l'extension européenne de la dissuasion ou, pour les pays non dotés, sur la protection nucléaire alliée. Niveau de preuve : preuve directe ou politique explicitement documentée.",
       "Désaccord fort : le vote, la loi ou la position gouvernementale sur l'aide à mourir fournit un équivalent direct ou très proche. Niveau de preuve : preuve directe ou politique explicitement documentée.",
@@ -4445,7 +4445,7 @@ const PARTIES_DATA = [
       "https://rassemblementnational.fr/documents/202406-programme.pdf",
       "https://rassemblementnational.fr/documents/202406-programme.pdf",
       "https://rassemblementnational.fr/documents/202406-programme.pdf",
-      "https://rassemblementnational.fr/documents/202406-programme.pdf",
+      "https://www.assemblee-nationale.fr/dyn/17/scrutins/289",
       "https://www.assemblee-nationale.fr/dyn/17/scrutins/988",
       "https://rassemblementnational.fr/communiques/la-dissuasion-engage-la-nation-elle-ne-se-delegue-pas",
       "https://www.assemblee-nationale.fr/dyn/17/scrutins/2107",
@@ -4455,14 +4455,14 @@ const PARTIES_DATA = [
       "https://rassemblementnational.fr/documents/202406-programme.pdf"
     ],
     "axisScores": {
-      "economy": 0.5898491083676268,
-      "authority": 3.8917089678510997,
+      "economy": 0.8367626886145402,
+      "authority": 3.637901861252115,
       "europe": -6.129032258064517,
       "ecology": -5.8431372549019605,
       "immigration": -9.415204678362572,
       "democracy": 1.794871794871795
     },
-    "averageConfidence": 2
+    "averageConfidence": 2.0229885057471266
   },
   {
     "id": "reconquete",

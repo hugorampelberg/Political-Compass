@@ -462,7 +462,7 @@ const GOVERNMENTS_DATA = [
       3,
       -2,
       3,
-      1,
+      -1,
       -2,
       3,
       2
@@ -551,7 +551,7 @@ const GOVERNMENTS_DATA = [
       3,
       3,
       3,
-      1,
+      2,
       2,
       3,
       3
@@ -640,7 +640,7 @@ const GOVERNMENTS_DATA = [
       "Accord fort : le vote ou la politique officielle sur le soutien durable à l'Ukraine constitue l'indicateur principal. Niveau de preuve : preuve directe ou politique explicitement documentée.",
       "Désaccord net : la source retenue porte sur l'extension européenne de la dissuasion ou, pour les pays non dotés, sur la protection nucléaire alliée. Niveau de preuve : preuve directe ou politique explicitement documentée.",
       "Accord fort : le vote, la loi ou la position gouvernementale sur l'aide à mourir fournit un équivalent direct ou très proche. Niveau de preuve : preuve directe ou politique explicitement documentée.",
-      "Accord modéré : le programme social et sanitaire permet d'estimer la place laissée aux opérateurs lucratifs dans la dépendance. Niveau de preuve : estimation prudente à partir de la ligne générale.",
+      "Désaccord modéré : le gouvernement espagnol renforce les exigences de qualité et l'encadrement public de la prise en charge de la dépendance, mais la réglementation actuelle continue d'accréditer des centres et services privés dans le système public. Elle ne prévoit donc pas la disparition progressive des opérateurs privés lucratifs ; -1 reflète ce décalage sans surestimer l'opposition.",
       "Désaccord net : le modèle de prestations familiales et la ligne programmatique permettent d'estimer la préférence pour l'universalité ou le ciblage. Niveau de preuve : faisceau d’indices cohérent, sans équivalent toujours parfaitement identique.",
       "Accord fort : le vote ou la politique publique sur l'âge d'accès aux réseaux sociaux permet de distinguer interdiction stricte, autorisation parentale et régulation plus souple. Niveau de preuve : preuve directe ou politique explicitement documentée.",
       "Accord net : la stratégie numérique permet d'estimer la priorité accordée à la souveraineté européenne par rapport au coût et à la performance. Niveau de preuve : preuve directe ou politique explicitement documentée."
@@ -729,20 +729,20 @@ const GOVERNMENTS_DATA = [
       "https://www.lamoncloa.gob.es/presidente/actividades/paginas/2026/200226-sanchez-seminario-desigualdad.aspx",
       "https://www.lamoncloa.gob.es/presidente/intervenciones/paginas/2026/20260214-transcripcion-sanchez-seguridad-munich.aspx",
       "https://www.boe.es/buscar/act.php?id=BOE-A-2021-4628",
-      "https://www.lamoncloa.gob.es/Documents/2025/appendix-II-map-of-commitments-december.pdf",
+      "https://www.boe.es/eli/es/o/2026/01/02/dca5",
       "https://www.lamoncloa.gob.es/Documents/2025/appendix-II-map-of-commitments-december.pdf",
       "https://www.lamoncloa.gob.es/presidente/actividades/paginas/2026/030226-sanchez-cumbre-gobiernos-dubai.aspx",
       "https://www.lamoncloa.gob.es/consejodeministros/resumenes/Documents/2026/240226-soberania-digital.pdf"
     ],
     "axisScores": {
-      "economy": -4.4718792866941,
+      "economy": -4.224965706447188,
       "authority": -0.1353637901861253,
       "europe": 6.666666666666666,
       "ecology": 4.862745098039215,
       "immigration": 4.444444444444445,
       "democracy": 2.9914529914529915
     },
-    "averageConfidence": 2.310344827586207
+    "averageConfidence": 2.32183908045977
   },
   {
     "id": "suisse",
