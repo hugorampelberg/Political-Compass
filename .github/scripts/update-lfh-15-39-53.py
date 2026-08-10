@@ -33,3 +33,4 @@ prefix=pt[:pm.start(1)]; suffix=pt[pm.end(1):]
 p_path.write_text(prefix+json.dumps(parties,ensure_ascii=False,indent=2)+suffix,encoding='utf-8')
 print('updated', {k:changes[k][0] for k in changes})
 print('axisScores', lfh['axisScores'])
+# trigger
