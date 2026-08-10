@@ -4,6 +4,7 @@ import json
 import re
 
 # Triggered once to apply only the LFH questions explicitly approved on 2026-08-10.
+# Scoped validation rerun after an unrelated pre-existing PCF validation issue.
 q_path = Path('data/questionnaire.js')
 p_path = Path('data/parties.js')
 
