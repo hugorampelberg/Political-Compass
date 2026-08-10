@@ -149,7 +149,7 @@ jobs:
           assert app.count('function renderAllNotesSection(entity)') == 1
           assert app.count('id="entity-notes-toggle"') == 1
           assert 'Détail de toutes les notes' in app
-          assert css.count('.all-notes-table {') == 1
+          assert css.count('.all-notes-table {') == 2
           app_path.write_text(app)
           css_path.write_text(css)
           PY
