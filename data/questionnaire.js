@@ -56,12 +56,12 @@ const QUESTIONNAIRE_DATA = {
     }
   ],
   "axisMasses": {
-    "economy": 23.6,
-    "authority": 22.4,
+    "economy": 23.400000000000006,
+    "authority": 21.59999999999999,
     "europe": 6.2,
-    "ecology": 8.6,
-    "immigration": 11.1,
-    "democracy": 7.2
+    "ecology": 8.5,
+    "immigration": 11.100000000000001,
+    "democracy": 7
   },
   "defaultPriority": "economy",
   "questions": [
@@ -543,7 +543,7 @@ const QUESTIONNAIRE_DATA = {
       "note": "",
       "coefficients": {
         "economy": 1,
-        "authority": -0.5,
+        "authority": -0.2,
         "europe": 0,
         "ecology": 0,
         "immigration": 0,
@@ -740,7 +740,7 @@ const QUESTIONNAIRE_DATA = {
       "note": "",
       "coefficients": {
         "economy": -0.7,
-        "authority": 0.2,
+        "authority": 0,
         "europe": 0,
         "ecology": 0,
         "immigration": 0,
@@ -938,7 +938,7 @@ const QUESTIONNAIRE_DATA = {
       "note": "",
       "coefficients": {
         "economy": 0,
-        "authority": -0.7,
+        "authority": -0.5,
         "europe": 0,
         "ecology": 0,
         "immigration": 0.8,
@@ -1030,7 +1030,7 @@ const QUESTIONNAIRE_DATA = {
         "economy": 0,
         "authority": 0,
         "europe": 0,
-        "ecology": -0.8,
+        "ecology": -0.7,
         "immigration": 0,
         "democracy": 0
       }
@@ -1179,7 +1179,7 @@ const QUESTIONNAIRE_DATA = {
       "note": "",
       "coefficients": {
         "economy": 0,
-        "authority": 0.6,
+        "authority": 0.5,
         "europe": 0,
         "ecology": 1,
         "immigration": 0,
@@ -1194,7 +1194,7 @@ const QUESTIONNAIRE_DATA = {
       "defaultAnswer": 0,
       "note": "",
       "coefficients": {
-        "economy": -0.7,
+        "economy": -0.5,
         "authority": 0,
         "europe": 0,
         "ecology": 0,
@@ -1276,7 +1276,7 @@ const QUESTIONNAIRE_DATA = {
         "europe": 0,
         "ecology": 0,
         "immigration": 0,
-        "democracy": 0.2
+        "democracy": 0
       }
     },
     {

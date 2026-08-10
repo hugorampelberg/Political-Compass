@@ -1,4 +1,4 @@
-// Profils documentés des gouvernements et pays de comparaison.
+// Données de comparaison avec les gouvernements étrangers.
 const GOVERNMENTS_DATA = [
   {
     "id": "allemagne",
@@ -363,12 +363,12 @@ const GOVERNMENTS_DATA = [
       "https://www.bundesregierung.de/breg-de/aktuelles/koalitionsvertrag-2025-2340970"
     ],
     "axisScores": {
-      "economy": 1.9632768361581918,
-      "authority": 0.5505952380952381,
+      "economy": 2.0655270655270646,
+      "authority": 0.6481481481481485,
       "europe": 7.311827956989247,
-      "ecology": -1.0465116279069768,
+      "ecology": -1.1372549019607845,
       "immigration": -2.7327327327327327,
-      "democracy": 1.2037037037037035
+      "democracy": 1.0476190476190474
     },
     "averageConfidence": 2.264367816091954
   },
@@ -735,12 +735,12 @@ const GOVERNMENTS_DATA = [
       "https://www.lamoncloa.gob.es/consejodeministros/resumenes/Documents/2026/240226-soberania-digital.pdf"
     ],
     "axisScores": {
-      "economy": -4.703389830508472,
-      "authority": -0.08928571428571425,
+      "economy": -4.686609686609684,
+      "authority": -0.20061728395061734,
       "europe": 6.666666666666666,
-      "ecology": 4.883720930232559,
+      "ecology": 4.862745098039215,
       "immigration": 3.8738738738738743,
-      "democracy": 1.9444444444444444
+      "democracy": 1.7142857142857142
     },
     "averageConfidence": 2.32183908045977
   },
@@ -1107,12 +1107,12 @@ const GOVERNMENTS_DATA = [
       "https://www.bk.admin.ch/en/cloud-6"
     ],
     "axisScores": {
-      "economy": 2.8248587570621466,
-      "authority": -0.7886904761904763,
+      "economy": 2.905982905982906,
+      "authority": -0.8024691358024694,
       "europe": -4.946236559139785,
-      "ecology": 1.0465116279069768,
+      "ecology": 1.0588235294117647,
       "immigration": -2.7627627627627622,
-      "democracy": 4.907407407407407
+      "democracy": 4.9523809523809526
     },
     "averageConfidence": 2.0804597701149423
   },
@@ -1479,12 +1479,12 @@ const GOVERNMENTS_DATA = [
       "https://valtioneuvosto.fi/en/-/1410829/finland-among-top-eu-countries-in-digitalisation"
     ],
     "axisScores": {
-      "economy": 4.0677966101694905,
-      "authority": 2.008928571428572,
+      "economy": 4.13105413105413,
+      "authority": 2.1759259259259265,
       "europe": 5.698924731182795,
-      "ecology": -1.434108527131783,
+      "ecology": -1.411764705882353,
       "immigration": -5.135135135135132,
-      "democracy": 1.2037037037037037
+      "democracy": 1.1428571428571428
     },
     "averageConfidence": 2.1954022988505746
   },
@@ -1851,12 +1851,12 @@ const GOVERNMENTS_DATA = [
       "https://www.gov.uk/government/publications/expression-of-interest-airr-heterogeneous-supercomputer-host-site-selection"
     ],
     "axisScores": {
-      "economy": -1.906779661016949,
-      "authority": 2.291666666666667,
+      "economy": -1.8660968660968653,
+      "authority": 2.2530864197530875,
       "europe": -0.7526881720430108,
-      "ecology": 3.5271317829457374,
+      "ecology": 3.607843137254902,
       "immigration": -1.9219219219219212,
-      "democracy": 0.18518518518518512
+      "democracy": -7.930164461608261e-17
     },
     "averageConfidence": 2.2298850574712645
   },
@@ -2223,12 +2223,12 @@ const GOVERNMENTS_DATA = [
       "https://regeringen.dk/media/ohljoptp/digitaliseringspartnerskabets-rapport.pdf"
     ],
     "axisScores": {
-      "economy": -0.1836158192090395,
-      "authority": 1.6517857142857149,
+      "economy": -0.1282051282051281,
+      "authority": 1.728395061728396,
       "europe": 6.021505376344086,
-      "ecology": 5.077519379844961,
+      "ecology": 5.0588235294117645,
       "immigration": -4.744744744744743,
-      "democracy": 1.0648148148148147
+      "democracy": 0.9047619047619048
     },
     "averageConfidence": 2.1954022988505746
   },
@@ -2595,12 +2595,12 @@ const GOVERNMENTS_DATA = [
       "https://www.government.nl/site/binaries/site-content/collections/documents/2026/02/23/2026-2030-coalition-agreement-lets-get-to-work---building-a-better-netherlands/2026-2030-coalition-agreement-let%E2%80%99s-get-to-work-building-a-better-netherlands.pdf"
     ],
     "axisScores": {
-      "economy": 2.189265536723164,
-      "authority": 1.0565476190476197,
+      "economy": 2.2364672364672358,
+      "authority": 1.0802469135802477,
       "europe": 7.741935483870967,
-      "ecology": 4.0310077519379846,
+      "ecology": 4.078431372549019,
       "immigration": -2.432432432432432,
-      "democracy": 2.083333333333333
+      "democracy": 1.9523809523809523
     },
     "averageConfidence": 2.1149425287356323
   },
@@ -2967,12 +2967,12 @@ const GOVERNMENTS_DATA = [
       "https://www.gov.pl/web/primeminister/poland-a-year-of-breakthrough---the-prime-minister-unveils-polands-2025-economic-plan"
     ],
     "axisScores": {
-      "economy": -0.12711864406779655,
-      "authority": 1.8750000000000007,
+      "economy": -0.0997150997150996,
+      "authority": 1.8672839506172851,
       "europe": 3.4408602150537626,
-      "ecology": -3.372093023255814,
+      "ecology": -3.3725490196078436,
       "immigration": -4.804804804804804,
-      "democracy": 2.1759259259259265
+      "democracy": 2.1428571428571432
     },
     "averageConfidence": 1.7816091954022988
   }

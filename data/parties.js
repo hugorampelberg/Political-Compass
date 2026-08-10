@@ -1,4 +1,4 @@
-// Profils documentés des partis politiques français.
+// Données de comparaison avec les partis politiques français.
 const PARTIES_DATA = [
   {
     "id": "lfi",
@@ -363,12 +363,12 @@ const PARTIES_DATA = [
       "https://lafranceinsoumise.fr/wp-content/uploads/2024/06/Programme-nouveaufrontpopulaire.pdf"
     ],
     "axisScores": {
-      "economy": -9.011299435028247,
-      "authority": -3.958333333333332,
+      "economy": -9.002849002849,
+      "authority": -4.2438271604938285,
       "europe": -4.408602150537635,
-      "ecology": 8.062015503875969,
+      "ecology": 8.03921568627451,
       "immigration": 8.768768768768767,
-      "democracy": 7.222222222222221
+      "democracy": 7.238095238095238
     },
     "averageConfidence": 2.1724137931034484
   },
@@ -735,12 +735,12 @@ const PARTIES_DATA = [
       "https://www.pcf.fr/feuille_de_route_confnat_pcf"
     ],
     "axisScores": {
-      "economy": -9.279661016949149,
-      "authority": -2.9017857142857153,
+      "economy": -9.27350427350427,
+      "authority": -3.194444444444447,
       "europe": -4.731182795698924,
-      "ecology": 5.58139534883721,
+      "ecology": 5.686274509803923,
       "immigration": 8.258258258258257,
-      "democracy": 8.055555555555555
+      "democracy": 8.095238095238095
     },
     "averageConfidence": 2.2528735632183907
   },
@@ -1107,12 +1107,12 @@ const PARTIES_DATA = [
       "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf"
     ],
     "axisScores": {
-      "economy": -7.810734463276832,
-      "authority": -3.6607142857142856,
+      "economy": -7.792022792022787,
+      "authority": -3.858024691358026,
       "europe": 9.35483870967742,
-      "ecology": 9.069767441860465,
+      "ecology": 9.058823529411764,
       "immigration": 8.918918918918918,
-      "democracy": 5.833333333333333
+      "democracy": 5.714285714285714
     },
     "averageConfidence": 2.1379310344827585
   },
@@ -1479,12 +1479,12 @@ const PARTIES_DATA = [
       "https://parti-socialiste.fr/vie-parlementaire/notre-declaration-politique-17eme-legislature/"
     ],
     "axisScores": {
-      "economy": -6.468926553672316,
-      "authority": -2.261904761904762,
+      "economy": -6.4387464387464375,
+      "authority": -2.515432098765433,
       "europe": 9.35483870967742,
-      "ecology": 6.86046511627907,
+      "ecology": 6.9411764705882355,
       "immigration": 6.726726726726727,
-      "democracy": 3.9814814814814814
+      "democracy": 3.9047619047619047
     },
     "averageConfidence": 2.0804597701149423
   },
@@ -1851,12 +1851,12 @@ const PARTIES_DATA = [
       "https://ensemble-2024.fr/notre-projet"
     ],
     "axisScores": {
-      "economy": 2.8107344632768356,
-      "authority": 1.5178571428571435,
+      "economy": 2.7777777777777772,
+      "authority": 1.6820987654321,
       "europe": 8.172043010752688,
-      "ecology": 2.0155038759689923,
+      "ecology": 2.0784313725490198,
       "immigration": -0.7507507507507507,
-      "democracy": -3.1018518518518516
+      "democracy": -3.2857142857142856
     },
     "averageConfidence": 2.045977011494253
   },
@@ -2223,12 +2223,12 @@ const PARTIES_DATA = [
       "https://www.mouvementdemocrate.fr/"
     ],
     "axisScores": {
-      "economy": 0.2683615819209038,
-      "authority": 1.279761904761905,
+      "economy": 0.3276353276353274,
+      "authority": 1.2808641975308648,
       "europe": 7.741935483870967,
-      "ecology": 4.224806201550387,
+      "ecology": 4.313725490196078,
       "immigration": -0.12012012012012001,
-      "democracy": -0.787037037037037
+      "democracy": -0.9047619047619048
     },
     "averageConfidence": 1.9195402298850575
   },
@@ -2595,12 +2595,12 @@ const PARTIES_DATA = [
       "https://horizonsleparti.fr/le-manifeste/"
     ],
     "axisScores": {
-      "economy": 4.42090395480226,
-      "authority": 2.232142857142857,
+      "economy": 4.487179487179487,
+      "authority": 2.42283950617284,
       "europe": 7.741935483870967,
-      "ecology": 1.0465116279069773,
+      "ecology": 1.0980392156862748,
       "immigration": -2.342342342342342,
-      "democracy": -3.3796296296296293
+      "democracy": -3.4761904761904763
     },
     "averageConfidence": 1.9310344827586208
   },
@@ -2967,12 +2967,12 @@ const PARTIES_DATA = [
       "https://lafrancehumaniste.fr/articles/ia-pouvoir-de-dire-non-monopole-americain.html"
     ],
     "axisScores": {
-      "economy": -1.0451977401129942,
-      "authority": -0.9226190476190476,
+      "economy": -1.0541310541310538,
+      "authority": -0.8179012345679013,
       "europe": 3.8709677419354835,
-      "ecology": 4.6899224806201545,
+      "ecology": 4.745098039215685,
       "immigration": 1.201201201201201,
-      "democracy": 1.9444444444444444
+      "democracy": 1.9047619047619047
     },
     "averageConfidence": 2.3333333333333335
   },
@@ -3339,12 +3339,12 @@ const PARTIES_DATA = [
       "https://republicains.fr/"
     ],
     "axisScores": {
-      "economy": 5.240112994350282,
-      "authority": 3.0654761904761907,
+      "economy": 5.284900284900283,
+      "authority": 3.209876543209878,
       "europe": -0.7526881720430108,
-      "ecology": -3.8759689922480622,
+      "ecology": -3.803921568627451,
       "immigration": -6.576576576576577,
-      "democracy": -3.333333333333333
+      "democracy": -3.3333333333333326
     },
     "averageConfidence": 2.0344827586206895
   },
@@ -3711,12 +3711,12 @@ const PARTIES_DATA = [
       "https://www.unenouvelleenergie.fr/notre-programme/"
     ],
     "axisScores": {
-      "economy": 6.045197740112993,
-      "authority": 1.3690476190476197,
+      "economy": 6.039886039886039,
+      "authority": 1.4814814814814825,
       "europe": -1.182795698924731,
-      "ecology": -4.457364341085272,
+      "ecology": -4.392156862745098,
       "immigration": -6.756756756756756,
-      "democracy": -0.13888888888888865
+      "democracy": 0.04761904761904787
     },
     "averageConfidence": 2.1954022988505746
   },
@@ -4083,12 +4083,12 @@ const PARTIES_DATA = [
       "https://www.udr.fr/"
     ],
     "axisScores": {
-      "economy": 6.0310734463276825,
-      "authority": 2.0535714285714293,
+      "economy": 6.082621082621081,
+      "authority": 2.145061728395063,
       "europe": -4.731182795698924,
-      "ecology": -5.968992248062016,
+      "ecology": -5.96078431372549,
       "immigration": -8.348348348348349,
-      "democracy": 0.462962962962963
+      "democracy": 0.5714285714285715
     },
     "averageConfidence": 1.8045977011494252
   },
@@ -4455,12 +4455,12 @@ const PARTIES_DATA = [
       "https://rassemblementnational.fr/documents/202406-programme.pdf"
     ],
     "axisScores": {
-      "economy": 0.6638418079096047,
-      "authority": 3.5863095238095237,
+      "economy": 0.5840455840455842,
+      "authority": 3.59567901234568,
       "europe": -6.129032258064517,
-      "ecology": -5.891472868217055,
+      "ecology": -5.8431372549019605,
       "immigration": -8.978978978978978,
-      "democracy": 2.777777777777778
+      "democracy": 2.7619047619047623
     },
     "averageConfidence": 1.9540229885057472
   },
@@ -4827,12 +4827,12 @@ const PARTIES_DATA = [
       "https://www.parti-reconquete.fr/"
     ],
     "axisScores": {
-      "economy": 6.031073446327682,
-      "authority": 2.4553571428571432,
+      "economy": 6.025641025641024,
+      "authority": 2.530864197530866,
       "europe": -6.559139784946238,
-      "ecology": -6.162790697674419,
+      "ecology": -6.117647058823529,
       "immigration": -9.3993993993994,
-      "democracy": 1.388888888888889
+      "democracy": 1.619047619047619
     },
     "averageConfidence": 1.735632183908046
   }
