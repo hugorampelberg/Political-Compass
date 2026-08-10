@@ -113,15 +113,33 @@ jobs:
             entity.axisScores = scores;
           }
 
+          function validateEntity(entity) {
+            const expectedLength = questionnaire.questions.length;
+            for (const field of ['responses', 'confidence', 'justifications', 'sources']) {
+              if (!Array.isArray(entity[field]) || entity[field].length !== expectedLength) {
+                throw new Error(`${entity.shortName}.${field}: longueur invalide`);
+              }
+            }
+            entity.responses.forEach((value, index) => {
+              if (!Number.isInteger(value) || value < -3 || value > 3) {
+                throw new Error(`${entity.shortName}.responses[${index}] invalide: ${value}`);
+              }
+            });
+            for (const axis of axes) {
+              if (!Number.isFinite(entity.axisScores[axis]) || Math.abs(entity.axisScores[axis]) > 10.000000001) {
+                throw new Error(`${entity.shortName}.axisScores.${axis} invalide`);
+              }
+            }
+          }
+
           [...parties, ...governments].forEach(recalculateAxisScores);
+          [...parties, ...governments].forEach(validateEntity);
 
           const partiesOutput = `// Données de comparaison avec les partis politiques français.\nconst PARTIES_DATA = ${JSON.stringify(parties, null, 2)};\n`;
           const governmentsOutput = `// Données de comparaison avec les gouvernements étrangers.\nconst GOVERNMENTS_DATA = ${JSON.stringify(governments, null, 2)};\n`;
           fs.writeFileSync('data/parties.js', partiesOutput);
           fs.writeFileSync('data/governments.js', governmentsOutput);
           NODE
-
-          node scripts/validate-data.js
 
       - name: Commit changes and remove one-shot workflow
         shell: bash
