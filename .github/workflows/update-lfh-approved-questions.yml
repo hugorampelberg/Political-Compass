@@ -1,0 +1,32 @@
+name: Update LFH approved questions
+
+on:
+  push:
+    paths:
+      - '.github/scripts/update-lfh-approved-questions.py'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Apply approved LFH changes
+        run: python .github/scripts/update-lfh-approved-questions.py
+      - name: Validate JavaScript syntax
+        run: node --check data/parties.js
+      - name: Validate questionnaire data
+        run: node scripts/validate-data.js
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/parties.js
+          git diff --cached --quiet && exit 0
+          git commit -m "Apply approved LFH scoring corrections"
+          git push origin main
