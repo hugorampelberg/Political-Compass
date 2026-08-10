@@ -1,0 +1,219 @@
+name: Apply final audit corrections
+
+on:
+  push:
+    branches: [apply/final-audit-corrections-final]
+    paths:
+      - '.github/workflows/apply-final-audit-corrections.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: apply/final-audit-corrections-final
+          fetch-depth: 0
+
+      - name: Apply validated coding changes
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const vm = require('vm');
+
+          function loadConst(path, variableName) {
+            const source = fs.readFileSync(path, 'utf8');
+            const context = {};
+            vm.runInNewContext(`${source}\nthis.__value = ${variableName};`, context, { filename: path });
+            return context.__value;
+          }
+
+          const questionnaire = loadConst('data/questionnaire.js', 'QUESTIONNAIRE_DATA');
+          const parties = loadConst('data/parties.js', 'PARTIES_DATA');
+          const governments = loadConst('data/governments.js', 'GOVERNMENTS_DATA');
+          const questionIndex = new Map(questionnaire.questions.map((q, index) => [q.id, index]));
+          const axes = questionnaire.axes.map(axis => axis.key);
+
+          function qIndex(qid) {
+            if (!questionIndex.has(qid)) throw new Error(`Q${qid} introuvable`);
+            return questionIndex.get(qid);
+          }
+
+          function entity(collection, shortName) {
+            const found = collection.find(item => item.shortName === shortName);
+            if (!found) throw new Error(`${shortName} introuvable`);
+            return found;
+          }
+
+          function updateCoding({ collection, shortName, qid, expectedScore, score, expectedConfidence, confidence, justification, source }) {
+            const item = entity(collection, shortName);
+            const i = qIndex(qid);
+            if (item.responses[i] !== expectedScore) throw new Error(`${shortName} Q${qid}: score attendu ${expectedScore}, trouvé ${item.responses[i]}`);
+            if (expectedConfidence !== undefined && item.confidence[i] !== expectedConfidence) throw new Error(`${shortName} Q${qid}: confiance attendue ${expectedConfidence}, trouvée ${item.confidence[i]}`);
+            item.responses[i] = score;
+            if (confidence !== undefined) item.confidence[i] = confidence;
+            if (justification !== undefined) item.justifications[i] = justification;
+            if (source !== undefined) item.sources[i] = source;
+            console.log(`${shortName} Q${qid}: ${expectedScore} -> ${score}; confiance ${expectedConfidence ?? item.confidence[i]} -> ${confidence ?? item.confidence[i]}`);
+          }
+
+          // 1) Nouvelle Énergie Q45 : désaccord modéré retenu par l'utilisateur.
+          updateCoding({
+            collection: parties,
+            shortName: 'Nouvelle Énergie',
+            qid: 45,
+            expectedScore: 1,
+            score: -1,
+            expectedConfidence: 2,
+            confidence: 3,
+            justification: "Désaccord modéré : Nouvelle Énergie, notamment par David Lisnard, rejette la taxe Zucman sur les très hauts patrimoines et met en avant le risque de fuite des capitaux et des contribuables, ce qui va à l'encontre d'une taxation française maintenue après expatriation. Aucune proposition ne traite toutefois directement d'une imposition du patrimoine mondial après le départ de France ; le désaccord est donc limité à -1.",
+            source: 'https://www.unenouvelleenergie.fr/taxe-zucman-les-francais-meritent-mieux-que-des-illusions-fiscales/'
+          });
+
+          // 2) RN Q86 : opposition documentée au renforcement de la régulation locale des meublés touristiques.
+          updateCoding({
+            collection: parties,
+            shortName: 'RN',
+            qid: 86,
+            expectedScore: 1,
+            score: -2,
+            expectedConfidence: 1,
+            confidence: 3,
+            justification: "Désaccord net : lors du vote final de la loi renforçant les outils de régulation locale des meublés touristiques, le groupe RN a très majoritairement voté contre. La question va plus loin que ce texte puisqu'elle permettrait une interdiction municipale des locations touristiques régulières hors résidence principale ; -2 traduit donc une opposition claire sans extrapoler jusqu'à un rejet maximal.",
+            source: 'https://www.assemblee-nationale.fr/dyn/17/scrutins/289'
+          });
+
+          // 3) LFI Q90 : proposition de loi directement équivalente.
+          updateCoding({
+            collection: parties,
+            shortName: 'LFI',
+            qid: 90,
+            expectedScore: 2,
+            score: 3,
+            expectedConfidence: 2,
+            confidence: 3,
+            justification: "Accord fort : des députés LFI ont déposé une proposition de loi visant explicitement à mettre fin aux EHPAD privés à but lucratif et à privilégier les établissements publics ou privés non lucratifs. La proposition correspond presque exactement au principe posé par la question.",
+            source: 'https://www.assemblee-nationale.fr/dyn/docs/PIONANR5L15B5251.raw'
+          });
+
+          // 4) PS Q90 : encadrement des profits, mais pas suppression du secteur lucratif.
+          updateCoding({
+            collection: parties,
+            shortName: 'PS',
+            qid: 90,
+            expectedScore: 2,
+            score: -1,
+            expectedConfidence: 1,
+            confidence: 3,
+            justification: "Désaccord modéré : les socialistes veulent encadrer et taxer les profits excessifs des EHPAD lucratifs et conditionner davantage les financements publics, mais leurs propositions n'interdisent pas aux opérateurs privés lucratifs de continuer à gérer des établissements. La disparition progressive de tout EHPAD lucratif va donc plus loin que leur position actuelle.",
+            source: 'https://www.senat.fr/cra/s20241017/s20241017_2.html'
+          });
+
+          // 5) Espagne Q90 : maintien d'opérateurs privés dans le système de dépendance.
+          updateCoding({
+            collection: governments,
+            shortName: 'Espagne',
+            qid: 90,
+            expectedScore: 1,
+            score: -1,
+            expectedConfidence: 1,
+            confidence: 2,
+            justification: "Désaccord modéré : le gouvernement espagnol renforce les exigences de qualité et l'encadrement public de la prise en charge de la dépendance, mais la réglementation actuelle continue d'accréditer des centres et services privés dans le système public. Elle ne prévoit donc pas la disparition progressive des opérateurs privés lucratifs ; -1 reflète ce décalage sans surestimer l'opposition.",
+            source: 'https://www.boe.es/eli/es/o/2026/01/02/dca5'
+          });
+
+          // 6) LFH Q45 : note conservée, justification rendue cohérente avec +1.
+          updateCoding({
+            collection: parties,
+            shortName: 'LFH',
+            qid: 45,
+            expectedScore: 1,
+            score: 1,
+            expectedConfidence: 1,
+            confidence: 1,
+            justification: "Accord modéré et prudent : Dominique de Villepin défend une contribution accrue des très hauts patrimoines et s'est montré favorable au principe d'une taxation minimale des grandes fortunes. En revanche, aucune position suffisamment précise n'établit qu'il souhaite maintenir une imposition française du patrimoine mondial après l'expatriation ; l'accord est donc limité à +1."
+          });
+
+          // 7) UDR Q43 : score conservé, correction du sens de la justification.
+          updateCoding({
+            collection: parties,
+            shortName: 'UDR',
+            qid: 43,
+            expectedScore: 3,
+            score: 3,
+            expectedConfidence: 3,
+            confidence: 3,
+            justification: "Accord fort : l'UDR défend explicitement la suppression de l'IFI dans ses propositions économiques, ce qui correspond directement à la question."
+          });
+
+          function recalcAxisScores(item) {
+            const scores = {};
+            for (const axis of axes) {
+              let numerator = 0;
+              let coefficientMass = 0;
+              questionnaire.questions.forEach((question, index) => {
+                const coefficient = Number(question.coefficients[axis] || 0);
+                numerator += item.responses[index] * coefficient;
+                coefficientMass += Math.abs(coefficient);
+              });
+              const denominator = 3 * coefficientMass;
+              scores[axis] = denominator ? 10 * numerator / denominator : 0;
+            }
+            item.axisScores = scores;
+            item.averageConfidence = item.confidence.reduce((a, b) => a + b, 0) / item.confidence.length;
+          }
+
+          [...parties, ...governments].forEach(recalcAxisScores);
+
+          const n = questionnaire.questions.length;
+          for (const item of [...parties, ...governments]) {
+            for (const key of ['responses','confidence','justifications','sources']) {
+              if (!Array.isArray(item[key]) || item[key].length !== n) throw new Error(`${item.shortName}: ${key} longueur incohérente`);
+            }
+            if (item.responses.some(v => !Number.isInteger(v) || v < -3 || v > 3)) throw new Error(`${item.shortName}: réponse hors plage`);
+            if (item.confidence.some(v => !Number.isInteger(v) || v < 1 || v > 3)) throw new Error(`${item.shortName}: confiance hors plage`);
+            for (const axis of axes) {
+              if (!Number.isFinite(item.axisScores[axis]) || item.axisScores[axis] < -10 || item.axisScores[axis] > 10) throw new Error(`${item.shortName}: axe ${axis} invalide`);
+            }
+          }
+
+          // Vérifications finales explicites.
+          const checks = [
+            [parties, 'Nouvelle Énergie', 45, -1, 3],
+            [parties, 'RN', 86, -2, 3],
+            [parties, 'LFI', 90, 3, 3],
+            [parties, 'PS', 90, -1, 3],
+            [governments, 'Espagne', 90, -1, 2],
+            [parties, 'LFH', 45, 1, 1],
+            [parties, 'UDR', 43, 3, 3]
+          ];
+          for (const [collection, shortName, qid, score, conf] of checks) {
+            const item = entity(collection, shortName); const i = qIndex(qid);
+            if (item.responses[i] !== score || item.confidence[i] !== conf) throw new Error(`Échec contrôle ${shortName} Q${qid}`);
+          }
+
+          fs.writeFileSync('data/parties.js', `// Données de comparaison avec les partis politiques français.\nconst PARTIES_DATA = ${JSON.stringify(parties, null, 2)};\n`);
+          fs.writeFileSync('data/governments.js', `// Données de comparaison avec les gouvernements étrangers.\nconst GOVERNMENTS_DATA = ${JSON.stringify(governments, null, 2)};\n`);
+          NODE
+
+      - name: Run repository validation
+        shell: bash
+        run: |
+          node scripts/validate-data.js
+          git diff --check
+
+      - name: Commit validated changes and remove workflow
+        shell: bash
+        run: |
+          rm .github/workflows/apply-final-audit-corrections.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/parties.js data/governments.js .github/workflows/apply-final-audit-corrections.yml
+          git diff --cached --check
+          git commit -m "Apply final political coding audit corrections"
+          git push origin HEAD:apply/final-audit-corrections-final
