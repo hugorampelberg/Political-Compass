@@ -724,6 +724,44 @@ function axisPositionLabel(axis, value){
   if(Math.abs(value) < 0.75) return 'Position intermédiaire';
   return value < 0 ? axis.negative : axis.positive;
 }
+function detailedAnswerMarkup(value, variant='', unansweredCopy='Non répondue'){
+  if(value===null || value===undefined){
+    return `<span class="all-notes-note is-empty">—</span><small>${esc(unansweredCopy)}</small>`;
+  }
+  const label=SCALE_LABELS[String(value)] || '';
+  return `<span class="all-notes-note ${variant}">${formatAnswer(value)}</span>${label?`<small>${esc(label)}</small>`:''}`;
+}
+
+function renderAllNotesSection(entity){
+  const unansweredCopy=state.mode===QUIZ_MODES.QUICK ? 'Non répondue dans le questionnaire rapide' : 'Non répondue';
+  const rows=DATA.questions.map((q,i)=>{
+    const source=entity.sources?.[i];
+    const justification=entity.justifications?.[i] || 'Justification non renseignée.';
+    return `<tr>
+      <td data-label="Question"><span class="all-notes-question-meta">Q${q.id} · ${esc(q.theme)}</span><strong>${esc(q.text)}</strong></td>
+      <td data-label="Votre note" class="all-notes-score-cell">${detailedAnswerMarkup(state.answers[i],'is-user',unansweredCopy)}</td>
+      <td data-label="${esc(entity.shortName)}" class="all-notes-score-cell">${detailedAnswerMarkup(entity.responses?.[i],'is-entity')}</td>
+      <td data-label="Justification"><span class="all-notes-justification">${esc(justification)}</span></td>
+      <td data-label="Source">${source?`<a class="all-notes-source" href="${esc(source)}" target="_blank" rel="noopener">Voir la source</a>`:'<span class="all-notes-no-source">—</span>'}</td>
+    </tr>`;
+  }).join('');
+  return `<section class="all-notes-section">
+    <button class="btn btn-secondary all-notes-toggle" id="entity-notes-toggle" type="button" aria-expanded="false" aria-controls="entity-notes-panel">
+      <span class="all-notes-toggle-label">Détail de toutes les notes</span>
+      <span class="all-notes-chevron" aria-hidden="true">⌄</span>
+    </button>
+    <div class="all-notes-panel hidden" id="entity-notes-panel">
+      <p class="all-notes-intro">Comparaison question par question sur les ${DATA.questions.length} questions du questionnaire. Les questions non posées en mode rapide sont indiquées comme non répondues.</p>
+      <div class="all-notes-table-wrap">
+        <table class="all-notes-table">
+          <thead><tr><th>Question</th><th>Votre note</th><th>${esc(entity.shortName)}</th><th>Justification de la note</th><th>Source</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+    </div>
+  </section>`;
+}
+
 function openEntity(id){
   const e=results.entities.find(x=>x.id===id); if(!e) return;
   const {agree,disagree}=driversFor(e);
@@ -793,7 +831,21 @@ function openEntity(id){
 }).join('');
   const itemHtml=x=>`<div class="driver-item">${esc(x.q.text)}<span class="driver-score">Vous ${formatAnswer(state.answers[x.i])} · ${esc(e.shortName)} ${formatAnswer(e.responses[x.i])}</span></div>`;
   const uniqueSources=[...new Set(e.sources.filter(Boolean))].slice(0,4);
-  $('#modal-body').innerHTML=`<div style="display:flex;gap:18px;flex-wrap:wrap;margin-bottom:22px"><span class="eyebrow">Score calculé ${fmt(e.global)} %</span></div><h3>Indices détaillés par axe</h3>${axisRows}<div style="display:flex;gap:16px;align-items:center;color:var(--muted);font-size:.82rem;margin-top:14px"><span class="dot dot-user"></span>Vous <span class="dot dot-party"></span>${esc(e.shortName)}</div><div class="drivers"><div class="driver-box agree"><h3>Principaux accords</h3>${agree.map(itemHtml).join('')}</div><div class="driver-box disagree"><h3>Principales divergences</h3>${disagree.map(itemHtml).join('')}</div></div>${uniqueSources.length?`<h3 style="margin-top:26px">Sources documentaires</h3><ul class="source-list">${uniqueSources.map(s=>`<li><a href="${esc(s)}" target="_blank" rel="noopener">${esc(s)}</a></li>`).join('')}</ul>`:''}`;
+  $('#modal-body').innerHTML=`<div style="display:flex;gap:18px;flex-wrap:wrap;margin-bottom:22px"><span class="eyebrow">Score calculé ${fmt(e.global)} %</span></div><h3>Indices détaillés par axe</h3>${axisRows}<div style="display:flex;gap:16px;align-items:center;color:var(--muted);font-size:.82rem;margin-top:14px"><span class="dot dot-user"></span>Vous <span class="dot dot-party"></span>${esc(e.shortName)}</div><div class="drivers"><div class="driver-box agree"><h3>Principaux accords</h3>${agree.map(itemHtml).join('')}</div><div class="driver-box disagree"><h3>Principales divergences</h3>${disagree.map(itemHtml).join('')}</div></div>${renderAllNotesSection(e)}${uniqueSources.length?`<h3 style="margin-top:26px">Sources documentaires</h3><ul class="source-list">${uniqueSources.map(s=>`<li><a href="${esc(s)}" target="_blank" rel="noopener">${esc(s)}</a></li>`).join('')}</ul>`:''}`;
+  const notesToggle=$('#entity-notes-toggle');
+  const notesPanel=$('#entity-notes-panel');
+  const modal=$('#modal-backdrop .modal');
+  modal?.classList.remove('notes-expanded');
+  if(notesToggle && notesPanel){
+    notesToggle.addEventListener('click',()=>{
+      const opening=notesPanel.classList.contains('hidden');
+      notesPanel.classList.toggle('hidden',!opening);
+      notesToggle.setAttribute('aria-expanded',String(opening));
+      notesToggle.querySelector('.all-notes-toggle-label').textContent=opening?'Masquer le détail de toutes les notes':'Détail de toutes les notes';
+      modal?.classList.toggle('notes-expanded',opening);
+      if(opening) notesPanel.scrollIntoView({behavior:'smooth',block:'nearest'});
+    });
+  }
   $('#modal-backdrop').classList.remove('hidden'); document.body.style.overflow='hidden';
 }
 function closeModal(){ $('#modal-backdrop').classList.add('hidden'); document.body.style.overflow=''; }
