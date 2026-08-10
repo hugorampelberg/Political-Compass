@@ -1,0 +1,136 @@
+name: Apply final Q30 and PCF Q67 updates
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/apply-final-q30-pcf-q67.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply-updates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Apply validated updates and recalculate government axis scores
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const vm = require('vm');
+
+          function loadConst(path, variableName) {
+            const source = fs.readFileSync(path, 'utf8');
+            const context = {};
+            vm.runInNewContext(`${source}\nthis.__value = ${variableName};`, context, { filename: path });
+            return context.__value;
+          }
+
+          const questionnaire = loadConst('data/questionnaire.js', 'QUESTIONNAIRE_DATA');
+          const parties = loadConst('data/parties.js', 'PARTIES_DATA');
+          const governments = loadConst('data/governments.js', 'GOVERNMENTS_DATA');
+          const questionIndex = new Map(questionnaire.questions.map((q, index) => [q.id, index]));
+          const axes = questionnaire.axes.map(axis => axis.key);
+
+          function indexOf(questionId) {
+            if (!questionIndex.has(questionId)) throw new Error(`Q${questionId} introuvable`);
+            return questionIndex.get(questionId);
+          }
+
+          function byShortName(collection, shortName) {
+            const entity = collection.find(item => item.shortName === shortName);
+            if (!entity) throw new Error(`${shortName} introuvable`);
+            return entity;
+          }
+
+          function setResponse(collection, shortName, questionId, expected, value, justification) {
+            const entity = byShortName(collection, shortName);
+            const index = indexOf(questionId);
+            if (entity.responses[index] !== expected) {
+              throw new Error(`${shortName} Q${questionId}: attendu ${expected}, trouvé ${entity.responses[index]}`);
+            }
+            entity.responses[index] = value;
+            entity.justifications[index] = justification;
+            console.log(`${shortName} Q${questionId}: ${expected} -> ${value}`);
+          }
+
+          setResponse(
+            governments,
+            'Suisse',
+            30,
+            0,
+            -2,
+            "Désaccord net : lorsqu'une méthode de production est interdite en Suisse, la politique suisse privilégie souvent l'étiquetage obligatoire et l'information du consommateur plutôt qu'une interdiction générale des importations correspondantes. Le Conseil fédéral reste également attentif aux prix et au choix des consommateurs. La forte protection agricole suisse empêche toutefois de retenir un désaccord maximal."
+          );
+
+          setResponse(
+            governments,
+            'Pays-Bas',
+            30,
+            0,
+            -1,
+            "Désaccord modéré : le gouvernement néerlandais défend des standards élevés et un commerce équitable, mais reste fortement attaché à l'ouverture commerciale et veut éviter les surtranspositions nationales. Face à une asymétrie de normes, sa ligne consiste donc aussi à harmoniser ou alléger certaines contraintes plutôt qu'à interdire systématiquement les importations au prix d'un renchérissement alimentaire."
+          );
+
+          const pcf = byShortName(parties, 'PCF');
+          const q61Index = indexOf(61);
+          const q67Index = indexOf(67);
+          console.log(`PCF Q61: index=${q61Index}, réponse=${pcf.responses[q61Index]}, justification=${pcf.justifications[q61Index]}`);
+          console.log(`PCF Q67: index=${q67Index}, réponse=${pcf.responses[q67Index]}, ancienne justification=${pcf.justifications[q67Index]}`);
+          if (pcf.responses[q61Index] !== 3) {
+            throw new Error(`PCF Q61 inattendue: ${pcf.responses[q61Index]}`);
+          }
+          if (pcf.responses[q67Index] !== -2) {
+            throw new Error(`PCF Q67 inattendue: ${pcf.responses[q67Index]}`);
+          }
+          pcf.justifications[q67Index] = "Désaccord net : le PCF refuse que la transition écologique soit financée par une taxe carbone qui renchérit directement l'énergie des ménages, en particulier des plus modestes, et a critiqué ce mécanisme même lorsqu'il est assorti de compensations sociales. Il accepte en revanche des instruments fiscaux écologiques plus ciblés, comme des malus sur les véhicules les plus polluants ; -2 est donc plus adapté qu'un rejet maximal.";
+
+          function recalculateAxisScores(entity) {
+            const scores = {};
+            for (const axis of axes) {
+              let numerator = 0;
+              let coefficientMass = 0;
+              questionnaire.questions.forEach((question, index) => {
+                const coefficient = Number(question.coefficients[axis] || 0);
+                numerator += entity.responses[index] * coefficient;
+                coefficientMass += Math.abs(coefficient);
+              });
+              const denominator = 3 * coefficientMass;
+              scores[axis] = denominator ? 10 * numerator / denominator : 0;
+            }
+            entity.axisScores = scores;
+          }
+
+          governments.forEach(recalculateAxisScores);
+
+          const expectedLength = questionnaire.questions.length;
+          for (const entity of [...parties, ...governments]) {
+            if (entity.responses.length !== expectedLength || entity.justifications.length !== expectedLength || entity.confidence.length !== expectedLength || entity.sources.length !== expectedLength) {
+              throw new Error(`${entity.shortName}: longueur de tableau incohérente`);
+            }
+            if (entity.confidence.some(v => !Number.isInteger(v) || v < 1 || v > 3)) {
+              throw new Error(`${entity.shortName}: confiance hors plage 1-3`);
+            }
+          }
+
+          fs.writeFileSync('data/parties.js', `// Données de comparaison avec les partis politiques français.\nconst PARTIES_DATA = ${JSON.stringify(parties, null, 2)};\n`);
+          fs.writeFileSync('data/governments.js', `// Données de comparaison avec les gouvernements étrangers.\nconst GOVERNMENTS_DATA = ${JSON.stringify(governments, null, 2)};\n`);
+          NODE
+
+      - name: Commit changes and remove one-shot workflow
+        shell: bash
+        run: |
+          rm .github/workflows/apply-final-q30-pcf-q67.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/parties.js data/governments.js .github/workflows/apply-final-q30-pcf-q67.yml
+          git diff --cached --check
+          git commit -m "Finalize Q30 country scores and PCF Q67 justification"
+          git push origin HEAD:main
