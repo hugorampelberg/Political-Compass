@@ -64,3 +64,5 @@ fs.writeFileSync(
 );
 
 console.log('13 Danish responses updated and Denmark axis scores recomputed.');
+
+// Trigger workflow after creation.
