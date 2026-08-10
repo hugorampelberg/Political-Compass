@@ -1904,7 +1904,7 @@ const GOVERNMENTS_DATA = [
       2,
       2,
       -2,
-      -3,
+      -2,
       2,
       -3,
       -2,
@@ -2082,7 +2082,7 @@ const GOVERNMENTS_DATA = [
       "Accord net : Le gouvernement se présente comme très vert, accélère l’électrification et les renouvelables et accepte des instruments fiscaux et réglementaires. Transposition ou inférence prudente.",
       "Accord net : Le programme place l’UE au cœur de la politique danoise et défend une Europe plus intégrée et capable d’agir, tout en conservant la monnaie danoise. Position directement documentée.",
       "Désaccord net : Le programme place l’UE au cœur de la politique danoise et défend une Europe plus intégrée et capable d’agir, tout en conservant la monnaie danoise. Transposition ou inférence prudente.",
-      "Désaccord fort : le Danemark conserve volontairement la couronne danoise et bénéficie d'une dérogation permanente à l'euro ; le maintien de cette monnaie nationale traduit un refus net d'abandonner cet instrument au profit de la monnaie unique.",
+      "Désaccord net : le Danemark conserve volontairement la couronne danoise et bénéficie d'une dérogation permanente à l'euro. Le choix de rester hors de la monnaie unique indique un désaccord clair avec l'idée que l'euro serait globalement bénéfique malgré la perte d'instruments nationaux, sans pour autant traduire une hostilité générale à l'intégration européenne.",
       "Accord net mais non maximal : le Danemark soutient une Union capable d’agir davantage dans des domaines communs comme la sécurité, le climat ou la compétitivité, mais cela ne revient pas à souhaiter systématiquement davantage de réglementation européenne dans tous les domaines. La formulation générale de la question justifie +2 plutôt que +3.",
       "Désaccord fort : Le programme place l’UE au cœur de la politique danoise et défend une Europe plus intégrée et capable d’agir, tout en conservant la monnaie danoise. Position directement documentée.",
       "Désaccord net par analogie : la taxe danoise sur la valeur immobilière applique un taux supérieur à la fraction de valeur dépassant 9,2 millions de couronnes.",
@@ -2225,7 +2225,7 @@ const GOVERNMENTS_DATA = [
     "axisScores": {
       "economy": -0.19774011299435018,
       "authority": 1.6517857142857149,
-      "europe": 5.591397849462367,
+      "europe": 6.021505376344086,
       "ecology": 5.852713178294574,
       "immigration": -4.744744744744743,
       "democracy": 1.0648148148148147
