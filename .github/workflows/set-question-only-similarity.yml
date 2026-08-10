@@ -1,0 +1,32 @@
+name: Set question-only similarity
+
+on:
+  push:
+    paths:
+      - '.github/scripts/set-question-only-similarity.py'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Apply patch
+        run: python .github/scripts/set-question-only-similarity.py
+      - name: Validate syntax
+        run: |
+          node --check scripts/app.js
+          node --check lib/gemini.js
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scripts/app.js lib/gemini.js
+          git diff --cached --quiet && exit 0
+          git commit -m "Use question-only similarity scoring"
+          git push origin main
