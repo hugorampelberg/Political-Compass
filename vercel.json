@@ -2,6 +2,18 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "frenchpoliticalcompass.com"
+        }
+      ],
+      "destination": "https://www.frenchpoliticalcompass.com/:path*",
+      "permanent": true
+    },
+    {
       "source": "/confidentalite.html",
       "destination": "/confidentialite.html",
       "permanent": true
@@ -11,11 +23,26 @@
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
-        { "key": "Content-Security-Policy", "value": "default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline' https://esm.sh https://www.googletagmanager.com https://google.com https://*.google.com https://*.googlesyndication.com https://*.doubleclick.net https://*.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com https://google.com https://*.google.com https://*.googlesyndication.com https://*.doubleclick.net https://*.gstatic.com; connect-src 'self' https://vitals.vercel-analytics.com https://va.vercel-scripts.com https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://google.com https://*.google.com https://*.googlesyndication.com https://*.doubleclick.net; frame-src https://www.googletagmanager.com https://google.com https://*.google.com https://*.googlesyndication.com https://*.doubleclick.net; font-src 'self' data: https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; frame-ancestors 'none'" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline' https://esm.sh https://www.googletagmanager.com https://google.com https://*.google.com https://*.googlesyndication.com https://*.doubleclick.net https://*.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com https://google.com https://*.google.com https://*.googlesyndication.com https://*.doubleclick.net https://*.gstatic.com; connect-src 'self' https://vitals.vercel-analytics.com https://va.vercel-scripts.com https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://google.com https://*.google.com https://*.googlesyndication.com https://*.doubleclick.net; frame-src https://www.googletagmanager.com https://google.com https://*.google.com https://*.googlesyndication.com https://*.doubleclick.net; font-src 'self' data: https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; frame-ancestors 'none'"
+        }
       ]
     }
   ]
