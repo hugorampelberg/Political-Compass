@@ -76,3 +76,5 @@ write(files.governments, '// Données de comparaison avec les gouvernements étr
 
 console.log('New axis masses:', JSON.stringify(computedMasses));
 console.log(`Recomputed ${parties.length} parties and ${governments.length} governments.`);
+
+// Triggered after workflow creation.
