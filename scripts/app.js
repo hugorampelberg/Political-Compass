@@ -1,6 +1,8 @@
 const STORAGE_KEY = 'boussole-politique-state-v4';
 const QUIZ_MODES = { FULL:'full', QUICK:'quick' };
 const STRUCTURAL_WEIGHT_SHARE = 0.3;
+const QUESTION_SIMILARITY_SHARE = 0.8;
+const AXIS_COORDINATE_SIMILARITY_SHARE = 0.2;
 const QUICK_QUESTION_IDS = new Set([1,3,5,7,9,10,14,19,20,21,24,25,26,27,28,29,32,34,35,38,39,40,42,46,49,50,56,63,64,66,67,71,72,74,76,77,78,79,81,87]);
 const AXIS_COLORS = { economy:'#d96c57', authority:'#6f63a8', europe:'#4e77a7', ecology:'#2d8c87', immigration:'#d7a744', democracy:'#40556a' };
 const PRIORITY_LABELS = {
@@ -234,12 +236,13 @@ function entityResult(entity, userScores, weights){
   const axisScores=entityAxisScores(entity);
   const detailed={}; DATA.axes.forEach(a=>detailed[a.key]=detailedAxisSimilarity(entity,a.key));
   const weightSum=Object.values(weights).reduce((a,b)=>a+b,0);
-  const global=DATA.axes.reduce((sum,a)=>sum+detailed[a.key]*weights[a.key],0)/weightSum;
+  const questionSimilarity=DATA.axes.reduce((sum,a)=>sum+detailed[a.key]*weights[a.key],0)/weightSum;
   const netByAxis={}; DATA.axes.forEach(a=>netByAxis[a.key]=clamp(100*(1-Math.abs(userScores[a.key]-axisScores[a.key])/20),0,100));
-  const net=DATA.axes.reduce((sum,a)=>sum+netByAxis[a.key]*weights[a.key],0)/weightSum;
+  const axisCoordinateSimilarity=DATA.axes.reduce((sum,a)=>sum+netByAxis[a.key]*weights[a.key],0)/weightSum;
+  const global=QUESTION_SIMILARITY_SHARE*questionSimilarity+AXIS_COORDINATE_SIMILARITY_SHARE*axisCoordinateSimilarity;
   const dx=userScores.economy-axisScores.economy, dy=userScores.authority-axisScores.authority;
   const compass=clamp(100*(1-Math.sqrt(dx*dx+dy*dy)/(20*Math.sqrt(2))),0,100);
-  return {...entity,axisScores,detailed,global,netByAxis,net,compass};
+  return {...entity,axisScores,detailed,questionSimilarity,axisCoordinateSimilarity,global,netByAxis,net:axisCoordinateSimilarity,compass};
 }
 function calculateResults(){
   const userScores=userAxisScores(); const weights=axisWeights();
@@ -698,7 +701,7 @@ function openEntity(id){
   const e=results.entities.find(x=>x.id===id); if(!e) return;
   const {agree,disagree}=driversFor(e);
   $('#modal-title').textContent=e.name;
-  $('#modal-subtitle').textContent=`Similitude globale : ${fmt(e.global)} % · Confiance documentaire moyenne : ${Math.round(e.averageConfidence*100)} %`;
+  $('#modal-subtitle').textContent=`Similitude globale : ${fmt(e.global)} % · Confiance documentaire moyenne : ${documentaryConfidencePercent(e)} %`;
   const axisRows = DATA.axes.map(a => {
   const u = results.userScores[a.key];
   const v = e.axisScores[a.key];
@@ -768,6 +771,12 @@ function openEntity(id){
 }
 function closeModal(){ $('#modal-backdrop').classList.add('hidden'); document.body.style.overflow=''; }
 function formatAnswer(v){ return `${v>0?'+':''}${v}`; }
+function documentaryConfidencePercent(entity){
+  const raw=Number(entity?.averageConfidence);
+  if(!Number.isFinite(raw)) return 0;
+  const normalized=raw>1 ? raw/3 : raw;
+  return Math.round(clamp(normalized,0,1)*100);
+}
 
 
 const AI_API_BASE = String(window.BOUSSOLE_API_BASE || '').replace(/\/$/, '');
@@ -788,24 +797,40 @@ function buildAIAnalysisPayload(){
     comment:String(state.questionComments[i] || '').trim()
   }));
 
-  const partyRanking = results.parties.map((e,i)=>({
-    rank:i+1, name:e.name, score:Number(e.global.toFixed(1)),
-    axis_scores:Object.fromEntries(DATA.axes.map(a=>[PRIORITY_LABELS[a.key],Number(e.detailed[a.key].toFixed(1))]))
-  }));
-  const governmentRanking = results.governments.map((e,i)=>({
-    rank:i+1, name:e.name, score:Number(e.global.toFixed(1)),
-    axis_scores:Object.fromEntries(DATA.axes.map(a=>[PRIORITY_LABELS[a.key],Number(e.detailed[a.key].toFixed(1))]))
-  }));
-  const topPartyDrivers = results.parties.slice(0,3).map(e=>{
+  const axisPositionsFor=e=>Object.fromEntries(DATA.axes.map(a=>[PRIORITY_LABELS[a.key],Number(e.axisScores[a.key].toFixed(2))]));
+  const axisSimilarityFor=e=>Object.fromEntries(DATA.axes.map(a=>[PRIORITY_LABELS[a.key],Number(e.detailed[a.key].toFixed(1))]));
+  const rankingEntry=(e,i)=>({
+    rank:i+1,
+    name:e.name,
+    score:Number(e.global.toFixed(1)),
+    question_similarity:Number(e.questionSimilarity.toFixed(1)),
+    axis_coordinate_similarity:Number(e.axisCoordinateSimilarity.toFixed(1)),
+    axis_scores:axisPositionsFor(e),
+    axis_similarity:axisSimilarityFor(e)
+  });
+  const partyRanking = results.parties.map(rankingEntry);
+  const governmentRanking = results.governments.map(rankingEntry);
+  const buildTopDrivers=(entities, answerField)=>entities.slice(0,3).map(e=>{
     const {agree,disagree}=driversFor(e);
     const convert=x=>({
       question:x.q.text,
       user_answer:answerForAI(state.answers[x.i]),
       user_comment:String(state.questionComments[x.i] || '').trim(),
-      party_answer:answerForAI(e.responses[x.i])
+      [answerField]:answerForAI(e.responses[x.i])
     });
-    return {name:e.name,score:Number(e.global.toFixed(1)),agreements:agree.map(convert),disagreements:disagree.map(convert)};
+    return {
+      name:e.name,
+      score:Number(e.global.toFixed(1)),
+      question_similarity:Number(e.questionSimilarity.toFixed(1)),
+      axis_coordinate_similarity:Number(e.axisCoordinateSimilarity.toFixed(1)),
+      axis_scores:axisPositionsFor(e),
+      axis_similarity:axisSimilarityFor(e),
+      agreements:agree.map(convert),
+      disagreements:disagree.map(convert)
+    };
   });
+  const topPartyDrivers = buildTopDrivers(results.parties,'party_answer');
+  const topGovernmentDrivers = buildTopDrivers(results.governments,'government_answer');
   const openAnswers = DATA.openQuestions.map(q=>({
     question:q.text,
     answer:String(state.openAnswers[q.id]||'').trim()
@@ -824,9 +849,11 @@ function buildAIAnalysisPayload(){
     party_ranking:partyRanking,
     government_ranking:governmentRanking,
     top_party_drivers:topPartyDrivers,
+    top_government_drivers:topGovernmentDrivers,
     open_answers:openAnswers,
     methodological_context:{
       score_meaning:'Distance mathématique calculée, pas pourcentage d’adhésion au programme',
+      similarity_formula:'Le score global combine 80 % de proximité question par question et 20 % de proximité entre les coordonnées finales des six axes, avec la même pondération des axes.',
       party_data_basis:'Programmes officiels et positions publiques documentées, sans analyse exhaustive des votes réels à l’Assemblée nationale',
       recommendation:'Le résultat ne constitue pas une recommandation de vote',
       questionnaire_scope:`${modeLabel()} : le profil de l’utilisateur, les partis et les gouvernements sont tous calculés uniquement sur les mêmes ${activeQuestionCount()} questions.`,
