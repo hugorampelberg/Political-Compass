@@ -3358,7 +3358,7 @@ const PARTIES_DATA = [
       3,
       2,
       -3,
-      -3,
+      -2,
       -2,
       2,
       -2,
@@ -3536,7 +3536,7 @@ const PARTIES_DATA = [
       "Accord fort : preuve primaire directe ou proposition officielle très proche ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "Accord net : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "Désaccord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
-      "Désaccord fort par cohérence programmatique : Nouvelle Énergie défend la liberté entrepreneuriale, la baisse des contraintes et une économie de marché ; aucune proposition de plafond légal des écarts de rémunération n’est avancée.",
+      "Désaccord net : aucune prise de position directement équivalente à un ratio salarial obligatoire n’a été identifiée, mais Nouvelle Énergie défend une ligne économique nettement libérale, hostile aux contraintes générales supplémentaires sur les entreprises. L’opposition au principe est donc claire, sans preuve suffisante pour un désaccord maximal.",
       "Désaccord net : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord net : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "Désaccord net : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
@@ -3711,7 +3711,7 @@ const PARTIES_DATA = [
       "https://www.unenouvelleenergie.fr/notre-programme/"
     ],
     "axisScores": {
-      "economy": 6.090014064697609,
+      "economy": 5.949367088607595,
       "authority": 1.4814814814814825,
       "europe": -1.182795698924731,
       "ecology": -4.392156862745098,

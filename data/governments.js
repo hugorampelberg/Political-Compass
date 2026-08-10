@@ -99,7 +99,7 @@ const GOVERNMENTS_DATA = [
       3,
       2,
       2,
-      2,
+      3,
       3,
       2,
       3,
@@ -370,7 +370,7 @@ const GOVERNMENTS_DATA = [
       "immigration": -2.7327327327327327,
       "democracy": 1.0476190476190474
     },
-    "averageConfidence": 2.264367816091954
+    "averageConfidence": 2.2758620689655173
   },
   {
     "id": "espagne",
@@ -843,7 +843,7 @@ const GOVERNMENTS_DATA = [
       3,
       2,
       2,
-      3,
+      4,
       2,
       2,
       2,
@@ -1114,7 +1114,7 @@ const GOVERNMENTS_DATA = [
       "immigration": -2.7627627627627622,
       "democracy": 5.904761904761905
     },
-    "averageConfidence": 2.0919540229885056
+    "averageConfidence": 2.103448275862069
   },
   {
     "id": "finlande",
@@ -1126,7 +1126,7 @@ const GOVERNMENTS_DATA = [
       3,
       2,
       -2,
-      -2,
+      -1,
       -2,
       2,
       2,
@@ -1304,7 +1304,7 @@ const GOVERNMENTS_DATA = [
       "Accord fort : Le programme Orpo privilégie le travail, l’entrepreneuriat, la réduction du déficit, les réformes du marché du travail et la baisse des obstacles réglementaires. Position directement documentée.",
       "Accord net : Le programme Orpo privilégie le travail, l’entrepreneuriat, la réduction du déficit, les réformes du marché du travail et la baisse des obstacles réglementaires. Transposition ou inférence prudente.",
       "Désaccord net : Le programme Orpo privilégie le travail, l’entrepreneuriat, la réduction du déficit, les réformes du marché du travail et la baisse des obstacles réglementaires. Transposition ou inférence prudente.",
-      "Désaccord net : l’État finlandais demande des rémunérations raisonnables et transparentes dans les entreprises publiques, mais le gouvernement Orpo a relevé le plafond de rémunération variable des dirigeants de sociétés cotées publiques pour rester compétitif sur le marché des dirigeants.",
+      "Désaccord modéré : l’État finlandais exige des rémunérations raisonnables et transparentes dans les entreprises qu’il contrôle et peut s’opposer à des packages jugés excessifs, mais le gouvernement Orpo a aussi relevé les plafonds de rémunération variable afin de rester compétitif pour recruter des dirigeants. La ligne est donc opposée à un ratio salarial rigide sans rejeter toute modération des hauts salaires.",
       "Désaccord net : Le programme Orpo privilégie le travail, l’entrepreneuriat, la réduction du déficit, les réformes du marché du travail et la baisse des obstacles réglementaires. Transposition ou inférence prudente.",
       "Accord net : Le programme Orpo privilégie le travail, l’entrepreneuriat, la réduction du déficit, les réformes du marché du travail et la baisse des obstacles réglementaires. Position directement documentée.",
       "Accord net : l’État finlandais conserve des participations importantes, parfois majoritaires, dans des entreprises stratégiques comme Finnair, Fortum, Neste ou Posti afin de protéger des intérêts nationaux essentiels. Cela valide clairement le principe d’un contrôle public stratégique : +2.",
@@ -1479,7 +1479,7 @@ const GOVERNMENTS_DATA = [
       "https://valtioneuvosto.fi/en/-/1410829/finland-among-top-eu-countries-in-digitalisation"
     ],
     "axisScores": {
-      "economy": 4.261603375527426,
+      "economy": 4.120956399437412,
       "authority": 2.1759259259259265,
       "europe": 5.698924731182795,
       "ecology": -1.411764705882353,
@@ -1498,7 +1498,7 @@ const GOVERNMENTS_DATA = [
       0,
       -1,
       1,
-      0,
+      -1,
       2,
       0,
       2,
@@ -1676,7 +1676,7 @@ const GOVERNMENTS_DATA = [
       "Position de compromis : Le gouvernement Labour combine croissance, investissement public, renforcement des droits du travail et discipline budgétaire modérée. Transposition ou inférence prudente.",
       "Réserve : Le gouvernement Labour combine croissance, investissement public, renforcement des droits du travail et discipline budgétaire modérée. Transposition ou inférence prudente.",
       "Accord modéré : Le gouvernement Labour combine croissance, investissement public, renforcement des droits du travail et discipline budgétaire modérée. Transposition ou inférence prudente.",
-      "Position équilibrée : les grandes sociétés cotées doivent publier et expliquer le ratio entre la rémunération du dirigeant et celle des salariés, mais il n’existe pas de plafond légal général et aucune position suffisamment directe du gouvernement actuel n’établit qu’il souhaite en créer un.",
+      "Désaccord modéré : le Royaume-Uni impose la transparence des ratios entre rémunération du dirigeant et rémunération des salariés, mais n’impose pas de plafond général et la ligne gouvernementale actuelle privilégie la transparence et le fair pay plutôt qu’un ratio salarial légal obligatoire.",
       "Accord net : Le gouvernement Labour combine croissance, investissement public, renforcement des droits du travail et discipline budgétaire modérée. Position directement documentée.",
       "Position de compromis : Le gouvernement Labour combine croissance, investissement public, renforcement des droits du travail et discipline budgétaire modérée. Transposition ou inférence prudente.",
       "Accord net : le gouvernement Labour accepte explicitement la prise de contrôle public d’entreprises stratégiques, notamment avec le retour de British Steel dans le secteur public et la renationalisation ferroviaire. La pratique est nette, mais le recours reste ciblé : +2.",
@@ -1851,7 +1851,7 @@ const GOVERNMENTS_DATA = [
       "https://www.gov.uk/government/publications/expression-of-interest-airr-heterogeneous-supercomputer-host-site-selection"
     ],
     "axisScores": {
-      "economy": -1.673699015471167,
+      "economy": -1.533052039381153,
       "authority": 2.2530864197530875,
       "europe": -0.7526881720430108,
       "ecology": 3.607843137254902,
@@ -2242,7 +2242,7 @@ const GOVERNMENTS_DATA = [
       2,
       1,
       -1,
-      -1,
+      0,
       1,
       2,
       1,
@@ -2420,7 +2420,7 @@ const GOVERNMENTS_DATA = [
       "Accord net : codage fondé sur les documents officiels retenus pour le thème « Économie ». Niveau de preuve : position ou mesure explicitement documentée.",
       "Accord modéré : codage fondé sur les documents officiels retenus pour le thème « Économie ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
       "Réserve : codage fondé sur les documents officiels retenus pour le thème « Économie ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
-      "Désaccord modéré : les Pays-Bas plafonnent légalement les rémunérations des dirigeants du secteur public et semi-public, mais n’imposent pas de ratio entre dirigeants et salariés dans les entreprises privées ; le modèle actuel reste donc moins interventionniste que la proposition.",
+      "Position équilibrée : les Pays-Bas plafonnent fortement certaines rémunérations dans le secteur public et semi-public, mais n’imposent pas de ratio général entre dirigeants et salariés dans les entreprises privées. Le système combine donc encadrement ciblé et liberté salariale dans le privé.",
       "Accord modéré : codage fondé sur les documents officiels retenus pour le thème « Économie ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
       "Accord net : codage fondé sur les documents officiels retenus pour le thème « Économie ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
       "Accord modéré : codage fondé sur les documents officiels retenus pour le thème « Économie ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
@@ -2595,7 +2595,7 @@ const GOVERNMENTS_DATA = [
       "https://www.government.nl/site/binaries/site-content/collections/documents/2026/02/23/2026-2030-coalition-agreement-lets-get-to-work---building-a-better-netherlands/2026-2030-coalition-agreement-let%E2%80%99s-get-to-work-building-a-better-netherlands.pdf"
     ],
     "axisScores": {
-      "economy": 2.320675105485232,
+      "economy": 2.1800281293952173,
       "authority": 1.0802469135802477,
       "europe": 7.741935483870967,
       "ecology": 4.078431372549019,
