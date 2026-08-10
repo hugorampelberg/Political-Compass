@@ -232,16 +232,37 @@ if (w > 0 && c > 0) {
   )
 : 0;
 }
+function politicalCoordinateDistance(user, party) {
+  const raw = Math.abs(user - party) / 20;
+  const opposite =
+    user !== 0 &&
+    party !== 0 &&
+    Math.sign(user) !== Math.sign(party);
+
+  if (!opposite) return raw;
+
+  const oppositionStrength =
+    Math.min(Math.abs(user), Math.abs(party)) / 10;
+
+  return Math.min(
+    1,
+    raw +
+      0.75 *
+      oppositionStrength *
+      (1 - raw)
+  );
+}
+
 function entityResult(entity, userScores, weights){
   const axisScores=entityAxisScores(entity);
   const detailed={}; DATA.axes.forEach(a=>detailed[a.key]=detailedAxisSimilarity(entity,a.key));
   const weightSum=Object.values(weights).reduce((a,b)=>a+b,0);
   const questionSimilarity=DATA.axes.reduce((sum,a)=>sum+detailed[a.key]*weights[a.key],0)/weightSum;
-  const netByAxis={}; DATA.axes.forEach(a=>netByAxis[a.key]=clamp(100*(1-Math.abs(userScores[a.key]-axisScores[a.key])/20),0,100));
+  const netByAxis={}; DATA.axes.forEach(a=>netByAxis[a.key]=clamp(100*(1-politicalCoordinateDistance(userScores[a.key],axisScores[a.key])),0,100));
   const coordinateDistance=Math.sqrt(
     DATA.axes.reduce((sum,a)=>{
-      const normalizedDelta=(userScores[a.key]-axisScores[a.key])/20;
-      return sum+weights[a.key]*normalizedDelta*normalizedDelta;
+      const penalizedDelta=politicalCoordinateDistance(userScores[a.key],axisScores[a.key]);
+      return sum+weights[a.key]*penalizedDelta*penalizedDelta;
     },0)/weightSum
   );
   const axisCoordinateSimilarity=clamp(100*(1-coordinateDistance),0,100);
@@ -859,7 +880,7 @@ function buildAIAnalysisPayload(){
     open_answers:openAnswers,
     methodological_context:{
       score_meaning:'Distance mathématique calculée, pas pourcentage d’adhésion au programme',
-      similarity_formula:'Le score global combine 80 % de proximité question par question et 20 % de proximité fondée sur la distance euclidienne pondérée entre les coordonnées finales des six axes.',
+      similarity_formula:'Le score global combine 80 % de proximité question par question et 20 % de proximité fondée sur la distance euclidienne pondérée entre les coordonnées finales des six axes, avec une pénalité progressive lorsque les coordonnées sont de signes opposés.',
       party_data_basis:'Programmes officiels et positions publiques documentées, sans analyse exhaustive des votes réels à l’Assemblée nationale',
       recommendation:'Le résultat ne constitue pas une recommandation de vote',
       questionnaire_scope:`${modeLabel()} : le profil de l’utilisateur, les partis et les gouvernements sont tous calculés uniquement sur les mêmes ${activeQuestionCount()} questions.`,
