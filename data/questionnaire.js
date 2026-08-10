@@ -124,7 +124,7 @@ const QUESTIONNAIRE_DATA = {
         "immigration": 0,
         "democracy": 0
       },
-      "explanation": "Par exemple : fixer un plafond de X fois le salaire le plus bas ; un dirigeant déjà à ce plafond ne pourrait être augmenté que si les plus bas salaires augmentent aussi."
+      "explanation": "Par exemple : fixer un plafond de X fois le salaire le plus bas de l'entreprise ; un dirigeant déjà à ce plafond ne pourrait être augmenté que si les plus bas salaires augmentent aussi."
     },
     {
       "id": 5,
