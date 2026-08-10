@@ -36,3 +36,4 @@ fs.writeFileSync(qp,`// Questions, axes et métadonnées du questionnaire.\ncons
 fs.writeFileSync(pp,`// Données de comparaison avec les partis politiques français.\nconst PARTIES_DATA = ${JSON.stringify(parties,null,2)};\n`);
 fs.writeFileSync(gp,`// Données de comparaison avec les gouvernements étrangers.\nconst GOVERNMENTS_DATA = ${JSON.stringify(govs,null,2)};\n`);
 console.log(qd.axisMasses);
+// trigger
