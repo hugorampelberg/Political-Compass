@@ -2,9 +2,11 @@ name: Finalize similarity and Gemini integration
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
     paths:
       - '.github/workflows/finalize-similarity-gemini.yml'
+      - '.github/scripts/finalize-similarity-gemini.py'
 
 permissions:
   contents: write
@@ -13,110 +15,18 @@ jobs:
   finalize:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Apply remaining fixes
-        shell: bash
-        run: |
-          python3 - <<'PY'
-          from pathlib import Path
+      - name: Apply patch
+        run: python3 .github/scripts/finalize-similarity-gemini.py
 
-          def replace_once(path, old, new):
-              p = Path(path)
-              text = p.read_text(encoding='utf-8')
-              count = text.count(old)
-              if count != 1:
-                  raise SystemExit(f'{path}: expected exactly one occurrence, found {count}')
-              p.write_text(text.replace(old, new, 1), encoding='utf-8')
-
-          replace_once(
-              'scripts/app.js',
-              "  const axisCoordinateSimilarity=DATA.axes.reduce((sum,a)=>sum+netByAxis[a.key]*weights[a.key],0)/weightSum;",
-              """  const coordinateDistance=Math.sqrt(\n    DATA.axes.reduce((sum,a)=>{\n      const normalizedDelta=(userScores[a.key]-axisScores[a.key])/20;\n      return sum+weights[a.key]*normalizedDelta*normalizedDelta;\n    },0)/weightSum\n  );\n  const axisCoordinateSimilarity=clamp(100*(1-coordinateDistance),0,100);"""
-          )
-
-          replace_once(
-              'scripts/app.js',
-              "confiance documentaire ${Math.round(e.averageConfidence*100)} %",
-              "confiance documentaire ${documentaryConfidencePercent(e)} %"
-          )
-
-          replace_once(
-              'scripts/app.js',
-              "  const normalized=raw>1 ? raw/3 : raw;",
-              "  const normalized=raw/3;"
-          )
-
-          replace_once(
-              'scripts/app.js',
-              "similarity_formula:'Le score global combine 80 % de proximité question par question et 20 % de proximité entre les coordonnées finales des six axes, avec la même pondération des axes.',",
-              "similarity_formula:'Le score global combine 80 % de proximité question par question et 20 % de proximité fondée sur la distance euclidienne pondérée entre les coordonnées finales des six axes.',"
-          )
-
-          old_party_section = """4. PRINCIPALES CORRESPONDANCES AVEC LES PARTIS
-
-Analyse uniquement les trois meilleures correspondances fournies.
-
-Au début de cette partie, rappelle une seule fois que les pourcentages sont des distances mathématiques et non des taux d’adhésion.
-
-Pour chaque parti :
-
-- indique le pourcentage exact lorsqu’il est disponible ;
-- identifie les deux principales raisons concrètes de la proximité ;
-- indique au moins une divergence importante ;
-- précise, si les données le permettent, les axes qui favorisent ou limitent la proximité.
-
-Ne confonds jamais proximité mathématique, identité politique et intention de vote.
-
-N’attribue pas à un parti une position absente des profils, programmes ou informations transmis. N’utilise pas tes connaissances générales pour compléter silencieusement son portrait.
-
-Chaque correspondance doit contenir entre 80 et 120 mots."""
-
-          new_party_section = """4. PRINCIPALES CORRESPONDANCES AVEC LES PARTIS
-
-Utilise en priorité les données de party_ranking et top_party_drivers. top_party_drivers contient, pour les trois partis les mieux classés, le score global, sa composante question par question, sa composante fondée sur les coordonnées finales, les positions réelles sur les six axes, les similitudes par axe et les principaux accords et désaccords concrets.
-
-Analyse uniquement les trois partis présents dans top_party_drivers, dans l’ordre du classement transmis.
-
-Au début de cette partie, rappelle une seule fois que les pourcentages sont des distances mathématiques et non des taux d’adhésion.
-
-Pour chaque parti :
-
-- indique le pourcentage exact lorsqu’il est disponible ;
-- fonde les deux principales raisons concrètes de la proximité en priorité sur les éléments de agreements ;
-- présente au moins une divergence importante issue de disagreements ;
-- utilise axis_scores pour décrire les positions politiques réelles du parti et axis_similarity pour décrire les pourcentages de similitude par axe ;
-- explique, lorsque c’est utile, la différence entre question_similarity et axis_coordinate_similarity.
-
-Les champs axis_scores et axis_similarity n’ont pas le même sens : ne les confonds jamais. Le score global combine 80 % de proximité question par question et 20 % de proximité fondée sur la distance entre les coordonnées finales des axes.
-
-Ne confonds jamais proximité mathématique, identité politique et intention de vote.
-
-N’attribue pas à un parti une position absente des données transmises. N’utilise pas tes connaissances générales pour compléter silencieusement son portrait.
-
-Chaque correspondance doit contenir entre 80 et 120 mots."""
-
-          replace_once('lib/gemini.js', old_party_section, new_party_section)
-
-          replace_once(
-              'lib/gemini.js',
-              "  const parties = (payload.party_ranking || []).slice(0, 3).map(x => ({",
-              "  const parties = (payload.top_party_drivers || payload.party_ranking || []).slice(0, 3).map(x => ({"
-          )
-
-          replace_once(
-              'lib/gemini.js',
-              "text: `Voici les résultats structurés du questionnaire. Analyse toutes les réponses, y compris les commentaires et les questions ouvertes. Commence par reconstruire le raisonnement propre de la personne avant d’examiner les partis. Les faits officiels ci-dessous sont les seuls repères externes autorisés ; ne les utilise que s’ils sont directement pertinents.\\n\\nREPÈRES OFFICIELS AUTORISÉS :\\n${JSON.stringify(REFERENCE_CONTEXT)}\\n\\nRÉSULTATS DU QUESTIONNAIRE :\\n${JSON.stringify(payload)}`",
-              "text: `Voici les résultats structurés du questionnaire. Analyse toutes les réponses, y compris les commentaires et les questions ouvertes. Commence par reconstruire le raisonnement propre de la personne avant d’examiner les partis. Pour les comparaisons, utilise en priorité top_party_drivers et top_government_drivers lorsqu’ils sont fournis : ce sont les éléments concrets destinés à expliquer les proximités et divergences. Les faits officiels ci-dessous sont les seuls repères externes autorisés ; ne les utilise que s’ils sont directement pertinents.\\n\\nREPÈRES OFFICIELS AUTORISÉS :\\n${JSON.stringify(REFERENCE_CONTEXT)}\\n\\nRÉSULTATS DU QUESTIONNAIRE :\\n${JSON.stringify(payload)}`"
-          )
-          PY
-
-      - name: Validate JavaScript syntax
+      - name: Validate syntax
         run: |
           node --check scripts/app.js
           node --check lib/gemini.js
 
-      - name: Commit finalized changes
+      - name: Commit changes
         shell: bash
         run: |
           if git diff --quiet; then
