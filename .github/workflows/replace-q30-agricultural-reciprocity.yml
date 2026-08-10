@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '.github/scripts/replace-q30-agricultural-reciprocity.js'
+      - '.github/triggers/replace-q30-agricultural-reciprocity.txt'
 
 permissions:
   contents: write
