@@ -1,0 +1,121 @@
+name: Apply approved government ecology score updates
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Apply approved government ecology scores
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const vm = require('vm');
+
+          function loadConst(path, name) {
+            const src = fs.readFileSync(path, 'utf8') + `\n;globalThis.__value = ${name};`;
+            const ctx = {};
+            vm.createContext(ctx);
+            vm.runInContext(src, ctx);
+            return ctx.__value;
+          }
+
+          const questionnaire = loadConst('data/questionnaire.js', 'QUESTIONNAIRE_DATA');
+          const governments = loadConst('data/governments.js', 'GOVERNMENTS_DATA');
+          const questions = questionnaire.questions;
+          const qIndex = new Map(questions.map((q, i) => [q.id, i]));
+          const govById = new Map(governments.map(g => [g.id, g]));
+
+          const changes = [
+            { gov:'allemagne', q:32, old:1, value:0, justification:"Position neutre : le gouvernement Merz maintient les objectifs climatiques mais refuse d'opposer systématiquement climat et croissance ; il présente la transition comme devant rester compatible avec la compétitivité et la prospérité." },
+            { gov:'allemagne', q:33, old:1, value:-2, justification:"Désaccord net : le gouvernement Merz a refusé une hausse supplémentaire du prix du CO₂ en raison du coût de l'énergie et a réduit temporairement la fiscalité sur les carburants ; il ne soutient donc pas une hausse importante du prix des fossiles." },
+            { gov:'allemagne', q:68, old:1, value:-1, justification:"Désaccord modéré : le gouvernement Merz soutient l'électrification mais demande davantage de flexibilité et de neutralité technologique autour de l'échéance 2035 ; il est donc réservé sur une interdiction stricte des ventes de véhicules thermiques." },
+            { gov:'espagne', q:67, old:2, value:3, justification:"Accord fort : le gouvernement Sánchez maintient la tarification carbone tout en prévoyant des compensations substantielles et ciblées pour les ménages vulnérables ; la logique correspond presque exactement à la question." },
+            { gov:'suisse', q:69, old:2, value:0, justification:"Position neutre : le Conseil fédéral est ouvert à un rôle accru du nucléaire mais défend simultanément un développement important des renouvelables ; il ne soutient pas clairement leur réduction au profit du nucléaire." },
+            { gov:'finlande', q:69, old:2, value:1, justification:"Accord modéré : la Finlande est fortement favorable au nucléaire mais développe en parallèle l'éolien et les autres renouvelables ; +1 reflète une préférence nucléaire sans valider un arbitrage net contre les renouvelables." },
+            { gov:'royaume-uni', q:32, old:2, value:1, justification:"Accord modéré : le gouvernement britannique poursuit des objectifs climatiques ambitieux mais les présente comme devant soutenir la croissance, l'emploi et la baisse des factures ; il ne documente pas une priorité climatique assumée malgré une baisse de croissance." },
+            { gov:'royaume-uni', q:33, old:2, value:1, justification:"Accord modéré : le Royaume-Uni conserve des instruments de tarification carbone, mais les mesures récentes sur carburants et énergie cherchent aussi à contenir les prix ; l'acceptation d'une hausse importante des fossiles n'est donc que partielle." },
+            { gov:'royaume-uni', q:67, old:2, value:1, justification:"Accord modéré : le Royaume-Uni conserve une tarification carbone, mais sa politique récente accorde une forte priorité au coût de la vie et à la baisse des factures énergétiques ; le soutien à une taxe diminuant le pouvoir d'achat reste donc limité." },
+            { gov:'royaume-uni', q:69, old:2, value:1, justification:"Accord modéré : le gouvernement relance fortement le nucléaire tout en investissant massivement dans les renouvelables ; il ne soutient pas clairement une baisse des investissements renouvelables au profit du nucléaire." },
+            { gov:'danemark', q:32, old:2, value:1, justification:"Accord modéré : le gouvernement Frederiksen mène une politique climatique ambitieuse mais présente la transition comme compatible avec la croissance et la compétitivité ; +2 serait trop fort pour une baisse explicite de croissance." },
+            { gov:'danemark', q:71, old:2, value:1, justification:"Accord modéré : le volontarisme climatique danois justifie une note positive, mais aucune position suffisamment directe n'établit l'acceptation d'une perte de 3 % de PIB en l'absence d'effort comparable des autres pays." },
+            { gov:'pays-bas', q:32, old:2, value:1, justification:"Accord modéré : le gouvernement Jetten lie explicitement ambition climatique et croissance durable et fixe aussi des objectifs de croissance ; il n'assume pas clairement la priorité climatique en cas de baisse de croissance." },
+            { gov:'pays-bas', q:33, old:2, value:1, justification:"Accord modéré : le gouvernement néerlandais poursuit la décarbonation mais insiste sur une énergie abordable et supprime certains surcoûts carbone nationaux ; il ne soutient donc pas fortement une hausse importante du prix des fossiles." },
+            { gov:'pays-bas', q:35, old:2, value:0, justification:"Position neutre : la politique climatique néerlandaise combine prix du carbone, subventions, normes et contraintes réglementaires ; elle ne repose pas principalement sur les mécanismes de marché plutôt que sur la réglementation." },
+            { gov:'pays-bas', q:80, old:2, value:1, justification:"Accord modéré : le gouvernement veut réduire l'usage des produits polluants mais défend aussi l'harmonisation européenne et la compétitivité agricole ; il accepte donc la contrainte sans soutenir clairement un désavantage national marqué." },
+            { gov:'pologne', q:32, old:1, value:-1, justification:"Désaccord modéré : le gouvernement Tusk présente la transition climatique comme devant améliorer compétitivité, modernisation et prix de l'énergie ; il ne place pas le climat au-dessus de la croissance lorsque les deux entrent en conflit." },
+            { gov:'pologne', q:35, old:2, value:0, justification:"Position neutre : la Pologne demande une réforme de l'ETS et davantage de protections contre ses coûts ; elle ne peut pas être décrite comme privilégiant clairement une taxe carbone de marché aux interdictions ou autres instruments." },
+            { gov:'pologne', q:67, old:1, value:-2, justification:"Désaccord net : le gouvernement polonais cherche explicitement à retarder ou atténuer les dispositifs carbone lorsqu'ils pèsent sur les ménages et les prix de l'énergie ; même compensée, une taxe réduisant le pouvoir d'achat ne correspond pas à sa ligne actuelle." },
+            { gov:'pologne', q:68, old:1, value:-1, justification:"Désaccord modéré : la Pologne soutient l'électromobilité mais refuse les mesures coercitives ou fiscales jugées pénalisantes pour les véhicules thermiques ; elle reste donc réservée sur une interdiction progressive stricte." },
+            { gov:'pologne', q:69, old:2, value:1, justification:"Accord modéré : la Pologne investit fortement dans le nucléaire mais développe aussi rapidement les renouvelables ; la préférence nucléaire existe sans volonté claire de réduire les investissements renouvelables." }
+          ];
+
+          const before = new Map(governments.map(g => [g.id, {
+            responses: [...g.responses],
+            confidence: [...g.confidence],
+            sources: [...g.sources],
+            justifications: [...g.justifications]
+          }]));
+
+          for (const c of changes) {
+            const g = govById.get(c.gov);
+            if (!g) throw new Error(`Government not found: ${c.gov}`);
+            const idx = qIndex.get(c.q);
+            if (idx === undefined) throw new Error(`Question not found: Q${c.q}`);
+            if (g.responses[idx] !== c.old) throw new Error(`${c.gov} Q${c.q}: expected ${c.old}, found ${g.responses[idx]}`);
+            g.responses[idx] = c.value;
+            g.justifications[idx] = c.justification;
+          }
+
+          const allowed = new Set(changes.map(c => `${c.gov}:${qIndex.get(c.q)}`));
+          for (const g of governments) {
+            const b = before.get(g.id);
+            for (let i = 0; i < g.responses.length; i++) {
+              const key = `${g.id}:${i}`;
+              if (g.responses[i] !== b.responses[i] && !allowed.has(key)) throw new Error(`Unexpected response change ${key}`);
+              if (g.justifications[i] !== b.justifications[i] && !allowed.has(key)) throw new Error(`Unexpected justification change ${key}`);
+              if (g.confidence[i] !== b.confidence[i]) throw new Error(`Unexpected confidence change ${key}`);
+              if (g.sources[i] !== b.sources[i]) throw new Error(`Unexpected source change ${key}`);
+            }
+          }
+
+          const axes = ['economy','authority','europe','ecology','immigration','democracy'];
+          for (const g of governments) {
+            const scores = {};
+            for (const axis of axes) {
+              let numerator = 0, mass = 0;
+              for (let i = 0; i < questions.length; i++) {
+                const coeff = Number(questions[i].coefficients?.[axis] || 0);
+                numerator += g.responses[i] * coeff;
+                mass += Math.abs(coeff);
+              }
+              scores[axis] = mass ? 10 * numerator / (3 * mass) : 0;
+            }
+            g.axisScores = scores;
+          }
+
+          fs.writeFileSync('data/governments.js', `// Profils documentés des gouvernements et pays de comparaison.\nconst GOVERNMENTS_DATA = ${JSON.stringify(governments, null, 2)};\n`);
+
+          for (const c of changes) console.log(`${c.gov} Q${c.q}: ${c.old} -> ${c.value}`);
+          for (const id of ['allemagne','espagne','suisse','finlande','royaume-uni','danemark','pays-bas','pologne']) {
+            const g = govById.get(id);
+            console.log(`${id} axes=${JSON.stringify(g.axisScores)}`);
+          }
+          NODE
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/governments.js
+          git diff --cached --check
+          git commit -m "Update approved government ecology scores"
+          git push
