@@ -1,0 +1,45 @@
+name: Generate priority political audit report
+
+on:
+  push:
+    branches:
+      - audit/final-full-verification-2026-08-10
+    paths:
+      - '.github/workflows/generate-priority-audit.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/final-full-verification-2026-08-10
+          fetch-depth: 0
+      - shell: bash
+        run: |
+          node <<'NODE'
+          const fs=require('fs');
+          const rows=fs.readFileSync('audit/full-codings.tsv','utf8').trim().split('\n').map(x=>x.split('\t'));
+          const h=rows[0];
+          const idx=Object.fromEntries(h.map((x,i)=>[x,i]));
+          const out=[h.join('\t')];
+          for(const r of rows.slice(1)){
+            const score=Number(r[idx.response]); const conf=Number(r[idx.confidence]);
+            const just=r[idx.justification]||'';
+            const generic=/(orientation cohérente|estimation prudente|codage cohérent|transposition ou inférence prudente|niveau de preuve|document officiel retenu)/i.test(just);
+            if ((Math.abs(score)>=2 && conf<=1) || (Math.abs(score)===3 && generic && conf<=2) || (score===0 && conf<=1)) out.push(r.join('\t'));
+          }
+          fs.writeFileSync('audit/priority-codings.tsv',out.join('\n')+'\n');
+          console.log('priority',out.length-1);
+          NODE
+      - shell: bash
+        run: |
+          rm .github/workflows/generate-priority-audit.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add audit/priority-codings.tsv .github/workflows/generate-priority-audit.yml
+          git commit -m "Generate priority political audit report"
+          git push origin HEAD:audit/final-full-verification-2026-08-10
