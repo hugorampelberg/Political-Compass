@@ -618,7 +618,7 @@ const PARTIES_DATA = [
       "Position équilibrée ou non tranchée : codage cohérent avec la ligne programmatique générale du parti sur libertés / sécurité.",
       "Accord net : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "Désaccord fort : le PCF affirme qu’un refus d’obtempérer ne doit pas entraîner la mort et demande l’abrogation de la loi de 2017 qui a élargi l’usage des armes.",
-      "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
+      "Désaccord net : le PCF refuse que la transition écologique soit financée par une taxe carbone qui renchérit directement l'énergie des ménages, en particulier des plus modestes, et a critiqué ce mécanisme même lorsqu'il est assorti de compensations sociales. Il accepte en revanche des instruments fiscaux écologiques plus ciblés, comme des malus sur les véhicules les plus polluants ; -2 est donc plus adapté qu'un rejet maximal.",
       "Accord net : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord modéré : le PCF est fortement favorable au nucléaire mais défend simultanément le développement des renouvelables et refuse de les opposer ; +1 traduit une préférence nucléaire sans valider clairement une baisse des investissements renouvelables.",
       "Accord fort : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
