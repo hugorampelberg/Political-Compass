@@ -210,7 +210,7 @@ function detailedAxisSimilarity(entity, axisKey) {
 
   activeQuestions().forEach(({ q, i }) => {
 const w = Math.abs(q.coefficients[axisKey]);
-const c = Math.sqrt(entity.confidence[i] || 0);
+const c = 1;
 
 if (w > 0 && c > 0) {
   const user = state.answers[i] ?? 0;

@@ -592,7 +592,7 @@ function recompute(entity) {
     return [axis, mass ? 10 * numerator / (3 * mass) : 0];
   }));
   entity.averageConfidence = entity.confidence.reduce((sum, value) => sum + value, 0)
-    / (entity.confidence.length * 3);
+    / entity.confidence.length;
 }
 
 for (const entity of [...parties, ...governments]) recompute(entity);

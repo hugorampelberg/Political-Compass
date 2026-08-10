@@ -138,7 +138,7 @@ for (const entity of entities) {
   }
 
   const expectedConfidence = entity.confidence.reduce((sum, value) => sum + value, 0)
-    / (questionCount * 3);
+    / questionCount;
   assert(
     almostEqual(entity.averageConfidence, expectedConfidence),
     `${entity.id}.averageConfidence vaut ${entity.averageConfidence} au lieu de ${expectedConfidence}.`

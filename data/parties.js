@@ -370,7 +370,7 @@ const PARTIES_DATA = [
       "immigration": 8.768768768768767,
       "democracy": 7.222222222222221
     },
-    "averageConfidence": 0.7241379310344828
+    "averageConfidence": 2.1724137931034484
   },
   {
     "id": "pcf",
@@ -742,7 +742,7 @@ const PARTIES_DATA = [
       "immigration": 8.258258258258257,
       "democracy": 8.055555555555555
     },
-    "averageConfidence": 0.7509578544061303
+    "averageConfidence": 2.2528735632183907
   },
   {
     "id": "les-ecologistes",
@@ -1114,7 +1114,7 @@ const PARTIES_DATA = [
       "immigration": 8.918918918918918,
       "democracy": 5.833333333333333
     },
-    "averageConfidence": 0.7126436781609196
+    "averageConfidence": 2.1379310344827585
   },
   {
     "id": "ps",
@@ -1486,7 +1486,7 @@ const PARTIES_DATA = [
       "immigration": 6.726726726726727,
       "democracy": 3.9814814814814814
     },
-    "averageConfidence": 0.6934865900383141
+    "averageConfidence": 2.0804597701149423
   },
   {
     "id": "renaissance",
@@ -1858,7 +1858,7 @@ const PARTIES_DATA = [
       "immigration": -0.7507507507507507,
       "democracy": -3.1018518518518516
     },
-    "averageConfidence": 0.6819923371647509
+    "averageConfidence": 2.045977011494253
   },
   {
     "id": "modem",
@@ -2230,7 +2230,7 @@ const PARTIES_DATA = [
       "immigration": -0.12012012012012001,
       "democracy": -0.787037037037037
     },
-    "averageConfidence": 0.6398467432950191
+    "averageConfidence": 1.9195402298850575
   },
   {
     "id": "horizons",
@@ -2602,7 +2602,7 @@ const PARTIES_DATA = [
       "immigration": -2.342342342342342,
       "democracy": -3.3796296296296293
     },
-    "averageConfidence": 0.6436781609195402
+    "averageConfidence": 1.9310344827586208
   },
   {
     "id": "france-humaniste",
@@ -2974,7 +2974,7 @@ const PARTIES_DATA = [
       "immigration": 1.201201201201201,
       "democracy": 3.5648148148148144
     },
-    "averageConfidence": 0.7777777777777778
+    "averageConfidence": 2.3333333333333335
   },
   {
     "id": "lr",
@@ -3346,7 +3346,7 @@ const PARTIES_DATA = [
       "immigration": -6.576576576576577,
       "democracy": -3.333333333333333
     },
-    "averageConfidence": 0.6781609195402298
+    "averageConfidence": 2.0344827586206895
   },
   {
     "id": "nouvelle-energie",
@@ -3718,7 +3718,7 @@ const PARTIES_DATA = [
       "immigration": -6.756756756756756,
       "democracy": -0.13888888888888865
     },
-    "averageConfidence": 0.7318007662835249
+    "averageConfidence": 2.1954022988505746
   },
   {
     "id": "udr",
@@ -4090,7 +4090,7 @@ const PARTIES_DATA = [
       "immigration": -8.348348348348349,
       "democracy": 0.462962962962963
     },
-    "averageConfidence": 0.6015325670498084
+    "averageConfidence": 1.8045977011494252
   },
   {
     "id": "rn",
@@ -4462,7 +4462,7 @@ const PARTIES_DATA = [
       "immigration": -8.978978978978978,
       "democracy": 2.777777777777778
     },
-    "averageConfidence": 0.6513409961685823
+    "averageConfidence": 1.9540229885057472
   },
   {
     "id": "reconquete",
@@ -4834,6 +4834,6 @@ const PARTIES_DATA = [
       "immigration": -9.3993993993994,
       "democracy": 1.388888888888889
     },
-    "averageConfidence": 0.578544061302682
+    "averageConfidence": 1.735632183908046
   }
 ];
