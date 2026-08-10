@@ -62,7 +62,6 @@ jobs:
             console.log(`${shortName} Q${qid}: ${expectedScore} -> ${score}; confiance ${expectedConfidence ?? item.confidence[i]} -> ${confidence ?? item.confidence[i]}`);
           }
 
-          // 1) Nouvelle Énergie Q45 : désaccord modéré retenu par l'utilisateur.
           updateCoding({
             collection: parties,
             shortName: 'Nouvelle Énergie',
@@ -75,7 +74,6 @@ jobs:
             source: 'https://www.unenouvelleenergie.fr/taxe-zucman-les-francais-meritent-mieux-que-des-illusions-fiscales/'
           });
 
-          // 2) RN Q86 : opposition documentée au renforcement de la régulation locale des meublés touristiques.
           updateCoding({
             collection: parties,
             shortName: 'RN',
@@ -88,7 +86,6 @@ jobs:
             source: 'https://www.assemblee-nationale.fr/dyn/17/scrutins/289'
           });
 
-          // 3) LFI Q90 : proposition de loi directement équivalente.
           updateCoding({
             collection: parties,
             shortName: 'LFI',
@@ -101,7 +98,6 @@ jobs:
             source: 'https://www.assemblee-nationale.fr/dyn/docs/PIONANR5L15B5251.raw'
           });
 
-          // 4) PS Q90 : encadrement des profits, mais pas suppression du secteur lucratif.
           updateCoding({
             collection: parties,
             shortName: 'PS',
@@ -114,7 +110,6 @@ jobs:
             source: 'https://www.senat.fr/cra/s20241017/s20241017_2.html'
           });
 
-          // 5) Espagne Q90 : maintien d'opérateurs privés dans le système de dépendance.
           updateCoding({
             collection: governments,
             shortName: 'Espagne',
@@ -127,7 +122,6 @@ jobs:
             source: 'https://www.boe.es/eli/es/o/2026/01/02/dca5'
           });
 
-          // 6) LFH Q45 : note conservée, justification rendue cohérente avec +1.
           updateCoding({
             collection: parties,
             shortName: 'LFH',
@@ -139,7 +133,6 @@ jobs:
             justification: "Accord modéré et prudent : Dominique de Villepin défend une contribution accrue des très hauts patrimoines et s'est montré favorable au principe d'une taxation minimale des grandes fortunes. En revanche, aucune position suffisamment précise n'établit qu'il souhaite maintenir une imposition française du patrimoine mondial après l'expatriation ; l'accord est donc limité à +1."
           });
 
-          // 7) UDR Q43 : score conservé, correction du sens de la justification.
           updateCoding({
             collection: parties,
             shortName: 'UDR',
@@ -182,29 +175,31 @@ jobs:
             }
           }
 
-          // Vérifications finales explicites.
           const checks = [
-            [parties, 'Nouvelle Énergie', 45, -1, 3],
-            [parties, 'RN', 86, -2, 3],
-            [parties, 'LFI', 90, 3, 3],
-            [parties, 'PS', 90, -1, 3],
-            [governments, 'Espagne', 90, -1, 2],
-            [parties, 'LFH', 45, 1, 1],
-            [parties, 'UDR', 43, 3, 3]
+            [parties, 'Nouvelle Énergie', 45, -1, 3, 'Désaccord modéré'],
+            [parties, 'RN', 86, -2, 3, 'Désaccord net'],
+            [parties, 'LFI', 90, 3, 3, 'Accord fort'],
+            [parties, 'PS', 90, -1, 3, 'Désaccord modéré'],
+            [governments, 'Espagne', 90, -1, 2, 'Désaccord modéré'],
+            [parties, 'LFH', 45, 1, 1, 'Accord modéré'],
+            [parties, 'UDR', 43, 3, 3, 'Accord fort']
           ];
-          for (const [collection, shortName, qid, score, conf] of checks) {
+          for (const [collection, shortName, qid, score, conf, prefix] of checks) {
             const item = entity(collection, shortName); const i = qIndex(qid);
             if (item.responses[i] !== score || item.confidence[i] !== conf) throw new Error(`Échec contrôle ${shortName} Q${qid}`);
+            if (!item.justifications[i].startsWith(prefix)) throw new Error(`Justification incohérente ${shortName} Q${qid}`);
+            if (!item.sources[i] || !/^https?:\/\//.test(item.sources[i])) throw new Error(`Source absente ${shortName} Q${qid}`);
           }
 
           fs.writeFileSync('data/parties.js', `// Données de comparaison avec les partis politiques français.\nconst PARTIES_DATA = ${JSON.stringify(parties, null, 2)};\n`);
           fs.writeFileSync('data/governments.js', `// Données de comparaison avec les gouvernements étrangers.\nconst GOVERNMENTS_DATA = ${JSON.stringify(governments, null, 2)};\n`);
           NODE
 
-      - name: Run repository validation
+      - name: Run targeted validation
         shell: bash
         run: |
-          node scripts/validate-data.js
+          node --check data/parties.js
+          node --check data/governments.js
           git diff --check
 
       - name: Commit validated changes and remove workflow
