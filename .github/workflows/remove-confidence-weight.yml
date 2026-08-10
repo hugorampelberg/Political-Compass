@@ -1,0 +1,49 @@
+name: Remove confidence weighting from similarity
+
+on:
+  push:
+    paths:
+      - '.github/scripts/remove-confidence-weight.py'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Apply patch
+        run: python .github/scripts/remove-confidence-weight.py
+      - name: Validate syntax
+        run: |
+          node --check scripts/app.js
+          node --check scripts/audit-codings-2026-08-07.js
+          node --check scripts/validate-data.js
+      - name: Validate party average confidence scale
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import vm from 'node:vm';
+          const context = {};
+          vm.createContext(context);
+          const source = fs.readFileSync('data/parties.js', 'utf8');
+          vm.runInContext(source.replace(/^const /gm, 'var '), context);
+          for (const party of context.PARTIES_DATA) {
+            const expected = party.confidence.reduce((a,b)=>a+b,0) / party.confidence.length;
+            if (Math.abs(party.averageConfidence - expected) > 1e-12) throw new Error(`${party.id}: averageConfidence mismatch`);
+            if (party.averageConfidence < 1 || party.averageConfidence > 3) throw new Error(`${party.id}: averageConfidence outside 1-3`);
+          }
+          console.log(`Validated ${context.PARTIES_DATA.length} party averages on 1-3 scale.`);
+          NODE
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scripts/app.js data/parties.js scripts/audit-codings-2026-08-07.js scripts/validate-data.js
+          git diff --cached --quiet && exit 0
+          git commit -m "Remove documentary confidence from similarity scoring"
+          git push origin main
