@@ -58,3 +58,5 @@ print(f'Validated logo.png: {w}x{h}')
 print('Created favicon.png and apple-touch-icon.png')
 print('Updated index.html favicon declarations')
 print('Added permanent apex -> www redirect')
+
+# Triggered intentionally after the workflow definition exists.
