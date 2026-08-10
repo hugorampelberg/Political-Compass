@@ -1,0 +1,135 @@
+name: Apply Q18 Q30 Q56 audit updates
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/apply-audit-q18-q30-q56.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Apply validated codings and recalculate axis scores
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const vm = require('vm');
+
+          function loadConst(path, variableName) {
+            const source = fs.readFileSync(path, 'utf8');
+            const context = {};
+            vm.runInNewContext(`${source}\nthis.__value = ${variableName};`, context, { filename: path });
+            return context.__value;
+          }
+
+          const questionnaire = loadConst('data/questionnaire.js', 'QUESTIONNAIRE_DATA');
+          const parties = loadConst('data/parties.js', 'PARTIES_DATA');
+          const governments = loadConst('data/governments.js', 'GOVERNMENTS_DATA');
+
+          const questionIndex = new Map(questionnaire.questions.map((q, index) => [q.id, index]));
+          const axes = questionnaire.axes.map(axis => axis.key);
+
+          function getIndex(questionId) {
+            if (!questionIndex.has(questionId)) throw new Error(`Question Q${questionId} introuvable`);
+            return questionIndex.get(questionId);
+          }
+
+          function findByShortName(collection, shortName) {
+            const entity = collection.find(item => item.shortName === shortName);
+            if (!entity) throw new Error(`Entité introuvable: ${shortName}`);
+            return entity;
+          }
+
+          function setResponse(collection, shortName, questionId, expectedOldValue, newValue, justification) {
+            const entity = findByShortName(collection, shortName);
+            const index = getIndex(questionId);
+            const current = entity.responses[index];
+            if (current !== expectedOldValue) {
+              throw new Error(`${shortName} Q${questionId}: valeur attendue ${expectedOldValue}, valeur actuelle ${current}`);
+            }
+            entity.responses[index] = newValue;
+            if (justification) entity.justifications[index] = justification;
+            console.log(`${shortName} Q${questionId}: ${current} -> ${newValue}`);
+          }
+
+          // Q30 — clauses miroir avec contrepartie explicite sur les prix alimentaires.
+          setResponse(parties, 'LFI', 30, 3, 2, "Accord net : LFI défend des interdictions et clauses de sauvegarde contre les importations produites selon des normes interdites en France, mais cherche parallèlement à contenir les prix alimentaires ; l'acceptation explicite du surcoût pour le consommateur n'est pas suffisamment établie pour retenir +3.");
+          setResponse(parties, 'PCF', 30, 3, 2, "Accord net : le PCF défend une stricte réciprocité des normes et la protection des producteurs français, mais la contrepartie explicite d'une hausse des prix alimentaires n'est pas suffisamment documentée pour retenir un accord maximal.");
+          setResponse(parties, 'PS', 30, 3, 2, "Accord net : le PS défend des mesures miroir fortes et conditionne l'accès au marché au respect des normes européennes, tout en restant favorable à un commerce encadré ; l'acceptation du renchérissement alimentaire n'est pas assez explicite pour +3.");
+          setResponse(parties, 'Renaissance', 30, 2, 1, "Accord modéré : Renaissance soutient la réciprocité des normes, les contrôles et des clauses de sauvegarde, mais reste favorable aux échanges commerciaux et ne donne pas clairement priorité à l'interdiction lorsque celle-ci renchérit les produits alimentaires les moins chers.");
+          setResponse(parties, 'MoDem', 30, 2, 1, "Accord modéré : le MoDem juge les mesures miroir nécessaires mais défend aussi des accords commerciaux équilibrés ; la protection normative est donc soutenue sans assumer clairement la disparition des importations les moins chères.");
+          setResponse(parties, 'Horizons', 30, 2, 1, "Accord modéré : Horizons soutient des garanties de réciprocité et de concurrence loyale, tout en conservant une ligne favorable au commerce ; la contrepartie sur le prix payé par le consommateur limite l'intensité de l'accord.");
+          setResponse(parties, 'LFH', 30, 2, 1, "Accord modéré : Dominique de Villepin défend contrôles, traçabilité et clauses miroir, mais refuse une logique d'autarcie et insiste aussi sur l'accessibilité des prix et la compétitivité exportatrice ; la proposition n'est donc soutenue que modérément avec sa contrepartie consommateur.");
+          setResponse(parties, 'LR', 30, 3, 2, "Accord net : LR veut corriger la concurrence déloyale et peut soutenir des interdictions d'importation, mais propose aussi de supprimer certaines surtranspositions ou restrictions françaises lorsque celles-ci pénalisent les producteurs ; +2 est plus adapté que +3.");
+          setResponse(parties, 'Nouvelle Énergie', 30, 3, 0, "Position équilibrée : Nouvelle Énergie exige la réciprocité lorsqu'une norme est scientifiquement justifiée, mais propose aussi de supprimer des normes françaises jugées injustifiées et souligne que le protectionnisme renchérit les prix ; la formulation complète de la question appelle donc un score neutre.");
+          setResponse(parties, 'UDR', 30, 3, 0, "Position équilibrée : l'UDR combat les distorsions de concurrence mais porte également une forte politique de déréglementation ; face à une asymétrie normative, sa réponse peut être d'alléger la norme française plutôt que d'interdire les produits étrangers plus abordables.");
+          setResponse(parties, 'Reconquête', 30, 3, 2, "Accord net : Reconquête défend explicitement la réciprocité des normes et l'exclusion de produits étrangers ne respectant pas les exigences françaises ; faute de preuve suffisamment directe sur l'acceptation d'un renchérissement alimentaire, +2 est plus prudent que +3.");
+
+          // Q56 — régularisation d'un étranger en situation irrégulière travaillant durablement.
+          setResponse(parties, 'LR', 56, -2, -3, "Désaccord fort : LR affirme qu'il n'existe pas de droit à la régularisation et s'oppose à faire du travail durable en France un principe ouvrant une voie générale de régularisation ; la formulation de la question appelle un désaccord maximal.");
+          setResponse(parties, 'UDR', 56, -2, -3, "Désaccord fort : la ligne de l'UDR et les positions antérieures d'Éric Ciotti refusent la régularisation par le travail comme mécanisme général et privilégient l'éloignement des étrangers en situation irrégulière ; -3 est plus cohérent que -2.");
+
+          // Gouvernements — Q18.
+          setResponse(governments, 'Finlande', 18, 2, 1, "Accord modéré : la Finlande dispose d'une administration territoriale décentralisée, mais les régions de bien-être appliquent principalement des missions définies par la loi nationale et ne disposent pas d'une large autonomie législative comparable à un État fédéral.");
+
+          // Gouvernements — Q30.
+          setResponse(governments, 'Allemagne', 30, -1, -2, "Désaccord net : le gouvernement Merz soutient fortement l'ouverture commerciale et l'accord UE-Mercosur. Il défend les normes sanitaires européennes, mais pas une interdiction générale des importations au prix d'un renchérissement des produits alimentaires.");
+          setResponse(governments, 'Espagne', 30, 2, 1, "Accord modéré : le gouvernement espagnol défend réciprocité, garanties et clauses de sauvegarde, tout en soutenant les accords commerciaux et l'accès à une alimentation à prix raisonnable ; la contrepartie consommateur limite l'accord.");
+          setResponse(governments, 'Suisse', 30, 1, 0, "Position équilibrée : la Suisse impose dans plusieurs cas l'étiquetage ou des restrictions ciblées sur les modes de production interdits chez elle, mais ne suit pas une doctrine générale consistant à interdire les importations moins chères ne respectant pas toutes les normes suisses.");
+          setResponse(governments, 'Royaume-Uni', 30, 1, 0, "Position équilibrée : le Royaume-Uni défend ses standards sanitaires et des garanties dans ses accords, mais ne porte pas une interdiction générale fondée sur l'équivalence de toutes les normes de production lorsque cela réduirait l'offre bon marché.");
+          setResponse(governments, 'Pologne', 30, 3, 2, "Accord net : la Pologne a engagé des interdictions ciblées contre des produits contenant des substances phytosanitaires non admises dans l'Union et réclame la réciprocité des normes ; l'acceptation explicite d'un renchérissement alimentaire généralisé n'est toutefois pas assez établie pour +3.");
+
+          // Gouvernements — Q56.
+          setResponse(governments, 'Allemagne', 56, -1, 1, "Accord modéré : le droit allemand prévoit des voies de séjour pour certains étrangers tolérés durablement intégrés ou occupant un emploi qualifié, même si le gouvernement Merz mène parallèlement une politique restrictive contre l'immigration irrégulière.");
+          setResponse(governments, 'Suisse', 56, 0, 1, "Accord modéré : la Suisse permet, notamment dans les cas individuels de rigueur, la régularisation de personnes sans statut durablement intégrées et respectant des critères stricts ; il s'agit d'une possibilité encadrée plutôt que d'un droit général.");
+
+          function recalculateAxisScores(entity) {
+            if (entity.responses.length !== questionnaire.questions.length) {
+              throw new Error(`${entity.shortName}: ${entity.responses.length} réponses pour ${questionnaire.questions.length} questions`);
+            }
+            const scores = {};
+            for (const axis of axes) {
+              let numerator = 0;
+              let coefficientMass = 0;
+              questionnaire.questions.forEach((question, index) => {
+                const coefficient = Number(question.coefficients[axis] || 0);
+                numerator += entity.responses[index] * coefficient;
+                coefficientMass += Math.abs(coefficient);
+              });
+              const denominator = 3 * coefficientMass;
+              scores[axis] = denominator ? 10 * numerator / denominator : 0;
+            }
+            entity.axisScores = scores;
+          }
+
+          [...parties, ...governments].forEach(recalculateAxisScores);
+
+          const partiesOutput = `// Données de comparaison avec les partis politiques français.\nconst PARTIES_DATA = ${JSON.stringify(parties, null, 2)};\n`;
+          const governmentsOutput = `// Données de comparaison avec les gouvernements étrangers.\nconst GOVERNMENTS_DATA = ${JSON.stringify(governments, null, 2)};\n`;
+          fs.writeFileSync('data/parties.js', partiesOutput);
+          fs.writeFileSync('data/governments.js', governmentsOutput);
+          NODE
+
+          node scripts/validate-data.js
+
+      - name: Commit changes and remove one-shot workflow
+        shell: bash
+        run: |
+          rm .github/workflows/apply-audit-q18-q30-q56.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/parties.js data/governments.js .github/workflows/apply-audit-q18-q30-q56.yml
+          git diff --cached --check
+          git commit -m "Update Q18 Q30 Q56 codings and axis scores"
+          git push origin HEAD:main
