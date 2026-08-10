@@ -55,3 +55,5 @@ if old_validate not in validate and new_validate not in validate:
     raise SystemExit('averageConfidence validation formula not found')
 validate = validate.replace(old_validate, new_validate, 1)
 validate_path.write_text(validate, encoding='utf-8')
+
+# Triggered after workflow creation.
