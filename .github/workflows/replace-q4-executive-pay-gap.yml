@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '.github/scripts/replace-q4-executive-pay-gap.js'
+      - '.github/triggers/replace-q4-executive-pay-gap.txt'
 
 permissions:
   contents: write
