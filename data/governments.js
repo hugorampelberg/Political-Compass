@@ -35,7 +35,7 @@ const GOVERNMENTS_DATA = [
       1,
       1,
       2,
-      2,
+      -1,
       0,
       -2,
       1,
@@ -124,7 +124,7 @@ const GOVERNMENTS_DATA = [
       2,
       2,
       2,
-      2,
+      4,
       3,
       2,
       1,
@@ -213,7 +213,7 @@ const GOVERNMENTS_DATA = [
       "Accord modéré : La ligne gouvernementale renforce les moyens de sécurité et l’exécution des décisions, sous contrôle de l’État de droit. Transposition ou inférence prudente.",
       "Accord modéré : La ligne gouvernementale renforce les moyens de sécurité et l’exécution des décisions, sous contrôle de l’État de droit. Transposition ou inférence prudente.",
       "Accord net : La ligne gouvernementale renforce les moyens de sécurité et l’exécution des décisions, sous contrôle de l’État de droit. Transposition ou inférence prudente.",
-      "Accord net : La ligne gouvernementale renforce les moyens de sécurité et l’exécution des décisions, sous contrôle de l’État de droit. Transposition ou inférence prudente.",
+      "Désaccord modéré : le gouvernement Merz soutient fortement l’ouverture commerciale et l’accord UE-Mercosur afin de réduire les droits de douane et les barrières. Il accepte les normes sanitaires européennes, mais ne défend pas une interdiction générale fondée sur l’équivalence de toutes les normes de production.",
       "Position neutre : le gouvernement Merz maintient les objectifs climatiques mais refuse d'opposer systématiquement climat et croissance ; il présente la transition comme devant rester compatible avec la compétitivité et la prospérité.",
       "Désaccord net : le gouvernement Merz a refusé une hausse supplémentaire du prix du CO₂ en raison du coût de l'énergie et a réduit temporairement la fiscalité sur les carburants ; il ne soutient donc pas une hausse importante du prix des fossiles.",
       "Le gouvernement Merz veut réduire à terme le poids des cotisations sociales et alléger le travail, mais aucune bascule explicite vers une hausse de TVA n’est établie. Tendance +1, confiance 1.",
@@ -302,7 +302,7 @@ const GOVERNMENTS_DATA = [
       "https://www.bundesregierung.de/breg-de/aktuelles/koalitionsvertrag-2025-2340970",
       "https://www.bundesregierung.de/breg-de/aktuelles/koalitionsvertrag-2025-2340970",
       "https://www.bundesregierung.de/breg-de/aktuelles/koalitionsvertrag-2025-2340970",
-      "https://www.bundesregierung.de/breg-de/aktuelles/koalitionsvertrag-2025-2340970",
+      "https://www.bundesregierung.de/breg-de/aktuelles/bundeskanzler-merz-zur-einigung-zum-eu-mercosur-abkommen-2402138",
       "https://www.bundesregierung.de/breg-de/aktuelles/koalitionsvertrag-2025-2340970",
       "https://www.bundesregierung.de/breg-de/aktuelles/koalitionsvertrag-2025-2340970",
       "https://www.bundesregierung.de/breg-de/aktuelles/koalitionsvertrag-2025-2340970",
@@ -363,14 +363,14 @@ const GOVERNMENTS_DATA = [
       "https://www.bundesregierung.de/breg-de/aktuelles/koalitionsvertrag-2025-2340970"
     ],
     "axisScores": {
-      "economy": 1.9690576652601968,
-      "authority": 0.9150326797385624,
+      "economy": 2.0027434842249656,
+      "authority": 0.5583756345177666,
       "europe": 7.311827956989247,
       "ecology": -1.1372549019607845,
       "immigration": -3.362573099415204,
       "democracy": 1.9658119658119666
     },
-    "averageConfidence": 2.310344827586207
+    "averageConfidence": 2.3333333333333335
   },
   {
     "id": "espagne",
@@ -407,7 +407,7 @@ const GOVERNMENTS_DATA = [
       0,
       2,
       0,
-      1,
+      2,
       2,
       2,
       -2,
@@ -496,7 +496,7 @@ const GOVERNMENTS_DATA = [
       1,
       2,
       2,
-      2,
+      4,
       3,
       2,
       3,
@@ -585,7 +585,7 @@ const GOVERNMENTS_DATA = [
       "Position de compromis : La priorité est davantage donnée à la prévention, aux garanties juridiques et à la réinsertion qu’au durcissement pénal. Comparabilité limitée ou position peu explicite.",
       "Accord net : La priorité est davantage donnée à la prévention, aux garanties juridiques et à la réinsertion qu’au durcissement pénal. Transposition ou inférence prudente.",
       "Position de compromis : La priorité est davantage donnée à la prévention, aux garanties juridiques et à la réinsertion qu’au durcissement pénal. Transposition ou inférence prudente.",
-      "Accord modéré : La priorité est davantage donnée à la prévention, aux garanties juridiques et à la réinsertion qu’au durcissement pénal. Transposition ou inférence prudente.",
+      "Accord net : le gouvernement espagnol a explicitement demandé des clauses miroir afin que les produits importés soient soumis à des conditions de production comparables à celles des agriculteurs européens. Il reste cependant très favorable aux accords commerciaux comme le Mercosur, d’où +2 plutôt que +3.",
       "Accord net : La transition écologique, les renouvelables et la réglementation climatique sont des priorités gouvernementales. Position directement documentée.",
       "Accord net : La transition écologique, les renouvelables et la réglementation climatique sont des priorités gouvernementales. Transposition ou inférence prudente.",
       "Le gouvernement Sánchez a plutôt accru les cotisations sociales pour financer la protection sociale, logique opposée à une substitution par la TVA. Orientation nette -2, politique effectivement mise en œuvre.",
@@ -674,7 +674,7 @@ const GOVERNMENTS_DATA = [
       "https://www.lamoncloa.gob.es/lang/en/presidente/intervenciones/paginas/2025/20250728-political-year-assessment-speech.aspx",
       "https://www.lamoncloa.gob.es/lang/en/presidente/intervenciones/paginas/2025/20250728-political-year-assessment-speech.aspx",
       "https://www.lamoncloa.gob.es/lang/en/presidente/intervenciones/paginas/2025/20250728-political-year-assessment-speech.aspx",
-      "https://www.lamoncloa.gob.es/lang/en/presidente/intervenciones/paginas/2025/20250728-political-year-assessment-speech.aspx",
+      "https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/agricultura/paginas/2024/010424-medidas-respuesta-sector-agrario.aspx",
       "https://www.lamoncloa.gob.es/Documents/2025/appendix-II-map-of-commitments-december.pdf",
       "https://www.lamoncloa.gob.es/Documents/2025/appendix-II-map-of-commitments-december.pdf",
       "https://www.lamoncloa.gob.es/",
@@ -735,14 +735,14 @@ const GOVERNMENTS_DATA = [
       "https://www.lamoncloa.gob.es/consejodeministros/resumenes/Documents/2026/240226-soberania-digital.pdf"
     ],
     "axisScores": {
-      "economy": -4.500703234880449,
-      "authority": -0.016339869281045697,
+      "economy": -4.554183813443071,
+      "authority": -0.08460236886632827,
       "europe": 6.666666666666666,
       "ecology": 4.862745098039215,
       "immigration": 4.444444444444445,
       "democracy": 2.9914529914529915
     },
-    "averageConfidence": 2.3448275862068964
+    "averageConfidence": 2.367816091954023
   },
   {
     "id": "suisse",
@@ -868,7 +868,7 @@ const GOVERNMENTS_DATA = [
       1,
       2,
       2,
-      2,
+      4,
       2,
       2,
       2,
@@ -957,7 +957,7 @@ const GOVERNMENTS_DATA = [
       "Position de compromis : La politique combine prévention, police efficace et fortes garanties de l’État de droit. Comparabilité limitée ou position peu explicite.",
       "Accord net : La politique combine prévention, police efficace et fortes garanties de l’État de droit. Transposition ou inférence prudente.",
       "Accord modéré : La politique combine prévention, police efficace et fortes garanties de l’État de droit. Transposition ou inférence prudente.",
-      "Accord modéré : La politique combine prévention, police efficace et fortes garanties de l’État de droit. Transposition ou inférence prudente.",
+      "Accord modéré : la Suisse impose déjà des obligations spécifiques de déclaration pour certains produits issus de méthodes de production interdites en Suisse et protège certaines filières, mais privilégie souvent l’information, les quotas et les accords commerciaux plutôt qu’une interdiction générale.",
       "Accord modéré : La stratégie climatique repose largement sur la technologie, les incitations économiques et une mise en œuvre compatible avec la compétitivité. Transposition ou inférence prudente.",
       "Accord modéré : La stratégie climatique repose largement sur la technologie, les incitations économiques et une mise en œuvre compatible avec la compétitivité. Transposition ou inférence prudente.",
       "Position neutre, partagée ou non arrêtée : la Suisse utilise bien la TVA pour financer une partie de l’AVS, mais il ne s’agit pas d’un remplacement explicite des cotisations sociales par la TVA afin d’augmenter le salaire net et de réduire le coût du travail. Le mécanisme est donc seulement partiellement comparable : 0.",
@@ -1046,7 +1046,7 @@ const GOVERNMENTS_DATA = [
       "https://www.bfs.admin.ch/bfs/en/home/statistics/cross-sectional-topics/monitoring-legislature-plan.html",
       "https://www.bfs.admin.ch/bfs/en/home/statistics/cross-sectional-topics/monitoring-legislature-plan.html",
       "https://www.bfs.admin.ch/bfs/en/home/statistics/cross-sectional-topics/monitoring-legislature-plan.html",
-      "https://www.bfs.admin.ch/bfs/en/home/statistics/cross-sectional-topics/monitoring-legislature-plan.html",
+      "https://www.blw.admin.ch/fr/ordonnance-agricole-declaration",
       "https://www.bfs.admin.ch/bfs/en/home/statistics/cross-sectional-topics/monitoring-legislature-plan.html",
       "https://www.bfs.admin.ch/bfs/en/home/statistics/cross-sectional-topics/monitoring-legislature-plan.html",
       "https://www.bsv.admin.ch/fr/avs-21",
@@ -1107,14 +1107,14 @@ const GOVERNMENTS_DATA = [
       "https://www.bk.admin.ch/en/cloud-6"
     ],
     "axisScores": {
-      "economy": 3.0801687763713077,
-      "authority": -0.5228758169934641,
+      "economy": 2.921810699588478,
+      "authority": -0.6598984771573604,
       "europe": -4.946236559139785,
       "ecology": 1.0588235294117647,
       "immigration": -2.6900584795321634,
       "democracy": 6.324786324786325
     },
-    "averageConfidence": 2.1264367816091956
+    "averageConfidence": 2.1494252873563218
   },
   {
     "id": "finlande",
@@ -1151,7 +1151,7 @@ const GOVERNMENTS_DATA = [
       2,
       1,
       2,
-      2,
+      -1,
       1,
       0,
       2,
@@ -1240,7 +1240,7 @@ const GOVERNMENTS_DATA = [
       2,
       1,
       3,
-      2,
+      3,
       3,
       2,
       3,
@@ -1329,7 +1329,7 @@ const GOVERNMENTS_DATA = [
       "Accord net : La coalition augmente les moyens policiers et les pouvoirs de sécurité dans un contexte géopolitique dégradé. Transposition ou inférence prudente.",
       "Accord modéré : La coalition augmente les moyens policiers et les pouvoirs de sécurité dans un contexte géopolitique dégradé. Comparabilité limitée ou position peu explicite.",
       "Accord net : La coalition augmente les moyens policiers et les pouvoirs de sécurité dans un contexte géopolitique dégradé. Position directement documentée.",
-      "Accord net : La coalition augmente les moyens policiers et les pouvoirs de sécurité dans un contexte géopolitique dégradé. Transposition ou inférence prudente.",
+      "Désaccord modéré : le gouvernement finlandais met fortement l’accent sur la libéralisation des échanges et le démantèlement des droits de douane et soutient les nouveaux accords commerciaux. Les contrôles sanitaires demeurent, mais aucune ligne générale de clauses miroir sur les méthodes de production n’est défendue.",
       "Accord modéré : La Finlande poursuit la neutralité carbone en privilégiant la technologie, le nucléaire, les renouvelables et la compétitivité. Position directement documentée.",
       "Position de compromis : La Finlande poursuit la neutralité carbone en privilégiant la technologie, le nucléaire, les renouvelables et la compétitivité. Transposition ou inférence prudente.",
       "Le gouvernement Orpo a explicitement déplacé la fiscalité du revenu vers la consommation tout en allégeant la fiscalité du travail. Logique proche de la proposition : +2, source gouvernementale directe.",
@@ -1418,7 +1418,7 @@ const GOVERNMENTS_DATA = [
       "https://valtioneuvosto.fi/en/governments/government-programme",
       "https://valtioneuvosto.fi/en/governments/government-programme",
       "https://valtioneuvosto.fi/en/governments/government-programme",
-      "https://valtioneuvosto.fi/en/governments/government-programme",
+      "https://valtioneuvosto.fi/en/-/progress-in-trade-liberalisation-where-to-find-information-on-dismantling-of-tariffs",
       "https://valtioneuvosto.fi/en/governments/government-programme",
       "https://valtioneuvosto.fi/en/governments/government-programme",
       "https://valtioneuvosto.fi/en/-/orpo-government-uncertain-times-call-for-measures-to-build-confidence-and-boost-growth-1",
@@ -1479,14 +1479,14 @@ const GOVERNMENTS_DATA = [
       "https://valtioneuvosto.fi/en/-/1410829/finland-among-top-eu-countries-in-digitalisation"
     ],
     "axisScores": {
-      "economy": 4.120956399437412,
-      "authority": 2.5980392156862755,
+      "economy": 4.101508916323731,
+      "authority": 2.3011844331641287,
       "europe": 5.698924731182795,
       "ecology": -1.411764705882353,
       "immigration": -5.6725146198830405,
       "democracy": 1.709401709401709
     },
-    "averageConfidence": 2.2298850574712645
+    "averageConfidence": 2.2413793103448274
   },
   {
     "id": "royaume-uni",
@@ -1523,7 +1523,7 @@ const GOVERNMENTS_DATA = [
       1,
       2,
       2,
-      2,
+      1,
       1,
       1,
       -2,
@@ -1612,7 +1612,7 @@ const GOVERNMENTS_DATA = [
       3,
       3,
       3,
-      2,
+      3,
       3,
       2,
       3,
@@ -1701,7 +1701,7 @@ const GOVERNMENTS_DATA = [
       "Accord modéré : Les missions gouvernementales mettent l’accent sur la sécurité des rues, la prévention et l’efficacité de la police. Position directement documentée.",
       "Accord net : Les missions gouvernementales mettent l’accent sur la sécurité des rues, la prévention et l’efficacité de la police. Position directement documentée.",
       "Accord net : Les missions gouvernementales mettent l’accent sur la sécurité des rues, la prévention et l’efficacité de la police. Position directement documentée.",
-      "Accord net : Les missions gouvernementales mettent l’accent sur la sécurité des rues, la prévention et l’efficacité de la police. Transposition ou inférence prudente.",
+      "Accord modéré : le Royaume-Uni exige que les aliments importés respectent ses règles de sécurité et d’hygiène et rapproche plusieurs normes sanitaires de celles de l’UE, mais il ne pose pas de principe général exigeant l’identité de toutes les méthodes de production étrangères.",
       "Accord modéré : le gouvernement britannique poursuit des objectifs climatiques ambitieux mais les présente comme devant soutenir la croissance, l'emploi et la baisse des factures ; il ne documente pas une priorité climatique assumée malgré une baisse de croissance.",
       "Accord modéré : le Royaume-Uni conserve des instruments de tarification carbone, mais les mesures récentes sur carburants et énergie cherchent aussi à contenir les prix ; l'acceptation d'une hausse importante des fossiles n'est donc que partielle.",
       "Le gouvernement a augmenté les cotisations patronales de National Insurance, soit l’inverse d’une baisse financée par la consommation : -2, politique explicite.",
@@ -1790,7 +1790,7 @@ const GOVERNMENTS_DATA = [
       "https://www.gov.uk/government/news/kings-speech-to-build-a-stronger-and-fairer-britain",
       "https://www.gov.uk/government/news/kings-speech-to-build-a-stronger-and-fairer-britain",
       "https://www.gov.uk/government/news/kings-speech-to-build-a-stronger-and-fairer-britain",
-      "https://www.gov.uk/government/news/kings-speech-to-build-a-stronger-and-fairer-britain",
+      "https://www.gov.uk/government/publications/importing-fruit-and-vegetables/importing-fruit-and-vegetables",
       "https://www.gov.uk/government/publications/plan-for-change",
       "https://www.gov.uk/government/publications/plan-for-change",
       "https://www.gov.uk/government/publications/changes-to-the-class-1-national-insurance-contributions-secondary-threshold-the-secondary-class-1-national-insurance-contributions-rate-and-the-empl",
@@ -1851,14 +1851,14 @@ const GOVERNMENTS_DATA = [
       "https://www.gov.uk/government/publications/expression-of-interest-airr-heterogeneous-supercomputer-host-site-selection"
     ],
     "axisScores": {
-      "economy": -1.533052039381153,
-      "authority": 2.581699346405229,
+      "economy": -1.577503429355281,
+      "authority": 2.3857868020304576,
       "europe": -0.7526881720430108,
       "ecology": 3.607843137254902,
       "immigration": -2.6608187134502925,
       "democracy": 1.0256410256410262
     },
-    "averageConfidence": 2.264367816091954
+    "averageConfidence": 2.2758620689655173
   },
   {
     "id": "danemark",
@@ -1895,7 +1895,7 @@ const GOVERNMENTS_DATA = [
       2,
       2,
       2,
-      2,
+      0,
       1,
       1,
       1,
@@ -2073,7 +2073,7 @@ const GOVERNMENTS_DATA = [
       "Accord net : le gouvernement prévoit des peines plus lourdes pour les crimes violents et renforce les capacités carcérales, tout en maintenant des politiques de prévention et de réinsertion.",
       "Accord net : La ligne associe sécurité renforcée, État de droit, prévention et protection de la cohésion sociale. Transposition ou inférence prudente.",
       "Accord net : La ligne associe sécurité renforcée, État de droit, prévention et protection de la cohésion sociale. Transposition ou inférence prudente.",
-      "Accord net : La ligne associe sécurité renforcée, État de droit, prévention et protection de la cohésion sociale. Transposition ou inférence prudente.",
+      "Position non tranchée : le gouvernement danois combine des normes agricoles et environnementales élevées avec une priorité récente donnée à la baisse du prix de l’alimentation. Aucune proposition directe de principe général interdisant les importations produites sous des normes différentes n’a été identifiée.",
       "Accord modéré : le gouvernement Frederiksen mène une politique climatique ambitieuse mais présente la transition comme compatible avec la croissance et la compétitivité ; +2 serait trop fort pour une baisse explicite de croissance.",
       "Accord modéré : le gouvernement accepte une tarification du carbone et une transition climatique ambitieuse, mais cherche aussi à préserver le pouvoir d’achat et la compétitivité ; il ne défend pas sans réserve une forte hausse du prix des énergies fossiles.",
       "Le modèle danois finance une part importante de la protection sociale par l’impôt sur la consommation plutôt que par de lourdes cotisations, ce qui va dans le sens de la proposition. Aucune réforme actuelle exactement équivalente identifiée : +1, confiance 1.",
@@ -2223,8 +2223,8 @@ const GOVERNMENTS_DATA = [
       "https://regeringen.dk/media/ohljoptp/digitaliseringspartnerskabets-rapport.pdf"
     ],
     "axisScores": {
-      "economy": 0.36568213783403675,
-      "authority": 2.336601307189543,
+      "economy": 0.35665294924554203,
+      "authority": 2.0812182741116754,
       "europe": 6.021505376344086,
       "ecology": 5.019607843137255,
       "immigration": -5.584795321637427,
@@ -2267,7 +2267,7 @@ const GOVERNMENTS_DATA = [
       1,
       2,
       2,
-      2,
+      0,
       1,
       1,
       0,
@@ -2445,7 +2445,7 @@ const GOVERNMENTS_DATA = [
       "Accord modéré : codage fondé sur les documents officiels retenus pour le thème « Sécurité / justice ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
       "Accord net : codage fondé sur les documents officiels retenus pour le thème « Sécurité / justice ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
       "Accord net : codage fondé sur les documents officiels retenus pour le thème « Sécurité / justice ». Niveau de preuve : position ou mesure explicitement documentée.",
-      "Accord net : codage fondé sur les documents officiels retenus pour le thème « Sécurité / justice ». Niveau de preuve : position ou mesure explicitement documentée.",
+      "Position équilibrée : les Pays-Bas appliquent les contrôles européens aux importations mais le gouvernement reste attaché au commerce ouvert et refuse les surtranspositions nationales. Aucune position suffisamment directe n’établit un soutien ou un rejet d’une interdiction générale fondée sur des clauses miroir.",
       "Accord modéré : le gouvernement Jetten lie explicitement ambition climatique et croissance durable et fixe aussi des objectifs de croissance ; il n'assume pas clairement la priorité climatique en cas de baisse de croissance.",
       "Accord modéré : le gouvernement néerlandais poursuit la décarbonation mais insiste sur une énergie abordable et supprime certains surcoûts carbone nationaux ; il ne soutient donc pas fortement une hausse importante du prix des fossiles.",
       "Le programme de coalition actuel ne fournit pas de position suffisamment précise sur une substitution de cotisations sociales par la TVA. Score neutre, confiance 1.",
@@ -2534,7 +2534,7 @@ const GOVERNMENTS_DATA = [
       "https://www.government.nl/site/binaries/site-content/collections/documents/2026/02/23/2026-2030-coalition-agreement-lets-get-to-work---building-a-better-netherlands/2026-2030-coalition-agreement-let%E2%80%99s-get-to-work-building-a-better-netherlands.pdf",
       "https://www.government.nl/site/binaries/site-content/collections/documents/2026/02/23/2026-2030-coalition-agreement-lets-get-to-work---building-a-better-netherlands/2026-2030-coalition-agreement-let%E2%80%99s-get-to-work-building-a-better-netherlands.pdf",
       "https://www.government.nl/site/binaries/site-content/collections/documents/2026/02/23/2026-2030-coalition-agreement-lets-get-to-work---building-a-better-netherlands/2026-2030-coalition-agreement-let%E2%80%99s-get-to-work-building-a-better-netherlands.pdf",
-      "https://www.government.nl/site/binaries/site-content/collections/documents/2026/02/23/2026-2030-coalition-agreement-lets-get-to-work---building-a-better-netherlands/2026-2030-coalition-agreement-let%E2%80%99s-get-to-work-building-a-better-netherlands.pdf",
+      "https://www.government.nl/government/coalition-agreement/big-choices-facing-the-netherlands",
       "https://www.government.nl/site/binaries/site-content/collections/documents/2026/02/23/2026-2030-coalition-agreement-lets-get-to-work---building-a-better-netherlands/2026-2030-coalition-agreement-let%E2%80%99s-get-to-work-building-a-better-netherlands.pdf",
       "https://www.government.nl/site/binaries/site-content/collections/documents/2026/02/23/2026-2030-coalition-agreement-lets-get-to-work---building-a-better-netherlands/2026-2030-coalition-agreement-let%E2%80%99s-get-to-work-building-a-better-netherlands.pdf",
       "https://www.government.nl/documents/publications/2026/02/23/2026-2030-coalition-agreement-lets-get-to-work-building-a-better-netherlands",
@@ -2595,8 +2595,8 @@ const GOVERNMENTS_DATA = [
       "https://www.government.nl/site/binaries/site-content/collections/documents/2026/02/23/2026-2030-coalition-agreement-lets-get-to-work---building-a-better-netherlands/2026-2030-coalition-agreement-let%E2%80%99s-get-to-work-building-a-better-netherlands.pdf"
     ],
     "axisScores": {
-      "economy": 2.1800281293952173,
-      "authority": 1.5032679738562098,
+      "economy": 2.126200274348422,
+      "authority": 1.2182741116751274,
       "europe": 7.741935483870967,
       "ecology": 4.078431372549019,
       "immigration": -2.865497076023391,
@@ -2639,7 +2639,7 @@ const GOVERNMENTS_DATA = [
       2,
       1,
       2,
-      2,
+      3,
       -1,
       -2,
       0,
@@ -2728,7 +2728,7 @@ const GOVERNMENTS_DATA = [
       1,
       1,
       3,
-      3,
+      4,
       1,
       3,
       1,
@@ -2817,7 +2817,7 @@ const GOVERNMENTS_DATA = [
       "Accord net : codage fondé sur les documents officiels retenus pour le thème « Sécurité / justice ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
       "Accord modéré : codage fondé sur les documents officiels retenus pour le thème « Sécurité / justice ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
       "Accord net : codage fondé sur les documents officiels retenus pour le thème « Sécurité / justice ». Niveau de preuve : position ou mesure explicitement documentée.",
-      "Accord net : codage fondé sur les documents officiels retenus pour le thème « Sécurité / justice ». Niveau de preuve : position ou mesure explicitement documentée.",
+      "Accord fort : la Pologne a engagé en 2026 des mesures nationales visant à suspendre l’importation de produits contenant des substances non acceptées dans l’Union et réclame explicitement la réciprocité des normes de production dans les accords commerciaux.",
       "Désaccord modéré : le gouvernement Tusk présente la transition climatique comme devant améliorer compétitivité, modernisation et prix de l'énergie ; il ne place pas le climat au-dessus de la croissance lorsque les deux entrent en conflit.",
       "Désaccord net : codage fondé sur les documents officiels retenus pour le thème « Écologie ». Niveau de preuve : position ou mesure explicitement documentée.",
       "Le gouvernement Tusk cherche à soutenir salaires et compétitivité, mais aucune bascule explicite des cotisations vers la TVA n’a été identifiée. Score neutre, confiance 1.",
@@ -2906,7 +2906,7 @@ const GOVERNMENTS_DATA = [
       "https://www.gov.pl/web/primeminister/expose",
       "https://www.gov.pl/web/primeminister/expose",
       "https://www.gov.pl/web/primeminister/expose",
-      "https://www.gov.pl/web/primeminister/expose",
+      "https://www.gov.pl/web/agriculture/the-ban-on-the-import-of-products-containing-harmful-substances-will-soon-be-implemented-in-poland-as-well",
       "https://www.gov.pl/web/primeminister/poland-a-year-of-breakthrough---the-prime-minister-unveils-polands-2025-economic-plan",
       "https://www.gov.pl/web/primeminister/poland-a-year-of-breakthrough---the-prime-minister-unveils-polands-2025-economic-plan",
       "https://www.gov.pl/web/primeminister/poland-a-year-of-breakthrough---the-prime-minister-unveils-polands-2025-economic-plan",
@@ -2967,13 +2967,13 @@ const GOVERNMENTS_DATA = [
       "https://www.gov.pl/web/primeminister/poland-a-year-of-breakthrough---the-prime-minister-unveils-polands-2025-economic-plan"
     ],
     "axisScores": {
-      "economy": -4.684485335971124e-17,
-      "authority": 2.3366013071895435,
+      "economy": -0.24691358024691343,
+      "authority": 2.233502538071067,
       "europe": 3.4408602150537626,
       "ecology": -3.3725490196078436,
       "immigration": -5.4678362573099415,
       "democracy": 2.264957264957265
     },
-    "averageConfidence": 1.8505747126436782
+    "averageConfidence": 1.8620689655172413
   }
 ];

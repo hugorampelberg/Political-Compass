@@ -56,8 +56,8 @@ const QUESTIONNAIRE_DATA = {
     }
   ],
   "axisMasses": {
-    "economy": 23.700000000000003,
-    "authority": 20.399999999999995,
+    "economy": 24.3,
+    "authority": 19.699999999999996,
     "europe": 6.2,
     "ecology": 8.5,
     "immigration": 11.400000000000002,
@@ -494,13 +494,13 @@ const QUESTIONNAIRE_DATA = {
     },
     {
       "id": 30,
-      "theme": "Sécurité / justice",
-      "text": "La vidéosurveillance et les outils de surveillance numérique devraient être davantage utilisés pour prévenir les crimes.",
-      "defaultAnswer": 3,
+      "theme": "Agriculture / commerce",
+      "text": "La France devrait pouvoir interdire l’importation de produits agricoles fabriqués selon des normes qu’elle interdit à ses propres agriculteurs, même si cela faisait disparaître des rayons les produits alimentaires les moins chers.",
+      "defaultAnswer": 0,
       "note": "",
       "coefficients": {
-        "economy": 0,
-        "authority": 1,
+        "economy": -0.6,
+        "authority": 0.3,
         "europe": 0,
         "ecology": 0,
         "immigration": 0,

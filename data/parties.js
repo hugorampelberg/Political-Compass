@@ -35,7 +35,7 @@ const PARTIES_DATA = [
       -2,
       3,
       -3,
-      -2,
+      3,
       3,
       2,
       -2,
@@ -124,7 +124,7 @@ const PARTIES_DATA = [
       2,
       2,
       2,
-      2,
+      4,
       2,
       2,
       2,
@@ -213,7 +213,7 @@ const PARTIES_DATA = [
       "Désaccord net : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord fort : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "Désaccord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
-      "Désaccord net : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
+      "Accord fort : LFI propose des clauses de sauvegarde contre les importations agricoles exposant les producteurs français à des normes interdites ou moins exigeantes et défend des normes, quotas ou interdictions contre la concurrence déloyale. La souveraineté agricole prime clairement sur l’accès aux produits importés les moins chers.",
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord net : codage cohérent avec la ligne programmatique générale du parti sur écologie.",
       "LFI rejette le transfert du financement social vers des taxes sur la consommation et les baisses de cotisations qui fragilisent la Sécurité sociale. Opposition nette, sans source proposant mot pour mot la TVA sociale : -2.",
@@ -302,7 +302,7 @@ const PARTIES_DATA = [
       "https://lafranceinsoumise.fr/wp-content/uploads/2024/06/Programme-nouveaufrontpopulaire.pdf",
       "https://lafranceinsoumise.fr/wp-content/uploads/2024/06/Programme-nouveaufrontpopulaire.pdf",
       "https://lafranceinsoumise.fr/wp-content/uploads/2024/06/Programme-nouveaufrontpopulaire.pdf",
-      "https://lafranceinsoumise.fr/wp-content/uploads/2024/06/Programme-nouveaufrontpopulaire.pdf",
+      "https://lafranceinsoumise.fr/europeennes-2024/programme-de-lunion-populaire/chapitre-4-faire-la-planification-ecologique-europeenne/",
       "https://lafranceinsoumise.fr/wp-content/uploads/2024/06/Programme-nouveaufrontpopulaire.pdf",
       "https://lafranceinsoumise.fr/wp-content/uploads/2024/06/Programme-nouveaufrontpopulaire.pdf",
       "https://lafranceinsoumise.fr/budget-lecornu-2026-une-saignee-sociale/",
@@ -363,14 +363,14 @@ const PARTIES_DATA = [
       "https://lafranceinsoumise.fr/wp-content/uploads/2024/06/Programme-nouveaufrontpopulaire.pdf"
     ],
     "axisScores": {
-      "economy": -9.015471167369897,
-      "authority": -4.23202614379085,
+      "economy": -9.039780521262001,
+      "authority": -3.891708967851101,
       "europe": -4.408602150537635,
       "ecology": 8.03921568627451,
       "immigration": 8.801169590643275,
       "democracy": 5.47008547008547
     },
-    "averageConfidence": 2.2413793103448274
+    "averageConfidence": 2.264367816091954
   },
   {
     "id": "pcf",
@@ -407,7 +407,7 @@ const PARTIES_DATA = [
       -1,
       2,
       -2,
-      -1,
+      3,
       2,
       2,
       -3,
@@ -496,7 +496,7 @@ const PARTIES_DATA = [
       2,
       2,
       2,
-      2,
+      4,
       2,
       2,
       3,
@@ -585,7 +585,7 @@ const PARTIES_DATA = [
       "Réserve : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord fort : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
       "Désaccord net : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
-      "Réserve : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
+      "Accord fort : le PCF veut mettre fin aux importations de produits alimentaires provenant de pays qui ne respectent pas les mêmes normes sanitaires et environnementales que celles exigées aux producteurs français et exige une stricte réciprocité des normes.",
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord net : codage cohérent avec la ligne programmatique générale du parti sur écologie.",
       "Le PCF décrit exactement la TVA sociale comme baisse des cotisations patronales compensée par hausse de TVA et la rejette explicitement. Désaccord maximal, source directement équivalente.",
@@ -674,7 +674,7 @@ const PARTIES_DATA = [
       "https://www.pcf.fr/immigration_est_un_enjeu_de_classe",
       "https://www.pcf.fr/immigration_est_un_enjeu_de_classe",
       "https://www.pcf.fr/immigration_est_un_enjeu_de_classe",
-      "https://www.pcf.fr/immigration_est_un_enjeu_de_classe",
+      "https://lem.pcf.fr/attributs/3?page=321",
       "https://www.pcf.fr/europe_le_programme_un_argumentaire_utile_aux_militants_et_un_outil_de_campagne_efficace",
       "https://www.pcf.fr/europe_le_programme_un_argumentaire_utile_aux_militants_et_un_outil_de_campagne_efficace",
       "https://paris14.pcf.fr/taxonomy/term/2276/0?page=1",
@@ -735,14 +735,14 @@ const PARTIES_DATA = [
       "https://www.pcf.fr/feuille_de_route_confnat_pcf"
     ],
     "axisScores": {
-      "economy": -9.282700421940927,
-      "authority": -2.9575163398692825,
+      "economy": -9.300411522633745,
+      "authority": -2.741116751269036,
       "europe": -4.731182795698924,
       "ecology": 5.686274509803923,
       "immigration": 8.304093567251464,
       "democracy": 6.581196581196582
     },
-    "averageConfidence": 2.32183908045977
+    "averageConfidence": 2.3448275862068964
   },
   {
     "id": "les-ecologistes",
@@ -779,7 +779,7 @@ const PARTIES_DATA = [
       -2,
       3,
       -3,
-      -3,
+      3,
       3,
       3,
       -1,
@@ -868,7 +868,7 @@ const PARTIES_DATA = [
       2,
       3,
       2,
-      2,
+      4,
       3,
       3,
       1,
@@ -957,7 +957,7 @@ const PARTIES_DATA = [
       "Désaccord net : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord fort : le socle programmatique 2026 des Écologistes oppose explicitement leur triptyque « prévention-proximité-justice » à la logique « répression-surveillance », ce qui documente directement une préférence forte pour la prévention.",
       "Désaccord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
-      "Désaccord fort : Les Écologistes défendent un encadrement très strict des dispositifs de vidéosurveillance et s'opposent à leur généralisation comme outil ordinaire de sécurité. La réponse -3 reflète cette opposition nette à un usage accru de la surveillance numérique.",
+      "Accord fort : Les Écologistes demandent explicitement d’interdire les importations qui ne respectent pas les normes sociales et environnementales de production applicables en Europe, afin d’éviter un dumping au détriment des agriculteurs.",
       "Accord fort : preuve primaire directe ou proposition officielle très proche ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "Accord fort : preuve primaire directe ou proposition officielle très proche ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "La fiscalité écologiste privilégie la progressivité et la justice sociale ; une hausse de TVA est peu cohérente avec cette ligne. Aucune position officielle récente trouvée sur ce mécanisme précis : -1, confiance 1.",
@@ -1046,7 +1046,7 @@ const PARTIES_DATA = [
       "https://lesecologistes.fr/pages/358vv7W974UgosGhCBbIPT/notre-projet",
       "https://municipales2026.lesecologistes.fr/pages/1wa5qoXRxHpUHeDrU9rp4V/notre-socle-programmatique",
       "https://lesecologistes.fr/pages/358vv7W974UgosGhCBbIPT/notre-projet",
-      "https://lesecologistes.fr/pages/358vv7W974UgosGhCBbIPT/notre-projet",
+      "https://commissions.lesecologistes.fr/posts/5vcoS78aJnPpYmW9KhfnaQ/accord-ue-mercosur-non-toujours-non-a-la-destruction-de-l-agriculture-paysanne",
       "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf",
       "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf",
       "https://lesecologistes.fr/pages/358vv7W974UgosGhCBbIPT/notre-projet",
@@ -1107,14 +1107,14 @@ const PARTIES_DATA = [
       "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf"
     ],
     "axisScores": {
-      "economy": -7.819971870604779,
-      "authority": -3.8235294117647065,
+      "economy": -7.873799725651575,
+      "authority": -3.299492385786802,
       "europe": 9.35483870967742,
       "ecology": 9.058823529411764,
       "immigration": 8.94736842105263,
       "democracy": 6.153846153846154
     },
-    "averageConfidence": 2.206896551724138
+    "averageConfidence": 2.2298850574712645
   },
   {
     "id": "ps",
@@ -1151,7 +1151,7 @@ const PARTIES_DATA = [
       -1,
       2,
       -1,
-      0,
+      3,
       3,
       2,
       -2,
@@ -1240,7 +1240,7 @@ const PARTIES_DATA = [
       2,
       2,
       2,
-      2,
+      4,
       2,
       2,
       2,
@@ -1329,7 +1329,7 @@ const PARTIES_DATA = [
       "Réserve : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord net : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "Réserve : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
-      "Position équilibrée ou non tranchée : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
+      "Accord fort : le PS défend de véritables mesures miroirs conditionnant l’accès au marché européen au respect strict des normes sanitaires, environnementales et sociales de production et s’oppose aux accords commerciaux qui n’apportent pas ces garanties.",
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord net : codage cohérent avec la ligne programmatique générale du parti sur écologie.",
       "Le PS critique le déplacement du financement vers les impôts sur la consommation et défend un financement social plus progressif. Opposition nette, mais pas une interdiction absolue du mécanisme dans toutes ses variantes.",
@@ -1418,7 +1418,7 @@ const PARTIES_DATA = [
       "https://www.parti-socialiste.fr/pour_une_politique_migratoire_internationale_et_europeenne",
       "https://www.parti-socialiste.fr/pour_une_politique_migratoire_internationale_et_europeenne",
       "https://www.parti-socialiste.fr/pour_une_politique_migratoire_internationale_et_europeenne",
-      "https://www.parti-socialiste.fr/pour_une_politique_migratoire_internationale_et_europeenne",
+      "https://www.parti-socialiste.fr/contre_l_accord_ue_mercosur_et_pour_le_juste_echange_rendez_vous_le_29_janvier",
       "https://parti-socialiste.fr/vie-parlementaire/notre-declaration-politique-17eme-legislature/",
       "https://parti-socialiste.fr/vie-parlementaire/notre-declaration-politique-17eme-legislature/",
       "https://www.parti-socialiste.fr/unir_pour_un_programme_fiscal_socialiste_ambitieux_juste_et_cr_dible",
@@ -1479,14 +1479,14 @@ const PARTIES_DATA = [
       "https://parti-socialiste.fr/vie-parlementaire/notre-declaration-politique-17eme-legislature/"
     ],
     "axisScores": {
-      "economy": -6.582278481012658,
-      "authority": -2.401960784313726,
+      "economy": -6.666666666666665,
+      "authority": -2.3350253807106602,
       "europe": 9.35483870967742,
       "ecology": 6.9411764705882355,
       "immigration": 6.812865497076024,
       "democracy": 4.188034188034188
     },
-    "averageConfidence": 2.1494252873563218
+    "averageConfidence": 2.1724137931034484
   },
   {
     "id": "renaissance",
@@ -1612,7 +1612,7 @@ const PARTIES_DATA = [
       2,
       2,
       2,
-      2,
+      4,
       2,
       2,
       2,
@@ -1701,7 +1701,7 @@ const PARTIES_DATA = [
       "Accord modéré : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Position équilibrée : Renaissance défend à la fois la prévention et la réinsertion, mais aussi le renforcement des sanctions et des moyens répressifs ; aucune priorité nette entre les deux approches ne se dégage : 0.",
       "Accord net : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
-      "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
+      "Accord net : Renaissance défend l’accès au marché sous réserve du respect des normes européennes et s’est opposé à des accords jugés insuffisamment protecteurs de l’agriculture. Le parti reste néanmoins favorable aux échanges commerciaux lorsqu’ils sont encadrés, ce qui justifie +2 plutôt que +3.",
       "Accord net : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord modéré : codage cohérent avec la ligne programmatique générale du parti sur écologie.",
       "Emmanuel Macron a relancé explicitement l’idée de réduire les cotisations sur les salaires en taxant davantage la consommation, tout en excluant une hausse uniforme sur les produits essentiels. Accord clair mais avec réserves : +2.",
@@ -1790,7 +1790,7 @@ const PARTIES_DATA = [
       "https://parti-renaissance.fr/",
       "https://parti-renaissance.fr/",
       "https://parti-renaissance.fr/",
-      "https://parti-renaissance.fr/",
+      "https://www.assemblee-nationale.fr/dyn/17/scrutins/685",
       "https://parti-renaissance.fr/",
       "https://parti-renaissance.fr/",
       "https://www.lemonde.fr/politique/article/2025/05/14/emmanuel-macron-relance-la-piste-de-la-tva-sociale-pour-financer-la-secu_6606057_823448.html",
@@ -1851,14 +1851,14 @@ const PARTIES_DATA = [
       "https://ensemble-2024.fr/notre-projet"
     ],
     "axisScores": {
-      "economy": 3.1645569620253164,
-      "authority": 2.009803921568628,
+      "economy": 2.921810699588478,
+      "authority": 1.844331641285957,
       "europe": 8.172043010752688,
       "ecology": 2.0784313725490198,
       "immigration": -0.8479532163742689,
       "democracy": -2.264957264957265
     },
-    "averageConfidence": 2.1149425287356323
+    "averageConfidence": 2.1379310344827585
   },
   {
     "id": "modem",
@@ -1984,7 +1984,7 @@ const PARTIES_DATA = [
       2,
       2,
       2,
-      2,
+      4,
       2,
       2,
       3,
@@ -2073,7 +2073,7 @@ const PARTIES_DATA = [
       "Position équilibrée ou non tranchée : codage cohérent avec la ligne programmatique générale du parti sur sécurité / justice.",
       "Accord net : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "Accord modéré : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
-      "Accord net : codage cohérent avec la ligne programmatique générale du parti sur sécurité / justice.",
+      "Accord net : des responsables MoDem jugent les mesures miroirs indispensables pour éviter d’importer des produits issus de pratiques refusées en Europe et défendent contrôles et clauses de sauvegarde, tout en restant favorables aux accords commerciaux lorsque les garanties sont suffisantes.",
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord modéré : codage cohérent avec la ligne programmatique générale du parti sur écologie.",
       "Accord modéré : François Bayrou souhaite alléger le financement de la protection sociale pesant sur le travail et n'écarte pas un transfert vers la TVA, mais il n'en fait pas une mesure ferme ; +1 reflète cette orientation prudente.",
@@ -2162,7 +2162,7 @@ const PARTIES_DATA = [
       "https://www.mouvementdemocrate.fr/",
       "https://www.mouvementdemocrate.fr/",
       "https://www.mouvementdemocrate.fr/",
-      "https://www.mouvementdemocrate.fr/",
+      "https://www.mouvementdemocrate.fr/actualites/geraldine-bannier-des-mesures-miroirs-dans-le-mercosur-sont-indispensables-pour-eviter",
       "https://www.mouvementdemocrate.fr/vers-une-transition-ecologique-solidaire-7925",
       "https://www.mouvementdemocrate.fr/vers-une-transition-ecologique-solidaire-7925",
       "https://www.mouvementdemocrate.fr/nos-parlementaires/delphine-lingemann-comment-continuer-financer-notre-modele-social-sans-faire",
@@ -2223,14 +2223,14 @@ const PARTIES_DATA = [
       "https://www.mouvementdemocrate.fr/"
     ],
     "axisScores": {
-      "economy": 0.5625879043600562,
-      "authority": 1.5849673202614383,
+      "economy": 0.38408779149519895,
+      "authority": 1.4043993231810494,
       "europe": 7.741935483870967,
       "ecology": 4.313725490196078,
       "immigration": 0.058479532163742735,
       "democracy": -0.47008547008547025
     },
-    "averageConfidence": 2
+    "averageConfidence": 2.0229885057471266
   },
   {
     "id": "horizons",
@@ -2267,7 +2267,7 @@ const PARTIES_DATA = [
       2,
       -2,
       2,
-      3,
+      2,
       2,
       1,
       1,
@@ -2356,7 +2356,7 @@ const PARTIES_DATA = [
       2,
       2,
       2,
-      2,
+      3,
       2,
       2,
       1,
@@ -2445,7 +2445,7 @@ const PARTIES_DATA = [
       "Accord net : codage cohérent avec la ligne programmatique générale du parti sur sécurité / justice.",
       "Désaccord net : Horizons défend un durcissement de la réponse pénale et des sanctions, tout en conservant une place à la prévention et à la réinsertion. La priorité donnée à la fermeté justifie -2 plutôt que -3.",
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
-      "Accord fort : codage cohérent avec la ligne programmatique générale du parti sur sécurité / justice.",
+      "Accord net : les députés Horizons présents ont soutenu la résolution imposant des exigences de production équivalentes aux importations agricoles, et le parti dénonce la concurrence de produits ne respectant pas les mêmes contraintes. Le soutien est net mais moins directement formulé comme une interdiction générale.",
       "Accord net : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord modéré : codage cohérent avec la ligne programmatique générale du parti sur écologie.",
       "Horizons souhaite alléger le coût du travail et renforcer la compétitivité, mais aucune proposition officielle précise de TVA sociale n’a été retrouvée. Tendance faiblement favorable : +1, confiance 1.",
@@ -2534,7 +2534,7 @@ const PARTIES_DATA = [
       "https://horizonsleparti.fr/le-manifeste/",
       "https://horizonsleparti.fr/le-manifeste/",
       "https://horizonsleparti.fr/le-manifeste/",
-      "https://horizonsleparti.fr/le-manifeste/",
+      "https://www.assemblee-nationale.fr/dyn/17/scrutins/685",
       "https://horizonsleparti.fr/le-manifeste/",
       "https://horizonsleparti.fr/le-manifeste/",
       "https://horizonsleparti.fr/le-manifeste/",
@@ -2595,14 +2595,14 @@ const PARTIES_DATA = [
       "https://horizonsleparti.fr/le-manifeste/"
     ],
     "axisScores": {
-      "economy": 4.753867791842476,
-      "authority": 2.9575163398692816,
+      "economy": 4.471879286694101,
+      "authority": 2.656514382402707,
       "europe": 7.741935483870967,
       "ecology": 1.0980392156862748,
       "immigration": -2.39766081871345,
       "democracy": -2.435897435897436
     },
-    "averageConfidence": 1.9885057471264367
+    "averageConfidence": 2
   },
   {
     "id": "france-humaniste",
@@ -2639,7 +2639,7 @@ const PARTIES_DATA = [
       -1,
       2,
       -1,
-      -1,
+      2,
       2,
       1,
       2,
@@ -2728,7 +2728,7 @@ const PARTIES_DATA = [
       2,
       2,
       3,
-      3,
+      4,
       2,
       3,
       1,
@@ -2817,7 +2817,7 @@ const PARTIES_DATA = [
       "Réserve étayée : le programme exige l’exécution effective des peines mais insiste aussi sur la prévention, la justice et l’État de droit plutôt que sur un durcissement carcéral uniforme.",
       "Accord fort : codage fondé sur les documents officiels retenus pour le thème « Sécurité / justice ». Niveau de preuve : orientation cohérente étayée par plusieurs éléments.",
       "Réserve directement documentée : le texte refuse que l’exception sécuritaire et la surveillance généralisée deviennent la règle, même face au terrorisme.",
-      "Réserve directement documentée : la lutte antiterroriste est subordonnée à l’État de droit et à des mesures ciblées, non à une restriction générale des libertés.",
+      "Accord net : Dominique de Villepin défend la souveraineté agricole, les clauses miroir, la traçabilité et des protections contre le dumping social et environnemental. La ligne est clairement favorable à la réciprocité, sans formulation aussi absolue qu’une interdiction systématique de tout produit non conforme.",
       "Accord fort : l’urgence climatique et la priorité d’agir sont explicites, sans arbitrage chiffré direct avec la croissance de court terme.",
       "Accord modéré : La France Humaniste défend un prix du carbone et une fiscalité écologique, mais insiste sur leur justice sociale et leur redistribution ; aucune position ne justifie d'accepter sans réserve une forte hausse du prix des énergies fossiles.",
       "Accord net : Dominique de Villepin propose de réduire les charges patronales et de transférer progressivement une partie du financement vers la consommation et les bénéfices ; c'est proche d'une TVA sociale sans être strictement identique, d'où +2.",
@@ -2906,7 +2906,7 @@ const PARTIES_DATA = [
       "https://lafrancehumaniste.fr/articles/le-moment-francais-sorbonne.html",
       "https://lafrancehumaniste.fr/articles/la-lutte-antiterroriste.html",
       "https://lafrancehumaniste.fr/articles/la-lutte-antiterroriste.html",
-      "https://lafrancehumaniste.fr/articles/la-lutte-antiterroriste.html",
+      "https://lafrancehumaniste.fr/articles/souverainete-agricole-et-alimentaire.html",
       "https://lafrancehumaniste.fr/articles/pourquoi-je-suis-ecogaulliste.html",
       "https://lafrancehumaniste.fr/articles/pourquoi-je-suis-ecogaulliste.html",
       "https://lafrancehumaniste.fr/",
@@ -2967,14 +2967,14 @@ const PARTIES_DATA = [
       "https://lafrancehumaniste.fr/articles/ia-pouvoir-de-dire-non-monopole-americain.html"
     ],
     "axisScores": {
-      "economy": -1.040787623066104,
-      "authority": -0.4738562091503268,
+      "economy": -1.1796982167352537,
+      "authority": -0.21996615905245348,
       "europe": 3.8709677419354835,
       "ecology": 4.745098039215685,
       "immigration": 0.7602339181286552,
       "democracy": 2.0512820512820515
     },
-    "averageConfidence": 2.3333333333333335
+    "averageConfidence": 2.3448275862068964
   },
   {
     "id": "lr",
@@ -3100,7 +3100,7 @@ const PARTIES_DATA = [
       2,
       2,
       2,
-      2,
+      4,
       2,
       2,
       2,
@@ -3189,7 +3189,7 @@ const PARTIES_DATA = [
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord modéré : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
-      "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
+      "Accord fort : LR dénonce explicitement la concurrence à normes inégales et défend l’exclusion ou l’interdiction des importations agricoles produites selon des pratiques qui ne sont pas autorisées en France, au nom de la protection des agriculteurs français.",
       "Accord modéré : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Réserve : codage cohérent avec la ligne programmatique générale du parti sur écologie.",
       "Gérard Larcher présente explicitement la TVA sociale comme une piste à examiner pour agir sur salaire net et compétitivité, sans en faire une proposition arrêtée. Faible accord : +1.",
@@ -3278,7 +3278,7 @@ const PARTIES_DATA = [
       "https://republicains.fr/nos-idees/",
       "https://republicains.fr/",
       "https://republicains.fr/nos-idees/",
-      "https://republicains.fr/nos-idees/",
+      "https://republicains.fr/actualites/2025/12/19/a-normes-inegales-la-concurrence-nest-plus-loyale-proteger-devient-un-devoir/",
       "https://republicains.fr/nos-idees/",
       "https://republicains.fr/nos-idees/",
       "https://republicains.fr/actualites/2025/05/19/gerard-larcher-bruno-retailleau-a-fait-naitre-un-nouvel-espoir-quil-sagit-maintenant-de-transformer/",
@@ -3339,14 +3339,14 @@ const PARTIES_DATA = [
       "https://republicains.fr/"
     ],
     "axisScores": {
-      "economy": 5.443037974683544,
-      "authority": 3.6601307189542496,
+      "economy": 5.061728395061729,
+      "authority": 3.434856175972928,
       "europe": -0.7526881720430108,
       "ecology": -3.803921568627451,
       "immigration": -6.578947368421052,
       "democracy": -2.3076923076923075
     },
-    "averageConfidence": 2.103448275862069
+    "averageConfidence": 2.1264367816091956
   },
   {
     "id": "nouvelle-energie",
@@ -3472,7 +3472,7 @@ const PARTIES_DATA = [
       2,
       2,
       2,
-      2,
+      4,
       2,
       2,
       3,
@@ -3561,7 +3561,7 @@ const PARTIES_DATA = [
       "Accord net : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Désaccord léger : le programme insiste davantage sur la certitude et l’effectivité des sanctions que sur une priorité donnée à la prévention et à la réinsertion, tout en conservant une place à ces dernières : -1.",
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
-      "Accord fort : Nouvelle Énergie défend explicitement le développement de la vidéoprotection et des outils numériques, y compris l'intelligence artificielle, pour renforcer la prévention et l'efficacité des forces de sécurité. La proposition correspond directement à cette ligne.",
+      "Accord fort : Nouvelle Énergie réclame des clauses miroirs obligatoires et affirme explicitement que ce qui est interdit aux agriculteurs français ne doit pas être autorisé pour les produits importés.",
       "Position équilibrée ou non tranchée : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Désaccord net : Nouvelle Énergie veut réduire les émissions mais fait du prix bas de l'énergie, de la compétitivité et du pouvoir d'achat une priorité ; le parti s'oppose aux dispositifs qui renchérissent fortement les carburants et énergies fossiles.",
       "Le programme décrit exactement une TVA « compétitivité/relocalisation » accompagnée d’une baisse des charges, mais précise que la question n’est pas tranchée. Tendance favorable seulement : +1, avec confiance documentaire 3.",
@@ -3650,7 +3650,7 @@ const PARTIES_DATA = [
       "https://www.unenouvelleenergie.fr/notre-programme/",
       "https://www.unenouvelleenergie.fr/notre-programme/",
       "https://www.unenouvelleenergie.fr/notre-programme/",
-      "https://www.unenouvelleenergie.fr/notre-programme/",
+      "https://www.unenouvelleenergie.fr/notre-programme/agriculture/",
       "https://www.unenouvelleenergie.fr/notre-programme/",
       "https://www.unenouvelleenergie.fr/notre-programme/",
       "https://www.unenouvelleenergie.fr/notre-programme/reussir-une-nouvelle-ambition-francaise/",
@@ -3711,14 +3711,14 @@ const PARTIES_DATA = [
       "https://www.unenouvelleenergie.fr/notre-programme/"
     ],
     "axisScores": {
-      "economy": 5.949367088607595,
-      "authority": 1.928104575163399,
+      "economy": 5.555555555555556,
+      "authority": 1.641285956006769,
       "europe": -1.182795698924731,
       "ecology": -4.392156862745098,
       "immigration": -7.660818713450292,
       "democracy": 1.0683760683760688
     },
-    "averageConfidence": 2.2298850574712645
+    "averageConfidence": 2.2528735632183907
   },
   {
     "id": "udr",
@@ -3755,7 +3755,7 @@ const PARTIES_DATA = [
       3,
       -2,
       2,
-      2,
+      3,
       0,
       -2,
       0,
@@ -3844,7 +3844,7 @@ const PARTIES_DATA = [
       3,
       2,
       2,
-      2,
+      4,
       1,
       1,
       2,
@@ -3933,7 +3933,7 @@ const PARTIES_DATA = [
       "Accord fort : preuve primaire directe ou proposition officielle très proche ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "Désaccord net : codage fondé sur les documents officiels retenus pour le thème « Sécurité / justice ». Niveau de preuve : orientation cohérente étayée par plusieurs éléments.",
       "Accord net : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
-      "Accord net : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
+      "Accord fort : l’UDR a soutenu l’exigence de normes de production équivalentes pour les importations et Éric Ciotti a défendu des clauses de réciprocité sanitaire, environnementale et de bien-être animal dans les accords commerciaux.",
       "Position neutre, partagée ou non arrêtée : codage fondé sur les documents officiels retenus pour le thème « Écologie ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
       "Désaccord net : codage fondé sur les documents officiels retenus pour le thème « Écologie ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
       "L’UDR veut fortement réduire les prélèvements sur le travail mais privilégie le financement par baisse des dépenses et ne défend pas explicitement une hausse de TVA. Position neutre sur le mécanisme précis.",
@@ -4022,7 +4022,7 @@ const PARTIES_DATA = [
       "https://www.udr.fr/priorites",
       "https://www.udr.fr/",
       "https://www.udr.fr/priorites",
-      "https://www.udr.fr/priorites",
+      "https://www.assemblee-nationale.fr/dyn/17/scrutins/685",
       "https://www.udr.fr/",
       "https://www.udr.fr/",
       "https://www.udr.fr/livretacteii",
@@ -4083,14 +4083,14 @@ const PARTIES_DATA = [
       "https://www.udr.fr/"
     ],
     "axisScores": {
-      "economy": 6.132208157524612,
-      "authority": 2.6960784313725497,
+      "economy": 5.733882030178327,
+      "authority": 2.6057529610829113,
       "europe": -4.731182795698924,
       "ecology": -5.96078431372549,
       "immigration": -8.304093567251464,
       "democracy": 0.8547008547008548
     },
-    "averageConfidence": 1.8620689655172413
+    "averageConfidence": 1.8850574712643677
   },
   {
     "id": "rn",
@@ -4216,7 +4216,7 @@ const PARTIES_DATA = [
       2,
       1,
       2,
-      2,
+      4,
       2,
       2,
       1,
@@ -4305,7 +4305,7 @@ const PARTIES_DATA = [
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Désaccord net : Le Rassemblement national donne clairement la priorité à la sanction et à l'exécution des peines plutôt qu'à une politique centrée sur la prévention et la réinsertion, tout en ne rejetant pas totalement ces dernières. -2 reflète cette hiérarchie.",
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
-      "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
+      "Accord fort : le RN a massivement soutenu la résolution imposant aux importations agricoles des normes de production équivalentes et combat les accords commerciaux qu’il juge responsables d’une concurrence déloyale envers les agriculteurs français.",
       "Position équilibrée ou non tranchée : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Désaccord net : codage cohérent avec la ligne programmatique générale du parti sur écologie.",
       "Le RN privilégie historiquement la baisse de TVA sur l’énergie et les produits essentiels et met fortement l’accent sur le pouvoir d’achat. Cela rend une hausse de TVA plutôt contraire à sa ligne, mais aucune position récente exacte sur la TVA sociale n’a été trouvée : -1.",
@@ -4394,7 +4394,7 @@ const PARTIES_DATA = [
       "https://rassemblementnational.fr/livrets-thematiques",
       "https://rassemblementnational.fr/livrets-thematiques",
       "https://rassemblementnational.fr/livrets-thematiques",
-      "https://rassemblementnational.fr/livrets-thematiques",
+      "https://www.assemblee-nationale.fr/dyn/17/scrutins/685",
       "https://rassemblementnational.fr/documents/202411-programme-europeennes.pdf",
       "https://rassemblementnational.fr/documents/202411-programme-europeennes.pdf",
       "https://rassemblementnational.fr/conferences-de-presse/pouvoir-achat-conference-de-presse-de-marine-le-pen",
@@ -4455,14 +4455,14 @@ const PARTIES_DATA = [
       "https://rassemblementnational.fr/documents/202406-programme.pdf"
     ],
     "axisScores": {
-      "economy": 0.8579465541490858,
-      "authority": 4.101307189542483,
+      "economy": 0.5898491083676268,
+      "authority": 3.8917089678510997,
       "europe": -6.129032258064517,
       "ecology": -5.8431372549019605,
       "immigration": -9.415204678362572,
       "democracy": 1.794871794871795
     },
-    "averageConfidence": 2.0229885057471266
+    "averageConfidence": 2.045977011494253
   },
   {
     "id": "reconquete",
@@ -4588,7 +4588,7 @@ const PARTIES_DATA = [
       2,
       2,
       2,
-      2,
+      3,
       2,
       2,
       1,
@@ -4677,7 +4677,7 @@ const PARTIES_DATA = [
       "Accord fort : codage cohérent avec la ligne programmatique générale du parti sur sécurité / justice.",
       "Désaccord net : Reconquête privilégie le durcissement des peines, les peines planchers et l'exécution effective des sanctions. La prévention et la réinsertion ne sont pas totalement exclues, ce qui justifie -2 plutôt que -3.",
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
-      "Accord fort : codage cohérent avec la ligne programmatique générale du parti sur sécurité / justice.",
+      "Accord fort : Reconquête affirme qu’aucun produit étranger ne devrait entrer en France s’il ne respecte pas les normes imposées aux producteurs français ; la correspondance avec la question est directe.",
       "Position équilibrée ou non tranchée : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Désaccord net : codage cohérent avec la ligne programmatique générale du parti sur écologie.",
       "Reconquête défend une baisse du coût du travail et des prélèvements, mais aucune proposition suffisamment précise de transfert vers la TVA n’a été retrouvée. Score neutre par prudence.",
@@ -4766,7 +4766,7 @@ const PARTIES_DATA = [
       "https://www.parti-reconquete.fr/",
       "https://www.parti-reconquete.fr/",
       "https://www.parti-reconquete.fr/",
-      "https://www.parti-reconquete.fr/",
+      "https://fede11.parti-reconquete.fr/communique-de-presse/soutien-a-nos-agriculteurs-et-viticulteurs",
       "https://www.parti-reconquete.fr/",
       "https://www.parti-reconquete.fr/",
       "https://www.parti-reconquete.fr/",
@@ -4827,13 +4827,13 @@ const PARTIES_DATA = [
       "https://www.parti-reconquete.fr/"
     ],
     "axisScores": {
-      "economy": 6.1744022503516165,
-      "authority": 3.1045751633986924,
+      "economy": 5.775034293552811,
+      "authority": 2.859560067681895,
       "europe": -6.559139784946238,
       "ecology": -6.117647058823529,
       "immigration": -9.619883040935674,
       "democracy": 1.4529914529914532
     },
-    "averageConfidence": 1.7701149425287357
+    "averageConfidence": 1.7816091954022988
   }
 ];
