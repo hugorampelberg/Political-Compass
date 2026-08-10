@@ -1,8 +1,8 @@
 const STORAGE_KEY = 'boussole-politique-state-v4';
 const QUIZ_MODES = { FULL:'full', QUICK:'quick' };
 const STRUCTURAL_WEIGHT_SHARE = 0.3;
-const QUESTION_SIMILARITY_SHARE = 0.8;
-const AXIS_COORDINATE_SIMILARITY_SHARE = 0.2;
+const QUESTION_SIMILARITY_SHARE = 1;
+const AXIS_COORDINATE_SIMILARITY_SHARE = 0;
 const QUICK_QUESTION_IDS = new Set([1,3,5,7,9,10,14,19,20,21,24,25,26,27,28,29,32,34,35,38,39,40,42,46,49,50,56,63,64,66,67,71,72,74,76,77,78,79,81,87]);
 const AXIS_COLORS = { economy:'#d96c57', authority:'#6f63a8', europe:'#4e77a7', ecology:'#2d8c87', immigration:'#d7a744', democracy:'#40556a' };
 const PRIORITY_LABELS = {
@@ -880,7 +880,7 @@ function buildAIAnalysisPayload(){
     open_answers:openAnswers,
     methodological_context:{
       score_meaning:'Distance mathématique calculée, pas pourcentage d’adhésion au programme',
-      similarity_formula:'Le score global combine 80 % de proximité question par question et 20 % de proximité fondée sur la distance euclidienne pondérée entre les coordonnées finales des six axes, avec une pénalité progressive lorsque les coordonnées sont de signes opposés.',
+      similarity_formula:'Le score global repose à 100 % sur la proximité question par question. La proximité fondée sur les coordonnées finales reste calculée à titre diagnostique mais ne contribue pas au score global.',
       party_data_basis:'Programmes officiels et positions publiques documentées, sans analyse exhaustive des votes réels à l’Assemblée nationale',
       recommendation:'Le résultat ne constitue pas une recommandation de vote',
       questionnaire_scope:`${modeLabel()} : le profil de l’utilisateur, les partis et les gouvernements sont tous calculés uniquement sur les mêmes ${activeQuestionCount()} questions.`,
