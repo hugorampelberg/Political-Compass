@@ -1,0 +1,1098 @@
+{
+  "questionCount": 87,
+  "parties": 13,
+  "governments": 8,
+  "entities": 21,
+  "codings": 1827,
+  "counts": {
+    "extreme_score_generic_justification": 247,
+    "neutral_score_generic_justification": 114,
+    "low_confidence": 352,
+    "strong_score_low_confidence": 113,
+    "justification_sign_mismatch": 2
+  },
+  "entitiesSummary": {
+    "LFI": {
+      "type": "party",
+      "generic": 62,
+      "lowConfidence": 6,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 35,
+      "neutralGeneric": 4,
+      "flags": 49
+    },
+    "PCF": {
+      "type": "party",
+      "generic": 58,
+      "lowConfidence": 4,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 26,
+      "neutralGeneric": 6,
+      "flags": 39
+    },
+    "Les Écologistes": {
+      "type": "party",
+      "generic": 66,
+      "lowConfidence": 8,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 32,
+      "neutralGeneric": 3,
+      "flags": 46
+    },
+    "PS": {
+      "type": "party",
+      "generic": 69,
+      "lowConfidence": 8,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 17,
+      "neutralGeneric": 6,
+      "flags": 35
+    },
+    "Renaissance": {
+      "type": "party",
+      "generic": 71,
+      "lowConfidence": 8,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 7,
+      "neutralGeneric": 5,
+      "flags": 22
+    },
+    "MoDem": {
+      "type": "party",
+      "generic": 67,
+      "lowConfidence": 16,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 4,
+      "neutralGeneric": 11,
+      "flags": 35
+    },
+    "Horizons": {
+      "type": "party",
+      "generic": 71,
+      "lowConfidence": 12,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 8,
+      "neutralGeneric": 8,
+      "flags": 33
+    },
+    "LFH": {
+      "type": "party",
+      "generic": 11,
+      "lowConfidence": 8,
+      "signMismatch": 1,
+      "missingSource": 0,
+      "extremeGeneric": 2,
+      "neutralGeneric": 0,
+      "flags": 12
+    },
+    "LR": {
+      "type": "party",
+      "generic": 66,
+      "lowConfidence": 12,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 17,
+      "neutralGeneric": 7,
+      "flags": 40
+    },
+    "Nouvelle Énergie": {
+      "type": "party",
+      "generic": 45,
+      "lowConfidence": 9,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 10,
+      "neutralGeneric": 4,
+      "flags": 24
+    },
+    "UDR": {
+      "type": "party",
+      "generic": 63,
+      "lowConfidence": 39,
+      "signMismatch": 1,
+      "missingSource": 0,
+      "extremeGeneric": 11,
+      "neutralGeneric": 5,
+      "flags": 82
+    },
+    "RN": {
+      "type": "party",
+      "generic": 62,
+      "lowConfidence": 20,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 17,
+      "neutralGeneric": 7,
+      "flags": 51
+    },
+    "Reconquête": {
+      "type": "party",
+      "generic": 74,
+      "lowConfidence": 28,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 27,
+      "neutralGeneric": 4,
+      "flags": 78
+    },
+    "Allemagne": {
+      "type": "government",
+      "generic": 51,
+      "lowConfidence": 8,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 3,
+      "neutralGeneric": 1,
+      "flags": 12
+    },
+    "Espagne": {
+      "type": "government",
+      "generic": 51,
+      "lowConfidence": 12,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 4,
+      "neutralGeneric": 7,
+      "flags": 23
+    },
+    "Suisse": {
+      "type": "government",
+      "generic": 54,
+      "lowConfidence": 19,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 4,
+      "neutralGeneric": 7,
+      "flags": 30
+    },
+    "Finlande": {
+      "type": "government",
+      "generic": 51,
+      "lowConfidence": 17,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 2,
+      "neutralGeneric": 6,
+      "flags": 25
+    },
+    "Royaume-Uni": {
+      "type": "government",
+      "generic": 46,
+      "lowConfidence": 18,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 4,
+      "neutralGeneric": 9,
+      "flags": 32
+    },
+    "Danemark": {
+      "type": "government",
+      "generic": 30,
+      "lowConfidence": 18,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 2,
+      "neutralGeneric": 3,
+      "flags": 27
+    },
+    "Pays-Bas": {
+      "type": "government",
+      "generic": 67,
+      "lowConfidence": 34,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 10,
+      "neutralGeneric": 4,
+      "flags": 59
+    },
+    "Pologne": {
+      "type": "government",
+      "generic": 66,
+      "lowConfidence": 48,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 5,
+      "neutralGeneric": 7,
+      "flags": 74
+    }
+  },
+  "questionsSummary": {
+    "1": {
+      "theme": "Économie",
+      "flags": 8,
+      "generic": 15,
+      "lowConfidence": 0,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 7,
+      "neutralGeneric": 1
+    },
+    "2": {
+      "theme": "Économie",
+      "flags": 10,
+      "generic": 20,
+      "lowConfidence": 5,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 1,
+      "neutralGeneric": 3
+    },
+    "3": {
+      "theme": "Économie",
+      "flags": 10,
+      "generic": 16,
+      "lowConfidence": 2,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 5,
+      "neutralGeneric": 3
+    },
+    "4": {
+      "theme": "Économie",
+      "flags": 0,
+      "generic": 0,
+      "lowConfidence": 0,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 0,
+      "neutralGeneric": 0
+    },
+    "5": {
+      "theme": "Économie",
+      "flags": 5,
+      "generic": 11,
+      "lowConfidence": 2,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 1,
+      "neutralGeneric": 1
+    },
+    "6": {
+      "theme": "Économie",
+      "flags": 11,
+      "generic": 19,
+      "lowConfidence": 5,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 2,
+      "neutralGeneric": 2
+    },
+    "7": {
+      "theme": "Économie",
+      "flags": 3,
+      "generic": 13,
+      "lowConfidence": 3,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 0,
+      "neutralGeneric": 0
+    },
+    "8": {
+      "theme": "Économie",
+      "flags": 12,
+      "generic": 18,
+      "lowConfidence": 4,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 3,
+      "neutralGeneric": 2
+    },
+    "9": {
+      "theme": "État",
+      "flags": 6,
+      "generic": 11,
+      "lowConfidence": 0,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 4,
+      "neutralGeneric": 2
+    },
+    "10": {
+      "theme": "État",
+      "flags": 3,
+      "generic": 8,
+      "lowConfidence": 1,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 1,
+      "neutralGeneric": 1
+    },
+    "12": {
+      "theme": "État",
+      "flags": 6,
+      "generic": 16,
+      "lowConfidence": 2,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 1,
+      "neutralGeneric": 3
+    },
+    "13": {
+      "theme": "État",
+      "flags": 13,
+      "generic": 19,
+      "lowConfidence": 6,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 3,
+      "neutralGeneric": 2
+    },
+    "14": {
+      "theme": "Social / société",
+      "flags": 9,
+      "generic": 19,
+      "lowConfidence": 3,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 3,
+      "neutralGeneric": 2
+    },
+    "15": {
+      "theme": "Démocratie",
+      "flags": 1,
+      "generic": 0,
+      "lowConfidence": 1,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 0,
+      "neutralGeneric": 0
+    },
+    "16": {
+      "theme": "Social / société",
+      "flags": 20,
+      "generic": 19,
+      "lowConfidence": 12,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 1,
+      "neutralGeneric": 2
+    },
+    "17": {
+      "theme": "Social / société",
+      "flags": 7,
+      "generic": 20,
+      "lowConfidence": 3,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 3,
+      "neutralGeneric": 0
+    },
+    "18": {
+      "theme": "Institutions / territoires",
+      "flags": 0,
+      "generic": 0,
+      "lowConfidence": 0,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 0,
+      "neutralGeneric": 0
+    },
+    "19": {
+      "theme": "Social / société",
+      "flags": 10,
+      "generic": 21,
+      "lowConfidence": 2,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 5,
+      "neutralGeneric": 2
+    },
+    "20": {
+      "theme": "Immigration",
+      "flags": 3,
+      "generic": 8,
+      "lowConfidence": 0,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 2,
+      "neutralGeneric": 1
+    },
+    "21": {
+      "theme": "Immigration",
+      "flags": 3,
+      "generic": 14,
+      "lowConfidence": 1,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 1,
+      "neutralGeneric": 0
+    },
+    "22": {
+      "theme": "Immigration / droits sociaux",
+      "flags": 0,
+      "generic": 0,
+      "lowConfidence": 0,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 0,
+      "neutralGeneric": 0
+    },
+    "23": {
+      "theme": "Immigration",
+      "flags": 2,
+      "generic": 13,
+      "lowConfidence": 0,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 1,
+      "neutralGeneric": 1
+    },
+    "24": {
+      "theme": "Immigration",
+      "flags": 7,
+      "generic": 11,
+      "lowConfidence": 0,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 7,
+      "neutralGeneric": 0
+    },
+    "25": {
+      "theme": "Immigration",
+      "flags": 7,
+      "generic": 17,
+      "lowConfidence": 1,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 6,
+      "neutralGeneric": 0
+    },
+    "26": {
+      "theme": "Immigration",
+      "flags": 11,
+      "generic": 14,
+      "lowConfidence": 3,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 3,
+      "neutralGeneric": 4
+    },
+    "27": {
+      "theme": "Sécurité / justice",
+      "flags": 11,
+      "generic": 17,
+      "lowConfidence": 4,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 3,
+      "neutralGeneric": 3
+    },
+    "28": {
+      "theme": "Sécurité / justice",
+      "flags": 7,
+      "generic": 14,
+      "lowConfidence": 4,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 1,
+      "neutralGeneric": 0
+    },
+    "29": {
+      "theme": "Sécurité / justice",
+      "flags": 5,
+      "generic": 18,
+      "lowConfidence": 0,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 4,
+      "neutralGeneric": 1
+    },
+    "30": {
+      "theme": "Agriculture / commerce",
+      "flags": 0,
+      "generic": 0,
+      "lowConfidence": 0,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 0,
+      "neutralGeneric": 0
+    },
+    "32": {
+      "theme": "Écologie",
+      "flags": 8,
+      "generic": 12,
+      "lowConfidence": 2,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 2,
+      "neutralGeneric": 4
+    },
+    "33": {
+      "theme": "Écologie",
+      "flags": 3,
+      "generic": 14,
+      "lowConfidence": 1,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 0,
+      "neutralGeneric": 1
+    },
+    "34": {
+      "theme": "Economie",
+      "flags": 10,
+      "generic": 0,
+      "lowConfidence": 9,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 0,
+      "neutralGeneric": 0
+    },
+    "35": {
+      "theme": "Écologie",
+      "flags": 9,
+      "generic": 14,
+      "lowConfidence": 4,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 1,
+      "neutralGeneric": 2
+    },
+    "36": {
+      "theme": "Écologie",
+      "flags": 12,
+      "generic": 20,
+      "lowConfidence": 2,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 3,
+      "neutralGeneric": 6
+    },
+    "37": {
+      "theme": "Écologie",
+      "flags": 18,
+      "generic": 20,
+      "lowConfidence": 7,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 3,
+      "neutralGeneric": 5
+    },
+    "38": {
+      "theme": "Europe",
+      "flags": 7,
+      "generic": 13,
+      "lowConfidence": 2,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 2,
+      "neutralGeneric": 2
+    },
+    "39": {
+      "theme": "Europe",
+      "flags": 3,
+      "generic": 17,
+      "lowConfidence": 0,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 3,
+      "neutralGeneric": 0
+    },
+    "40": {
+      "theme": "Europe",
+      "flags": 16,
+      "generic": 15,
+      "lowConfidence": 5,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 6,
+      "neutralGeneric": 3
+    },
+    "41": {
+      "theme": "Europe",
+      "flags": 11,
+      "generic": 15,
+      "lowConfidence": 4,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 2,
+      "neutralGeneric": 4
+    },
+    "42": {
+      "theme": "Europe",
+      "flags": 8,
+      "generic": 17,
+      "lowConfidence": 2,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 5,
+      "neutralGeneric": 1
+    },
+    "43": {
+      "theme": "Fiscalité / patrimoine",
+      "flags": 7,
+      "generic": 9,
+      "lowConfidence": 1,
+      "signMismatch": 1,
+      "missingSource": 0,
+      "extremeGeneric": 3,
+      "neutralGeneric": 1
+    },
+    "44": {
+      "theme": "Fiscalité / patrimoine",
+      "flags": 13,
+      "generic": 17,
+      "lowConfidence": 6,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 4,
+      "neutralGeneric": 2
+    },
+    "45": {
+      "theme": "Fiscalité / patrimoine",
+      "flags": 14,
+      "generic": 17,
+      "lowConfidence": 10,
+      "signMismatch": 1,
+      "missingSource": 0,
+      "extremeGeneric": 0,
+      "neutralGeneric": 2
+    },
+    "46": {
+      "theme": "Travail / chômage",
+      "flags": 4,
+      "generic": 14,
+      "lowConfidence": 0,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 4,
+      "neutralGeneric": 0
+    },
+    "47": {
+      "theme": "Outre-mer / vie chère",
+      "flags": 2,
+      "generic": 0,
+      "lowConfidence": 2,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 0,
+      "neutralGeneric": 0
+    },
+    "48": {
+      "theme": "Travail / chômage",
+      "flags": 15,
+      "generic": 15,
+      "lowConfidence": 10,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 0,
+      "neutralGeneric": 0
+    },
+    "49": {
+      "theme": "Retraites",
+      "flags": 7,
+      "generic": 8,
+      "lowConfidence": 1,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 4,
+      "neutralGeneric": 1
+    },
+    "50": {
+      "theme": "Retraites",
+      "flags": 14,
+      "generic": 12,
+      "lowConfidence": 7,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 3,
+      "neutralGeneric": 1
+    },
+    "51": {
+      "theme": "Protection sociale",
+      "flags": 5,
+      "generic": 15,
+      "lowConfidence": 1,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 3,
+      "neutralGeneric": 1
+    },
+    "53": {
+      "theme": "État / entreprises",
+      "flags": 11,
+      "generic": 17,
+      "lowConfidence": 5,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 3,
+      "neutralGeneric": 3
+    },
+    "54": {
+      "theme": "État / entreprises",
+      "flags": 17,
+      "generic": 16,
+      "lowConfidence": 11,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 2,
+      "neutralGeneric": 2
+    },
+    "55": {
+      "theme": "État / entreprises",
+      "flags": 4,
+      "generic": 11,
+      "lowConfidence": 0,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 4,
+      "neutralGeneric": 0
+    },
+    "56": {
+      "theme": "Immigration / régularisation",
+      "flags": 0,
+      "generic": 0,
+      "lowConfidence": 0,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 0,
+      "neutralGeneric": 0
+    },
+    "57": {
+      "theme": "Immigration / assimilation",
+      "flags": 6,
+      "generic": 11,
+      "lowConfidence": 0,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 5,
+      "neutralGeneric": 1
+    },
+    "58": {
+      "theme": "Immigration / assimilation",
+      "flags": 10,
+      "generic": 12,
+      "lowConfidence": 6,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 1,
+      "neutralGeneric": 1
+    },
+    "59": {
+      "theme": "Immigration / assimilation",
+      "flags": 6,
+      "generic": 8,
+      "lowConfidence": 1,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 5,
+      "neutralGeneric": 0
+    },
+    "60": {
+      "theme": "Immigration / assimilation",
+      "flags": 6,
+      "generic": 17,
+      "lowConfidence": 1,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 5,
+      "neutralGeneric": 0
+    },
+    "61": {
+      "theme": "Immigration / assimilation",
+      "flags": 10,
+      "generic": 18,
+      "lowConfidence": 4,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 3,
+      "neutralGeneric": 0
+    },
+    "63": {
+      "theme": "Libertés / sécurité",
+      "flags": 8,
+      "generic": 17,
+      "lowConfidence": 2,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 3,
+      "neutralGeneric": 2
+    },
+    "64": {
+      "theme": "Libertés / expression",
+      "flags": 13,
+      "generic": 19,
+      "lowConfidence": 8,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 1,
+      "neutralGeneric": 0
+    },
+    "66": {
+      "theme": "Sécurité",
+      "flags": 6,
+      "generic": 4,
+      "lowConfidence": 4,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 0,
+      "neutralGeneric": 0
+    },
+    "67": {
+      "theme": "Écologie",
+      "flags": 6,
+      "generic": 13,
+      "lowConfidence": 2,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 2,
+      "neutralGeneric": 1
+    },
+    "68": {
+      "theme": "Écologie",
+      "flags": 7,
+      "generic": 14,
+      "lowConfidence": 2,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 4,
+      "neutralGeneric": 0
+    },
+    "69": {
+      "theme": "Écologie",
+      "flags": 10,
+      "generic": 11,
+      "lowConfidence": 2,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 5,
+      "neutralGeneric": 2
+    },
+    "71": {
+      "theme": "Écologie / croissance",
+      "flags": 17,
+      "generic": 19,
+      "lowConfidence": 10,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 0,
+      "neutralGeneric": 2
+    },
+    "72": {
+      "theme": "Institutions",
+      "flags": 18,
+      "generic": 17,
+      "lowConfidence": 16,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 0,
+      "neutralGeneric": 0
+    },
+    "73": {
+      "theme": "Institutions",
+      "flags": 22,
+      "generic": 19,
+      "lowConfidence": 16,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 0,
+      "neutralGeneric": 5
+    },
+    "74": {
+      "theme": "Institutions",
+      "flags": 12,
+      "generic": 16,
+      "lowConfidence": 6,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 3,
+      "neutralGeneric": 3
+    },
+    "75": {
+      "theme": "Institutions",
+      "flags": 31,
+      "generic": 17,
+      "lowConfidence": 18,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 1,
+      "neutralGeneric": 0
+    },
+    "76": {
+      "theme": "Institutions",
+      "flags": 10,
+      "generic": 16,
+      "lowConfidence": 7,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 0,
+      "neutralGeneric": 0
+    },
+    "77": {
+      "theme": "Institutions",
+      "flags": 5,
+      "generic": 12,
+      "lowConfidence": 2,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 3,
+      "neutralGeneric": 0
+    },
+    "78": {
+      "theme": "Immigration / assimilation",
+      "flags": 9,
+      "generic": 14,
+      "lowConfidence": 0,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 8,
+      "neutralGeneric": 1
+    },
+    "79": {
+      "theme": "Immigration / délinquance",
+      "flags": 18,
+      "generic": 18,
+      "lowConfidence": 9,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 5,
+      "neutralGeneric": 3
+    },
+    "80": {
+      "theme": "Écologie / agriculture",
+      "flags": 3,
+      "generic": 2,
+      "lowConfidence": 2,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 1,
+      "neutralGeneric": 0
+    },
+    "81": {
+      "theme": "Santé / accès aux soins",
+      "flags": 12,
+      "generic": 14,
+      "lowConfidence": 4,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 6,
+      "neutralGeneric": 1
+    },
+    "82": {
+      "theme": "Santé / assurance maladie",
+      "flags": 10,
+      "generic": 17,
+      "lowConfidence": 3,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 5,
+      "neutralGeneric": 0
+    },
+    "83": {
+      "theme": "Santé / hôpital",
+      "flags": 13,
+      "generic": 18,
+      "lowConfidence": 9,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 2,
+      "neutralGeneric": 1
+    },
+    "84": {
+      "theme": "Éducation / autonomie",
+      "flags": 19,
+      "generic": 19,
+      "lowConfidence": 10,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 4,
+      "neutralGeneric": 0
+    },
+    "85": {
+      "theme": "Éducation / mixité sociale",
+      "flags": 26,
+      "generic": 17,
+      "lowConfidence": 15,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 4,
+      "neutralGeneric": 2
+    },
+    "86": {
+      "theme": "Logement / locations touristiques",
+      "flags": 19,
+      "generic": 18,
+      "lowConfidence": 13,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 2,
+      "neutralGeneric": 1
+    },
+    "87": {
+      "theme": "Défense / Ukraine",
+      "flags": 16,
+      "generic": 19,
+      "lowConfidence": 1,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 13,
+      "neutralGeneric": 2
+    },
+    "88": {
+      "theme": "Défense / dissuasion nucléaire",
+      "flags": 12,
+      "generic": 16,
+      "lowConfidence": 1,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 10,
+      "neutralGeneric": 0
+    },
+    "89": {
+      "theme": "Santé / fin de vie",
+      "flags": 15,
+      "generic": 20,
+      "lowConfidence": 4,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 7,
+      "neutralGeneric": 3
+    },
+    "90": {
+      "theme": "Dépendance / EHPAD",
+      "flags": 17,
+      "generic": 17,
+      "lowConfidence": 10,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 1,
+      "neutralGeneric": 1
+    },
+    "91": {
+      "theme": "Famille / prestations",
+      "flags": 12,
+      "generic": 18,
+      "lowConfidence": 4,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 5,
+      "neutralGeneric": 1
+    },
+    "92": {
+      "theme": "Numérique / mineurs",
+      "flags": 15,
+      "generic": 18,
+      "lowConfidence": 3,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 8,
+      "neutralGeneric": 4
+    },
+    "93": {
+      "theme": "Numérique / intelligence artificielle",
+      "flags": 1,
+      "generic": 17,
+      "lowConfidence": 1,
+      "signMismatch": 0,
+      "missingSource": 0,
+      "extremeGeneric": 0,
+      "neutralGeneric": 0
+    }
+  }
+}
