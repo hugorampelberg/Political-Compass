@@ -113,8 +113,8 @@ const QUESTIONNAIRE_DATA = {
     {
       "id": 4,
       "theme": "Économie",
-      "text": "Il vaut mieux avoir un niveau relativement élevé d'impôts et de prestations sociales que laisser davantage de responsabilités économiques aux individus.",
-      "defaultAnswer": 1,
+      "text": "Les entreprises devraient être obligées de limiter l’écart entre la rémunération de leurs dirigeants et celle de leurs salariés les moins bien payés.",
+      "defaultAnswer": 0,
       "note": "",
       "coefficients": {
         "economy": -0.7,
@@ -123,7 +123,8 @@ const QUESTIONNAIRE_DATA = {
         "ecology": 0,
         "immigration": 0,
         "democracy": 0
-      }
+      },
+      "explanation": "Par exemple : fixer un plafond de 20 ou 30 fois le salaire le plus bas ; un dirigeant déjà à ce plafond ne pourrait être augmenté que si les plus bas salaires augmentent aussi."
     },
     {
       "id": 5,

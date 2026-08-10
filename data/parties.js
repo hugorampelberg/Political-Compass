@@ -99,7 +99,7 @@ const PARTIES_DATA = [
       2,
       2,
       3,
-      2,
+      4,
       3,
       2,
       3,
@@ -188,7 +188,7 @@ const PARTIES_DATA = [
       "Désaccord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Réserve : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "Accord fort : preuve primaire directe ou proposition officielle très proche ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
-      "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
+      "Accord fort : LFI a elle-même déposé en 2024 une proposition visant à plafonner la rémunération maximale dans une entreprise à vingt fois la rémunération la plus faible.",
       "Accord fort : preuve primaire directe ou proposition officielle très proche ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "Désaccord fort : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "Accord fort : preuve primaire directe ou proposition officielle très proche ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
@@ -277,7 +277,7 @@ const PARTIES_DATA = [
       "https://lafranceinsoumise.fr/europeennes-2024/programme-de-lunion-populaire/chapitre-1-sortir-de-lausterite-et-partager-les-richesses/",
       "https://lafranceinsoumise.fr/",
       "https://lafranceinsoumise.fr/",
-      "https://lafranceinsoumise.fr/europeennes-2024/programme-de-lunion-populaire/chapitre-1-sortir-de-lausterite-et-partager-les-richesses/",
+      "https://www.assemblee-nationale.fr/dyn/opendata/PIONANR5L17B0412.html",
       "https://lafranceinsoumise.fr/",
       "https://lafranceinsoumise.fr/",
       "https://lafranceinsoumise.fr/europeennes-2024/programme-de-lunion-populaire/chapitre-1-sortir-de-lausterite-et-partager-les-richesses/",
@@ -370,7 +370,7 @@ const PARTIES_DATA = [
       "immigration": 8.768768768768767,
       "democracy": 7.238095238095238
     },
-    "averageConfidence": 2.1724137931034484
+    "averageConfidence": 2.1954022988505746
   },
   {
     "id": "pcf",
@@ -471,7 +471,7 @@ const PARTIES_DATA = [
       2,
       2,
       3,
-      2,
+      4,
       3,
       2,
       3,
@@ -560,7 +560,7 @@ const PARTIES_DATA = [
       "Désaccord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Désaccord net : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "Accord fort : preuve primaire directe ou proposition officielle très proche ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
-      "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
+      "Accord fort : les communistes défendent depuis plusieurs législatures un écart maximal de 1 à 20 entre la rémunération la plus basse et la rémunération la plus haute dans l’entreprise.",
       "Accord fort : preuve primaire directe ou proposition officielle très proche ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "Désaccord fort : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
       "Accord fort : preuve primaire directe ou proposition officielle très proche ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
@@ -649,7 +649,7 @@ const PARTIES_DATA = [
       "https://www.pcf.fr/feuille_de_route_confnat_pcf",
       "https://www.pcf.fr/feuille_de_route_confnat_pcf",
       "https://www.pcf.fr/contrat_de_legislature_projet_propos_par_le_pcf",
-      "https://www.pcf.fr/feuille_de_route_confnat_pcf",
+      "https://groupe-communiste.assemblee-nationale.fr/propositions/propositions-de-loi/article/lutte-contre-les-inegalites-salariales-4593",
       "https://www.pcf.fr/contrat_de_legislature_projet_propos_par_le_pcf",
       "https://www.pcf.fr/feuille_de_route_confnat_pcf",
       "https://www.pcf.fr/contrat_de_legislature_projet_propos_par_le_pcf",
@@ -742,7 +742,7 @@ const PARTIES_DATA = [
       "immigration": 8.258258258258257,
       "democracy": 8.095238095238095
     },
-    "averageConfidence": 2.2528735632183907
+    "averageConfidence": 2.2758620689655173
   },
   {
     "id": "les-ecologistes",
@@ -843,7 +843,7 @@ const PARTIES_DATA = [
       2,
       2,
       2,
-      2,
+      4,
       2,
       2,
       2,
@@ -932,7 +932,7 @@ const PARTIES_DATA = [
       "Désaccord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Réserve : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
-      "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
+      "Accord fort : lors de l’examen de la proposition de plafonnement à 1 pour 20, Les Écologistes ont explicitement soutenu la limitation des écarts de rémunération au sein des entreprises.",
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Désaccord net : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "Accord net : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
@@ -1021,7 +1021,7 @@ const PARTIES_DATA = [
       "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf",
       "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf",
       "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf",
-      "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf",
+      "https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B0618.raw",
       "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf",
       "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf",
       "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf",
@@ -1114,7 +1114,7 @@ const PARTIES_DATA = [
       "immigration": 8.918918918918918,
       "democracy": 5.714285714285714
     },
-    "averageConfidence": 2.1379310344827585
+    "averageConfidence": 2.160919540229885
   },
   {
     "id": "ps",
@@ -1126,7 +1126,7 @@ const PARTIES_DATA = [
       -2,
       0,
       2,
-      2,
+      3,
       2,
       -1,
       3,
@@ -1215,7 +1215,7 @@ const PARTIES_DATA = [
       2,
       2,
       3,
-      2,
+      4,
       3,
       2,
       2,
@@ -1304,7 +1304,7 @@ const PARTIES_DATA = [
       "Désaccord net : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Position équilibrée ou non tranchée : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "Accord fort : preuve primaire directe ou proposition officielle très proche ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
-      "Accord net : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
+      "Accord fort : le groupe socialiste a explicitement soutenu en commission la proposition limitant à vingt fois l’écart entre la rémunération la plus basse et la plus haute d’une entreprise.",
       "Accord net : preuve primaire directe ou proposition officielle très proche ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "Réserve : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "Accord fort : le projet socialiste prévoit des prises de contrôle publiques et des nationalisations dans des secteurs stratégiques ; la proposition correspond directement au principe de la question.",
@@ -1393,7 +1393,7 @@ const PARTIES_DATA = [
       "https://parti-socialiste.fr/vie-parlementaire/notre-declaration-politique-17eme-legislature/",
       "https://parti-socialiste.fr/vie-parlementaire/notre-declaration-politique-17eme-legislature/",
       "https://parti-socialiste.fr/vie-parlementaire/notre-declaration-politique-17eme-legislature/",
-      "https://parti-socialiste.fr/vie-parlementaire/notre-declaration-politique-17eme-legislature/",
+      "https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B0618.raw",
       "https://parti-socialiste.fr/vie-parlementaire/notre-declaration-politique-17eme-legislature/",
       "https://parti-socialiste.fr/vie-parlementaire/notre-declaration-politique-17eme-legislature/",
       "https://parti-socialiste.fr/vie-parlementaire/notre-declaration-politique-17eme-legislature/",
@@ -1479,14 +1479,14 @@ const PARTIES_DATA = [
       "https://parti-socialiste.fr/vie-parlementaire/notre-declaration-politique-17eme-legislature/"
     ],
     "axisScores": {
-      "economy": -6.4387464387464375,
+      "economy": -6.5384615384615365,
       "authority": -2.515432098765433,
       "europe": 9.35483870967742,
       "ecology": 6.9411764705882355,
       "immigration": 6.726726726726727,
       "democracy": 3.9047619047619047
     },
-    "averageConfidence": 2.0804597701149423
+    "averageConfidence": 2.103448275862069
   },
   {
     "id": "renaissance",
@@ -1498,7 +1498,7 @@ const PARTIES_DATA = [
       2,
       2,
       -1,
-      0,
+      -3,
       -1,
       2,
       -1,
@@ -1587,7 +1587,7 @@ const PARTIES_DATA = [
       2,
       2,
       2,
-      2,
+      4,
       2,
       2,
       2,
@@ -1676,7 +1676,7 @@ const PARTIES_DATA = [
       "Accord net : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord net : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "Réserve : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
-      "Position équilibrée ou non tranchée : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
+      "Désaccord fort : Renaissance s’est explicitement opposé au plafond de 1 à 20, le jugeant dirigiste et contraire à la liberté des entreprises de rémunérer des compétences ou talents exceptionnels.",
       "Réserve : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord net : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "Réserve : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
@@ -1765,7 +1765,7 @@ const PARTIES_DATA = [
       "https://parti-renaissance.fr/",
       "https://parti-renaissance.fr/",
       "https://parti-renaissance.fr/",
-      "https://parti-renaissance.fr/",
+      "https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B0618.raw",
       "https://parti-renaissance.fr/",
       "https://parti-renaissance.fr/",
       "https://parti-renaissance.fr/",
@@ -1851,14 +1851,14 @@ const PARTIES_DATA = [
       "https://ensemble-2024.fr/notre-projet"
     ],
     "axisScores": {
-      "economy": 2.7777777777777772,
+      "economy": 3.076923076923076,
       "authority": 1.6820987654321,
       "europe": 8.172043010752688,
       "ecology": 2.0784313725490198,
       "immigration": -0.7507507507507507,
       "democracy": -3.2857142857142856
     },
-    "averageConfidence": 2.045977011494253
+    "averageConfidence": 2.0689655172413794
   },
   {
     "id": "modem",
@@ -1870,7 +1870,7 @@ const PARTIES_DATA = [
       1,
       0,
       0,
-      1,
+      -1,
       0,
       1,
       -1,
@@ -1959,7 +1959,7 @@ const PARTIES_DATA = [
       2,
       1,
       2,
-      2,
+      4,
       2,
       1,
       2,
@@ -2048,7 +2048,7 @@ const PARTIES_DATA = [
       "Accord modéré : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Position équilibrée ou non tranchée : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
       "Position équilibrée ou non tranchée : codage cohérent avec la ligne programmatique générale du parti sur économie.",
-      "Accord modéré : codage cohérent avec la ligne programmatique générale du parti sur économie.",
+      "Désaccord modéré : le MoDem partage l’objectif de mieux répartir la valeur et de contenir certains excès, mais a rejeté un plafond légal national des écarts de rémunération, jugé inadapté dans sa méthode.",
       "Position équilibrée ou non tranchée : codage cohérent avec la ligne programmatique générale du parti sur économie.",
       "Accord modéré : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
       "Réserve : codage cohérent avec la ligne programmatique générale du parti sur économie.",
@@ -2137,7 +2137,7 @@ const PARTIES_DATA = [
       "https://www.mouvementdemocrate.fr/actualites/marc-fesneau-un-chemin-vers-un-cap-collectif-et-vers-jose-le-mot-une-esperance-video",
       "https://www.mouvementdemocrate.fr/actualites/marc-fesneau-un-chemin-vers-un-cap-collectif-et-vers-jose-le-mot-une-esperance-video",
       "https://www.mouvementdemocrate.fr/actualites/marc-fesneau-un-chemin-vers-un-cap-collectif-et-vers-jose-le-mot-une-esperance-video",
-      "https://www.mouvementdemocrate.fr/actualites/marc-fesneau-un-chemin-vers-un-cap-collectif-et-vers-jose-le-mot-une-esperance-video",
+      "https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B0618.raw",
       "https://www.mouvementdemocrate.fr/actualites/marc-fesneau-un-chemin-vers-un-cap-collectif-et-vers-jose-le-mot-une-esperance-video",
       "https://www.mouvementdemocrate.fr/actualites/marc-fesneau-un-chemin-vers-un-cap-collectif-et-vers-jose-le-mot-une-esperance-video",
       "https://www.mouvementdemocrate.fr/actualites/marc-fesneau-un-chemin-vers-un-cap-collectif-et-vers-jose-le-mot-une-esperance-video",
@@ -2223,14 +2223,14 @@ const PARTIES_DATA = [
       "https://www.mouvementdemocrate.fr/"
     ],
     "axisScores": {
-      "economy": 0.3276353276353274,
+      "economy": 0.5270655270655271,
       "authority": 1.2808641975308648,
       "europe": 7.741935483870967,
       "ecology": 4.313725490196078,
       "immigration": -0.12012012012012001,
       "democracy": -0.9047619047619048
     },
-    "averageConfidence": 1.9195402298850575
+    "averageConfidence": 1.9425287356321839
   },
   {
     "id": "horizons",
@@ -2242,7 +2242,7 @@ const PARTIES_DATA = [
       3,
       2,
       -2,
-      -1,
+      -3,
       -2,
       2,
       -1,
@@ -2331,7 +2331,7 @@ const PARTIES_DATA = [
       2,
       2,
       2,
-      2,
+      4,
       2,
       2,
       2,
@@ -2420,7 +2420,7 @@ const PARTIES_DATA = [
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord net : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
       "Désaccord net : codage cohérent avec la ligne programmatique générale du parti sur économie.",
-      "Réserve : codage cohérent avec la ligne programmatique générale du parti sur économie.",
+      "Désaccord fort : Horizons s’est explicitement opposé à un plafonnement légal des rémunérations, invoquant la liberté d’entreprise, l’attractivité et la capacité à recruter des dirigeants compétitifs.",
       "Désaccord net : codage cohérent avec la ligne programmatique générale du parti sur économie.",
       "Accord net : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "Réserve : codage cohérent avec la ligne programmatique générale du parti sur économie.",
@@ -2509,7 +2509,7 @@ const PARTIES_DATA = [
       "https://horizonsleparti.fr/le-manifeste/",
       "https://horizonsleparti.fr/le-manifeste/",
       "https://horizonsleparti.fr/le-manifeste/",
-      "https://horizonsleparti.fr/le-manifeste/",
+      "https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B0618.raw",
       "https://horizonsleparti.fr/le-manifeste/",
       "https://horizonsleparti.fr/le-manifeste/",
       "https://horizonsleparti.fr/le-manifeste/",
@@ -2595,14 +2595,14 @@ const PARTIES_DATA = [
       "https://horizonsleparti.fr/le-manifeste/"
     ],
     "axisScores": {
-      "economy": 4.487179487179487,
+      "economy": 4.686609686609685,
       "authority": 2.42283950617284,
       "europe": 7.741935483870967,
       "ecology": 1.0980392156862748,
       "immigration": -2.342342342342342,
       "democracy": -3.4761904761904763
     },
-    "averageConfidence": 1.9310344827586208
+    "averageConfidence": 1.9540229885057472
   },
   {
     "id": "france-humaniste",
@@ -2792,7 +2792,7 @@ const PARTIES_DATA = [
       "Position neutre étayée : le projet articule baisse ciblée des cotisations patronales, contribution de la consommation et des profits et hausse du revenu des bas salaires, sans priorité univoque donnée aux seules charges.",
       "Accord modéré : Villepin réhabilite explicitement l'effort, le mérite, l'entrepreneuriat et la liberté d'entreprendre, tout en refusant que la rente et les inégalités patrimoniales dominent la mobilité sociale.",
       "Accord net directement documenté : le texte demande que les plus aisés contribuent selon leurs moyens et défend une fiscalité plus progressive.",
-      "Position équilibrée : LFH veut préserver un État social protecteur, mais juge le modèle actuel non finançable à l'identique, insiste sur la responsabilité et critique aussi la pression fiscale ; l'arbitrage proposé par la question n'est donc pas univoque.",
+      "Position non tranchée : La France Humaniste critique les inégalités excessives et accepte des conditions sociales sur les entreprises bénéficiant d’argent public, mais aucune proposition de plafond général entre rémunérations hautes et basses n’est établie.",
       "Désaccord net directement documenté : le texte critique les relèvements successifs du SMIC pour leur effet de tassement et propose de convertir une partie des exonérations en revenu supplémentaire pour les salariés concernés.",
       "Position équilibrée : le projet qualifie l'échange, l'innovation et la liberté d'entreprendre de moteurs indispensables, mais réserve à l'État un rôle fort dans les secteurs stratégiques et les biens essentiels.",
       "Accord modéré étayé : le projet défend un pôle public de crédit, un fonds souverain et des prises de participation stratégiques, sans programme général de nationalisations.",
@@ -2986,7 +2986,7 @@ const PARTIES_DATA = [
       3,
       2,
       -3,
-      -2,
+      -3,
       -2,
       2,
       -1,
@@ -3075,7 +3075,7 @@ const PARTIES_DATA = [
       2,
       2,
       2,
-      2,
+      4,
       2,
       2,
       2,
@@ -3164,7 +3164,7 @@ const PARTIES_DATA = [
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord net : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "Désaccord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
-      "Désaccord net : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
+      "Désaccord fort : Les Républicains se sont opposés au plafond de 1 à 20, considérant qu’un encadrement légal général des rémunérations nuirait à la liberté de l’entreprise et à son attractivité.",
       "Désaccord net : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord net : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "Réserve : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
@@ -3253,7 +3253,7 @@ const PARTIES_DATA = [
       "https://republicains.fr/nos-idees/",
       "https://republicains.fr/",
       "https://republicains.fr/nos-idees/",
-      "https://republicains.fr/nos-idees/",
+      "https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B0618.raw",
       "https://republicains.fr/nos-idees/",
       "https://republicains.fr/",
       "https://republicains.fr/nos-idees/",
@@ -3339,14 +3339,14 @@ const PARTIES_DATA = [
       "https://republicains.fr/"
     ],
     "axisScores": {
-      "economy": 5.284900284900283,
+      "economy": 5.384615384615384,
       "authority": 3.209876543209878,
       "europe": -0.7526881720430108,
       "ecology": -3.803921568627451,
       "immigration": -6.576576576576577,
       "democracy": -3.3333333333333326
     },
-    "averageConfidence": 2.0344827586206895
+    "averageConfidence": 2.057471264367816
   },
   {
     "id": "nouvelle-energie",
@@ -3447,7 +3447,7 @@ const PARTIES_DATA = [
       3,
       2,
       2,
-      3,
+      2,
       2,
       2,
       2,
@@ -3536,7 +3536,7 @@ const PARTIES_DATA = [
       "Accord fort : preuve primaire directe ou proposition officielle très proche ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "Accord net : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "Désaccord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
-      "Désaccord fort : preuve primaire directe ou proposition officielle très proche ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
+      "Désaccord fort par cohérence programmatique : Nouvelle Énergie défend la liberté entrepreneuriale, la baisse des contraintes et une économie de marché ; aucune proposition de plafond légal des écarts de rémunération n’est avancée.",
       "Désaccord net : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord net : sources officielles et prises de position convergentes ; le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse.",
       "Désaccord net : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
@@ -3625,7 +3625,7 @@ const PARTIES_DATA = [
       "https://www.unenouvelleenergie.fr/notre-programme/",
       "https://www.unenouvelleenergie.fr/notre-programme/",
       "https://www.unenouvelleenergie.fr/notre-programme/",
-      "https://www.unenouvelleenergie.fr/notre-programme/",
+      "https://www.unenouvelleenergie.fr/cotiser-moins-pour-gagner-plus/",
       "https://www.unenouvelleenergie.fr/notre-programme/",
       "https://www.unenouvelleenergie.fr/notre-programme/",
       "https://www.unenouvelleenergie.fr/notre-programme/",
@@ -3718,7 +3718,7 @@ const PARTIES_DATA = [
       "immigration": -6.756756756756756,
       "democracy": 0.04761904761904787
     },
-    "averageConfidence": 2.1954022988505746
+    "averageConfidence": 2.1839080459770117
   },
   {
     "id": "udr",
@@ -3819,7 +3819,7 @@ const PARTIES_DATA = [
       3,
       2,
       3,
-      2,
+      4,
       2,
       2,
       2,
@@ -3908,7 +3908,7 @@ const PARTIES_DATA = [
       "Accord fort : codage fondé sur les documents officiels retenus pour le thème « Économie ». Niveau de preuve : position ou mesure explicitement documentée.",
       "Accord fort : codage fondé sur les documents officiels retenus pour le thème « Économie ». Niveau de preuve : orientation cohérente étayée par plusieurs éléments.",
       "Désaccord fort : codage fondé sur les documents officiels retenus pour le thème « Économie ». Niveau de preuve : position ou mesure explicitement documentée.",
-      "Désaccord fort : codage fondé sur les documents officiels retenus pour le thème « Économie ». Niveau de preuve : orientation cohérente étayée par plusieurs éléments.",
+      "Désaccord fort : l’UDR s’est explicitement opposée au plafonnement de 1 à 20, présenté comme contraire à la liberté d’entreprendre et comme une intervention excessive dans la fixation des rémunérations.",
       "Désaccord net : codage fondé sur les documents officiels retenus pour le thème « Économie ». Niveau de preuve : orientation cohérente étayée par plusieurs éléments.",
       "Accord fort : codage fondé sur les documents officiels retenus pour le thème « Économie ». Niveau de preuve : orientation cohérente étayée par plusieurs éléments.",
       "Désaccord net : codage fondé sur les documents officiels retenus pour le thème « Économie ». Niveau de preuve : orientation cohérente étayée par plusieurs éléments.",
@@ -3997,7 +3997,7 @@ const PARTIES_DATA = [
       "https://www.udr.fr/priorites",
       "https://www.assemblee-nationale.fr/dyn/17/amendements/2247/CION_FIN/CF912",
       "https://www.assemblee-nationale.fr/dyn/17/amendements/2247/CION_FIN/CF912",
-      "https://www.assemblee-nationale.fr/dyn/17/amendements/2247/CION_FIN/CF912",
+      "https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B0618.raw",
       "https://www.assemblee-nationale.fr/dyn/17/amendements/2247/CION_FIN/CF912",
       "https://www.assemblee-nationale.fr/dyn/17/amendements/2247/CION_FIN/CF912",
       "https://www.assemblee-nationale.fr/dyn/17/amendements/2247/CION_FIN/CF912",
@@ -4090,7 +4090,7 @@ const PARTIES_DATA = [
       "immigration": -8.348348348348349,
       "democracy": 0.5714285714285715
     },
-    "averageConfidence": 1.8045977011494252
+    "averageConfidence": 1.8275862068965518
   },
   {
     "id": "rn",
@@ -4102,7 +4102,7 @@ const PARTIES_DATA = [
       1,
       1,
       -1,
-      0,
+      -2,
       0,
       0,
       2,
@@ -4191,7 +4191,7 @@ const PARTIES_DATA = [
       2,
       1,
       2,
-      2,
+      4,
       2,
       1,
       2,
@@ -4280,7 +4280,7 @@ const PARTIES_DATA = [
       "Accord modéré : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord modéré : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
       "Réserve : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
-      "Position de compromis : le RN défend un niveau important de protection sociale pour certaines catégories, mais veut simultanément réduire la pression fiscale et certaines dépenses publiques ; il n'adhère donc ni à un modèle durablement fondé sur des impôts élevés ni à un retrait marqué de l'État social.",
+      "Désaccord net : le RN a rejeté le principe d’un plafond légal entre plus basse et plus haute rémunération, tout en reconnaissant certains excès et en préférant agir sur les bas salaires ou les indemnités exceptionnelles des dirigeants.",
       "Position intermédiaire : le RN privilégie surtout l'augmentation du salaire net par des baisses de cotisations et des exonérations plutôt qu'une hausse générale et significative du SMIC.",
       "Position équilibrée ou non tranchée : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
       "Accord net : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
@@ -4369,7 +4369,7 @@ const PARTIES_DATA = [
       "https://rassemblementnational.fr/documents/202406-programme.pdf",
       "https://rassemblementnational.fr/documents/202406-programme.pdf",
       "https://rassemblementnational.fr/documents/202406-programme.pdf",
-      "https://rassemblementnational.fr/documents/202406-programme.pdf",
+      "https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B0618.raw",
       "https://rassemblementnational.fr/documents/202406-programme.pdf",
       "https://rassemblementnational.fr/documents/202406-programme.pdf",
       "https://rassemblementnational.fr/documents/202406-programme.pdf",
@@ -4455,14 +4455,14 @@ const PARTIES_DATA = [
       "https://rassemblementnational.fr/documents/202406-programme.pdf"
     ],
     "axisScores": {
-      "economy": 0.5840455840455842,
+      "economy": 0.7834757834757834,
       "authority": 3.59567901234568,
       "europe": -6.129032258064517,
       "ecology": -5.8431372549019605,
       "immigration": -8.978978978978978,
       "democracy": 2.7619047619047623
     },
-    "averageConfidence": 1.9540229885057472
+    "averageConfidence": 1.9770114942528736
   },
   {
     "id": "reconquete",
@@ -4474,7 +4474,7 @@ const PARTIES_DATA = [
       3,
       2,
       -3,
-      -2,
+      -3,
       -2,
       2,
       -2,
@@ -4652,7 +4652,7 @@ const PARTIES_DATA = [
       "Accord fort : orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question.",
       "Accord net : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
       "Désaccord fort : codage cohérent avec la ligne programmatique générale du parti sur économie.",
-      "Désaccord fort : codage cohérent avec la ligne programmatique générale du parti sur économie.",
+      "Désaccord fort par cohérence idéologique : Reconquête défend une ligne économique favorable à la liberté des entreprises et hostile aux contraintes supplémentaires sur les entreprises ; aucun soutien à un plafond légal des rémunérations n’est identifié.",
       "Désaccord net : codage cohérent avec la ligne programmatique générale du parti sur économie.",
       "Accord net : estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée.",
       "Désaccord net : codage cohérent avec la ligne programmatique générale du parti sur économie.",
@@ -4741,7 +4741,7 @@ const PARTIES_DATA = [
       "https://www.parti-reconquete.fr/",
       "https://www.parti-reconquete.fr/",
       "https://www.parti-reconquete.fr/",
-      "https://www.parti-reconquete.fr/",
+      "https://fede56.parti-reconquete.fr/article/une-surtaxe-absurde-de-plus",
       "https://www.parti-reconquete.fr/",
       "https://www.parti-reconquete.fr/",
       "https://www.parti-reconquete.fr/",
@@ -4827,7 +4827,7 @@ const PARTIES_DATA = [
       "https://www.parti-reconquete.fr/"
     ],
     "axisScores": {
-      "economy": 6.025641025641024,
+      "economy": 6.125356125356124,
       "authority": 2.530864197530866,
       "europe": -6.559139784946238,
       "ecology": -6.117647058823529,

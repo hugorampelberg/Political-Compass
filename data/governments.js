@@ -188,7 +188,7 @@ const GOVERNMENTS_DATA = [
       "Accord net : L’accord CDU/CSU–SPD combine compétitivité, allègement administratif, investissement public et maintien de l’État social. Position directement documentée.",
       "Accord modéré : L’accord CDU/CSU–SPD combine compétitivité, allègement administratif, investissement public et maintien de l’État social. Transposition ou inférence prudente.",
       "Réserve : L’accord CDU/CSU–SPD combine compétitivité, allègement administratif, investissement public et maintien de l’État social. Transposition ou inférence prudente.",
-      "Position de compromis : L’accord CDU/CSU–SPD combine compétitivité, allègement administratif, investissement public et maintien de l’État social. Transposition ou inférence prudente.",
+      "Position équilibrée : le droit allemand exige que la rémunération des dirigeants reste proportionnée à leurs fonctions, performances et à la situation de l’entreprise, mais il n’impose pas de ratio légal entre dirigeants et salariés et le gouvernement actuel ne porte pas de plafond général comparable.",
       "Accord modéré : L’accord CDU/CSU–SPD combine compétitivité, allègement administratif, investissement public et maintien de l’État social. Position directement documentée.",
       "Accord modéré : L’accord CDU/CSU–SPD combine compétitivité, allègement administratif, investissement public et maintien de l’État social. Transposition ou inférence prudente.",
       "Accord modéré : le gouvernement Merz a décidé une prise de participation publique de 40 % dans KNDS afin de préserver une influence stratégique sur l’industrie de défense. Cela valide le principe d’une prise de contrôle publique dans un secteur stratégique, sans aller jusqu’à une nationalisation intégrale : +1.",
@@ -277,7 +277,7 @@ const GOVERNMENTS_DATA = [
       "https://www.bundesregierung.de/breg-de/aktuelles/koalitionsvertrag-2025-2340970",
       "https://www.bundesregierung.de/breg-de/aktuelles/koalitionsvertrag-2025-2340970",
       "https://www.bundesregierung.de/breg-de/aktuelles/koalitionsvertrag-2025-2340970",
-      "https://www.bundesregierung.de/breg-de/aktuelles/koalitionsvertrag-2025-2340970",
+      "https://www.gesetze-im-internet.de/aktg/__87.html",
       "https://www.bundesregierung.de/breg-de/aktuelles/koalitionsvertrag-2025-2340970",
       "https://www.bundesregierung.de/breg-de/aktuelles/koalitionsvertrag-2025-2340970",
       "https://www.bundeswirtschaftsministerium.de/Redaktion/DE/Pressemitteilungen/2026/06/20260622-zitat-reiche-knds.html",
@@ -382,7 +382,7 @@ const GOVERNMENTS_DATA = [
       -1,
       -1,
       2,
-      2,
+      1,
       3,
       -1,
       1,
@@ -560,7 +560,7 @@ const GOVERNMENTS_DATA = [
       "Réserve : La coalition PSOE–Sumar défend un État social renforcé, la redistribution, les droits du travail et une intervention publique active. Transposition ou inférence prudente.",
       "Réserve : La coalition PSOE–Sumar défend un État social renforcé, la redistribution, les droits du travail et une intervention publique active. Transposition ou inférence prudente.",
       "Accord net : La coalition PSOE–Sumar défend un État social renforcé, la redistribution, les droits du travail et une intervention publique active. Position directement documentée.",
-      "Accord net : La coalition PSOE–Sumar défend un État social renforcé, la redistribution, les droits du travail et une intervention publique active. Position directement documentée.",
+      "Accord modéré : la politique de rémunération des sociétés cotées doit expliquer comment les conditions de rémunération et d’emploi des salariés ont été prises en compte ; l’Espagne encadre donc le lien entre rémunérations, sans imposer de ratio maximal général.",
       "Accord fort : le gouvernement Sánchez a mené une hausse structurelle et répétée du salaire minimum, passé d’environ 735 € à plus de 1 200 € sur quatorze mensualités depuis 2018, avec l’objectif de le maintenir autour de 60 % du salaire moyen : +3.",
       "Réserve : La coalition PSOE–Sumar défend un État social renforcé, la redistribution, les droits du travail et une intervention publique active. Transposition ou inférence prudente.",
       "Accord modéré : La coalition PSOE–Sumar défend un État social renforcé, la redistribution, les droits du travail et une intervention publique active. Transposition ou inférence prudente.",
@@ -649,7 +649,7 @@ const GOVERNMENTS_DATA = [
       "https://www.lamoncloa.gob.es/Documents/2025/appendix-II-map-of-commitments-december.pdf",
       "https://www.lamoncloa.gob.es/Documents/2025/appendix-II-map-of-commitments-december.pdf",
       "https://www.lamoncloa.gob.es/Documents/2025/appendix-II-map-of-commitments-december.pdf",
-      "https://www.lamoncloa.gob.es/Documents/2025/appendix-II-map-of-commitments-december.pdf",
+      "https://www.boe.es/buscar/act.php?id=BOE-A-2010-10544&p=20250103&tn=0",
       "https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/trabajo14/Paginas/2023/140223-salario-minimo-interprofesional.aspx",
       "https://www.lamoncloa.gob.es/Documents/2025/appendix-II-map-of-commitments-december.pdf",
       "https://www.lamoncloa.gob.es/Documents/2025/appendix-II-map-of-commitments-december.pdf",
@@ -735,7 +735,7 @@ const GOVERNMENTS_DATA = [
       "https://www.lamoncloa.gob.es/consejodeministros/resumenes/Documents/2026/240226-soberania-digital.pdf"
     ],
     "axisScores": {
-      "economy": -4.615384615384612,
+      "economy": -4.515669515669514,
       "authority": -0.20061728395061734,
       "europe": 6.666666666666666,
       "ecology": 4.862745098039215,
@@ -754,7 +754,7 @@ const GOVERNMENTS_DATA = [
       2,
       1,
       -1,
-      0,
+      -2,
       -2,
       2,
       -2,
@@ -843,7 +843,7 @@ const GOVERNMENTS_DATA = [
       3,
       2,
       2,
-      2,
+      3,
       2,
       2,
       2,
@@ -932,7 +932,7 @@ const GOVERNMENTS_DATA = [
       "Accord net : Le Conseil fédéral suit une économie sociale de marché relativement libérale, avec discipline budgétaire et protection sociale multipiliers. Position directement documentée.",
       "Accord modéré : Le Conseil fédéral suit une économie sociale de marché relativement libérale, avec discipline budgétaire et protection sociale multipiliers. Transposition ou inférence prudente.",
       "Réserve : Le Conseil fédéral suit une économie sociale de marché relativement libérale, avec discipline budgétaire et protection sociale multipiliers. Transposition ou inférence prudente.",
-      "Position de compromis : Le Conseil fédéral suit une économie sociale de marché relativement libérale, avec discipline budgétaire et protection sociale multipiliers. Transposition ou inférence prudente.",
+      "Désaccord net : le Conseil fédéral a explicitement recommandé de rejeter l’initiative 1:12 qui aurait interdit qu’un salaire dépasse douze fois le salaire le plus bas d’une même entreprise, préférant d’autres mécanismes de gouvernance et de redistribution.",
       "Désaccord net : Le Conseil fédéral suit une économie sociale de marché relativement libérale, avec discipline budgétaire et protection sociale multipiliers. Transposition ou inférence prudente.",
       "Accord net : Le Conseil fédéral suit une économie sociale de marché relativement libérale, avec discipline budgétaire et protection sociale multipiliers. Transposition ou inférence prudente.",
       "Désaccord net : Le Conseil fédéral suit une économie sociale de marché relativement libérale, avec discipline budgétaire et protection sociale multipiliers. Transposition ou inférence prudente.",
@@ -1021,7 +1021,7 @@ const GOVERNMENTS_DATA = [
       "https://www.bfs.admin.ch/bfs/en/home/statistics/cross-sectional-topics/monitoring-legislature-plan.html",
       "https://www.bfs.admin.ch/bfs/en/home/statistics/cross-sectional-topics/monitoring-legislature-plan.html",
       "https://www.bfs.admin.ch/bfs/en/home/statistics/cross-sectional-topics/monitoring-legislature-plan.html",
-      "https://www.bfs.admin.ch/bfs/en/home/statistics/cross-sectional-topics/monitoring-legislature-plan.html",
+      "https://www.admin.ch/fr/nsb?id=43067",
       "https://www.bfs.admin.ch/bfs/en/home/statistics/cross-sectional-topics/monitoring-legislature-plan.html",
       "https://www.bfs.admin.ch/bfs/en/home/statistics/cross-sectional-topics/monitoring-legislature-plan.html",
       "https://www.bfs.admin.ch/bfs/en/home/statistics/cross-sectional-topics/monitoring-legislature-plan.html",
@@ -1107,14 +1107,14 @@ const GOVERNMENTS_DATA = [
       "https://www.bk.admin.ch/en/cloud-6"
     ],
     "axisScores": {
-      "economy": 2.8347578347578346,
+      "economy": 3.034188034188034,
       "authority": -0.8024691358024694,
       "europe": -4.946236559139785,
       "ecology": 1.0588235294117647,
       "immigration": -2.7627627627627622,
       "democracy": 5.904761904761905
     },
-    "averageConfidence": 2.0804597701149423
+    "averageConfidence": 2.0919540229885056
   },
   {
     "id": "finlande",
@@ -1126,7 +1126,7 @@ const GOVERNMENTS_DATA = [
       3,
       2,
       -2,
-      -1,
+      -2,
       -2,
       2,
       2,
@@ -1215,7 +1215,7 @@ const GOVERNMENTS_DATA = [
       3,
       2,
       2,
-      2,
+      3,
       2,
       3,
       3,
@@ -1304,7 +1304,7 @@ const GOVERNMENTS_DATA = [
       "Accord fort : Le programme Orpo privilégie le travail, l’entrepreneuriat, la réduction du déficit, les réformes du marché du travail et la baisse des obstacles réglementaires. Position directement documentée.",
       "Accord net : Le programme Orpo privilégie le travail, l’entrepreneuriat, la réduction du déficit, les réformes du marché du travail et la baisse des obstacles réglementaires. Transposition ou inférence prudente.",
       "Désaccord net : Le programme Orpo privilégie le travail, l’entrepreneuriat, la réduction du déficit, les réformes du marché du travail et la baisse des obstacles réglementaires. Transposition ou inférence prudente.",
-      "Réserve : Le programme Orpo privilégie le travail, l’entrepreneuriat, la réduction du déficit, les réformes du marché du travail et la baisse des obstacles réglementaires. Transposition ou inférence prudente.",
+      "Désaccord net : l’État finlandais demande des rémunérations raisonnables et transparentes dans les entreprises publiques, mais le gouvernement Orpo a relevé le plafond de rémunération variable des dirigeants de sociétés cotées publiques pour rester compétitif sur le marché des dirigeants.",
       "Désaccord net : Le programme Orpo privilégie le travail, l’entrepreneuriat, la réduction du déficit, les réformes du marché du travail et la baisse des obstacles réglementaires. Transposition ou inférence prudente.",
       "Accord net : Le programme Orpo privilégie le travail, l’entrepreneuriat, la réduction du déficit, les réformes du marché du travail et la baisse des obstacles réglementaires. Position directement documentée.",
       "Accord net : l’État finlandais conserve des participations importantes, parfois majoritaires, dans des entreprises stratégiques comme Finnair, Fortum, Neste ou Posti afin de protéger des intérêts nationaux essentiels. Cela valide clairement le principe d’un contrôle public stratégique : +2.",
@@ -1393,7 +1393,7 @@ const GOVERNMENTS_DATA = [
       "https://valtioneuvosto.fi/en/governments/government-programme",
       "https://valtioneuvosto.fi/en/governments/government-programme",
       "https://valtioneuvosto.fi/en/governments/government-programme",
-      "https://valtioneuvosto.fi/en/governments/government-programme",
+      "https://valtioneuvosto.fi/en/-/sustainable-growth-through-state-ownership-government-adopts-resolution-on-state-ownership-policy",
       "https://valtioneuvosto.fi/en/governments/government-programme",
       "https://valtioneuvosto.fi/en/governments/government-programme",
       "https://valtioneuvosto.fi/government-ownership-steering/companies",
@@ -1479,14 +1479,14 @@ const GOVERNMENTS_DATA = [
       "https://valtioneuvosto.fi/en/-/1410829/finland-among-top-eu-countries-in-digitalisation"
     ],
     "axisScores": {
-      "economy": 4.13105413105413,
+      "economy": 4.230769230769229,
       "authority": 2.1759259259259265,
       "europe": 5.698924731182795,
       "ecology": -1.411764705882353,
       "immigration": -5.135135135135132,
       "democracy": 1.1428571428571428
     },
-    "averageConfidence": 2.1954022988505746
+    "averageConfidence": 2.206896551724138
   },
   {
     "id": "royaume-uni",
@@ -1498,7 +1498,7 @@ const GOVERNMENTS_DATA = [
       0,
       -1,
       1,
-      1,
+      0,
       2,
       0,
       2,
@@ -1676,7 +1676,7 @@ const GOVERNMENTS_DATA = [
       "Position de compromis : Le gouvernement Labour combine croissance, investissement public, renforcement des droits du travail et discipline budgétaire modérée. Transposition ou inférence prudente.",
       "Réserve : Le gouvernement Labour combine croissance, investissement public, renforcement des droits du travail et discipline budgétaire modérée. Transposition ou inférence prudente.",
       "Accord modéré : Le gouvernement Labour combine croissance, investissement public, renforcement des droits du travail et discipline budgétaire modérée. Transposition ou inférence prudente.",
-      "Accord modéré : Le gouvernement Labour combine croissance, investissement public, renforcement des droits du travail et discipline budgétaire modérée. Transposition ou inférence prudente.",
+      "Position équilibrée : les grandes sociétés cotées doivent publier et expliquer le ratio entre la rémunération du dirigeant et celle des salariés, mais il n’existe pas de plafond légal général et aucune position suffisamment directe du gouvernement actuel n’établit qu’il souhaite en créer un.",
       "Accord net : Le gouvernement Labour combine croissance, investissement public, renforcement des droits du travail et discipline budgétaire modérée. Position directement documentée.",
       "Position de compromis : Le gouvernement Labour combine croissance, investissement public, renforcement des droits du travail et discipline budgétaire modérée. Transposition ou inférence prudente.",
       "Accord net : le gouvernement Labour accepte explicitement la prise de contrôle public d’entreprises stratégiques, notamment avec le retour de British Steel dans le secteur public et la renationalisation ferroviaire. La pratique est nette, mais le recours reste ciblé : +2.",
@@ -1765,7 +1765,7 @@ const GOVERNMENTS_DATA = [
       "https://www.gov.uk/government/publications/plan-for-change",
       "https://www.gov.uk/government/publications/plan-for-change",
       "https://www.gov.uk/government/publications/plan-for-change",
-      "https://www.gov.uk/government/publications/plan-for-change",
+      "https://www.gov.uk/government/news/new-executive-pay-transparency-measures-come-into-force",
       "https://www.gov.uk/government/publications/plan-for-change",
       "https://www.gov.uk/government/publications/plan-for-change",
       "https://www.gov.uk/government/news/government-brings-british-steel-into-public-ownership-to-protect-uk-steelmaking",
@@ -1851,7 +1851,7 @@ const GOVERNMENTS_DATA = [
       "https://www.gov.uk/government/publications/expression-of-interest-airr-heterogeneous-supercomputer-host-site-selection"
     ],
     "axisScores": {
-      "economy": -1.794871794871794,
+      "economy": -1.6951566951566948,
       "authority": 2.2530864197530875,
       "europe": -0.7526881720430108,
       "ecology": 3.607843137254902,
@@ -1870,7 +1870,7 @@ const GOVERNMENTS_DATA = [
       1,
       0,
       0,
-      2,
+      0,
       -2,
       1,
       -1,
@@ -1959,7 +1959,7 @@ const GOVERNMENTS_DATA = [
       3,
       2,
       2,
-      3,
+      2,
       1,
       2,
       1,
@@ -2048,7 +2048,7 @@ const GOVERNMENTS_DATA = [
       "Accord modéré : Le programme combine baisse de l’impôt sur les sociétés et de certains impôts supérieurs, soutien aux entreprises, plein emploi et renforcement de prestations universelles. Position directement documentée.",
       "Position de compromis : Le programme combine baisse de l’impôt sur les sociétés et de certains impôts supérieurs, soutien aux entreprises, plein emploi et renforcement de prestations universelles. Transposition ou inférence prudente.",
       "Position de compromis : Le programme combine baisse de l’impôt sur les sociétés et de certains impôts supérieurs, soutien aux entreprises, plein emploi et renforcement de prestations universelles. Transposition ou inférence prudente.",
-      "Accord net : Le programme combine baisse de l’impôt sur les sociétés et de certains impôts supérieurs, soutien aux entreprises, plein emploi et renforcement de prestations universelles. Position directement documentée.",
+      "Position équilibrée : les sociétés cotées danoises doivent publier une politique et un rapport de rémunération, mais aucune règle générale ne lie la rémunération maximale au salaire le plus faible et le gouvernement n’a pas proposé de ratio légal comparable.",
       "Désaccord net : le Danemark ne fixe pas de salaire minimum légal national et défend la détermination des salaires par les partenaires sociaux plutôt que par une hausse décidée par la loi.",
       "Accord modéré : Le programme combine baisse de l’impôt sur les sociétés et de certains impôts supérieurs, soutien aux entreprises, plein emploi et renforcement de prestations universelles. Transposition ou inférence prudente.",
       "Réserve : Le programme combine baisse de l’impôt sur les sociétés et de certains impôts supérieurs, soutien aux entreprises, plein emploi et renforcement de prestations universelles. Position peu explicite ou comparaison institutionnelle limitée.",
@@ -2137,7 +2137,7 @@ const GOVERNMENTS_DATA = [
       "https://stm.dk/media/rc1ktdmg/det-politiske-grundlag-for-firkloeverregeringen.pdf",
       "https://stm.dk/media/rc1ktdmg/det-politiske-grundlag-for-firkloeverregeringen.pdf",
       "https://stm.dk/media/rc1ktdmg/det-politiske-grundlag-for-firkloeverregeringen.pdf",
-      "https://stm.dk/media/rc1ktdmg/det-politiske-grundlag-for-firkloeverregeringen.pdf",
+      "https://erhvervsstyrelsen.dk/vejledning-selskabslovens-krav-til-boersnoterede-selskabers-vederlagspolitik-og-vederlagsrapport",
       "https://stm.dk/media/rc1ktdmg/det-politiske-grundlag-for-firkloeverregeringen.pdf",
       "https://stm.dk/media/rc1ktdmg/det-politiske-grundlag-for-firkloeverregeringen.pdf",
       "https://stm.dk/media/rc1ktdmg/det-politiske-grundlag-for-firkloeverregeringen.pdf",
@@ -2223,14 +2223,14 @@ const GOVERNMENTS_DATA = [
       "https://regeringen.dk/media/ohljoptp/digitaliseringspartnerskabets-rapport.pdf"
     ],
     "axisScores": {
-      "economy": 0.170940170940171,
+      "economy": 0.3703703703703705,
       "authority": 2.0833333333333344,
       "europe": 6.021505376344086,
       "ecology": 5.019607843137255,
       "immigration": -5.045045045045043,
       "democracy": 2.4761904761904767
     },
-    "averageConfidence": 2.1954022988505746
+    "averageConfidence": 2.1839080459770117
   },
   {
     "id": "pays-bas",
@@ -2331,7 +2331,7 @@ const GOVERNMENTS_DATA = [
       3,
       1,
       1,
-      1,
+      3,
       1,
       1,
       1,
@@ -2420,7 +2420,7 @@ const GOVERNMENTS_DATA = [
       "Accord net : codage fondé sur les documents officiels retenus pour le thème « Économie ». Niveau de preuve : position ou mesure explicitement documentée.",
       "Accord modéré : codage fondé sur les documents officiels retenus pour le thème « Économie ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
       "Réserve : codage fondé sur les documents officiels retenus pour le thème « Économie ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
-      "Réserve : codage fondé sur les documents officiels retenus pour le thème « Économie ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
+      "Désaccord modéré : les Pays-Bas plafonnent légalement les rémunérations des dirigeants du secteur public et semi-public, mais n’imposent pas de ratio entre dirigeants et salariés dans les entreprises privées ; le modèle actuel reste donc moins interventionniste que la proposition.",
       "Accord modéré : codage fondé sur les documents officiels retenus pour le thème « Économie ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
       "Accord net : codage fondé sur les documents officiels retenus pour le thème « Économie ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
       "Accord modéré : codage fondé sur les documents officiels retenus pour le thème « Économie ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
@@ -2509,7 +2509,7 @@ const GOVERNMENTS_DATA = [
       "https://www.government.nl/site/binaries/site-content/collections/documents/2026/02/23/2026-2030-coalition-agreement-lets-get-to-work---building-a-better-netherlands/2026-2030-coalition-agreement-let%E2%80%99s-get-to-work-building-a-better-netherlands.pdf",
       "https://www.government.nl/site/binaries/site-content/collections/documents/2026/02/23/2026-2030-coalition-agreement-lets-get-to-work---building-a-better-netherlands/2026-2030-coalition-agreement-let%E2%80%99s-get-to-work-building-a-better-netherlands.pdf",
       "https://www.government.nl/site/binaries/site-content/collections/documents/2026/02/23/2026-2030-coalition-agreement-lets-get-to-work---building-a-better-netherlands/2026-2030-coalition-agreement-let%E2%80%99s-get-to-work-building-a-better-netherlands.pdf",
-      "https://www.government.nl/site/binaries/site-content/collections/documents/2026/02/23/2026-2030-coalition-agreement-lets-get-to-work---building-a-better-netherlands/2026-2030-coalition-agreement-let%E2%80%99s-get-to-work-building-a-better-netherlands.pdf",
+      "https://www.rijksoverheid.nl/themas/overheid-en-democratie/beloningen-bestuurders/topinkomens-overheid",
       "https://www.government.nl/site/binaries/site-content/collections/documents/2026/02/23/2026-2030-coalition-agreement-lets-get-to-work---building-a-better-netherlands/2026-2030-coalition-agreement-let%E2%80%99s-get-to-work-building-a-better-netherlands.pdf",
       "https://www.government.nl/site/binaries/site-content/collections/documents/2026/02/23/2026-2030-coalition-agreement-lets-get-to-work---building-a-better-netherlands/2026-2030-coalition-agreement-let%E2%80%99s-get-to-work-building-a-better-netherlands.pdf",
       "https://www.government.nl/site/binaries/site-content/collections/documents/2026/02/23/2026-2030-coalition-agreement-lets-get-to-work---building-a-better-netherlands/2026-2030-coalition-agreement-let%E2%80%99s-get-to-work-building-a-better-netherlands.pdf",
@@ -2602,7 +2602,7 @@ const GOVERNMENTS_DATA = [
       "immigration": -2.432432432432432,
       "democracy": 2.4285714285714284
     },
-    "averageConfidence": 2.1149425287356323
+    "averageConfidence": 2.1379310344827585
   },
   {
     "id": "pologne",
@@ -2614,7 +2614,7 @@ const GOVERNMENTS_DATA = [
       1,
       1,
       0,
-      1,
+      0,
       1,
       1,
       1,
@@ -2703,7 +2703,7 @@ const GOVERNMENTS_DATA = [
       2,
       1,
       1,
-      1,
+      2,
       3,
       1,
       1,
@@ -2792,7 +2792,7 @@ const GOVERNMENTS_DATA = [
       "Accord modéré : codage fondé sur les documents officiels retenus pour le thème « Économie ». Niveau de preuve : orientation cohérente étayée par plusieurs éléments.",
       "Accord modéré : codage fondé sur les documents officiels retenus pour le thème « Économie ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
       "Position neutre, partagée ou non arrêtée : codage fondé sur les documents officiels retenus pour le thème « Économie ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
-      "Accord modéré : codage fondé sur les documents officiels retenus pour le thème « Économie ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
+      "Position équilibrée : les sociétés cotées doivent expliquer comment les conditions salariales des employés ont été prises en compte et comparer l’évolution de la rémunération des dirigeants à celle des salariés, mais aucun plafond légal général de ratio salarial n’est établi.",
       "Accord modéré : le salaire minimum polonais augmente encore en 2026, mais la hausse est d’environ 3 %, proche de l’inflation prévue. Il s’agit d’une revalorisation réelle mais pas d’une augmentation particulièrement forte : +1.",
       "Accord modéré : codage fondé sur les documents officiels retenus pour le thème « Économie ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
       "Accord modéré : codage fondé sur les documents officiels retenus pour le thème « Économie ». Niveau de preuve : analogie prudente, sans proposition parfaitement équivalente.",
@@ -2881,7 +2881,7 @@ const GOVERNMENTS_DATA = [
       "https://www.gov.pl/web/primeminister/poland-a-year-of-breakthrough---the-prime-minister-unveils-polands-2025-economic-plan",
       "https://www.gov.pl/web/primeminister/poland-a-year-of-breakthrough---the-prime-minister-unveils-polands-2025-economic-plan",
       "https://www.gov.pl/web/primeminister/poland-a-year-of-breakthrough---the-prime-minister-unveils-polands-2025-economic-plan",
-      "https://www.gov.pl/web/primeminister/poland-a-year-of-breakthrough---the-prime-minister-unveils-polands-2025-economic-plan",
+      "https://eli.gov.pl/api/acts/DU/2024/620/text.html",
       "https://www.gov.pl/web/premier/propozycja-wysokosci-minimalnego-wynagrodzenia-za-prace-oraz-minimalnej-stawki-godzinowej-w-2026-r",
       "https://www.gov.pl/web/primeminister/poland-a-year-of-breakthrough---the-prime-minister-unveils-polands-2025-economic-plan",
       "https://www.gov.pl/web/primeminister/poland-a-year-of-breakthrough---the-prime-minister-unveils-polands-2025-economic-plan",
@@ -2967,13 +2967,13 @@ const GOVERNMENTS_DATA = [
       "https://www.gov.pl/web/primeminister/poland-a-year-of-breakthrough---the-prime-minister-unveils-polands-2025-economic-plan"
     ],
     "axisScores": {
-      "economy": -0.0997150997150996,
+      "economy": -4.744542840278445e-17,
       "authority": 1.8672839506172851,
       "europe": 3.4408602150537626,
       "ecology": -3.3725490196078436,
       "immigration": -4.804804804804804,
       "democracy": 2.1428571428571432
     },
-    "averageConfidence": 1.7816091954022988
+    "averageConfidence": 1.793103448275862
   }
 ];
