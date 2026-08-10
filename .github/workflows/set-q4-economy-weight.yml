@@ -1,0 +1,45 @@
+name: Set Q4 economy weight
+
+on:
+  push:
+    paths:
+      - '.github/scripts/set-q4-economy-weight.js'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Apply Q4 weight and recompute scores
+        run: node .github/scripts/set-q4-economy-weight.js
+      - name: Validate syntax
+        run: |
+          node --check data/questionnaire.js
+          node --check data/parties.js
+          node --check data/governments.js
+      - name: Validate Q4 and all axis scores
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs'; import vm from 'node:vm';
+          const c={}; vm.createContext(c);
+          for (const p of ['data/questionnaire.js','data/parties.js','data/governments.js']) vm.runInContext(fs.readFileSync(p,'utf8').replace(/^const /gm,'var '),c,{filename:p});
+          const q4=c.QUESTIONNAIRE_DATA.questions.find(q=>q.id===4);
+          if(q4.coefficients.economy!==-1) throw new Error('Q4 economy != -1');
+          if(Math.abs(c.QUESTIONNAIRE_DATA.axisMasses.economy-23.7)>1e-9) throw new Error(`economy mass ${c.QUESTIONNAIRE_DATA.axisMasses.economy}`);
+          const axes=c.QUESTIONNAIRE_DATA.axes.map(a=>a.key);
+          for(const e of [...c.PARTIES_DATA,...c.GOVERNMENTS_DATA]) for(const axis of axes){let n=0,m=0;c.QUESTIONNAIRE_DATA.questions.forEach((q,i)=>{const x=q.coefficients[axis]||0;n+=e.responses[i]*x;m+=Math.abs(x)});const expected=m?10*n/(3*m):0;if(Math.abs(e.axisScores[axis]-expected)>1e-10) throw new Error(`${e.id} ${axis} stale`)}
+          console.log('Validation passed');
+          NODE
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/questionnaire.js data/parties.js data/governments.js
+          git diff --cached --quiet && exit 0
+          git commit -m "Increase Q4 economic weight"
+          git push origin main
