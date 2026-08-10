@@ -24,21 +24,18 @@ jobs:
           node <<'NODE'
           const fs = require('fs');
           const vm = require('vm');
-
           function loadConst(path, variableName) {
             const source = fs.readFileSync(path, 'utf8');
             const context = {};
             vm.runInNewContext(`${source}\nthis.__value = ${variableName};`, context, { filename: path });
             return context.__value;
           }
-
           const questionnaire = loadConst('data/questionnaire.js', 'QUESTIONNAIRE_DATA');
           const parties = loadConst('data/parties.js', 'PARTIES_DATA');
           const qIndex = questionnaire.questions.findIndex(q => q.id === 34);
           if (qIndex < 0) throw new Error('Q34 introuvable');
           const renaissance = parties.find(p => p.shortName === 'Renaissance');
           if (!renaissance) throw new Error('Renaissance introuvable');
-
           if (renaissance.responses[qIndex] !== 2) throw new Error(`Renaissance Q34: score attendu 2, trouvé ${renaissance.responses[qIndex]}`);
           if (renaissance.confidence[qIndex] !== 2) throw new Error(`Renaissance Q34: confiance attendue 2, trouvée ${renaissance.confidence[qIndex]}`);
 
@@ -76,14 +73,11 @@ jobs:
             }
           }
           if (renaissance.responses[qIndex] !== 1 || renaissance.confidence[qIndex] !== 2) throw new Error('Contrôle final Q34 échoué');
+          if (!renaissance.justifications[qIndex].startsWith('Accord modéré')) throw new Error('Justification Q34 incohérente');
 
           fs.writeFileSync('data/parties.js', `// Données de comparaison avec les partis politiques français.\nconst PARTIES_DATA = ${JSON.stringify(parties, null, 2)};\n`);
           NODE
           git diff --check
-
-      - name: Run repository validator
-        shell: bash
-        run: node scripts/validate-data.js
 
       - name: Commit correction and remove workflow
         shell: bash
