@@ -480,6 +480,7 @@ const QUESTIONNAIRE_DATA = {
       "id": 29,
       "theme": "Sécurité / justice",
       "text": "La police devrait disposer de pouvoirs plus importants pour lutter contre la criminalité, quitte à accepter davantage de contrôles sur certaines libertés individuelles.",
+      "explanation": "Par exemple : développer la vidéosurveillance, même si cela signifie être davantage surveillé dans l’espace public.",
       "defaultAnswer": 2,
       "note": "",
       "coefficients": {
