@@ -175,7 +175,7 @@ const QUESTIONNAIRE_DATA = {
       "id": 8,
       "theme": "Économie",
       "text": "La concurrence est généralement préférable à la réglementation pour améliorer les prix, la qualité et l'innovation.",
-      "explanation": "Par exemple : laisser plusieurs entreprises se concurrencer sur les prix et la qualité plutôt que d’imposer des prix, des normes ou des règles détaillées pour encadrer leurs produits et services.",
+      "explanation": "Par exemple laisser plusieurs entreprises se concurrencer sur les prix et la qualité plutôt que d’imposer des prix, des normes ou des règles détaillées pour encadrer leurs produits et services.",
       "defaultAnswer": 0,
       "note": "",
       "coefficients": {
