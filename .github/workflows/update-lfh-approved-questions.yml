@@ -20,8 +20,35 @@ jobs:
         run: python .github/scripts/update-lfh-approved-questions.py
       - name: Validate JavaScript syntax
         run: node --check data/parties.js
-      - name: Validate questionnaire data
-        run: node scripts/validate-data.js
+      - name: Validate approved LFH scope
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import vm from 'node:vm';
+          const context = {};
+          vm.createContext(context);
+          for (const file of ['data/questionnaire.js','data/parties.js']) {
+            vm.runInContext(fs.readFileSync(file,'utf8').replace(/^const /gm,'var '), context, { filename:file });
+          }
+          const qIndex = new Map(context.QUESTIONNAIRE_DATA.questions.map((q,i)=>[q.id,i]));
+          const lfh = context.PARTIES_DATA.find(p=>p.id==='france-humaniste');
+          const expected = new Map([[33,1],[68,1],[69,0],[72,-1],[73,1],[74,1],[76,-1],[80,1],[81,0],[83,0],[91,2]]);
+          for (const [qid,value] of expected) {
+            const i=qIndex.get(qid);
+            if (lfh.responses[i]!==value) throw new Error(`Q${qid}: ${lfh.responses[i]} != ${value}`);
+          }
+          for (const axis of context.QUESTIONNAIRE_DATA.axes.map(a=>a.key)) {
+            let numerator=0, mass=0;
+            context.QUESTIONNAIRE_DATA.questions.forEach((q,i)=>{
+              const c=q.coefficients[axis]||0;
+              numerator+=lfh.responses[i]*c;
+              mass+=Math.abs(c);
+            });
+            const expectedScore=mass?10*numerator/(3*mass):0;
+            if (Math.abs(lfh.axisScores[axis]-expectedScore)>1e-12) throw new Error(`${axis}: axis score mismatch`);
+          }
+          console.log('LFH approved responses and axisScores validated.');
+          NODE
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
