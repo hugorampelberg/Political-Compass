@@ -1,5 +1,6 @@
 from pathlib import Path
 
+# Triggered after workflow installation.
 app_path = Path('scripts/app.js')
 app = app_path.read_text(encoding='utf-8')
 
