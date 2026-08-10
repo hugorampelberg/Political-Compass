@@ -735,7 +735,7 @@ const QUESTIONNAIRE_DATA = {
     {
       "id": 47,
       "theme": "Outre-mer / vie chère",
-      "text": "L’État devrait garantir que les produits essentiels ne coûtent pas beaucoup plus cher dans les territoires ultramarins que dans l’Hexagone, quitte à subventionner durablement leur transport ou leur prix avec l’argent public national.",
+      "text": "L’État devrait garantir que les produits essentiels ne coûtent pas beaucoup plus cher dans les DOM/TOM que dans l’Hexagone, quitte à subventionner durablement leur transport ou leur prix avec l’argent public national.",
       "defaultAnswer": 0,
       "note": "",
       "coefficients": {
@@ -1174,7 +1174,7 @@ const QUESTIONNAIRE_DATA = {
     {
       "id": 80,
       "theme": "Écologie / agriculture",
-      "text": "La France devrait interdire aux agriculteurs l’usage d’un produit phytosanitaire jugé trop polluant, même si cette interdiction les désavantage face à des concurrents étrangers qui peuvent encore l’utiliser.",
+      "text": "La France devrait interdire aux agriculteurs l’usage d’un produit jugé trop polluant, même si cette interdiction les désavantage face à des concurrents étrangers qui peuvent encore l’utiliser.",
       "defaultAnswer": 0,
       "note": "",
       "coefficients": {
