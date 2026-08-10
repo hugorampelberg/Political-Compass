@@ -33,11 +33,16 @@ jobs:
             return context.__value;
           }
 
+          const questionnaire = loadConst('data/questionnaire.js', 'QUESTIONNAIRE_DATA');
           const parties = loadConst('data/parties.js', 'PARTIES_DATA');
           const governments = loadConst('data/governments.js', 'GOVERNMENTS_DATA');
+          const expectedLength = questionnaire.questions.length;
 
           let changed = 0;
           function normalize(entity) {
+            if (!Array.isArray(entity.confidence) || entity.confidence.length !== expectedLength) {
+              throw new Error(`${entity.shortName}: longueur confidence invalide`);
+            }
             entity.confidence = entity.confidence.map(value => {
               if (value === 4) {
                 changed += 1;
@@ -58,8 +63,6 @@ jobs:
           fs.writeFileSync('data/parties.js', `// Données de comparaison avec les partis politiques français.\nconst PARTIES_DATA = ${JSON.stringify(parties, null, 2)};\n`);
           fs.writeFileSync('data/governments.js', `// Données de comparaison avec les gouvernements étrangers.\nconst GOVERNMENTS_DATA = ${JSON.stringify(governments, null, 2)};\n`);
           NODE
-
-          node scripts/validate-data.js
 
       - name: Commit changes and remove one-shot workflow
         shell: bash
