@@ -1,0 +1,90 @@
+name: Replace Q18 and Q56
+
+on:
+  push:
+    paths:
+      - '.github/scripts/replace-q18-q56.js'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Replace Q18 and Q56 and recode entities
+        run: node .github/scripts/replace-q18-q56.js
+      - name: Validate JavaScript syntax
+        run: |
+          node --check data/questionnaire.js
+          node --check data/parties.js
+          node --check data/governments.js
+      - name: Validate scope, masses and scores
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import vm from 'node:vm';
+          const c={}; vm.createContext(c);
+          for (const p of ['data/questionnaire.js','data/parties.js','data/governments.js']) {
+            vm.runInContext(fs.readFileSync(p,'utf8').replace(/^const /gm,'var '),c,{filename:p});
+          }
+          const qd=c.QUESTIONNAIRE_DATA;
+          const idx=new Map(qd.questions.map((q,i)=>[q.id,i]));
+          const i18=idx.get(18), i56=idx.get(56);
+          const q18=qd.questions[i18], q56=qd.questions[i56];
+          const text18='Les régions devraient pouvoir adopter des règles différentes en matière économique, sociale ou environnementale plutôt que d’appliquer partout les mêmes règles nationales.';
+          const text56="Un étranger en situation irrégulière qui travaille de façon stable en France depuis plusieurs années et n’a commis aucun délit devrait pouvoir être régularisé, même s’il est entré ou est resté sur le territoire sans autorisation.";
+          if(q18.text!==text18) throw new Error('Q18 text mismatch');
+          if(q56.text!==text56) throw new Error('Q56 text mismatch');
+          const expected18={economy:0,authority:0,europe:0,ecology:0,immigration:0,democracy:0.8};
+          const expected56={economy:0,authority:0,europe:0,ecology:0,immigration:1,democracy:0};
+          if(JSON.stringify(q18.coefficients)!==JSON.stringify(expected18)) throw new Error('Q18 coefficients mismatch');
+          if(JSON.stringify(q56.coefficients)!==JSON.stringify(expected56)) throw new Error('Q56 coefficients mismatch');
+          const expectedMasses={economy:23.7,authority:20.4,europe:6.2,ecology:8.5,immigration:11.4,democracy:7.8};
+          for(const [axis,v] of Object.entries(expectedMasses)) if(Math.abs(qd.axisMasses[axis]-v)>1e-9) throw new Error(`${axis} mass ${qd.axisMasses[axis]} != ${v}`);
+          const expected18Scores={
+            lfi:-3,pcf:-2,'les-ecologistes':3,ps:2,renaissance:2,modem:1,horizons:2,'france-humaniste':1,lr:2,'nouvelle-energie':3,udr:1,rn:-2,reconquete:0,
+            allemagne:3,espagne:3,suisse:3,finlande:2,'royaume-uni':3,danemark:1,'pays-bas':2,pologne:1
+          };
+          const expected56Scores={
+            lfi:3,pcf:3,'les-ecologistes':3,ps:3,renaissance:1,modem:2,horizons:1,'france-humaniste':0,lr:-2,'nouvelle-energie':-3,udr:-2,rn:-3,reconquete:-3,
+            allemagne:-1,espagne:3,suisse:0,finlande:-3,'royaume-uni':-2,danemark:-3,'pays-bas':-1,pologne:-2
+          };
+          const expected18Conf={
+            lfi:4,pcf:4,'les-ecologistes':4,ps:4,renaissance:4,modem:4,horizons:4,'france-humaniste':3,lr:4,'nouvelle-energie':4,udr:3,rn:4,reconquete:2,
+            allemagne:4,espagne:4,suisse:4,finlande:4,'royaume-uni':4,danemark:3,'pays-bas':4,pologne:3
+          };
+          const expected56Conf={
+            lfi:4,pcf:4,'les-ecologistes':4,ps:4,renaissance:4,modem:4,horizons:3,'france-humaniste':2,lr:4,'nouvelle-energie':4,udr:3,rn:4,reconquete:4,
+            allemagne:3,espagne:4,suisse:4,finlande:4,'royaume-uni':4,danemark:4,'pays-bas':3,pologne:4
+          };
+          const all=[...c.PARTIES_DATA,...c.GOVERNMENTS_DATA];
+          if(all.length!==21) throw new Error(`Expected 21 entities, got ${all.length}`);
+          for(const e of all){
+            if(e.responses.length!==qd.questions.length||e.confidence.length!==qd.questions.length||e.justifications.length!==qd.questions.length||e.sources.length!==qd.questions.length) throw new Error(`${e.id} array length mismatch`);
+            if(e.responses[i18]!==expected18Scores[e.id]) throw new Error(`${e.id} Q18 response mismatch`);
+            if(e.responses[i56]!==expected56Scores[e.id]) throw new Error(`${e.id} Q56 response mismatch`);
+            if(e.confidence[i18]!==expected18Conf[e.id]) throw new Error(`${e.id} Q18 confidence mismatch`);
+            if(e.confidence[i56]!==expected56Conf[e.id]) throw new Error(`${e.id} Q56 confidence mismatch`);
+            for(const axis of qd.axes.map(a=>a.key)){
+              let n=0,m=0;
+              qd.questions.forEach((q,j)=>{const x=q.coefficients[axis]||0;n+=e.responses[j]*x;m+=Math.abs(x)});
+              const expected=m?10*n/(3*m):0;
+              if(Math.abs(e.axisScores[axis]-expected)>1e-10) throw new Error(`${e.id} ${axis} stale`);
+            }
+            const avg=e.confidence.reduce((a,b)=>a+b,0)/e.confidence.length;
+            if(Math.abs(e.averageConfidence-avg)>1e-12) throw new Error(`${e.id} averageConfidence stale`);
+          }
+          console.log('Q18/Q56 validation passed');
+          NODE
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/questionnaire.js data/parties.js data/governments.js
+          git diff --cached --quiet && exit 0
+          git commit -m "Replace Q18 and Q56 with new topics"
+          git push origin main
