@@ -1,0 +1,70 @@
+name: Recalculate questionnaire coefficients
+
+on:
+  push:
+    paths:
+      - '.github/scripts/apply-coefficient-adjustments.js'
+
+permissions:
+  contents: write
+
+jobs:
+  recalculate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Apply requested coefficient changes
+        run: node .github/scripts/apply-coefficient-adjustments.js
+      - name: Validate JavaScript syntax
+        run: |
+          node --check data/questionnaire.js
+          node --check data/parties.js
+          node --check data/governments.js
+      - name: Validate requested masses and entity dimensions
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import vm from 'node:vm';
+          const context = {}; vm.createContext(context);
+          for (const path of ['data/questionnaire.js','data/parties.js','data/governments.js']) {
+            vm.runInContext(fs.readFileSync(path,'utf8').replace(/^const /gm,'var '), context, {filename:path});
+          }
+          const q = context.QUESTIONNAIRE_DATA;
+          const expected = {economy:23.4, authority:21.6, europe:6.2, ecology:8.5, immigration:11.1, democracy:7};
+          for (const [axis, mass] of Object.entries(expected)) {
+            if (Math.abs(q.axisMasses[axis] - mass) > 1e-9) throw new Error(`${axis}: ${q.axisMasses[axis]} != ${mass}`);
+          }
+          const expectedChanges = {
+            34: ['authority', -0.2],
+            47: ['authority', 0],
+            61: ['authority', -0.5],
+            69: ['ecology', -0.7],
+            80: ['authority', 0.5],
+            81: ['economy', -0.5],
+            86: ['democracy', 0]
+          };
+          for (const [id, [axis, value]] of Object.entries(expectedChanges)) {
+            const question = q.questions.find(x => x.id === Number(id));
+            if (!question || question.coefficients[axis] !== value) throw new Error(`Q${id} ${axis} incorrect`);
+          }
+          for (const entity of [...context.PARTIES_DATA, ...context.GOVERNMENTS_DATA]) {
+            if (entity.responses.length !== q.questions.length) throw new Error(`${entity.id}: response length mismatch`);
+            for (const axis of q.axes.map(a => a.key)) {
+              let num=0, mass=0;
+              q.questions.forEach((question,i)=>{ const c=question.coefficients[axis]||0; num += entity.responses[i]*c; mass += Math.abs(c); });
+              const expectedScore = mass ? 10*num/(3*mass) : 0;
+              if (Math.abs(entity.axisScores[axis]-expectedScore) > 1e-10) throw new Error(`${entity.id} ${axis}: stale axis score`);
+            }
+          }
+          console.log('Validation passed');
+          NODE
+      - name: Commit recalculated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/questionnaire.js data/parties.js data/governments.js
+          git diff --cached --quiet && exit 0
+          git commit -m "Adjust questionnaire coefficients and recompute axes"
+          git push origin main
