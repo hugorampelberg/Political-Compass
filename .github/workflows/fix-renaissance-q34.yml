@@ -1,0 +1,97 @@
+name: Fix Renaissance Q34
+
+on:
+  push:
+    branches: [fix/renaissance-q34-final]
+    paths:
+      - '.github/workflows/fix-renaissance-q34.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/renaissance-q34-final
+          fetch-depth: 0
+
+      - name: Update Renaissance Q34 and recalculate axes
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const vm = require('vm');
+
+          function loadConst(path, variableName) {
+            const source = fs.readFileSync(path, 'utf8');
+            const context = {};
+            vm.runInNewContext(`${source}\nthis.__value = ${variableName};`, context, { filename: path });
+            return context.__value;
+          }
+
+          const questionnaire = loadConst('data/questionnaire.js', 'QUESTIONNAIRE_DATA');
+          const parties = loadConst('data/parties.js', 'PARTIES_DATA');
+          const qIndex = questionnaire.questions.findIndex(q => q.id === 34);
+          if (qIndex < 0) throw new Error('Q34 introuvable');
+          const renaissance = parties.find(p => p.shortName === 'Renaissance');
+          if (!renaissance) throw new Error('Renaissance introuvable');
+
+          if (renaissance.responses[qIndex] !== 2) throw new Error(`Renaissance Q34: score attendu 2, trouvé ${renaissance.responses[qIndex]}`);
+          if (renaissance.confidence[qIndex] !== 2) throw new Error(`Renaissance Q34: confiance attendue 2, trouvée ${renaissance.confidence[qIndex]}`);
+
+          renaissance.responses[qIndex] = 1;
+          renaissance.justifications[qIndex] = "Accord modéré : Emmanuel Macron estime que le financement de la protection sociale repose trop sur le travail et cite la consommation parmi les assiettes alternatives possibles. Mais, interrogé explicitement sur une TVA sociale, il n'a pas endossé cette solution précise. Renaissance est donc orienté vers un transfert partiel hors des cotisations sur les salaires, sans avoir clairement accepté la hausse de TVA et le renchérissement des biens et services décrits par la question ; +1 est plus adapté que +2.";
+          renaissance.sources[qIndex] = 'https://www.elysee.fr/emmanuel-macron/2025/05/13/les-defis-de-la-france-interview-du-president-emmanuel-macron-sur-tf1';
+
+          const axes = questionnaire.axes.map(a => a.key);
+          function recalcAxisScores(item) {
+            const scores = {};
+            for (const axis of axes) {
+              let numerator = 0;
+              let coefficientMass = 0;
+              questionnaire.questions.forEach((q, i) => {
+                const c = Number(q.coefficients[axis] || 0);
+                numerator += item.responses[i] * c;
+                coefficientMass += Math.abs(c);
+              });
+              scores[axis] = coefficientMass ? 10 * numerator / (3 * coefficientMass) : 0;
+            }
+            item.axisScores = scores;
+            item.averageConfidence = item.confidence.reduce((a,b) => a+b, 0) / item.confidence.length;
+          }
+          parties.forEach(recalcAxisScores);
+
+          const n = questionnaire.questions.length;
+          for (const p of parties) {
+            for (const key of ['responses','confidence','justifications','sources']) {
+              if (!Array.isArray(p[key]) || p[key].length !== n) throw new Error(`${p.shortName}: ${key} longueur incohérente`);
+            }
+            if (p.responses.some(v => !Number.isInteger(v) || v < -3 || v > 3)) throw new Error(`${p.shortName}: réponse hors plage`);
+            if (p.confidence.some(v => !Number.isInteger(v) || v < 1 || v > 3)) throw new Error(`${p.shortName}: confiance hors plage`);
+            for (const axis of axes) {
+              if (!Number.isFinite(p.axisScores[axis]) || p.axisScores[axis] < -10 || p.axisScores[axis] > 10) throw new Error(`${p.shortName}: axe invalide ${axis}`);
+            }
+          }
+          if (renaissance.responses[qIndex] !== 1 || renaissance.confidence[qIndex] !== 2) throw new Error('Contrôle final Q34 échoué');
+
+          fs.writeFileSync('data/parties.js', `// Données de comparaison avec les partis politiques français.\nconst PARTIES_DATA = ${JSON.stringify(parties, null, 2)};\n`);
+          NODE
+          git diff --check
+
+      - name: Run repository validator
+        shell: bash
+        run: node scripts/validate-data.js
+
+      - name: Commit correction and remove workflow
+        shell: bash
+        run: |
+          rm .github/workflows/fix-renaissance-q34.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/parties.js .github/workflows/fix-renaissance-q34.yml
+          git diff --cached --check
+          git commit -m "Correct Renaissance Q34 coding"
+          git push origin HEAD:fix/renaissance-q34-final
