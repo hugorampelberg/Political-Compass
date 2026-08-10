@@ -56,7 +56,7 @@ const QUESTIONNAIRE_DATA = {
     }
   ],
   "axisMasses": {
-    "economy": 23.400000000000006,
+    "economy": 23.700000000000003,
     "authority": 21.59999999999999,
     "europe": 6.2,
     "ecology": 8.5,
@@ -117,7 +117,7 @@ const QUESTIONNAIRE_DATA = {
       "defaultAnswer": 0,
       "note": "",
       "coefficients": {
-        "economy": -0.7,
+        "economy": -1,
         "authority": 0,
         "europe": 0,
         "ecology": 0,

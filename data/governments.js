@@ -363,7 +363,7 @@ const GOVERNMENTS_DATA = [
       "https://www.bundesregierung.de/breg-de/aktuelles/koalitionsvertrag-2025-2340970"
     ],
     "axisScores": {
-      "economy": 1.9943019943019937,
+      "economy": 1.9690576652601968,
       "authority": 0.6481481481481485,
       "europe": 7.311827956989247,
       "ecology": -1.1372549019607845,
@@ -735,7 +735,7 @@ const GOVERNMENTS_DATA = [
       "https://www.lamoncloa.gob.es/consejodeministros/resumenes/Documents/2026/240226-soberania-digital.pdf"
     ],
     "axisScores": {
-      "economy": -4.515669515669514,
+      "economy": -4.500703234880449,
       "authority": -0.20061728395061734,
       "europe": 6.666666666666666,
       "ecology": 4.862745098039215,
@@ -1107,7 +1107,7 @@ const GOVERNMENTS_DATA = [
       "https://www.bk.admin.ch/en/cloud-6"
     ],
     "axisScores": {
-      "economy": 3.034188034188034,
+      "economy": 3.0801687763713077,
       "authority": -0.8024691358024694,
       "europe": -4.946236559139785,
       "ecology": 1.0588235294117647,
@@ -1479,7 +1479,7 @@ const GOVERNMENTS_DATA = [
       "https://valtioneuvosto.fi/en/-/1410829/finland-among-top-eu-countries-in-digitalisation"
     ],
     "axisScores": {
-      "economy": 4.230769230769229,
+      "economy": 4.261603375527426,
       "authority": 2.1759259259259265,
       "europe": 5.698924731182795,
       "ecology": -1.411764705882353,
@@ -1851,7 +1851,7 @@ const GOVERNMENTS_DATA = [
       "https://www.gov.uk/government/publications/expression-of-interest-airr-heterogeneous-supercomputer-host-site-selection"
     ],
     "axisScores": {
-      "economy": -1.6951566951566948,
+      "economy": -1.673699015471167,
       "authority": 2.2530864197530875,
       "europe": -0.7526881720430108,
       "ecology": 3.607843137254902,
@@ -2223,7 +2223,7 @@ const GOVERNMENTS_DATA = [
       "https://regeringen.dk/media/ohljoptp/digitaliseringspartnerskabets-rapport.pdf"
     ],
     "axisScores": {
-      "economy": 0.3703703703703705,
+      "economy": 0.36568213783403675,
       "authority": 2.0833333333333344,
       "europe": 6.021505376344086,
       "ecology": 5.019607843137255,
@@ -2595,7 +2595,7 @@ const GOVERNMENTS_DATA = [
       "https://www.government.nl/site/binaries/site-content/collections/documents/2026/02/23/2026-2030-coalition-agreement-lets-get-to-work---building-a-better-netherlands/2026-2030-coalition-agreement-let%E2%80%99s-get-to-work-building-a-better-netherlands.pdf"
     ],
     "axisScores": {
-      "economy": 2.3076923076923075,
+      "economy": 2.320675105485232,
       "authority": 1.0802469135802477,
       "europe": 7.741935483870967,
       "ecology": 4.078431372549019,
@@ -2967,7 +2967,7 @@ const GOVERNMENTS_DATA = [
       "https://www.gov.pl/web/primeminister/poland-a-year-of-breakthrough---the-prime-minister-unveils-polands-2025-economic-plan"
     ],
     "axisScores": {
-      "economy": -4.744542840278445e-17,
+      "economy": -4.684485335971124e-17,
       "authority": 1.8672839506172851,
       "europe": 3.4408602150537626,
       "ecology": -3.3725490196078436,

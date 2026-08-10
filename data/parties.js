@@ -363,7 +363,7 @@ const PARTIES_DATA = [
       "https://lafranceinsoumise.fr/wp-content/uploads/2024/06/Programme-nouveaufrontpopulaire.pdf"
     ],
     "axisScores": {
-      "economy": -9.002849002849,
+      "economy": -9.015471167369897,
       "authority": -4.2438271604938285,
       "europe": -4.408602150537635,
       "ecology": 8.03921568627451,
@@ -735,7 +735,7 @@ const PARTIES_DATA = [
       "https://www.pcf.fr/feuille_de_route_confnat_pcf"
     ],
     "axisScores": {
-      "economy": -9.27350427350427,
+      "economy": -9.282700421940927,
       "authority": -3.194444444444447,
       "europe": -4.731182795698924,
       "ecology": 5.686274509803923,
@@ -1107,7 +1107,7 @@ const PARTIES_DATA = [
       "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf"
     ],
     "axisScores": {
-      "economy": -7.792022792022787,
+      "economy": -7.819971870604779,
       "authority": -3.858024691358026,
       "europe": 9.35483870967742,
       "ecology": 9.058823529411764,
@@ -1479,7 +1479,7 @@ const PARTIES_DATA = [
       "https://parti-socialiste.fr/vie-parlementaire/notre-declaration-politique-17eme-legislature/"
     ],
     "axisScores": {
-      "economy": -6.5384615384615365,
+      "economy": -6.582278481012658,
       "authority": -2.515432098765433,
       "europe": 9.35483870967742,
       "ecology": 6.9411764705882355,
@@ -1851,7 +1851,7 @@ const PARTIES_DATA = [
       "https://ensemble-2024.fr/notre-projet"
     ],
     "axisScores": {
-      "economy": 3.076923076923076,
+      "economy": 3.1645569620253164,
       "authority": 1.6820987654321,
       "europe": 8.172043010752688,
       "ecology": 2.0784313725490198,
@@ -2223,7 +2223,7 @@ const PARTIES_DATA = [
       "https://www.mouvementdemocrate.fr/"
     ],
     "axisScores": {
-      "economy": 0.5270655270655271,
+      "economy": 0.5625879043600562,
       "authority": 1.2808641975308648,
       "europe": 7.741935483870967,
       "ecology": 4.313725490196078,
@@ -2595,7 +2595,7 @@ const PARTIES_DATA = [
       "https://horizonsleparti.fr/le-manifeste/"
     ],
     "axisScores": {
-      "economy": 4.686609686609685,
+      "economy": 4.753867791842476,
       "authority": 2.42283950617284,
       "europe": 7.741935483870967,
       "ecology": 1.0980392156862748,
@@ -2967,7 +2967,7 @@ const PARTIES_DATA = [
       "https://lafrancehumaniste.fr/articles/ia-pouvoir-de-dire-non-monopole-americain.html"
     ],
     "axisScores": {
-      "economy": -1.0541310541310538,
+      "economy": -1.040787623066104,
       "authority": -0.8179012345679013,
       "europe": 3.8709677419354835,
       "ecology": 4.745098039215685,
@@ -3339,7 +3339,7 @@ const PARTIES_DATA = [
       "https://republicains.fr/"
     ],
     "axisScores": {
-      "economy": 5.384615384615384,
+      "economy": 5.443037974683544,
       "authority": 3.209876543209878,
       "europe": -0.7526881720430108,
       "ecology": -3.803921568627451,
@@ -3711,7 +3711,7 @@ const PARTIES_DATA = [
       "https://www.unenouvelleenergie.fr/notre-programme/"
     ],
     "axisScores": {
-      "economy": 6.039886039886039,
+      "economy": 6.090014064697609,
       "authority": 1.4814814814814825,
       "europe": -1.182795698924731,
       "ecology": -4.392156862745098,
@@ -4083,7 +4083,7 @@ const PARTIES_DATA = [
       "https://www.udr.fr/"
     ],
     "axisScores": {
-      "economy": 6.082621082621081,
+      "economy": 6.132208157524612,
       "authority": 2.145061728395063,
       "europe": -4.731182795698924,
       "ecology": -5.96078431372549,
@@ -4455,7 +4455,7 @@ const PARTIES_DATA = [
       "https://rassemblementnational.fr/documents/202406-programme.pdf"
     ],
     "axisScores": {
-      "economy": 0.7834757834757834,
+      "economy": 0.8579465541490858,
       "authority": 3.59567901234568,
       "europe": -6.129032258064517,
       "ecology": -5.8431372549019605,
@@ -4827,7 +4827,7 @@ const PARTIES_DATA = [
       "https://www.parti-reconquete.fr/"
     ],
     "axisScores": {
-      "economy": 6.125356125356124,
+      "economy": 6.1744022503516165,
       "authority": 2.530864197530866,
       "europe": -6.559139784946238,
       "ecology": -6.117647058823529,
