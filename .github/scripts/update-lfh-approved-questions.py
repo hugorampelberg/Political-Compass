@@ -3,6 +3,7 @@ import copy
 import json
 import re
 
+# Triggered once to apply only the LFH questions explicitly approved on 2026-08-10.
 q_path = Path('data/questionnaire.js')
 p_path = Path('data/parties.js')
 
@@ -59,7 +60,6 @@ for axis in axes:
 lfh['axisScores'] = new_axis_scores
 
 # Strict scope validation: only LFH responses/justifications at approved questions and LFH axisScores may differ.
-before_lfh = next(p for p in before if p.get('id') == 'france-humaniste')
 for old_party, new_party in zip(before, parties):
     if old_party['id'] != new_party['id']:
         raise SystemExit('Party ordering changed')
