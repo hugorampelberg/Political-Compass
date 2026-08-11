@@ -18,6 +18,130 @@ const PARTY_RESPONSE_OVERRIDES = {
       justification: "Accord modéré : Renaissance valorise l’expertise, les évaluations indépendantes et les autorités de régulation pour éclairer les décisions économiques complexes. Le parti reste cependant attaché à une démocratie représentative dans laquelle la décision finale appartient aux responsables élus ; il s’agit donc d’un recours accru à l’expertise plutôt que d’un transfert net du pouvoir politique aux experts, d’où +1."
     }
   },
+  horizons: {
+    1: {
+      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere"
+    },
+    9: {
+      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere"
+    },
+    13: {
+      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere"
+    },
+    20: {
+      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure"
+    },
+    21: {
+      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure"
+    },
+    24: {
+      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure"
+    },
+    25: {
+      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure"
+    },
+    27: {
+      response: 1,
+      justification: "Accord modéré : Édouard Philippe veut rétablir des peines plus rapides et plus effectives, notamment des peines courtes dès les premières infractions et des peines planchers pour les faits les plus graves. Il précise toutefois préférer sanctionner plus tôt plutôt que d’enfermer trop tard et trop longtemps ; cela ne correspond pas à un objectif général de forte hausse de la population carcérale, d’où +1 plutôt que +2.",
+      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure"
+    },
+    28: {
+      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure"
+    },
+    29: {
+      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure"
+    },
+    32: {
+      response: 0,
+      justification: "Position intermédiaire : Horizons fait du dérèglement climatique une priorité stratégique et veut accélérer fortement la décarbonation, mais Édouard Philippe présente son « écologie à impact » comme devant réduire les émissions tout en créant de la croissance. Le parti refuse donc de choisir clairement la transition climatique contre la croissance de court terme ; 0 traduit mieux cet arbitrage que +2.",
+      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante"
+    },
+    35: {
+      justification: "Accord net : Horizons privilégie une écologie fondée sur l’innovation, l’investissement, l’électrification, la technologie et des signaux économiques comme le prix du carbone aux frontières, plutôt qu’une politique reposant principalement sur des interdictions générales. Le parti conserve néanmoins des réglementations environnementales et protectrices, ce qui justifie +2 plutôt qu’un accord maximal.",
+      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante"
+    },
+    43: {
+      response: 1,
+      justification: "Accord modéré : Édouard Philippe a publiquement regretté la transformation de l’ISF en IFI et juge la fiscalité immobilière actuelle désincitative pour l’épargne et l’investissement. Il n’a toutefois pas encore formulé de proposition nette de suppression pure et simple de l’IFI ; l’orientation est favorable à son allègement ou à sa refonte, ce qui justifie +1 plutôt que +2.",
+      source: "https://immobilier.lefigaro.fr/article/edouard-philippe-fait-son-mea-culpa-sur-l-ifi-20251209"
+    },
+    49: {
+      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere"
+    },
+    50: {
+      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere"
+    },
+    55: {
+      response: 1,
+      justification: "Accord modéré : Horizons propose une simplification drastique des procédures, un moratoire normatif et la fin des surtranspositions, notamment en agriculture. Cette volonté de dérégulation est très nette, mais le programme ne dit pas qu’il faut accepter de manière générale un affaiblissement des protections sociales ou environnementales ; la concession contenue dans la question limite donc le score à +1.",
+      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere"
+    },
+    57: {
+      response: -2,
+      justification: "Désaccord net : le programme actuel d’Horizons cible la suppression des aides sociales sur les étrangers délinquants et durcit fortement le contrôle des flux, mais ne propose pas de carence générale privant ou limitant fortement tous les immigrés légalement installés de prestations pendant leurs premières années. Pour les personnes admises au séjour, la ligne mise davantage sur l’intégration par la langue et le travail que sur une exclusion sociale générale, ce qui conduit à -2.",
+      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure"
+    },
+    58: {
+      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure"
+    },
+    60: {
+      response: 1,
+      justification: "Accord modéré : Horizons veut sélectionner davantage l’immigration et faire de la langue, du travail et des valeurs républicaines des critères centraux d’intégration. En revanche, le programme ne prévoit pas un pouvoir général de refuser l’entrée à une personne par ailleurs légalement admissible sur la seule anticipation d’une mauvaise intégration culturelle ; +1 est donc plus précis que +2.",
+      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure"
+    },
+    63: {
+      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure"
+    },
+    66: {
+      source: "https://www.assemblee-nationale.fr/dyn/17/scrutins/7987"
+    },
+    68: {
+      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante"
+    },
+    69: {
+      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante"
+    },
+    71: {
+      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante"
+    },
+    72: {
+      response: 0,
+      justification: "Position intermédiaire : Horizons valorise fortement la science, l’expertise et l’évaluation pour éclairer les politiques publiques, mais son manifeste défend parallèlement la démocratie représentative et ne propose pas de transférer le pouvoir de décision économique des élus vers des experts indépendants. L’expertise doit guider la décision politique plutôt que s’y substituer ; 0 est donc plus adapté que +2.",
+      source: "https://horizonsleparti.fr/le-manifeste/"
+    },
+    77: {
+      source: "https://www.leparisien.fr/politique/un-regime-de-linaction-edouard-philippe-se-dit-defavorable-a-la-proportionnelle-aux-elections-legislatives-22-05-2025-4MFR4W33H5DBZCL4AAGVXUGFCE.php"
+    },
+    78: {
+      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure"
+    },
+    81: {
+      justification: "Accord modéré mais position interne partagée : des députés Horizons, dont Thierry Benoit et Luc Lamirault, ont explicitement proposé un conventionnement sélectif en zone surdotée, conditionné au départ d’un autre médecin. À l’inverse, Frédéric Valletoux, également Horizons, a ensuite défendu la suppression d’un dispositif contraignant de régulation de l’installation. La présence d’un soutien explicite au mécanisme justifie de conserver +1, sans en faire une doctrine unanime du parti.",
+      source: "https://www.assemblee-nationale.fr/dyn/16/amendements/1336/AN/71"
+    },
+    84: {
+      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants"
+    },
+    88: {
+      source: "https://questions.assemblee-nationale.fr/q17/17-13730QE.htm"
+    },
+    89: {
+      source: "https://www.assemblee-nationale.fr/dyn/17/scrutins/8280"
+    },
+    91: {
+      response: 2,
+      justification: "Accord net : Édouard Philippe propose désormais une aide financière familiale unique, lisible et universelle, ainsi qu’une part fiscale dès le deuxième enfant. Cette orientation va clairement vers une politique familiale qui ne disparaît pas avec la hausse du revenu ; toutefois, le caractère « universel » ne garantit pas que le montant soit strictement identique pour tous les ménages, ce qui justifie +2 plutôt que +3.",
+      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants"
+    },
+    92: {
+      source: "https://questions.assemblee-nationale.fr/dyn/17/scrutins/8431"
+    },
+    93: {
+      response: 1,
+      justification: "Accord modéré : Horizons veut bâtir une infrastructure d’intelligence artificielle européenne souveraine, soutenir les champions européens et instaurer un Buy European Tech Act pour la commande technologique. Cette préférence européenne est nette, mais le programme ne dit pas qu’il faut accepter sans limite des modèles sensiblement moins performants ou plus coûteux ; +1 est donc plus prudent que +2.",
+      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante"
+    }
+  },
   "france-humaniste": {
     15: {
       response: 0,
@@ -81,7 +205,7 @@ Object.entries(PARTY_RESPONSE_OVERRIDES).forEach(([partyId, overrides]) => {
   Object.entries(overrides).forEach(([questionId, override]) => {
     const index = questionIndexById.get(Number(questionId));
     if (index === undefined) return;
-    party.responses[index] = override.response;
+    if (Object.prototype.hasOwnProperty.call(override, 'response')) party.responses[index] = override.response;
     if (override.justification) party.justifications[index] = override.justification;
     if (override.source && Array.isArray(party.sources)) party.sources[index] = override.source;
   });
