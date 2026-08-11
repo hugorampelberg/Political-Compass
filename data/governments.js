@@ -676,7 +676,7 @@ const GOVERNMENTS_DATA = [
       "https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/agricultura/paginas/2024/010424-medidas-respuesta-sector-agrario.aspx",
       "https://www.lamoncloa.gob.es/Documents/2025/appendix-II-map-of-commitments-december.pdf",
       "https://www.lamoncloa.gob.es/Documents/2025/appendix-II-map-of-commitments-december.pdf",
-      "https://www.lamoncloa.gob.es/",
+      "https://www.lamoncloa.gob.es/Documents/2025/appendix-II-map-of-commitments-december.pdf",
       "https://www.lamoncloa.gob.es/Documents/2025/appendix-II-map-of-commitments-december.pdf",
       "https://www.lamoncloa.gob.es/Documents/2025/appendix-II-map-of-commitments-december.pdf",
       "https://www.lamoncloa.gob.es/Documents/2025/appendix-II-map-of-commitments-december.pdf",
