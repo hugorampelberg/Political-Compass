@@ -19,38 +19,20 @@ const PARTY_RESPONSE_OVERRIDES = {
     }
   },
   horizons: {
-    1: {
-      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere"
-    },
-    9: {
-      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere"
-    },
-    13: {
-      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere"
-    },
-    20: {
-      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure"
-    },
-    21: {
-      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure"
-    },
-    24: {
-      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure"
-    },
-    25: {
-      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure"
-    },
+    1: { source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere" },
+    9: { source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere" },
+    13: { source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere" },
+    20: { source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure" },
+    21: { source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure" },
+    24: { source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure" },
+    25: { source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure" },
     27: {
       response: 1,
       justification: "Accord modéré : Édouard Philippe veut rétablir des peines plus rapides et plus effectives, notamment des peines courtes dès les premières infractions et des peines planchers pour les faits les plus graves. Il précise toutefois préférer sanctionner plus tôt plutôt que d’enfermer trop tard et trop longtemps ; cela ne correspond pas à un objectif général de forte hausse de la population carcérale, d’où +1 plutôt que +2.",
       source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure"
     },
-    28: {
-      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure"
-    },
-    29: {
-      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure"
-    },
+    28: { source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure" },
+    29: { source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure" },
     32: {
       response: 0,
       justification: "Position intermédiaire : Horizons fait du dérèglement climatique une priorité stratégique et veut accélérer fortement la décarbonation, mais Édouard Philippe présente son « écologie à impact » comme devant réduire les émissions tout en créant de la croissance. Le parti refuse donc de choisir clairement la transition climatique contre la croissance de court terme ; 0 traduit mieux cet arbitrage que +2.",
@@ -65,12 +47,8 @@ const PARTY_RESPONSE_OVERRIDES = {
       justification: "Accord modéré : Édouard Philippe a publiquement regretté la transformation de l’ISF en IFI et juge la fiscalité immobilière actuelle désincitative pour l’épargne et l’investissement. Il n’a toutefois pas encore formulé de proposition nette de suppression pure et simple de l’IFI ; l’orientation est favorable à son allègement ou à sa refonte, ce qui justifie +1 plutôt que +2.",
       source: "https://immobilier.lefigaro.fr/article/edouard-philippe-fait-son-mea-culpa-sur-l-ifi-20251209"
     },
-    49: {
-      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere"
-    },
-    50: {
-      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere"
-    },
+    49: { source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere" },
+    50: { source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere" },
     55: {
       response: 1,
       justification: "Accord modéré : Horizons propose une simplification drastique des procédures, un moratoire normatif et la fin des surtranspositions, notamment en agriculture. Cette volonté de dérégulation est très nette, mais le programme ne dit pas qu’il faut accepter de manière générale un affaiblissement des protections sociales ou environnementales ; la concession contenue dans la question limite donc le score à +1.",
@@ -81,61 +59,37 @@ const PARTY_RESPONSE_OVERRIDES = {
       justification: "Désaccord net : le programme actuel d’Horizons cible la suppression des aides sociales sur les étrangers délinquants et durcit fortement le contrôle des flux, mais ne propose pas de carence générale privant ou limitant fortement tous les immigrés légalement installés de prestations pendant leurs premières années. Pour les personnes admises au séjour, la ligne mise davantage sur l’intégration par la langue et le travail que sur une exclusion sociale générale, ce qui conduit à -2.",
       source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure"
     },
-    58: {
-      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure"
-    },
+    58: { source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure" },
     60: {
       response: 1,
       justification: "Accord modéré : Horizons veut sélectionner davantage l’immigration et faire de la langue, du travail et des valeurs républicaines des critères centraux d’intégration. En revanche, le programme ne prévoit pas un pouvoir général de refuser l’entrée à une personne par ailleurs légalement admissible sur la seule anticipation d’une mauvaise intégration culturelle ; +1 est donc plus précis que +2.",
       source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure"
     },
-    63: {
-      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure"
-    },
-    66: {
-      source: "https://www.assemblee-nationale.fr/dyn/17/scrutins/7987"
-    },
-    68: {
-      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante"
-    },
-    69: {
-      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante"
-    },
-    71: {
-      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante"
-    },
+    63: { source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure" },
+    66: { source: "https://www.assemblee-nationale.fr/dyn/17/scrutins/7987" },
+    68: { source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante" },
+    69: { source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante" },
+    71: { source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante" },
     72: {
       response: 0,
       justification: "Position intermédiaire : Horizons valorise fortement la science, l’expertise et l’évaluation pour éclairer les politiques publiques, mais son manifeste défend parallèlement la démocratie représentative et ne propose pas de transférer le pouvoir de décision économique des élus vers des experts indépendants. L’expertise doit guider la décision politique plutôt que s’y substituer ; 0 est donc plus adapté que +2.",
       source: "https://horizonsleparti.fr/le-manifeste/"
     },
-    77: {
-      source: "https://www.leparisien.fr/politique/un-regime-de-linaction-edouard-philippe-se-dit-defavorable-a-la-proportionnelle-aux-elections-legislatives-22-05-2025-4MFR4W33H5DBZCL4AAGVXUGFCE.php"
-    },
-    78: {
-      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure"
-    },
+    77: { source: "https://www.leparisien.fr/politique/un-regime-de-linaction-edouard-philippe-se-dit-defavorable-a-la-proportionnelle-aux-elections-legislatives-22-05-2025-4MFR4W33H5DBZCL4AAGVXUGFCE.php" },
+    78: { source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure" },
     81: {
       justification: "Accord modéré mais position interne partagée : des députés Horizons, dont Thierry Benoit et Luc Lamirault, ont explicitement proposé un conventionnement sélectif en zone surdotée, conditionné au départ d’un autre médecin. À l’inverse, Frédéric Valletoux, également Horizons, a ensuite défendu la suppression d’un dispositif contraignant de régulation de l’installation. La présence d’un soutien explicite au mécanisme justifie de conserver +1, sans en faire une doctrine unanime du parti.",
       source: "https://www.assemblee-nationale.fr/dyn/16/amendements/1336/AN/71"
     },
-    84: {
-      source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants"
-    },
-    88: {
-      source: "https://questions.assemblee-nationale.fr/q17/17-13730QE.htm"
-    },
-    89: {
-      source: "https://www.assemblee-nationale.fr/dyn/17/scrutins/8280"
-    },
+    84: { source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants" },
+    88: { source: "https://questions.assemblee-nationale.fr/q17/17-13730QE.htm" },
+    89: { source: "https://www.assemblee-nationale.fr/dyn/17/scrutins/8280" },
     91: {
       response: 2,
       justification: "Accord net : Édouard Philippe propose désormais une aide financière familiale unique, lisible et universelle, ainsi qu’une part fiscale dès le deuxième enfant. Cette orientation va clairement vers une politique familiale qui ne disparaît pas avec la hausse du revenu ; toutefois, le caractère « universel » ne garantit pas que le montant soit strictement identique pour tous les ménages, ce qui justifie +2 plutôt que +3.",
       source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants"
     },
-    92: {
-      source: "https://questions.assemblee-nationale.fr/dyn/17/scrutins/8431"
-    },
+    92: { source: "https://questions.assemblee-nationale.fr/dyn/17/scrutins/8431" },
     93: {
       response: 1,
       justification: "Accord modéré : Horizons veut bâtir une infrastructure d’intelligence artificielle européenne souveraine, soutenir les champions européens et instaurer un Buy European Tech Act pour la commande technologique. Cette préférence européenne est nette, mais le programme ne dit pas qu’il faut accepter sans limite des modèles sensiblement moins performants ou plus coûteux ; +1 est donc plus prudent que +2.",
@@ -314,6 +268,43 @@ const PARTY_RESPONSE_OVERRIDES = {
       response: -2,
       justification: "Désaccord net : David Lisnard s’est explicitement déclaré défavorable à la création d’un droit à l’aide active à mourir, qu’il considère comme un basculement anthropologique majeur. Il défend le maintien du cadre Claeys-Leonetti et le développement des soins palliatifs plutôt que l’euthanasie ou le suicide assisté. La position est directement opposée au principe de la question, ce qui justifie -2.",
       source: "https://www.unenouvelleenergie.fr/david-lisnard-je-peux-trouver-dieu-dans-une-foret-une-montagne-ou-dans-la-beaute-dun-opera-de-mozart/"
+    }
+  },
+  rn: {
+    3: {
+      response: 1,
+      justification: "Accord modéré : le RN ne défend pas une hausse générale de tous les impôts sur les hauts revenus et patrimoines, mais il propose désormais de remplacer l’IFI par un impôt sur la fortune financière, présenté explicitement comme une mesure de justice fiscale et visant davantage les actifs financiers et spéculatifs. Le parti protège parallèlement la résidence principale, le patrimoine productif et une large part des titres de PME-ETI ; la volonté de faire davantage contribuer certaines grandes fortunes est donc réelle mais ciblée, ce qui justifie +1.",
+      source: "https://www.assemblee-nationale.fr/dyn/17/amendements/1906A/CION_FIN/CF361"
+    },
+    30: {
+      response: 1,
+      justification: "Accord modéré : le RN défend explicitement des clauses miroir afin que les produits importés ne bénéficient pas de normes de production interdites aux agriculteurs français. Mais le parti affirme simultanément que la politique agricole doit garantir des denrées accessibles à des prix raisonnables. L’accord avec l’interdiction des importations non conformes est donc clair, tandis que l’acceptation d’une hausse du prix des aliments les moins chers ne l’est pas ; la contrepartie consommateur limite le score à +1.",
+      source: "https://rassemblementnational.fr/communiques/strategie-de-la-ferme-a-la-table-cest-non"
+    },
+    32: {
+      response: -2,
+      justification: "Désaccord net : le RN défend la réduction des émissions et une décarbonation fondée notamment sur le nucléaire, la modernisation industrielle et l’innovation, mais sa ligne récente d’« écologie productive » subordonne explicitement la transition au maintien des capacités de production, de l’emploi industriel, d’une énergie compétitive et de la compétitivité européenne. La proposition demande au contraire de maintenir la priorité climatique même lorsque la croissance recule ; cet arbitrage est nettement contraire à la doctrine RN, d’où -2.",
+      source: "https://municipales2026.rassemblementnational.fr/communiques/le-rassemblement-national-offre-au-parlement-europeen-et-a-la-commission-le-mode-demploi-dune-veritable-preference-europeenne"
+    },
+    35: {
+      response: 0,
+      justification: "Position intermédiaire : le RN rejette de nombreuses interdictions et contraintes qu’il qualifie d’écologie punitive, mais il ne fait pas pour autant de la taxe carbone ou des mécanismes de marché le cœur de sa politique climatique. Sa doctrine récente repose surtout sur le nucléaire, l’innovation, la modernisation industrielle, la protection commerciale et l’accès à une énergie compétitive. Le parti ne privilégie donc clairement ni la réglementation ni le signal-prix tel que formulé dans la question, ce qui justifie 0.",
+      source: "https://municipales2026.rassemblementnational.fr/communiques/le-rassemblement-national-offre-au-parlement-europeen-et-a-la-commission-le-mode-demploi-dune-veritable-preference-europeenne"
+    },
+    67: {
+      response: -2,
+      justification: "Désaccord net : le RN fait du pouvoir d’achat et du coût de l’énergie une priorité et combat les politiques climatiques qui renchérissent durablement les carburants, les véhicules ou l’énergie des ménages. Même lorsqu’une compensation ciblée est prévue, sa ligne consiste davantage à éviter la hausse du prix de l’énergie qu’à créer ou maintenir une taxe carbone puis en redistribuer le produit. La compensation atténue le désaccord et empêche un -3, mais la hiérarchie politique du RN reste nettement opposée à la proposition, d’où -2.",
+      source: "https://municipales2026.rassemblementnational.fr/communiques/2035-bruxelles-et-paris-sacrifient-lautomobile-francaise"
+    },
+    88: {
+      response: -2,
+      justification: "Désaccord net : Marine Le Pen s’est déclarée fondamentalement opposée à l’idée d’élargir ou de partager la dissuasion nucléaire française avec les partenaires européens et insiste sur son caractère strictement national. La question conserve toutefois à la France seule la décision finale d’emploi de l’arme, ce qui répond à une partie essentielle de l’objection souverainiste du RN ; l’opposition reste forte mais n’est donc pas maximale, ce qui justifie -2 plutôt que -3.",
+      source: "https://www.cnews.fr/france/2025-03-13/dissuasion-nucleaire-francaise-elargie-leurope-jy-suis-fondamentalement-opposee"
+    },
+    93: {
+      response: 1,
+      justification: "Accord modéré : des députés RN demandent explicitement de réduire la dépendance de la France aux grands fournisseurs extra-européens, de renforcer les clouds souverains français et de protéger les données publiques contre les législations extraterritoriales. Cette orientation soutient clairement une préférence française ou européenne pour les outils numériques de l’administration. En revanche, le RN n’affirme pas qu’il faut accepter sans limite une IA sensiblement moins performante ou plus coûteuse ; +1 est donc plus précis qu’un accord fort.",
+      source: "https://questions.assemblee-nationale.fr/q17/17-10885QE.htm"
     }
   },
   "france-humaniste": {
