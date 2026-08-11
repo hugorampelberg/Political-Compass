@@ -1,0 +1,50 @@
+name: Build question-specific justification audit
+on:
+  push:
+    paths: ['.github/workflows/build-question-specific-audit.yml']
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Build audit reports
+        run: |
+          mkdir -p audit/question-specific
+          cat > /tmp/audit.js <<'NODE'
+          const fs=require('fs'),vm=require('vm'),cp=require('child_process');
+          function loadText(text,name){const c={};vm.createContext(c);vm.runInContext(text+`\nthis.__out=${name};`,c);return c.__out;}
+          function load(path,name){return loadText(fs.readFileSync(path,'utf8'),name)}
+          function old(path,name){return loadText(cp.execFileSync('git',['show','0005b2fd72947fcd8bb08b2ba0b568c6e01f672b:'+path],{encoding:'utf8',maxBuffer:50e6}),name)}
+          const q=load('data/questionnaire.js','QUESTIONNAIRE_DATA').questions;
+          const sets=[['party',load('data/parties.js','PARTIES_DATA'),old('data/parties.js','PARTIES_DATA')],['government',load('data/governments.js','GOVERNMENTS_DATA'),old('data/governments.js','GOVERNMENTS_DATA')]];
+          const generic=/Pour [^,]+, sur Q\d+|Position directement documentée\.?$|Position peu explicite ou comparaison institutionnelle limitée|Comparabilité limitée ou position peu explicite|elle (?:va clairement|incline|contredit|ne tranche|reprend presque)|cette orientation reprend presque|Le programme combine baisse de l’impôt|L’accord CDU\/CSU–SPD combine|La coalition est socialement|La ligne gouvernementale|Le gouvernement veut réduire l’immigration|Le programme 2026 des Écologistes|La convention économique 2025 de Renaissance|LFI veut partager davantage|LFI veut soustraire plusieurs|Le PCF défend|Le Projet socialiste 2026|Les Écologistes veulent|Reconquête veut|Nouvelle Énergie veut|Horizons veut|Le MoDem|L’UDR|Le RN|La France Humaniste|Dominique de Villepin/i;
+          let summary={};
+          for(const [kind,cur,prev] of sets){
+            for(const e of cur){
+              const p=prev.find(x=>x.id===e.id); if(!p) continue;
+              const rows=['qid\ttheme\tscore\tconfidence\tcurrent_source\tcurrent_justification\told_source\told_justification'];
+              let n=0;
+              for(let i=0;i<q.length;i++){
+                const cj=String(e.justifications[i]||'');
+                const changed=cj!==String(p.justifications[i]||'') || String(e.sources[i]||'')!==String(p.sources[i]||'');
+                const bad=generic.test(cj);
+                if(changed && bad){n++; const esc=s=>String(s??'').replace(/\t/g,' ').replace(/\r?\n/g,' '); rows.push([q[i].id,q[i].theme,e.responses[i],e.confidence[i],esc(e.sources[i]),esc(cj),esc(p.sources[i]),esc(p.justifications[i])].join('\t'));}
+              }
+              if(n){fs.writeFileSync(`audit/question-specific/${e.id}.tsv`,rows.join('\n')+'\n');summary[e.id]=n;}
+            }
+          }
+          fs.writeFileSync('audit/question-specific/summary.json',JSON.stringify(summary,null,2)+'\n');
+          NODE
+          node /tmp/audit.js
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add audit/question-specific
+          git commit -m 'Build question-specific justification audit reports' || exit 0
+          git push
