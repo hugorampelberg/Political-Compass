@@ -224,6 +224,48 @@ const PARTY_RESPONSE_OVERRIDES = {
       source: "https://modemffe.mouvementdemocrate.fr/numerique/philippe-latombe-sur-le-plan-technologique-nous-sommes-extraordinairement-dependants"
     }
   },
+  lr: {
+    13: {
+      response: 1,
+      justification: "Accord modéré : LR veut accroître la responsabilité individuelle, développer l’épargne et ouvrir davantage de place à des dispositifs complémentaires, notamment en matière de retraite. Le parti reste toutefois attaché au maintien d’un socle collectif obligatoire de protection sociale et ne propose pas que chacun puisse substituer largement des choix individuels aux systèmes publics ; +1 est donc plus précis que +2.",
+      source: "https://republicains.fr/nos-idees/"
+    },
+    28: {
+      response: -1,
+      justification: "Désaccord modéré : LR conserve une place à la prévention et à la réinsertion, mais la ligne portée par Bruno Retailleau donne désormais clairement la priorité à la sanction effective, aux jugements rapides et aux peines courtes réellement exécutées. La prévention n’est donc pas considérée comme préférable à l’augmentation des sanctions, sans pour autant être rejetée, ce qui justifie -1.",
+      source: "https://republicains.fr/actualites/2025/07/23/bruno-retailleau-le-macronisme-sachevera-avec-emmanuel-macron/"
+    },
+    32: {
+      response: -1,
+      justification: "Désaccord modéré : LR reconnaît l’enjeu climatique et défend une forte décarbonation, notamment par le nucléaire, mais refuse une écologie punitive ou décroissante et veut concilier protection de l’environnement, pouvoir d’achat et croissance. L’idée de maintenir la priorité climatique même au prix d’une baisse de croissance n’est donc pas sa doctrine, d’où -1.",
+      source: "https://republicains.fr/nos-idees/"
+    },
+    38: {
+      response: -1,
+      justification: "Désaccord modéré : LR veut une Europe capable d’agir dans les domaines stratégiques, mais la ligne actuelle insiste sur la subsidiarité, la souveraineté nationale et le refus de nouveaux transferts généraux de compétences. Le parti privilégie davantage la coopération entre États qu’une extension continue des pouvoirs de l’Union, d’où -1.",
+      source: "https://republicains.fr/actualites/2026/02/12/je-suis-candidat-a-lelection-presidentielle/"
+    },
+    39: {
+      response: 2,
+      justification: "Accord net : Bruno Retailleau propose explicitement de redonner la primauté au droit national et de restaurer la capacité de décision française lorsque certaines contraintes européennes s’y opposent. LR reste favorable à l’Union européenne et à une Europe puissante sur certains sujets, ce qui limite l’intensité à +2 plutôt qu’à +3.",
+      source: "https://republicains.fr/actualites/2026/02/12/je-suis-candidat-a-lelection-presidentielle/"
+    },
+    41: {
+      response: -1,
+      justification: "Désaccord modéré : LR soutient des règles européennes communes lorsqu’elles sont nécessaires au marché intérieur, à la défense ou à la souveraineté, mais combat l’accumulation de normes et de surtranspositions et veut réduire les contraintes européennes pesant sur les entreprises et les agriculteurs. La ligne actuelle va donc plutôt vers moins de réglementation commune générale, d’où -1.",
+      source: "https://republicains.fr/nos-propositions/"
+    },
+    79: {
+      response: -2,
+      justification: "Désaccord net : LR ne réduit pas la délinquance à l’origine culturelle, mais Bruno Retailleau rejette explicitement les explications principalement sociales et insiste fortement sur l’autorité, l’assimilation, les normes culturelles et l’effet de certains flux migratoires. Cela s’oppose nettement à l’idée que les inégalités économiques expliquent davantage les écarts de délinquance que les facteurs culturels, d’où -2.",
+      source: "https://republicains.fr/actualites/2025/07/23/bruno-retailleau-le-macronisme-sachevera-avec-emmanuel-macron/"
+    },
+    81: {
+      response: -1,
+      justification: "Désaccord modéré : LR partage l’objectif de mieux répartir les médecins sur le territoire et accepte certaines obligations territoriales, mais la droite sénatoriale a rejeté le conventionnement sélectif comme mécanisme général de contrainte à l’installation. Elle privilégie des incitations ou des obligations d’exercice ponctuel dans les zones sous-dotées plutôt qu’un refus de conventionnement en zone surdotée ; -1 reflète cette opposition au dispositif précis.",
+      source: "https://www.senat.fr/compte-rendu-commissions/20260608/soc.html"
+    }
+  },
   "france-humaniste": {
     15: {
       response: 0,
