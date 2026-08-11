@@ -1,0 +1,28 @@
+{
+  "questionCount": 87,
+  "entityCount": 21,
+  "weakCount": 963,
+  "byEntity": {
+    "Allemagne — gouvernement Merz (CDU/CSU–SPD)": 37,
+    "Danemark — gouvernement Frederiksen III (S–SF–M–RV)": 23,
+    "Espagne — gouvernement Sánchez (PSOE–Sumar)": 32,
+    "Finlande — gouvernement Orpo (KOK–PS–RKP–KD)": 28,
+    "Pays-Bas — gouvernement Jetten (D66–VVD–CDA)": 68,
+    "Pologne — gouvernement Tusk (KO–PSL–Polska 2050–Nouvelle Gauche)": 66,
+    "Royaume-Uni — gouvernement Burnham (Labour)": 24,
+    "Suisse — Conseil fédéral 2026": 32,
+    "Horizons": 52,
+    "La France Humaniste": 11,
+    "Les Écologistes": 58,
+    "LFI": 58,
+    "LR": 53,
+    "MoDem": 48,
+    "Nouvelle Énergie": 46,
+    "PCF": 52,
+    "PS": 59,
+    "Reconquête": 47,
+    "Renaissance": 56,
+    "RN": 42,
+    "UDR": 71
+  }
+}
