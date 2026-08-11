@@ -1,0 +1,440 @@
+[
+  {
+    "q": 1,
+    "score": 3,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 2,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 3,
+    "score": -2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 5,
+    "score": -2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 6,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 7,
+    "score": -1,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 8,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 9,
+    "score": 3,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 10,
+    "score": 0,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 12,
+    "score": 0,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 13,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 14,
+    "score": 1,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 16,
+    "score": -2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 17,
+    "score": 1,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 19,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 20,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 21,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 23,
+    "score": 1,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 24,
+    "score": 3,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 25,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 26,
+    "score": -1,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 27,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 29,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 32,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 33,
+    "score": 1,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 35,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 36,
+    "score": 1,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 37,
+    "score": 1,
+    "confidence": 1,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 38,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 39,
+    "score": -2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 40,
+    "score": 3,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 41,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 42,
+    "score": -2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 43,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 44,
+    "score": -2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 45,
+    "score": -1,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 46,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 48,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 50,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 51,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 53,
+    "score": 1,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 54,
+    "score": 1,
+    "confidence": 1,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 55,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 58,
+    "score": 1,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 59,
+    "score": 1,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 60,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 61,
+    "score": 1,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 63,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 64,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 67,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 68,
+    "score": 1,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 69,
+    "score": 1,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 71,
+    "score": 0,
+    "confidence": 1,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 72,
+    "score": 2,
+    "confidence": 1,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 73,
+    "score": 2,
+    "confidence": 1,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 74,
+    "score": 0,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 75,
+    "score": -2,
+    "confidence": 1,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 76,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 77,
+    "score": -1,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 78,
+    "score": 3,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 79,
+    "score": 0,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 81,
+    "score": 1,
+    "confidence": 3,
+    "source": "https://horizonsleparti.fr/demande-de-documents/"
+  },
+  {
+    "q": 82,
+    "score": -2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/demande-de-documents/"
+  },
+  {
+    "q": 83,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/demande-de-documents/"
+  },
+  {
+    "q": 85,
+    "score": 0,
+    "confidence": 1,
+    "source": "https://horizonsleparti.fr/demande-de-documents/"
+  },
+  {
+    "q": 86,
+    "score": 0,
+    "confidence": 1,
+    "source": "https://horizonsleparti.fr/demande-de-documents/"
+  },
+  {
+    "q": 87,
+    "score": 3,
+    "confidence": 3,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 88,
+    "score": 3,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 89,
+    "score": 0,
+    "confidence": 3,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 90,
+    "score": -2,
+    "confidence": 1,
+    "source": "https://horizonsleparti.fr/demande-de-documents/"
+  },
+  {
+    "q": 91,
+    "score": 1,
+    "confidence": 1,
+    "source": "https://horizonsleparti.fr/demande-de-documents/"
+  },
+  {
+    "q": 92,
+    "score": 3,
+    "confidence": 3,
+    "source": "https://horizonsleparti.fr/le-manifeste/"
+  },
+  {
+    "q": 93,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://horizonsleparti.fr/demande-de-documents/"
+  }
+]

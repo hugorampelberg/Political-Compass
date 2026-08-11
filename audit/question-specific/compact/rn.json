@@ -1,0 +1,500 @@
+[
+  {
+    "q": 1,
+    "score": 1,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 2,
+    "score": 1,
+    "confidence": 1,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 3,
+    "score": -1,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 4,
+    "score": -2,
+    "confidence": 3,
+    "source": "https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B0618.raw"
+  },
+  {
+    "q": 5,
+    "score": 0,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/documents/202406-programme.pdf"
+  },
+  {
+    "q": 6,
+    "score": 0,
+    "confidence": 1,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 7,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 8,
+    "score": 0,
+    "confidence": 1,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 9,
+    "score": 1,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/documents/202406-programme.pdf"
+  },
+  {
+    "q": 10,
+    "score": 1,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/documents/202406-programme.pdf"
+  },
+  {
+    "q": 12,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 13,
+    "score": 0,
+    "confidence": 1,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 14,
+    "score": -2,
+    "confidence": 3,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 15,
+    "score": 0,
+    "confidence": 2,
+    "source": "https://www.assemblee-nationale.fr/dyn/actualites-accueil-hub/adoption-du-plf2026-en-lecture-definitive-apres-l-engagement-de-la-responsabilite-du-gouvernement-sur-le-projet-de-loi-et-le-rejet-de-2-motions-d"
+  },
+  {
+    "q": 16,
+    "score": -2,
+    "confidence": 1,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 17,
+    "score": -1,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 18,
+    "score": -2,
+    "confidence": 3,
+    "source": "https://www.assemblee-nationale.fr/dyn/docs/RINFANR5L16B2463.raw"
+  },
+  {
+    "q": 19,
+    "score": 3,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 20,
+    "score": 3,
+    "confidence": 3,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 21,
+    "score": -2,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/livrets-thematiques"
+  },
+  {
+    "q": 22,
+    "score": -3,
+    "confidence": 3,
+    "source": "https://rassemblementnational.fr/livrets-thematiques"
+  },
+  {
+    "q": 23,
+    "score": 3,
+    "confidence": 3,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 24,
+    "score": 3,
+    "confidence": 3,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 25,
+    "score": 3,
+    "confidence": 3,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 26,
+    "score": -3,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 27,
+    "score": 3,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 29,
+    "score": 3,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 30,
+    "score": 3,
+    "confidence": 3,
+    "source": "https://www.assemblee-nationale.fr/dyn/17/scrutins/685"
+  },
+  {
+    "q": 32,
+    "score": 0,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 33,
+    "score": -2,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 34,
+    "score": -1,
+    "confidence": 1,
+    "source": "https://rassemblementnational.fr/conferences-de-presse/pouvoir-achat-conference-de-presse-de-marine-le-pen"
+  },
+  {
+    "q": 35,
+    "score": 1,
+    "confidence": 1,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 36,
+    "score": -1,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 37,
+    "score": -2,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 38,
+    "score": -2,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 39,
+    "score": 3,
+    "confidence": 3,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 40,
+    "score": 1,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 41,
+    "score": -2,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 42,
+    "score": 3,
+    "confidence": 3,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 43,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 44,
+    "score": -2,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 45,
+    "score": -1,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 46,
+    "score": 3,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 47,
+    "score": 2,
+    "confidence": 3,
+    "source": "https://www.assemblee-nationale.fr/dyn/17/amendements/AMANR5L17PO59048B1906P2D1N002166"
+  },
+  {
+    "q": 48,
+    "score": -1,
+    "confidence": 1,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 49,
+    "score": 0,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/documents/202406-programme.pdf"
+  },
+  {
+    "q": 50,
+    "score": -2,
+    "confidence": 1,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 51,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 53,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 54,
+    "score": 2,
+    "confidence": 1,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 55,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/documents/202406-programme.pdf"
+  },
+  {
+    "q": 56,
+    "score": -3,
+    "confidence": 3,
+    "source": "https://questions.assemblee-nationale.fr/q16/16-1324QG.htm"
+  },
+  {
+    "q": 57,
+    "score": 3,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 58,
+    "score": 1,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 59,
+    "score": -3,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 60,
+    "score": 3,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 61,
+    "score": -2,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 63,
+    "score": 3,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 67,
+    "score": -1,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 68,
+    "score": -3,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 69,
+    "score": 3,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 71,
+    "score": -2,
+    "confidence": 1,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 72,
+    "score": -1,
+    "confidence": 1,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 73,
+    "score": 0,
+    "confidence": 1,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 74,
+    "score": 3,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 75,
+    "score": -2,
+    "confidence": 1,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 76,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 77,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/"
+  },
+  {
+    "q": 78,
+    "score": 3,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 79,
+    "score": -2,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 80,
+    "score": -3,
+    "confidence": 3,
+    "source": "https://questions.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-extraordinaire-de-2025-2026/deuxieme-seance-du-lundi-20-juillet-2026"
+  },
+  {
+    "q": 81,
+    "score": -3,
+    "confidence": 3,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 82,
+    "score": -1,
+    "confidence": 1,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 83,
+    "score": -2,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 84,
+    "score": 1,
+    "confidence": 1,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 85,
+    "score": -2,
+    "confidence": 1,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 87,
+    "score": 0,
+    "confidence": 3,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 88,
+    "score": -3,
+    "confidence": 3,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 89,
+    "score": -3,
+    "confidence": 3,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 90,
+    "score": 1,
+    "confidence": 1,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 91,
+    "score": 3,
+    "confidence": 3,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 92,
+    "score": 0,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  },
+  {
+    "q": 93,
+    "score": -1,
+    "confidence": 2,
+    "source": "https://rassemblementnational.fr/22-mesures"
+  }
+]

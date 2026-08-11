@@ -1,0 +1,218 @@
+[
+  {
+    "q": 1,
+    "score": 0,
+    "confidence": 2,
+    "source": "https://www.gov.uk/government/publications/plan-for-change"
+  },
+  {
+    "q": 2,
+    "score": -1,
+    "confidence": 2,
+    "source": "https://www.gov.uk/government/publications/plan-for-change"
+  },
+  {
+    "q": 3,
+    "score": 1,
+    "confidence": 2,
+    "source": "https://www.gov.uk/government/publications/plan-for-change"
+  },
+  {
+    "q": 4,
+    "score": -1,
+    "confidence": 2,
+    "source": "https://www.gov.uk/government/news/new-executive-pay-transparency-measures-come-into-force"
+  },
+  {
+    "q": 6,
+    "score": 0,
+    "confidence": 2,
+    "source": "https://www.gov.uk/government/publications/plan-for-change"
+  },
+  {
+    "q": 8,
+    "score": 0,
+    "confidence": 2,
+    "source": "https://www.gov.uk/government/publications/plan-for-change"
+  },
+  {
+    "q": 9,
+    "score": 0,
+    "confidence": 2,
+    "source": "https://www.gov.uk/government/publications/plan-for-change"
+  },
+  {
+    "q": 13,
+    "score": -1,
+    "confidence": 2,
+    "source": "https://www.gov.uk/government/publications/plan-for-change"
+  },
+  {
+    "q": 14,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://www.gov.uk/government/publications/plan-for-change"
+  },
+  {
+    "q": 17,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://www.gov.uk/government/publications/plan-for-change"
+  },
+  {
+    "q": 19,
+    "score": 0,
+    "confidence": 2,
+    "source": "https://www.gov.uk/government/publications/plan-for-change"
+  },
+  {
+    "q": 20,
+    "score": 2,
+    "confidence": 3,
+    "source": "https://www.gov.uk/government/news/kings-speech-to-build-a-stronger-and-fairer-britain"
+  },
+  {
+    "q": 21,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://www.gov.uk/government/news/kings-speech-to-build-a-stronger-and-fairer-britain"
+  },
+  {
+    "q": 24,
+    "score": 3,
+    "confidence": 3,
+    "source": "https://www.gov.uk/government/news/kings-speech-to-build-a-stronger-and-fairer-britain"
+  },
+  {
+    "q": 25,
+    "score": 1,
+    "confidence": 2,
+    "source": "https://www.gov.uk/government/news/kings-speech-to-build-a-stronger-and-fairer-britain"
+  },
+  {
+    "q": 26,
+    "score": 1,
+    "confidence": 2,
+    "source": "https://www.gov.uk/government/news/kings-speech-to-build-a-stronger-and-fairer-britain"
+  },
+  {
+    "q": 35,
+    "score": 1,
+    "confidence": 2,
+    "source": "https://www.gov.uk/government/publications/plan-for-change"
+  },
+  {
+    "q": 36,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://www.gov.uk/government/publications/plan-for-change"
+  },
+  {
+    "q": 37,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://www.gov.uk/government/publications/plan-for-change"
+  },
+  {
+    "q": 39,
+    "score": 1,
+    "confidence": 2,
+    "source": "https://www.gov.uk/government/publications/plan-for-change"
+  },
+  {
+    "q": 55,
+    "score": -1,
+    "confidence": 2,
+    "source": "https://www.gov.uk/government/publications/plan-for-change"
+  },
+  {
+    "q": 58,
+    "score": 2,
+    "confidence": 3,
+    "source": "https://www.gov.uk/government/news/kings-speech-to-build-a-stronger-and-fairer-britain"
+  },
+  {
+    "q": 60,
+    "score": 1,
+    "confidence": 2,
+    "source": "https://www.gov.uk/government/news/kings-speech-to-build-a-stronger-and-fairer-britain"
+  },
+  {
+    "q": 61,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://www.gov.uk/government/news/kings-speech-to-build-a-stronger-and-fairer-britain"
+  },
+  {
+    "q": 71,
+    "score": 1,
+    "confidence": 2,
+    "source": "https://www.gov.uk/government/publications/plan-for-change"
+  },
+  {
+    "q": 79,
+    "score": 1,
+    "confidence": 1,
+    "source": "https://www.gov.uk/government/news/kings-speech-to-build-a-stronger-and-fairer-britain"
+  },
+  {
+    "q": 82,
+    "score": 3,
+    "confidence": 3,
+    "source": "https://www.gov.uk/government/publications/plan-for-change"
+  },
+  {
+    "q": 83,
+    "score": 1,
+    "confidence": 1,
+    "source": "https://www.gov.uk/government/publications/plan-for-change"
+  },
+  {
+    "q": 84,
+    "score": 3,
+    "confidence": 3,
+    "source": "https://www.gov.uk/government/news/kings-speech-to-build-a-stronger-and-fairer-britain"
+  },
+  {
+    "q": 85,
+    "score": 0,
+    "confidence": 1,
+    "source": "https://www.gov.uk/government/news/kings-speech-to-build-a-stronger-and-fairer-britain"
+  },
+  {
+    "q": 86,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://www.gov.uk/government/publications/plan-for-change"
+  },
+  {
+    "q": 87,
+    "score": 3,
+    "confidence": 3,
+    "source": "https://www.gov.uk/government/news/unbreakable-bond-between-uk-and-ukraine-will-continue-under-my-government-26-july-2026"
+  },
+  {
+    "q": 88,
+    "score": 2,
+    "confidence": 2,
+    "source": "https://www.gov.uk/government/news/unbreakable-bond-between-uk-and-ukraine-will-continue-under-my-government-26-july-2026"
+  },
+  {
+    "q": 89,
+    "score": 0,
+    "confidence": 3,
+    "source": "https://www.gov.uk/government/collections/terminally-ill-adults-end-of-life-bill"
+  },
+  {
+    "q": 90,
+    "score": -2,
+    "confidence": 2,
+    "source": "https://www.gov.uk/government/publications/plan-for-change"
+  },
+  {
+    "q": 92,
+    "score": 3,
+    "confidence": 3,
+    "source": "https://www.gov.uk/government/news/social-media-to-be-banned-for-under-16s-in-landmark-government-move-to-givekids-their-childhood-back"
+  }
+]
