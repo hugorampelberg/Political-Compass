@@ -266,6 +266,56 @@ const PARTY_RESPONSE_OVERRIDES = {
       source: "https://www.senat.fr/compte-rendu-commissions/20260608/soc.html"
     }
   },
+  "nouvelle-energie": {
+    30: {
+      response: 1,
+      justification: "Accord modéré : Nouvelle Énergie propose explicitement des clauses miroir obligatoires et affirme que ce qui est interdit aux agriculteurs français ne doit plus être autorisé dans les produits importés. Le parti ne dit toutefois pas qu’il accepterait sans réserve la disparition des produits alimentaires les moins chers ou une hausse de leur prix ; la contrepartie consommateur limite donc l’accord à +1.",
+      source: "https://www.unenouvelleenergie.fr/notre-programme/agriculture/"
+    },
+    32: {
+      response: -1,
+      justification: "Désaccord modéré : Nouvelle Énergie veut faire de la France un leader bas-carbone, mais refuse explicitement une écologie décroissante et affirme que la transition doit respecter le développement, la compétitivité et l’innovation. Le parti ne place donc pas le climat au-dessus de la croissance lorsque les deux entrent directement en conflit ; -1 traduit ce désaccord sur l’arbitrage sans nier l’importance accordée à la décarbonation.",
+      source: "https://www.unenouvelleenergie.fr/notre-programme/generer-un-renouveau-civique/"
+    },
+    67: {
+      response: 2,
+      justification: "Accord net : Nouvelle Énergie défend un prix du carbone et une fiscalité environnementale fondés sur le principe pollueur-payeur, à condition que la taxation totale reste constante et que ses recettes soient redistribuées aux perdants de la réforme. Cette logique correspond très directement au maintien d’un signal-prix carbone assorti d’une compensation des ménages pénalisés ; les conditions de neutralité fiscale et de compétitivité justifient +2 plutôt que +3.",
+      source: "https://www.unenouvelleenergie.fr/notre-programme/generer-un-renouveau-civique/"
+    },
+    71: {
+      response: -2,
+      justification: "Désaccord net : Nouvelle Énergie veut une forte décarbonation, mais rejette explicitement la décroissance et subordonne sa fiscalité écologique à la compétitivité ainsi qu’à la réciprocité internationale. Accepter une perte de 3 % du PIB alors que les autres pays ne fournissent aucun effort comparable cumule précisément les deux concessions que le parti refuse ; -2 est donc plus adapté que -1.",
+      source: "https://www.unenouvelleenergie.fr/notre-programme/generer-un-renouveau-civique/"
+    },
+    73: {
+      response: 2,
+      justification: "Accord net : Nouvelle Énergie revendique des réformes structurelles rapides même lorsqu’elles sont politiquement difficiles. Son programme qualifie notamment le passage à 65 ans d’« impératif national urgent » pour l’équilibre financier et affirme qu’aucune démagogie ne doit empêcher cette décision. Cette doctrine correspond clairement à l’idée qu’un gouvernement doit pouvoir assumer une mesure jugée économiquement nécessaire malgré son impopularité immédiate, d’où +2.",
+      source: "https://www.unenouvelleenergie.fr/notre-programme/reussir-une-nouvelle-ambition-francaise/"
+    },
+    76: {
+      response: -2,
+      justification: "Désaccord net : Nouvelle Énergie propose de renforcer les pouvoirs de contrôle du Parlement, de lui réserver certains domaines d’initiative législative et de recentrer le président sur quelques fonctions stratégiques, explicitement à l’opposé de l’hyperprésidentialisme. Cette orientation est directement contraire à l’idée de donner davantage de pouvoirs au président pour contourner les blocages parlementaires ; -2 est donc approprié.",
+      source: "https://www.unenouvelleenergie.fr/notre-programme/etre-maitre-de-notre-destin/"
+    },
+    81: {
+      justification: "Désaccord net : le programme santé de Nouvelle Énergie affirme explicitement la liberté d’installation des médecins et rejette la contrainte administrative comme moyen de corriger les déserts médicaux. Il propose à la place un conventionnement différencié où la Sécurité sociale rembourse davantage les actes dans les zones sous-dotées, sans empêcher le conventionnement en zone déjà bien dotée. Le mécanisme précis de la question est donc rejeté, ce qui confirme -2.",
+      source: "https://www.unenouvelleenergie.fr/notre-programme/sante/"
+    },
+    82: {
+      justification: "Désaccord net, avec preuve plus indirecte sur les complémentaires : Nouvelle Énergie maintient la Sécurité sociale comme financeur central et veut améliorer l’accès aux soins, mais son projet repose sur la liberté contractuelle, la médecine libérale et une articulation assumée entre acteurs publics et privés. Il ne propose ni de transférer à l’Assurance maladie l’intégralité du panier de soins essentiels ni de réduire structurellement le rôle des complémentaires santé ; la logique générale reste donc opposée à la bascule décrite par la question, ce qui justifie de conserver -2.",
+      source: "https://www.unenouvelleenergie.fr/notre-programme/sante/"
+    },
+    86: {
+      response: -1,
+      justification: "Désaccord modéré : la doctrine économique de Nouvelle Énergie protège fortement la propriété et la liberté contractuelle et ne propose pas d’interdiction générale des locations touristiques de résidences secondaires. Toutefois, David Lisnard assume à Cannes une régulation municipale réelle des meublés touristiques, avec enregistrement obligatoire et contrôle local, et son programme défend une large autonomie réglementaire des communes. L’opposition au pouvoir municipal décrit par la question est donc réelle mais moins nette qu’un -2.",
+      source: "https://www.cannes.com/fr/mairie/renseignements-et-demarches-administratives/location-tourisme/declaration-d-un-meuble-de-tourisme.html"
+    },
+    89: {
+      response: -2,
+      justification: "Désaccord net : David Lisnard s’est explicitement déclaré défavorable à la création d’un droit à l’aide active à mourir, qu’il considère comme un basculement anthropologique majeur. Il défend le maintien du cadre Claeys-Leonetti et le développement des soins palliatifs plutôt que l’euthanasie ou le suicide assisté. La position est directement opposée au principe de la question, ce qui justifie -2.",
+      source: "https://www.unenouvelleenergie.fr/david-lisnard-je-peux-trouver-dieu-dans-une-foret-une-montagne-ou-dans-la-beaute-dun-opera-de-mozart/"
+    }
+  },
   "france-humaniste": {
     15: {
       response: 0,
