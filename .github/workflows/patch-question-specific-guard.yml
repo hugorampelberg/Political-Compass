@@ -1,0 +1,28 @@
+name: Patch question-specific guard
+on:
+  push:
+    paths: ['.github/workflows/patch-question-specific-guard.yml']
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fix expected score change order
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('.github/workflows/apply-question-specific-justifications.yml')
+          s=p.read_text()
+          old="const expected=JSON.stringify([{entity:'danemark',qid:2,from:0,to:1},{entity:'suisse',qid:2,from:1,to:2}]);"
+          new="const expected=JSON.stringify([{entity:'suisse',qid:2,from:1,to:2},{entity:'danemark',qid:2,from:0,to:1}]);"
+          if old not in s: raise SystemExit('expected guard text not found')
+          p.write_text(s.replace(old,new))
+          PY
+          rm -f .github/workflows/patch-question-specific-guard.yml
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add .github/workflows
+          git commit -m 'Fix question-specific audit guard'
+          git push
