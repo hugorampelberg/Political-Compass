@@ -1,0 +1,35 @@
+name: Export weak justifications by entity
+on:
+  push:
+    paths: ['.github/workflows/export-weak-by-entity.yml']
+permissions: { contents: write }
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: |
+          cat >/tmp/e.js <<'NODE'
+          const fs=require('fs'),vm=require('vm');
+          function load(p,n){const c={};vm.createContext(c);vm.runInContext(fs.readFileSync(p,'utf8')+`\nthis.x=${n}`,c);return c.x}
+          const qs=load('data/questionnaire.js','QUESTIONNAIRE_DATA').questions;
+          const es=[...load('data/parties.js','PARTIES_DATA'),...load('data/governments.js','GOVERNMENTS_DATA')];
+          const pats=[/niveau de confiance documentaire/i,/orientation cohérente avec le document officiel retenu/i,/estimation prudente/i,/sources officielles et prises de position convergentes/i,/preuve primaire directe ou proposition officielle très proche/i,/sans passage isolé directement équivalent/i,/formulation parfaitement équivalente/i,/source retenue/i,/documentation disponible/i,/inférence/i,/codage/i,/réévalué/i];
+          const clean=s=>String(s??'').replace(/\t|\r?\n/g,' ');
+          fs.mkdirSync('audit/weak-by-entity',{recursive:true});
+          for(const e of es){
+            const lines=['qid\ttheme\tquestion\tscore\tconfidence\tsource\tjustification'];
+            qs.forEach((q,i)=>{const j=String(e.justifications?.[i]||'').trim(); if(!j||pats.some(r=>r.test(j))||j.length<85) lines.push([q.id,q.theme,q.text,e.responses[i],e.confidence[i],e.sources?.[i]||'',j].map(clean).join('\t'));});
+            fs.writeFileSync(`audit/weak-by-entity/${e.id}.tsv`,lines.join('\n')+'\n');
+          }
+          NODE
+          node /tmp/e.js
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add audit/weak-by-entity
+          git rm .github/workflows/export-weak-by-entity.yml
+          git commit -m 'Export weak justifications by entity'
+          git push
