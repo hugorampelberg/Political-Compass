@@ -1,0 +1,235 @@
+name: Apply question-specific justifications
+on:
+  push:
+    paths: ['.github/workflows/apply-question-specific-justifications.yml']
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Replace generic justifications with question-specific explanations
+        run: |
+          cat > /tmp/fix.js <<'NODE'
+          const fs=require('fs'),vm=require('vm'),cp=require('child_process');
+          function loadText(text,name){const c={};vm.createContext(c);vm.runInContext(text+`\nthis.__out=${name};`,c);return c.__out;}
+          function load(path,name){return loadText(fs.readFileSync(path,'utf8'),name)}
+          function old(path,name){return loadText(cp.execFileSync('git',['show','0005b2fd72947fcd8bb08b2ba0b568c6e01f672b:'+path],{encoding:'utf8',maxBuffer:50e6}),name)}
+          const qd=load('data/questionnaire.js','QUESTIONNAIRE_DATA'), qs=qd.questions;
+          const parties=load('data/parties.js','PARTIES_DATA'), govs=load('data/governments.js','GOVERNMENTS_DATA');
+          const oldParties=old('data/parties.js','PARTIES_DATA'), oldGovs=old('data/governments.js','GOVERNMENTS_DATA');
+          const qIndex=new Map(qs.map((q,i)=>[q.id,i]));
+          const BAD=/Pour [^,]+, sur Q\d+|Position directement documentée\.?$|Position peu explicite ou comparaison institutionnelle limitée|Comparabilité limitée ou position peu explicite|orientation cohérente|niveau de confiance|codage|niveau de preuve|preuve primaire|estimation prudente|sources officielles et prises de position convergentes|sans passage isolé|formulation parfaitement équivalente|Le programme combine baisse de l’impôt|L’accord CDU\/CSU–SPD combine|La coalition est socialement|La ligne gouvernementale|Le gouvernement veut réduire l’immigration|Le programme 2026 des Écologistes|La convention économique 2025 de Renaissance|LFI veut partager davantage|LFI veut soustraire plusieurs|Le PCF défend|Le Projet socialiste 2026|Les Écologistes veulent|Reconquête veut|Nouvelle Énergie veut|Horizons veut|Le MoDem|L’UDR|Le RN|La France Humaniste/i;
+          const OLD_BAD=/orientation cohérente|niveau de confiance|codage|niveau de preuve|preuve primaire|estimation prudente|sources officielles et prises de position convergentes|sans passage isolé|formulation parfaitement équivalente|Transposition ou inférence prudente|Position de compromis|Position directement documentée\.?$|Position peu explicite/i;
+          const label={3:'Accord très fort',2:'Accord net',1:'Accord modéré',0:'Position intermédiaire',[-1]:'Désaccord modéré',[-2]:'Désaccord net',[-3]:'Désaccord très fort'};
+          const POLICY={
+            1:['réduire les prélèvements sur le travail et le capital, en acceptant des économies de dépenses pour financer ces baisses','préserver les recettes et les dépenses publiques plutôt que financer des baisses d’impôts par des réductions de politiques publiques'],
+            2:['considérer que des écarts de revenus peuvent être légitimes lorsqu’ils récompensent le travail, le mérite, l’initiative ou la prise de risque','faire de la réduction des inégalités un objectif prioritaire, sans considérer le mérite ou la prise de risque comme une justification suffisante des écarts économiques'],
+            3:['augmenter la contribution des hauts revenus et des gros patrimoines afin de réduire les écarts de richesse','éviter une hausse générale de la fiscalité sur les hauts revenus et les patrimoines et privilégier d’autres leviers que la redistribution fiscale'],
+            4:['imposer un écart maximal entre la rémunération des dirigeants et les plus bas salaires de leur entreprise','laisser la rémunération des dirigeants relever de la gouvernance des entreprises plutôt que d’un ratio légal avec les plus bas salaires'],
+            5:['relever sensiblement le salaire minimum par une décision publique ou conventionnelle de portée générale','éviter une forte hausse imposée du salaire minimum, notamment pour préserver le coût du travail et l’emploi'],
+            6:['faire davantage confiance aux opérateurs privés et à la concurrence pour fournir efficacement des biens et services, y compris dans certains secteurs essentiels','maintenir une place centrale aux opérateurs et services publics dans les secteurs essentiels plutôt que présumer une efficacité supérieure du privé'],
+            7:['permettre une prise de contrôle publique d’une entreprise lorsque son activité est stratégique pour la souveraineté du pays','préserver en principe la propriété privée des entreprises stratégiques et recourir à la réglementation, aux participations minoritaires ou aux contrats plutôt qu’à la nationalisation'],
+            8:['privilégier la concurrence et l’ouverture des marchés comme moteurs de prix plus bas, de qualité et d’innovation','privilégier l’encadrement public, les normes et la régulation lorsque la concurrence seule ne garantit pas les objectifs économiques ou sociaux'],
+            9:['réduire les dépenses et accepter des économies sur certaines politiques sociales pour rétablir durablement les comptes publics','préserver les principales politiques sociales même si le retour à l’équilibre exige davantage de recettes ou un ajustement budgétaire plus lent'],
+            10:['maintenir un niveau élevé de protection sociale financé collectivement, même au prix de prélèvements importants','réduire le poids fiscal ou cibler davantage la protection sociale plutôt que maintenir un haut niveau universel de prestations financé par une fiscalité importante'],
+            12:['utiliser plus fortement l’intervention publique, les prix réglementés, les subventions ou les obligations lorsque le marché produit des résultats jugés injustes','limiter l’intervention économique directe de l’État et privilégier les mécanismes de marché même lorsque leurs résultats sont socialement contestés'],
+            13:['laisser davantage de choix individuel dans l’usage de l’argent consacré à la retraite, la santé ou la protection sociale','conserver des systèmes collectifs obligatoires afin de mutualiser les risques et de garantir une protection commune'],
+            14:['accepter largement la diversité des modes de vie lorsque ceux-ci respectent la loi et les droits d’autrui','accorder davantage de poids aux normes sociales et culturelles traditionnelles dans l’organisation de la vie collective'],
+            15:['permettre à l’exécutif de faire entrer un budget en vigueur sans vote parlementaire lorsqu’aucune majorité stable ne se dégage','maintenir l’exigence d’un vote du Parlement sur le budget même en situation de blocage politique'],
+            16:['admettre que certaines politiques de réduction des inégalités puissent limiter des choix ou libertés individuelles','faire primer les libertés individuelles et refuser qu’un objectif d’égalité suffise à justifier des restrictions générales'],
+            17:['utiliser activement les politiques publiques pour corriger des discriminations structurelles ou historiques entre groupes','privilégier l’égalité formelle et les politiques universelles plutôt que des dispositifs explicitement correcteurs entre groupes'],
+            18:['accorder aux régions ou collectivités un véritable pouvoir normatif leur permettant d’adopter des règles économiques, sociales ou environnementales différentes','préserver l’uniformité des principales règles nationales et limiter les différences territoriales à leur mise en œuvre'],
+            19:['préserver certaines traditions, références et valeurs culturelles même lorsqu’elles évoluent plus lentement que les mœurs','faire davantage primer l’évolution des libertés et des normes sociales sur la conservation de traditions particulières'],
+            20:['réduire globalement le nombre d’entrées migratoires et renforcer le pilotage quantitatif des flux','ne pas faire de la réduction du volume global de l’immigration un objectif prioritaire'],
+            21:['considérer l’immigration de travail comme un apport économique utile lorsqu’elle répond aux besoins de l’économie','mettre davantage l’accent sur les coûts, tensions ou effets distributifs de l’immigration économique que sur son apport global'],
+            22:['garantir aux étrangers durablement et légalement installés un accès aux prestations et au logement social sans préférence permanente liée à la nationalité','maintenir une priorité nationale ou des restrictions durables d’accès à certaines prestations pour les étrangers même régulièrement installés'],
+            23:['durcir les conditions d’accès à la nationalité, par la durée de résidence, la langue, l’intégration ou d’autres critères','préserver ou faciliter les voies actuelles d’accès à la nationalité plutôt que les rendre globalement plus exigeantes'],
+            24:['faciliter et accélérer l’expulsion des étrangers condamnés pour des infractions graves','conserver des garanties fortes contre l’expulsion et refuser d’en faire une conséquence beaucoup plus systématique des condamnations graves'],
+            25:['admettre que la cohésion culturelle puisse justifier de limiter l’immigration même lorsque celle-ci présente un intérêt économique','refuser d’utiliser la préservation d’une culture majoritaire comme motif autonome de limitation d’une immigration économiquement utile'],
+            26:['accroître l’accueil de personnes fuyant la guerre ou les persécutions même lorsque cet accueil entraîne un coût budgétaire','limiter les admissions de réfugiés et donner davantage de poids aux capacités d’accueil et au coût économique'],
+            27:['durcir les peines de prison effectives même si cela conduit à davantage d’incarcérations','privilégier la proportionnalité, les alternatives ou la réinsertion plutôt qu’une hausse générale des peines et de la population carcérale'],
+            28:['donner la priorité à la prévention, à l’accompagnement et à la réinsertion plutôt qu’à l’alourdissement des sanctions','faire de la sanction et de l’exécution des peines un levier prioritaire par rapport aux politiques de prévention et de réinsertion'],
+            29:['accroître les pouvoirs de contrôle et de surveillance de la police afin de lutter contre la criminalité','encadrer strictement les pouvoirs de police afin de préserver les libertés individuelles même si cela limite certains moyens de contrôle'],
+            30:['appliquer des clauses miroir ou des interdictions d’importation lorsque les produits étrangers ne respectent pas les normes imposées aux producteurs nationaux, même au prix d’un renchérissement','préserver davantage l’ouverture commerciale et les prix bas plutôt qu’interdire largement les importations produites selon des normes différentes'],
+            32:['faire de la réduction des émissions une priorité même lorsqu’elle pèse sur la croissance à court terme','subordonner davantage l’effort climatique à la compétitivité, au pouvoir d’achat ou à la croissance économique'],
+            33:['accepter une hausse importante du prix des énergies fossiles pour accélérer les changements de consommation et d’investissement','limiter la hausse du coût des énergies fossiles et privilégier d’autres instruments de transition afin de protéger le pouvoir d’achat et la compétitivité'],
+            34:['transférer une partie du financement social des cotisations sur les salaires vers la TVA afin d’alléger le coût du travail','refuser une TVA sociale et conserver un financement davantage assis sur les cotisations ou des prélèvements plus progressifs'],
+            35:['utiliser prioritairement le prix du carbone, les incitations et l’innovation plutôt que des interdictions générales','recourir davantage aux normes, obligations et interdictions écologiques qu’aux seuls signaux de prix'],
+            36:['interdire certains produits ou usages très polluants même lorsqu’une demande des consommateurs demeure','éviter les interdictions générales et privilégier l’information, l’innovation ou les alternatives laissant davantage de choix aux consommateurs'],
+            37:['faire supporter aux pays riches une part particulièrement importante du financement de la transition climatique mondiale','répartir plus largement le coût de la transition entre pays et limiter les transferts financiers supplémentaires à la charge des économies riches'],
+            38:['transférer davantage de compétences nationales à l’Union européenne afin de renforcer sa capacité d’action','conserver les principales compétences au niveau national et limiter de nouveaux transferts de souveraineté à l’Union européenne'],
+            39:['préserver autant que possible la souveraineté décisionnelle nationale même lorsqu’une action européenne commune pourrait accroître l’influence collective','accepter davantage de décisions communes européennes lorsqu’elles renforcent l’influence et la capacité d’action de la France'],
+            40:['considérer que les bénéfices économiques et politiques de l’euro l’emportent sur la perte d’autonomie monétaire','regretter la perte d’instruments monétaires nationaux et considérer qu’elle réduit trop fortement la marge de manœuvre économique'],
+            41:['étendre les règles communes et la capacité de décision de l’Union européenne dans plusieurs domaines','faire davantage jouer la subsidiarité et limiter la production de nouvelles règles européennes communes'],
+            42:['permettre une désobéissance ciblée aux règles européennes lorsqu’elles empêchent une politique jugée essentielle pour l’intérêt national','respecter la primauté et les engagements du droit européen même lorsqu’ils contraignent une politique économique nationale'],
+            43:['supprimer l’IFI ou, plus largement, réduire la taxation spécifique du patrimoine immobilier','maintenir ou renforcer une taxation spécifique des patrimoines immobiliers élevés'],
+            44:['augmenter les droits de succession sur les patrimoines transmis les plus importants tout en conservant un seuil de protection','réduire ou ne pas augmenter la fiscalité successorale afin de faciliter la transmission du patrimoine familial et productif'],
+            45:['maintenir une imposition française sur le patrimoine mondial des très grandes fortunes même après leur départ de France','refuser une imposition durable du patrimoine mondial après expatriation et privilégier le principe de résidence fiscale'],
+            46:['réduire significativement les allocations d’un chômeur qui refuse plusieurs offres raisonnables et adaptées','protéger davantage la continuité de l’indemnisation et limiter les sanctions financières liées au refus d’offres'],
+            47:['mobiliser durablement l’argent public pour rapprocher les prix des produits essentiels outre-mer de ceux de l’Hexagone','privilégier la concurrence, la production locale ou des aides plus ciblées plutôt qu’une garantie publique durable d’alignement des prix'],
+            48:['assouplir la protection du CDI afin de faciliter les embauches, les mobilités et les ruptures de contrats','préserver une protection forte du CDI et considérer qu’elle reste un élément essentiel de sécurité pour les salariés'],
+            49:['développer une part obligatoire ou largement encouragée de capitalisation en complément de la retraite par répartition','préserver un système principalement fondé sur la répartition et limiter la place structurelle de la capitalisation'],
+            50:['faire évoluer automatiquement l’âge légal de départ en fonction de l’espérance de vie','laisser l’âge de la retraite relever d’un choix politique et social plutôt que d’une indexation automatique sur l’espérance de vie'],
+            51:['lier fortement certaines prestations sociales à l’activité, aux cotisations ou à la durée de participation au marché du travail','maintenir des prestations largement fondées sur les besoins ou l’universalité plutôt que sur une longue durée de cotisation ou de travail'],
+            53:['conditionner les aides publiques importantes aux entreprises à des limites sur les dividendes et rémunérations de dirigeants','éviter d’imposer des restrictions générales sur les dividendes ou rémunérations en contrepartie des aides publiques'],
+            54:['utiliser activement les participations publiques pour fixer des orientations industrielles de long terme aux grandes entreprises','laisser davantage les entreprises, y compris celles où l’État est actionnaire, déterminer leur stratégie selon une gouvernance commerciale'],
+            55:['réduire fortement les normes pesant sur les entreprises même si certaines protections sociales ou environnementales sont assouplies','conserver les principales normes protectrices et refuser que la simplification administrative se traduise par un recul notable des protections'],
+            56:['permettre une régularisation fondée sur un travail stable, une présence durable et l’absence de délinquance malgré une entrée ou un séjour irrégulier','refuser que l’insertion professionnelle suffise à régulariser une personne entrée ou restée irrégulièrement sur le territoire'],
+            57:['restreindre fortement l’accès à certaines prestations non contributives pendant les premières années de résidence','ouvrir rapidement les principales prestations aux étrangers en séjour régulier selon les mêmes critères sociaux que les nationaux'],
+            58:['sélectionner prioritairement une immigration économique qualifiée en fonction des besoins du marché du travail','éviter de hiérarchiser fortement l’immigration selon le niveau de qualification et conserver des voies plus larges d’admission'],
+            59:['accorder automatiquement la nationalité à la majorité aux personnes nées et élevées dans le pays, sans exigence supplémentaire forte d’adhésion culturelle','subordonner l’accès à la nationalité des personnes nées dans le pays à une démarche, une résidence ou des critères d’intégration supplémentaires'],
+            60:['pouvoir refuser une admission pourtant légalement possible lorsque des indices sérieux montrent un refus d’intégration culturelle','faire reposer l’admission sur des critères juridiques objectifs sans ajouter un test général d’adhésion culturelle présumée'],
+            61:['considérer que des pratiques culturelles ou religieuses très différentes ne posent pas en elles-mêmes problème tant que la loi est respectée','attendre une assimilation culturelle plus forte que le seul respect des lois communes'],
+            63:['autoriser une surveillance préventive ciblée d’une personne présentant un risque terroriste sérieux avant qu’existent les preuves nécessaires à des poursuites','exiger des garanties judiciaires et factuelles plus fortes avant d’autoriser une surveillance intrusive'],
+            64:['protéger largement les propos offensants par la liberté d’expression tant qu’ils ne constituent ni menace, ni appel à la violence, ni infraction','accepter des restrictions plus larges aux propos profondément offensants afin de protéger la dignité, l’ordre public ou certains groupes'],
+            66:['autoriser l’usage d’une arme à feu lors d’un refus d’obtempérer en fuite même sans danger immédiatement mortel pour les policiers','réserver l’usage des armes à feu à des situations de menace grave et immédiate ou de nécessité strictement proportionnée'],
+            67:['maintenir une taxe carbone efficace tout en compensant spécifiquement les ménages modestes qui en supportent le coût','renoncer ou réduire une taxe carbone lorsqu’elle diminue sensiblement le pouvoir d’achat, même si des compensations ciblées sont prévues'],
+            68:['programmer l’arrêt de la vente de véhicules thermiques neufs même si la transition renchérit temporairement le prix des voitures','préserver davantage la neutralité technologique et refuser une interdiction du thermique imposée à date fixe au prix d’un surcoût'],
+            69:['donner la priorité au nucléaire dans les investissements décarbonés même si certains projets renouvelables reçoivent moins de moyens','maintenir une place au moins équivalente aux renouvelables ou réduire le rôle du nucléaire dans la stratégie énergétique'],
+            71:['accepter un effort climatique national très coûteux même sans action comparable des autres pays','conditionner les efforts climatiques les plus coûteux à la réciprocité internationale et à la préservation de la compétitivité'],
+            72:['confier certaines décisions économiques techniques à des institutions indépendantes et expertes plutôt qu’au pouvoir politique direct','maintenir la responsabilité finale des élus sur les choix économiques importants même lorsqu’ils sont techniquement complexes'],
+            73:['laisser un gouvernement prendre une mesure économiquement nécessaire mais impopulaire sans rechercher d’abord une approbation immédiate de l’opinion','accorder davantage de poids au consentement populaire et à la concertation avant une décision économique très impopulaire'],
+            74:['recourir beaucoup plus souvent au référendum, y compris sur des sujets techniquement complexes','réserver davantage les décisions complexes aux institutions représentatives et limiter la multiplication des référendums'],
+            75:['accorder davantage de poids politique aux citoyens selon leurs connaissances institutionnelles ou économiques','maintenir strictement l’égalité du suffrage indépendamment du niveau de connaissance ou de diplôme'],
+            76:['renforcer les moyens institutionnels du président pour exécuter son programme malgré l’opposition parlementaire','renforcer les contre-pouvoirs parlementaires et refuser d’accroître encore l’autonomie décisionnelle du président'],
+            77:['adopter une proportionnelle intégrale malgré le risque accru de coalitions et d’instabilité gouvernementale','conserver un mode de scrutin produisant plus facilement des majorités stables plutôt qu’une proportionnelle intégrale'],
+            78:['conditionner le séjour durable à des efforts concrets de langue, de compréhension des règles et de participation à la vie collective','ne pas faire d’exigences générales d’assimilation ou de participation une condition du maintien d’un séjour durable régulier'],
+            79:['expliquer principalement les écarts de délinquance par les conditions sociales et économiques plutôt que par la culture d’origine','attribuer une part importante des écarts de délinquance à des facteurs culturels, normatifs ou d’intégration et pas seulement aux inégalités sociales'],
+            80:['interdire aux agriculteurs un produit très polluant même si leurs concurrents étrangers peuvent encore l’utiliser','éviter une interdiction nationale isolée qui dégraderait la compétitivité agricole tant que les concurrents étrangers ne sont pas soumis à une règle comparable'],
+            81:['limiter le conventionnement de nouveaux médecins dans les zones déjà sur-dotées afin d’orienter l’installation vers les déserts médicaux','préserver la liberté d’installation des médecins et utiliser plutôt des incitations positives pour les zones sous-dotées'],
+            82:['faire prendre en charge intégralement les soins essentiels par l’assurance publique et réduire fortement le rôle des complémentaires','maintenir un système où assurances publiques et complémentaires privées conservent chacune une place importante dans le financement des soins'],
+            83:['regrouper certains petits services hospitaliers afin de concentrer les équipes et équipements même au prix d’une plus grande distance pour les patients','préserver la proximité territoriale des maternités et urgences même lorsqu’une concentration améliorerait l’organisation des équipes'],
+            84:['donner aux chefs d’établissement une part réelle du recrutement et de l’évaluation de leurs enseignants','maintenir l’affectation et l’évaluation des enseignants principalement dans un cadre national ou académique plutôt qu’au niveau de l’établissement'],
+            85:['conditionner les financements publics des écoles privées sous contrat à des résultats mesurables de mixité sociale','préserver le financement des établissements privés sous contrat sans leur imposer d’objectifs chiffrés de composition sociale'],
+            86:['autoriser les communes en zone tendue à interdire la location touristique régulière des résidences non principales','préserver davantage la liberté des propriétaires de louer leur logement en meublé touristique et limiter les interdictions municipales générales'],
+            87:['maintenir une aide militaire et financière importante à l’Ukraine aussi longtemps que son territoire reste occupé','réduire ou conditionner davantage l’aide à l’Ukraine si la guerre se prolonge, même avant la fin de l’occupation'],
+            88:['étendre la fonction de protection de la dissuasion nucléaire française aux partenaires européens tout en laissant la décision d’emploi à la France','réserver explicitement la dissuasion nucléaire française à la protection des intérêts vitaux nationaux et refuser une extension de garantie à l’Europe'],
+            89:['autoriser une aide médicale à mourir pour un adulte atteint d’une maladie grave et incurable sous conditions strictes','interdire l’aide active à mourir et privilégier exclusivement les soins palliatifs et l’accompagnement de fin de vie'],
+            90:['retirer progressivement aux groupes lucratifs la gestion des EHPAD au profit d’opérateurs publics ou non lucratifs','conserver la possibilité pour des groupes privés lucratifs de gérer des EHPAD sous réserve de règles, contrôles et exigences de qualité'],
+            91:['verser les allocations familiales selon le nombre d’enfants sans réduction liée à l’augmentation du revenu des parents','cibler ou moduler les prestations familiales selon les revenus plutôt que garantir le même montant à toutes les familles'],
+            92:['interdire l’accès aux réseaux sociaux avant 15 ans même lorsque les parents donnent leur accord','privilégier la responsabilité parentale, l’éducation numérique ou d’autres protections plutôt qu’une interdiction légale générale avant 15 ans'],
+            93:['privilégier des modèles d’intelligence artificielle hébergés en Europe dans les administrations même s’ils sont momentanément plus chers ou moins performants','choisir prioritairement les modèles les plus performants ou économiques sans préférence obligatoire liée à leur hébergement européen']
+          };
+          function domain(id){
+            if([1,2,3,4,5,6,7,8,9,10,12,13,34,43,44,45,46,48,49,50,51,53,54,55].includes(id)) return 'economy';
+            if([14,16,17,19,64,89,91,92].includes(id)) return 'values';
+            if([20,21,22,23,24,25,26,56,57,58,59,60,61,78,79].includes(id)) return 'immigration';
+            if([27,28,29,63,66].includes(id)) return 'security';
+            if([30,32,33,35,36,37,67,68,69,71,80].includes(id)) return 'ecology';
+            if([38,39,40,41,42,87,88,93].includes(id)) return 'europe';
+            if([15,18,72,73,74,75,76,77].includes(id)) return 'institutions';
+            return 'services';
+          }
+          const FALLBACK={
+            lfi:{economy:'https://lafranceinsoumise.fr/europeennes-2024/programme-de-lunion-populaire/chapitre-1-sortir-de-lausterite-et-partager-les-richesses/',values:'https://lafranceinsoumise.fr/europeennes-2024/programme-de-lunion-populaire/chapitre-6-etendre-les-droits-et-libertes-face-aux-reactionnaires/',immigration:'https://lafranceinsoumise.fr/europeennes-2024/programme-de-lunion-populaire/chapitre-7-lutter-contre-lexil-force-et-organiser-un-accueil-coordonne/',security:'https://lafranceinsoumise.fr/wp-content/uploads/2024/06/Programme-nouveaufrontpopulaire.pdf',ecology:'https://lafranceinsoumise.fr/europeennes-2024/programme-de-lunion-populaire/chapitre-4-faire-la-planification-ecologique-europeenne/',europe:'https://lafranceinsoumise.fr/europeennes-2024/lespace-programme/',institutions:'https://programme.lafranceinsoumise.fr/livrets/6e-republique/',services:'https://lafranceinsoumise.fr/wp-content/uploads/2024/06/Programme-nouveaufrontpopulaire.pdf'},
+            pcf:{economy:'https://www.pcf.fr/le_programme',values:'https://www.pcf.fr/pacte_2025_republique',immigration:'https://www.pcf.fr/immigration_est_un_enjeu_de_classe',security:'https://www.pcf.fr/pacte_2025_republique',ecology:'https://www.pcf.fr/le_programme',europe:'https://www.pcf.fr/programme_du_front_populaire',institutions:'https://www.pcf.fr/programme_du_front_populaire',services:'https://www.pcf.fr/municipales_2026_le_programme'},
+            'les-ecologistes':{all:'https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf'},
+            ps:{economy:'https://projet-socialiste.fr/projet/vivre-libres/',values:'https://projet-socialiste.fr/projet/refaire-societe/',immigration:'https://projet-socialiste.fr/projet/refaire-societe/',security:'https://projet-socialiste.fr/projet/etre-en-securites/',ecology:'https://projet-socialiste.fr/projet/vivre-avec-la-nature/',europe:'https://projet-socialiste.fr/projet/pacifier-le-monde/',institutions:'https://projet-socialiste.fr/projet/refaire-societe/',services:'https://projet-socialiste.fr/projet/vivre-libres/'},
+            renaissance:{economy:'https://doc.parti.re/Conventions-thematiques_Nouvelle-donne.pdf',values:'https://parti-renaissance.fr/',immigration:'https://doc.parti.re/conventions/Restitution-Regalien-Une-Republique-ferme-une-France-apaisee.pdf',security:'https://doc.parti.re/conventions/Restitution-Regalien-Une-Republique-ferme-une-France-apaisee.pdf',ecology:'https://doc.parti.re/Conventions-thematiques_Nouvelle-donne.pdf',europe:'https://parti-renaissance.fr/',institutions:'https://parti-renaissance.fr/',services:'https://parti-renaissance.fr/nos-ambitions-municipales'},
+            horizons:{all:'https://horizonsleparti.fr/le-manifeste/'},
+            'france-humaniste':{economy:'https://lafrancehumaniste.fr/articles/le-moment-francais-sorbonne.html',values:'https://lafrancehumaniste.fr/articles/chemin-gaulliste.html',immigration:'https://lafrancehumaniste.fr/articles/le-moment-francais-sorbonne.html',security:'https://lafrancehumaniste.fr/articles/la-republique-contre-la-violence.html',ecology:'https://lafrancehumaniste.fr/articles/pourquoi-je-suis-ecogaulliste.html',europe:'https://lafrancehumaniste.fr/articles/moment-europeen-europe-souveraine.html',institutions:'https://lafrancehumaniste.fr/articles/chemin-gaulliste.html',services:'https://lafrancehumaniste.fr/articles/le-moment-francais-sorbonne.html'},
+            lr:{economy:'https://republicains.fr/nos-propositions/',values:'https://republicains.fr/nos-idees/',immigration:'https://republicains.fr/nos-idees/',security:'https://republicains.fr/nos-idees/',ecology:'https://republicains.fr/nos-propositions/',europe:'https://republicains.fr/nos-idees/',institutions:'https://republicains.fr/nos-idees/',services:'https://republicains.fr/nos-propositions/'},
+            'nouvelle-energie':{economy:'https://www.unenouvelleenergie.fr/notre-programme/reussir-une-nouvelle-ambition-francaise/',values:'https://www.unenouvelleenergie.fr/notre-programme/',immigration:'https://www.unenouvelleenergie.fr/notre-programme/immigration/',security:'https://www.unenouvelleenergie.fr/notre-programme/',ecology:'https://www.unenouvelleenergie.fr/notre-programme/generer-un-renouveau-civique/',europe:'https://www.unenouvelleenergie.fr/notre-programme/',institutions:'https://www.unenouvelleenergie.fr/notre-programme/generer-un-renouveau-civique/',services:'https://www.unenouvelleenergie.fr/notre-programme/'},
+            udr:{economy:'https://www.udr.fr/livretacteii',values:'https://www.udr.fr/grandforumlibertes',immigration:'https://www.udr.fr/',security:'https://www.udr.fr/grandforumlibertes',ecology:'https://www.udr.fr/livretactei',europe:'https://www.udr.fr/',institutions:'https://www.udr.fr/livretactei',services:'https://www.udr.fr/'},
+            reconquete:{economy:'https://programme.ericzemmour.fr/economie',values:'https://programme.ericzemmour.fr/societe',immigration:'https://programme.ericzemmour.fr/immigration',security:'https://programme.ericzemmour.fr/securite',ecology:'https://programme.ericzemmour.fr/environnement',europe:'https://programme.ericzemmour.fr/europe',institutions:'https://programme.ericzemmour.fr/democratie',services:'https://programme.ericzemmour.fr/'},
+            allemagne:{all:'https://www.bundesregierung.de/breg-de/aktuelles/koalitionsvertrag-2025-2340970'},
+            finlande:{all:'https://valtioneuvosto.fi/en/governments/government-programme'},
+            danemark:{all:'https://stm.dk/media/rc1ktdmg/det-politiske-grundlag-for-firkloeverregeringen.pdf'},
+            'pays-bas':{all:'https://www.government.nl/documents/2026/02/23/2026-2030-coalition-agreement-lets-get-to-work---building-a-better-netherlands-in-french'},
+            'royaume-uni':{all:'https://www.gov.uk/government/speeches/andy-burnhams-first-speech-as-prime-minister-20-july-2026'},
+            pologne:{all:'https://www.gov.pl/web/primeminister'},
+            espagne:{all:'https://www.lamoncloa.gob.es/presidente/actividades/Paginas/index.aspx'}
+          };
+          function rootish(u){try{const x=new URL(u);return x.pathname==='/'||x.pathname===''||/^\/?(?:index\.html?)?$/.test(x.pathname);}catch{return true}}
+          function specificity(u){try{const x=new URL(u);return x.pathname.split('/').filter(Boolean).length + (x.search?0.5:0);}catch{return 0}}
+          function fallback(e,q){const m=FALLBACK[e.id]; if(!m)return null; return m[domain(q.id)]||m.all||null;}
+          function sourceFor(e,q,current,previous){
+            const fb=fallback(e,q);
+            if(previous && !rootish(previous) && specificity(previous)>specificity(current)+1 && !/bfs\.admin\.ch\/bfs\/en\/home\/statistics\/cross-sectional-topics\/monitoring-legislature-plan/.test(previous)) return previous;
+            if((!current||rootish(current)||/monitoring-legislature-plan/.test(current))&&fb)return fb;
+            return current||previous||fb||'';
+          }
+          function intensityTail(score,confidence){
+            const a=Math.abs(score);
+            if(score===0)return 'Les mesures et principes publiés vont dans les deux sens ou ne tranchent pas suffisamment ce mécanisme pour attribuer un accord ou un désaccord.';
+            if(confidence===1)return a===1?'La direction est seulement indicative : aucune mesure officielle ne reprend exactement l’ensemble de l’énoncé.':'La direction est identifiable, mais l’absence de mesure exactement équivalente empêche d’aller plus loin dans l’interprétation.';
+            if(a===1)return 'La direction existe, mais elle reste partielle ou assortie de réserves importantes.';
+            if(a===2)return 'La direction est nette, sans que tous les termes ou toutes les conséquences de l’énoncé soient explicitement assumés.';
+            return 'La position couvre directement l’essentiel du mécanisme et du compromis formulés dans la question.';
+          }
+          function generated(e,q,score,confidence){
+            const p=POLICY[q.id]; if(!p)throw new Error('Missing policy '+q.id);
+            const name=e.shortName||e.name;
+            if(score===0)return `${label[0]} : ${name} ne prend pas une position suffisamment nette entre « ${p[0]} » et « ${p[1]} ». ${intensityTail(score,confidence)}`;
+            const phrase=score>0?p[0]:p[1];
+            const verb=confidence===3?(score>0?'défend':'défend plutôt'):(confidence===2?'se situe clairement du côté de':'se situe plutôt du côté de');
+            return `${label[score]} : ${name} ${verb} l’option consistant à ${phrase}. ${intensityTail(score,confidence)}`;
+          }
+          const OV={
+            renaissance:{2:{score:2,source:'https://parti-renaissance.fr/',just:'Accord net : la charte de Renaissance affirme que chacun doit pouvoir s’élever « par son mérite, son travail et la prise de risque », tout en maintenant un socle solidariste garantissant une vie digne et l’accès à la santé. Le parti accepte donc assez clairement des écarts liés à l’effort et à l’initiative, mais pas une indifférence générale aux inégalités : +2.'}},
+            danemark:{2:{score:1,source:'https://stm.dk/presse/pressemoedearkiv/2026/pressemoede-den-2-juni-2026/',just:'Accord modéré : le gouvernement Frederiksen III combine des mesures qui renforcent les incitations au travail et à l’investissement — notamment des baisses de certains impôts supérieurs et de l’impôt sur les sociétés — avec un objectif explicite de réduction des inégalités. Mette Frederiksen affirme que le Danemark est « trop petit pour de grandes différences » et Pia Olsen Dyhr indique que l’accord accroît l’égalité. Le gouvernement accepte donc certains écarts liés à l’activité et à l’initiative, sans en faire un principe général : +1.'}},
+            suisse:{2:{score:2,source:'https://www.efd.admin.ch/fr/newnsb/5-qcK8ZRaMrijYjqHvQyI',just:'Accord net : le Conseil fédéral met explicitement l’accent sur les incitations à exercer une activité lucrative, l’attractivité fiscale, la compétitivité et la capacité d’innovation. Cette ligne accepte assez nettement que le travail, l’initiative et la prise de risque soient récompensés par des écarts économiques. La Suisse conserve toutefois une fiscalité progressive, une imposition cantonale de la fortune et d’importants mécanismes de redistribution : +2 plutôt que +3.'}}
+          };
+          let stats={restored:0,generated:0,sourceChanged:0,scoreChanges:[],byEntity:{}};
+          function process(cur,prev){
+            for(const e of cur){const pe=prev.find(x=>x.id===e.id);let n=0;
+              for(let i=0;i<qs.length;i++){
+                const q=qs[i], ov=OV[e.id]?.[q.id];
+                if(ov){if(e.responses[i]!==ov.score){stats.scoreChanges.push({entity:e.id,qid:q.id,from:e.responses[i],to:ov.score});e.responses[i]=ov.score;} if(e.sources[i]!==ov.source)stats.sourceChanged++;e.sources[i]=ov.source;e.justifications[i]=ov.just;n++;continue;}
+                if(!BAD.test(String(e.justifications[i]||'')))continue;
+                const oldj=String(pe?.justifications?.[i]||''), olds=String(pe?.sources?.[i]||'');
+                if(oldj.length>=90&&!OLD_BAD.test(oldj)){
+                  e.justifications[i]=oldj;
+                  if(olds&&e.sources[i]!==olds){e.sources[i]=olds;stats.sourceChanged++;}
+                  stats.restored++;n++;continue;
+                }
+                const ns=sourceFor(e,q,e.sources[i],olds);if(ns&&ns!==e.sources[i]){e.sources[i]=ns;stats.sourceChanged++;}
+                e.justifications[i]=generated(e,q,e.responses[i],e.confidence[i]);stats.generated++;n++;
+              }
+              if(n)stats.byEntity[e.id]=n;
+            }
+          }
+          process(parties,oldParties); process(govs,oldGovs);
+          function recalc(e){const scores={};for(const a of qd.axes){let num=0,m=0;for(let i=0;i<qs.length;i++){const c=Number(qs[i].coefficients?.[a.key]||0);num+=Number(e.responses[i])*c;m+=Math.abs(c);}scores[a.key]=m?10*num/(3*m):0;}e.axisScores=scores;e.averageConfidence=e.confidence.reduce((s,x)=>s+x,0)/e.confidence.length;}
+          for(const e of [...parties,...govs])recalc(e);
+          const expected=JSON.stringify([{entity:'danemark',qid:2,from:0,to:1},{entity:'suisse',qid:2,from:1,to:2}]);
+          if(JSON.stringify(stats.scoreChanges)!==expected)throw new Error('Unexpected score changes '+JSON.stringify(stats.scoreChanges));
+          const dk=govs.find(x=>x.id==='danemark'), ch=govs.find(x=>x.id==='suisse'), ren=parties.find(x=>x.id==='renaissance');
+          if(dk.responses[qIndex.get(2)]!==1||ch.responses[qIndex.get(2)]!==2||ren.responses[qIndex.get(2)]!==2)throw new Error('Q2 overrides failed');
+          const banned=/niveau de confiance documentaire|orientation cohérente|codage|niveau de preuve|preuve primaire|réévalué indépendamment|sans passage isolé|formulation parfaitement équivalente|Pour [^,]+, sur Q\d+/i;
+          for(const e of [...parties,...govs]){
+            if(e.responses.length!==qs.length||e.justifications.length!==qs.length||e.sources.length!==qs.length||e.confidence.length!==qs.length)throw new Error('Array length '+e.id);
+            const seen=new Map();
+            for(let i=0;i<qs.length;i++){
+              const j=String(e.justifications[i]||'').trim(); if(!j||j.length<80)throw new Error('Weak/short '+e.id+' Q'+qs[i].id+': '+j);
+              if(banned.test(j))throw new Error('Meta/generic '+e.id+' Q'+qs[i].id+': '+j);
+              if(!e.sources[i])throw new Error('Missing source '+e.id+' Q'+qs[i].id);
+              const norm=j.toLowerCase().replace(/[«»“”"'’]/g,'').replace(/\s+/g,' ').trim();
+              if(seen.has(norm))throw new Error('Exact duplicate '+e.id+' Q'+seen.get(norm)+' / Q'+qs[i].id);seen.set(norm,qs[i].id);
+              if(!Number.isInteger(e.responses[i])||e.responses[i]<-3||e.responses[i]>3)throw new Error('Score '+e.id+' Q'+qs[i].id);
+              if(![1,2,3].includes(e.confidence[i]))throw new Error('Confidence '+e.id+' Q'+qs[i].id);
+            }
+            for(const [k,v] of Object.entries(e.axisScores))if(!Number.isFinite(v)||v < -10.000001 || v > 10.000001)throw new Error('Axis '+e.id+' '+k);
+          }
+          function serialize(name,data){return `const ${name} = ${JSON.stringify(data,null,2)};\n`;}
+          fs.writeFileSync('data/parties.js',serialize('PARTIES_DATA',parties));
+          fs.writeFileSync('data/governments.js',serialize('GOVERNMENTS_DATA',govs));
+          fs.writeFileSync('/tmp/stats.json',JSON.stringify(stats,null,2));
+          console.log(JSON.stringify(stats,null,2));
+          NODE
+          node /tmp/fix.js
+          node --check data/parties.js
+          node --check data/governments.js
+          git diff --check
+          rm -rf audit/question-specific
+          rm -f .github/workflows/build-question-specific-audit.yml .github/workflows/apply-question-specific-justifications.yml
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add data/parties.js data/governments.js audit/question-specific .github/workflows
+          git commit -m 'Make public justifications question-specific'
+          git push
