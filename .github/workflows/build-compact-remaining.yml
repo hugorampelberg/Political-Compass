@@ -1,0 +1,29 @@
+name: Build compact remaining audit metadata
+on:
+  push:
+    paths: ['.github/workflows/build-compact-remaining.yml']
+permissions: { contents: write }
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: |
+          node <<'NODE'
+          const fs=require('fs');
+          const dir='audit/question-specific/remaining';
+          const out={};
+          for(const fn of fs.readdirSync(dir).filter(x=>x.endsWith('.tsv'))){
+            const lines=fs.readFileSync(dir+'/'+fn,'utf8').trim().split(/\r?\n/);
+            const h=lines[0].split('\t'); const ix={};h.forEach((x,i)=>ix[x]=i);
+            out[fn.replace(/\.tsv$/,'')]=lines.slice(1).map(l=>{const a=l.split('\t');return {q:+a[ix.qid],score:+a[ix.score],confidence:+a[ix.confidence],source:a[ix.source]};});
+          }
+          fs.writeFileSync('audit/question-specific/compact-remaining.json',JSON.stringify(out,null,2)+'\n');
+          NODE
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add audit/question-specific/compact-remaining.json
+          git commit -m 'Build compact remaining justification metadata' || exit 0
+          git push
