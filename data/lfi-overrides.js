@@ -1,4 +1,17 @@
 const LFI_RESPONSE_OVERRIDES = {
+  2: {
+    justification: "Désaccord modéré : LFI rejette l'idée que les inégalités deviennent globalement acceptables dès lors qu'elles seraient attribuées au mérite, au travail ou à la prise de risque. Le mouvement veut fortement réduire les écarts de rémunération et a notamment proposé un plafond de 1 à 20 au sein d'une même entreprise. Il n'exige toutefois pas une égalité parfaite des revenus et admet donc certains écarts de rémunération ; -1 reste plus précis qu'un désaccord maximal.",
+    source: "https://www.assemblee-nationale.fr/dyn/opendata/PIONANR5L17B0412.html"
+  },
+  18: {
+    response: -2,
+    justification: "Désaccord net : LFI ne défend pas une différenciation généralisée permettant à chaque région de fixer librement ses propres règles économiques, sociales ou environnementales et reste attachée à un cadre national garantissant l'égalité. Elle accepte toutefois d'importantes différenciations territoriales, notamment un statut d'autonomie renforcée pour la Corse et des évolutions institutionnelles spécifiques pour certains territoires insulaires et ultramarins. Le désaccord avec la proposition est donc net, mais pas maximal ; -2 est plus adapté que -3.",
+    source: "https://melenchon2027.fr/programme2025/livre/faire-la-revolution-citoyenne/s4/"
+  },
+  21: {
+    justification: "Accord très fort : LFI défend explicitement l'idée que l'immigration contribue positivement à la société française et conteste les discours qui la présentent comme un coût économique global. Le mouvement souligne notamment la contribution des personnes immigrées au travail, aux cotisations et aux finances publiques. La proposition selon laquelle l'immigration économique est globalement bénéfique correspond donc directement à sa ligne ; +3 est adapté.",
+    source: "https://lafranceinsoumise.fr/2023/12/15/stop-a-la-loi-immigration/"
+  },
   27: {
     response: -3,
     justification: "Désaccord très fort : la question propose de durcir les peines de prison même si cela augmente fortement la population carcérale. LFI veut au contraire mettre fin à la surpopulation par un mécanisme contraignant de régulation carcérale et renforcer les moyens de réinsertion. Le mouvement ne rejette pas la prison pour les infractions graves, mais il refuse précisément une stratégie générale fondée sur davantage d'incarcération ; la contrepartie posée par la question est donc presque exactement l'inverse de sa ligne, d'où -3.",
@@ -38,6 +51,19 @@ const LFI_RESPONSE_OVERRIDES = {
     justification: "Désaccord très fort : LFI rejette explicitement la logique d'« immigration choisie », qu'elle juge absurde et réductrice lorsqu'elle sélectionne les migrants selon leur utilité économique. Sa politique migratoire privilégie les droits, l'accueil, les visas et la régularisation de catégories larges de personnes plutôt qu'une priorité donnée aux plus qualifiés au prix d'une diminution de l'immigration peu qualifiée. L'arbitrage précis de la question est donc directement contraire à sa doctrine, d'où -3.",
     source: "https://melenchon2027.fr/livrets-2022/migrations/"
   },
+  59: {
+    justification: "Accord très fort : LFI propose de garantir le droit du sol intégral aux enfants nés en France et de faciliter l'accès à la nationalité française. Pour une personne née en France de parents étrangers et ayant grandi dans le pays, LFI ne souhaite donc pas subordonner l'accès à la nationalité à la démonstration d'un attachement culturel particulier. La proposition correspond directement à cette logique ; +3 est adapté.",
+    source: "https://melenchon2027.fr/programme2025/livre/chapitre10/s2/"
+  },
+  63: {
+    response: -2,
+    justification: "Désaccord net : LFI critique l'extension des dispositifs antiterroristes qui permettent de restreindre les libertés ou de placer des personnes sous surveillance administrative sans contrôle judiciaire suffisant. Son programme veut revenir sur les dispositions relevant de l'« état d'urgence permanent » et renforcer le rôle du juge judiciaire. LFI ne rejette toutefois pas toute action préventive : elle veut aussi renforcer le renseignement humain, l'infiltration et le suivi de personnes présentant un risque. Le désaccord avec une surveillance préventive sans preuves suffisantes est donc net mais pas absolu ; -2 est adapté.",
+    source: "https://melenchon2027.fr/programme2025/livre/chapitre4/s2/"
+  },
+  64: {
+    justification: "Accord net : LFI défend une conception large de la liberté d'expression et rappelle notamment que le blasphème, la critique des religions et les propos choquants restent licites tant qu'ils ne franchissent pas les limites prévues par la loi. Le mouvement accepte toutefois des restrictions concernant notamment l'injure, la diffamation, les discriminations ou l'incitation à la haine. La protection des propos profondément offensants mais licites est donc clairement défendue sans être absolue ; +2 est adapté.",
+    source: "https://lafranceinsoumise.fr/2020/01/25/face-a-toutes-les-haines-la-laicite/"
+  },
   67: {
     response: -2,
     justification: "Désaccord net : LFI refuse que la transition écologique soit financée par une hausse durable des factures d'énergie supportée par les ménages et privilégie le financement budgétaire, la régulation des prix et la contribution des entreprises polluantes. La compensation ciblée prévue par la question atténue néanmoins le désaccord puisqu'elle protège une partie des ménages modestes. LFI reste opposée au principe de maintenir d'abord un renchérissement du carbone payé par les consommateurs, mais la compensation empêche de retenir -3 ; -2 est plus précis.",
@@ -62,6 +88,31 @@ const LFI_RESPONSE_OVERRIDES = {
     response: 2,
     justification: "Accord net : LFI s'oppose fermement à la réautorisation de pesticides interdits pour des raisons sanitaires ou environnementales et accepte donc des contraintes fortes sur les produits utilisables par les agriculteurs français. Mais le groupe a également fait adopter une disposition visant à interdire l'importation de denrées produites avec des substances interdites en France, précisément afin que les agriculteurs français ne supportent pas seuls un désavantage concurrentiel. L'interdiction nationale est clairement soutenue, mais la contrepartie de concurrence étrangère durablement plus favorable ne l'est pas ; +2 est donc plus précis que +3.",
     source: "https://lafranceinsoumise.fr/2026/06/03/loi-durgence-agricole-les-textes-agricoles-passent-le-vivant-trepasse-sans-perspective-pour-les-agriculteurs/"
+  },
+  81: {
+    justification: "Accord très fort : LFI veut réguler l'installation des médecins afin de lutter contre les déserts médicaux et accepte de limiter le conventionnement dans les zones déjà suffisamment dotées pour orienter davantage les nouvelles installations vers les territoires sous-dotés. Le mécanisme proposé dans la question correspond directement à cet instrument de régulation ; +3 est adapté.",
+    source: "https://melenchon2027.fr/programme2025/livre/chapitre15/s2/"
+  },
+  85: {
+    justification: "Accord très fort : LFI veut conditionner davantage le financement public des établissements privés sous contrat à leur contribution à la mixité sociale et scolaire. Son programme prévoit notamment des mécanismes de malus ou de pénalités financières pour les établissements participant durablement à la ségrégation socio-scolaire ou évinçant les élèves en difficulté. La proposition correspond donc presque exactement à la politique défendue ; +3 est adapté.",
+    source: "https://melenchon2027.fr/programme2025/livre/chapitre5/s3/"
+  },
+  87: {
+    response: -1,
+    justification: "Désaccord modéré : LFI condamne l'invasion russe, affirme son soutien à l'Ukraine et considère qu'elle doit pouvoir négocier en position de force. Le mouvement refuse toutefois de faire de la poursuite indéfinie et du renforcement de l'aide militaire la seule perspective tant que l'occupation se poursuit, et privilégie une initiative diplomatique visant une paix négociée avec l'Ukraine. La proposition va donc plus loin que sa ligne sans lui être totalement opposée ; -1 est plus précis que -2.",
+    source: "https://lafranceinsoumise.fr/2025/03/12/pour-une-paix-juste-et-durable-en-ukraine/"
+  },
+  90: {
+    justification: "Accord très fort : LFI propose explicitement de sortir les EHPAD de la logique lucrative, de collectiviser les établissements privés à but lucratif et de confier leur gestion à des structures publiques, associatives ou coopératives non lucratives. Cette orientation correspond presque exactement à la proposition de faire progressivement disparaître les EHPAD commerciaux ; +3 est adapté.",
+    source: "https://melenchon2027.fr/programme2025/livre/chapitre10/s4/"
+  },
+  92: {
+    justification: "Désaccord très fort : LFI s'oppose explicitement à une interdiction générale des réseaux sociaux pour les moins de 15 ans et a défendu au Parlement des amendements contestant ce principe, qu'elle juge inefficace et excessivement attentatoire aux libertés. Elle privilégie plutôt la régulation des plateformes, la protection des mineurs et l'éducation numérique. La proposition d'une interdiction légale même avec l'accord des parents est donc directement contraire à sa position ; -3 est adapté.",
+    source: "https://www.assemblee-nationale.fr/dyn/17/amendements/2341/AN/13"
+  },
+  93: {
+    justification: "Accord modéré : LFI défend fortement la souveraineté numérique des administrations et souhaite que les données et infrastructures publiques sensibles reposent sur des solutions maîtrisées en France, notamment via un cloud public et des serveurs soumis au droit français. Cette préférence pour une maîtrise technologique publique rapproche LFI de la proposition. En revanche, sa doctrine est davantage française qu'européenne et elle n'assume pas explicitement de choisir une IA moins performante ou sensiblement plus coûteuse uniquement en raison de son origine européenne ; +1 reste donc adapté.",
+    source: "https://melenchon2027.fr/programme2025/livre/chapitre18/s5/"
   }
 };
 
