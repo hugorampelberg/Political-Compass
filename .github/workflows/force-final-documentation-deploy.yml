@@ -1,0 +1,33 @@
+name: Force final documentation deploy
+on:
+  push:
+    paths: ['.github/workflows/force-final-documentation-deploy.yml']
+permissions: { contents: write }
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Touch served application file without functional change
+        run: |
+          node <<'NODE'
+          const fs=require('fs');
+          const p='scripts/app.js';
+          let s=fs.readFileSync(p,'utf8');
+          const marker='// deployment-sync: documentary-justification-audit-2026-08-11';
+          if(/^\/\/ deployment-sync:.*\n/.test(s)) s=s.replace(/^\/\/ deployment-sync:.*\n/,marker+'\n');
+          else s=marker+'\n'+s;
+          fs.writeFileSync(p,s);
+          NODE
+          node --check scripts/app.js
+          node scripts/validate-data.js
+      - name: Commit sync and self-remove
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add scripts/app.js
+          git rm .github/workflows/force-final-documentation-deploy.yml
+          git commit -m 'Sync final documentary audit to production'
+          git push
