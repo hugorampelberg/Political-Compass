@@ -1,3 +1,4 @@
+// deployment-sync: entity-all-notes-detail
 const STORAGE_KEY = 'boussole-politique-state-v4';
 const QUIZ_MODES = { FULL:'full', QUICK:'quick' };
 const STRUCTURAL_WEIGHT_SHARE = 0.4;
