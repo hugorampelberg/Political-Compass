@@ -142,6 +142,88 @@ const PARTY_RESPONSE_OVERRIDES = {
       source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante"
     }
   },
+  modem: {
+    3: {
+      response: 1,
+      justification: "Accord modéré : le MoDem défend une fiscalité plus progressive et considère que les contribuables les plus fortunés doivent davantage contribuer. Il souhaite toutefois protéger le capital investi dans l’économie productive et ne défend pas une hausse générale ou très lourde de la fiscalité des hauts revenus et patrimoines ; +1 reflète cette orientation redistributive modérée.",
+      source: "https://www.mouvementdemocrate.fr/programme/propositions-2441"
+    },
+    13: {
+      response: -1,
+      justification: "Désaccord modéré : François Bayrou défend le modèle français de solidarité collective en matière de santé, de retraites et de protection sociale et refuse de basculer vers une logique où chacun finance essentiellement sa propre protection. Le MoDem accepte néanmoins des dispositifs complémentaires et n’exclut pas une capitalisation collective en complément de la répartition ; le désaccord reste donc limité à -1.",
+      source: "https://www.mouvementdemocrate.fr/actualites/francois-bayrou-la-france-besoin-dun-budget-nous-devons-ladopter-au-plus-vite-objectif"
+    },
+    18: {
+      response: 2,
+      justification: "Accord net : le MoDem défend depuis longtemps la décentralisation, la subsidiarité et une capacité accrue des collectivités à adapter les politiques publiques aux réalités locales. Il accepte donc une différenciation territoriale substantielle, sans pour autant remettre en cause l’unité de la République ni vouloir régionaliser l’ensemble des règles nationales ; +2 est adapté.",
+      source: "https://www.mouvementdemocrate.fr/programme/propositions-2427"
+    },
+    25: {
+      response: 1,
+      justification: "Accord modéré : François Bayrou estime que les flux migratoires doivent rester proportionnés aux capacités d’accueil et insiste sur la langue, les repères communs et l’intégration. Il refuse toutefois une logique de fermeture culturelle ou une hostilité de principe à l’immigration ; la cohésion culturelle peut donc entrer dans l’arbitrage sans devenir un motif dominant de restriction, d’où +1.",
+      source: "https://www.mouvementdemocrate.fr/actualites/ur-2025-revivez-le-discours-de-cloture-de-francois-bayrou-video-7950-video"
+    },
+    28: {
+      response: 1,
+      justification: "Accord modéré : le MoDem accorde une place importante à la prévention, à la réinsertion et au traitement des causes de la délinquance, mais François Bayrou défend aussi des jugements rapides et des peines courtes réellement exécutées. La prévention n’est donc pas privilégiée au détriment de toute fermeté pénale ; +1 est plus précis que +2.",
+      source: "https://www.mouvementdemocrate.fr/actualites/francois-bayrou-je-ne-veux-pas-de-grandes-lois-destinees-faire-de-la-communication-video"
+    },
+    32: {
+      response: 1,
+      justification: "Accord modéré : le MoDem fait de la lutte contre le dérèglement climatique une priorité et défend une réduction importante des émissions, mais présente également la transition écologique comme un moteur d’innovation, d’emplois et de nouvelles activités. Il n’accepte donc pas explicitement une baisse de la croissance comme contrepartie nécessaire ; +1 traduit mieux cet arbitrage que +2.",
+      source: "https://www.mouvementdemocrate.fr/programme/propositions-2436"
+    },
+    37: {
+      response: 1,
+      justification: "Accord modéré : le MoDem soutient la solidarité climatique internationale et reconnaît une responsabilité particulière des économies développées, mais ne défend pas clairement que les pays riches doivent supporter à eux seuls une part prépondérante du coût mondial de la transition. L’effort doit rester collectif et largement coordonné au niveau européen et international ; +1 est donc plus prudent que +2.",
+      source: "https://www.mouvementdemocrate.fr/programme/propositions-2436"
+    },
+    43: {
+      response: -2,
+      justification: "Désaccord net : le MoDem ne propose pas de supprimer toute taxation spécifique du patrimoine. Marc Fesneau défend au contraire le remplacement de l’IFI par un impôt sur la fortune improductive à l’assiette plus large, tout en épargnant davantage le capital productif. Cette orientation est clairement opposée à une suppression pure et simple de l’IFI sans fiscalité patrimoniale de remplacement, d’où -2.",
+      source: "https://www.mouvementdemocrate.fr/programme/propositions-2441"
+    },
+    66: {
+      response: 1,
+      justification: "Accord modéré : le groupe Les Démocrates a très majoritairement soutenu en juillet 2026 la présomption de légitime défense pour les forces de l’ordre, ce qui traduit une volonté de leur accorder davantage de protection juridique. Mais cette présomption reste soumise aux conditions de nécessité et de proportionnalité et ne vaut pas autorisation générale de tirer sur un conducteur en fuite sans danger immédiat ; +1 est plus adapté que +2.",
+      source: "https://www.assemblee-nationale.fr/dyn/17/scrutins/7987"
+    },
+    69: {
+      response: 0,
+      justification: "Position intermédiaire : François Bayrou et le MoDem défendent une place importante du nucléaire dans le mix énergétique, mais refusent explicitement d’opposer nucléaire et énergies renouvelables et veulent développer les deux pour sortir des énergies fossiles. L’arbitrage de la question — privilégier le nucléaire même en réduisant les investissements renouvelables — n’est donc pas retenu, d’où 0.",
+      source: "https://www.mouvementdemocrate.fr/actualites/francois-bayrou-le-centre-cest-la-garantie-du-pluralisme-en-refusant-la-bipolarisation"
+    },
+    71: {
+      response: 0,
+      justification: "Position intermédiaire : le MoDem défend une action climatique ambitieuse, mais privilégie une réponse européenne et internationale coordonnée et ne s’est pas engagé à accepter un coût macroéconomique aussi élevé que 3 % du PIB lorsque les autres pays ne fournissent aucun effort comparable. La combinaison d’ambition climatique et de recherche de réciprocité justifie 0.",
+      source: "https://www.mouvementdemocrate.fr/programme/propositions-2436"
+    },
+    73: {
+      response: 2,
+      justification: "Accord net : François Bayrou a explicitement assumé, à Matignon, des décisions budgétaires impopulaires qu’il présentait comme nécessaires pour éviter une crise de la dette et restaurer les finances publiques. Le MoDem accepte donc qu’un gouvernement prenne une décision économiquement jugée nécessaire sans disposer d’une approbation immédiate de l’opinion, ce qui justifie +2.",
+      source: "https://www.mouvementdemocrate.fr/actualites/moment-budgetaire-de-verite-de-francois-bayrou-que-retenir-image-7842-image"
+    },
+    78: {
+      response: 3,
+      justification: "Accord très fort : François Bayrou relie explicitement la régularité et la durée du séjour au travail, à la maîtrise du français et à l’acceptation des principes communs de la société française. Il présente ces efforts comme des obligations ouvrant la voie à la régularité du séjour puis à l’intégration ; la proposition correspond donc directement à la doctrine exprimée, d’où +3.",
+      source: "https://www.mouvementdemocrate.fr/actualites/francois-bayrou-notre-desordre-politique-rend-la-france-faible-video-7531-video"
+    },
+    81: {
+      response: 0,
+      justification: "Position intermédiaire : le MoDem partage l’objectif de mieux répartir les médecins sur le territoire, mais les responsables et parlementaires centristes ont défendu des méthodes différentes. François Bayrou a privilégié des consultations périodiques dans les zones sous-dotées plutôt qu’une interdiction ou une autorisation administrative de l’installation, tandis que certains élus du centre ont soutenu des mécanismes plus contraignants. L’absence de doctrine homogène sur le conventionnement sélectif justifie 0.",
+      source: "https://www.mouvementdemocrate.fr/actualites/francois-bayrou-je-pense-que-la-question-du-budget-est-assez-grave-pour-quelle-sadresse"
+    },
+    84: {
+      response: -2,
+      justification: "Désaccord net : François Bayrou s’est explicitement déclaré opposé au recrutement des enseignants par les chefs d’établissement et ne veut pas transformer ces derniers en patrons de leurs établissements. Il a également défendu l’équilibre existant de l’évaluation plutôt qu’un renforcement marqué du pouvoir hiérarchique local ; cette opposition directe justifie -2.",
+      source: "https://www.mouvementdemocrate.fr/actualites/francois-bayrou-invite-de-bfm-politique-ce-dimanche-12h-video-5223-video"
+    },
+    93: {
+      response: 1,
+      justification: "Accord modéré : le MoDem fait de la souveraineté numérique européenne une priorité et veut réduire la dépendance technologique à l’égard des acteurs extra-européens. Cette préférence soutient l’usage de solutions européennes dans les administrations, mais le parti n’affirme pas qu’il faut accepter sans limite des modèles sensiblement moins performants ou plus coûteux ; +1 est donc plus adapté que +2.",
+      source: "https://modemffe.mouvementdemocrate.fr/numerique/philippe-latombe-sur-le-plan-technologique-nous-sommes-extraordinairement-dependants"
+    }
+  },
   "france-humaniste": {
     15: {
       response: 0,
