@@ -1,0 +1,41 @@
+name: Generic justification inventory
+on:
+  push:
+    paths: ['.github/workflows/audit-generic-meta-rows.yml']
+permissions: { contents: write }
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: |
+          cat >/tmp/a.js <<'NODE'
+          const fs=require('fs'),vm=require('vm');
+          function load(p,n){const c={};vm.createContext(c);vm.runInContext(fs.readFileSync(p,'utf8')+`\nthis.x=${n}`,c);return c.x}
+          const qs=load('data/questionnaire.js','QUESTIONNAIRE_DATA').questions;
+          const es=[...load('data/parties.js','PARTIES_DATA'),...load('data/governments.js','GOVERNMENTS_DATA')];
+          const tests=[
+            ['ORI',/orientation cohérente avec le document officiel retenu, sans passage isolé directement équivalent à la question\./i],
+            ['CONF',/le niveau de confiance documentaire a été réévalué indépendamment de l’intensité de la réponse\./i],
+            ['PRUD',/estimation prudente ; aucune formulation parfaitement équivalente à la question n’a été identifiée\./i]
+          ];
+          let lines=['bucket\tcategory\tentity_id\tentity\tqid\tscore\tconfidence\tsource\tjustification'];
+          const clean=s=>String(s??'').replace(/\t|\r?\n/g,' ');
+          for(const e of es) for(let i=0;i<qs.length;i++){
+            const j=String(e.justifications?.[i]||'');
+            const t=tests.find(([_,r])=>r.test(j)); if(!t) continue;
+            lines.push([t[0],e.category,e.id,e.shortName,qs[i].id,e.responses[i],e.confidence[i],e.sources?.[i]||'',j].map(clean).join('\t'));
+          }
+          fs.writeFileSync('audit/generic-meta-rows.tsv',lines.join('\n')+'\n');
+          console.log('rows',lines.length-1);
+          NODE
+          node /tmp/a.js
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add audit/generic-meta-rows.tsv
+          git rm .github/workflows/audit-generic-meta-rows.yml
+          git commit -m 'Generate generic justification inventory'
+          git push
