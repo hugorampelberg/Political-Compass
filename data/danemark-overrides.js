@@ -72,3 +72,8 @@ if (danemarkGovernment) {
   });
   danemarkGovernment.axisScores = scores;
 }
+
+// Charge l'override documentaire de la Pologne avant l'initialisation de l'application.
+if (typeof document !== 'undefined' && document.readyState === 'loading') {
+  document.write('<script src="/data/pologne-overrides.js"></scr' + 'ipt>');
+}
