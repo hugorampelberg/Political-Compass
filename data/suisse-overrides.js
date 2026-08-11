@@ -39,6 +39,11 @@ const SUISSE_RESPONSE_OVERRIDES = {
     justification: "Désaccord très fort : lorsqu'une personne quitte définitivement la Suisse, son assujettissement fiscal illimité prend fin ; seules certaines attaches suisses, notamment immobilières, peuvent continuer à produire un assujettissement limité. La Suisse ne défend donc pas le principe de continuer à taxer le patrimoine mondial d'une très grande fortune après son expatriation. Le mécanisme proposé est directement opposé au fonctionnement fiscal suisse ; -3 est plus adapté que -1.",
     source: "https://www.dfae.admin.ch/fr/prendre-sa-retraite-a-l-etranger-suisses-de-l-etranger"
   },
+  46: {
+    response: 3,
+    justification: "Accord très fort : en Suisse, une personne au chômage doit accepter tout emploi réputé convenable. Le refus d'un travail convenable proposé peut entraîner une suspension du droit aux indemnités de 1 à 60 jours selon la gravité de la faute, et des suspensions répétées conduisent à un allongement de la sanction. Le dispositif permet donc explicitement de faire perdre une part significative des allocations après le refus d'emplois raisonnablement adaptés ; +3 correspond directement à la proposition.",
+    source: "https://www.arbeit.swiss/fr/faq-sur-lindemnite-de-chomage"
+  },
   54: {
     response: 2,
     justification: "Accord net : la Confédération détient des participations majeures dans plusieurs entreprises stratégiques, notamment la Poste, les CFF, Swisscom et Skyguide, et le Conseil fédéral leur assigne des objectifs stratégiques pluriannuels. L'État utilise donc réellement son pouvoir d'actionnaire pour orienter des entreprises vers des objectifs de long terme. Cette pratique reste concentrée sur un ensemble ciblé d'entreprises publiques ou à participation fédérale plutôt que sur les grandes entreprises privées en général ; +2 est plus précis que +1.",
