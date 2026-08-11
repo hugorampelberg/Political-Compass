@@ -1,0 +1,83 @@
+name: Restore specific justifications and Q2 corrections
+on:
+  push:
+    paths: ['.github/workflows/restore-specific-and-score-q2.yml']
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Restore old specific rows and apply requested Q2 scores
+        run: |
+          cat > /tmp/restore.js <<'NODE'
+          const fs=require('fs'),vm=require('vm'),cp=require('child_process');
+          function loadText(text,name){const c={};vm.createContext(c);vm.runInContext(text+`\nthis.__out=${name};`,c);return c.__out;}
+          function load(path,name){return loadText(fs.readFileSync(path,'utf8'),name)}
+          function old(path,name){return loadText(cp.execFileSync('git',['show','0005b2fd72947fcd8bb08b2ba0b568c6e01f672b:'+path],{encoding:'utf8',maxBuffer:50e6}),name)}
+          const qd=load('data/questionnaire.js','QUESTIONNAIRE_DATA');
+          const qs=qd.questions;
+          const parties=load('data/parties.js','PARTIES_DATA'), oldParties=old('data/parties.js','PARTIES_DATA');
+          const govs=load('data/governments.js','GOVERNMENTS_DATA'), oldGovs=old('data/governments.js','GOVERNMENTS_DATA');
+          const oldWeak=/niveau de confiance documentaire|orientation cohérente avec le document officiel retenu|estimation prudente|sources officielles et prises de position convergentes|preuve primaire directe ou proposition officielle très proche|codage cohérent|codage fondé|niveau de preuve|réévalué indépendamment|sans passage isolé directement équivalent|formulation parfaitement équivalente|transposition ou inférence prudente|ligne programmatique générale|position neutre, partagée ou non arrêtée/i;
+          const currentGenerated=/Pour [^,]+, sur Q\d+|Le programme combine baisse de l’impôt sur les sociétés|L’accord CDU\/CSU–SPD combine|La coalition est socialement|La ligne gouvernementale|Le gouvernement veut réduire l’immigration|La convention économique 2025 de Renaissance|Renaissance se présente comme le parti|LFI veut partager davantage|LFI veut soustraire plusieurs|Le PCF défend|Le Projet socialiste 2026|Les Écologistes veulent|Le programme 2026 des Écologistes|Le MoDem|Horizons veut|Nouvelle Énergie veut|L’UDR|Le RN|Reconquête veut/i;
+          let restored=0;
+          function restoreSet(cur,prev){
+            for(const e of cur){
+              const p=prev.find(x=>x.id===e.id); if(!p) continue;
+              for(let i=0;i<qs.length;i++){
+                const cj=String(e.justifications[i]||''), oj=String(p.justifications[i]||'');
+                if(currentGenerated.test(cj) && oj.trim().length>=70 && !oldWeak.test(oj)){
+                  e.justifications[i]=p.justifications[i];
+                  e.sources[i]=p.sources[i];
+                  restored++;
+                }
+              }
+            }
+          }
+          restoreSet(parties,oldParties); restoreSet(govs,oldGovs);
+          const qi=qs.findIndex(q=>q.id===2); if(qi<0) throw new Error('Q2 missing');
+          const dk=govs.find(e=>e.id==='danemark'), ch=govs.find(e=>e.id==='suisse');
+          if(!dk||!ch) throw new Error('DK/CH missing');
+          dk.responses[qi]=1;
+          dk.justifications[qi]="Accord modéré : le gouvernement danois cherche à renforcer les incitations au travail et à l'activité tout en conservant un État-providence universel et redistributif. Cette combinaison accepte davantage les écarts liés à l'emploi, à l'effort et à la prise de responsabilité sans considérer les inégalités comme souhaitables en elles-mêmes ; +1 traduit ce compromis.";
+          dk.sources[qi]='https://stm.dk/media/rc1ktdmg/det-politiske-grundlag-for-firkloeverregeringen.pdf';
+          ch.responses[qi]=2;
+          ch.justifications[qi]="Accord net : la politique économique du Conseil fédéral met fortement l'accent sur la responsabilité individuelle, l'incitation au travail, l'entrepreneuriat et des conditions favorables à la prise de risque, tout en maintenant des mécanismes de redistribution et de cohésion sociale. Cela correspond assez nettement à l'idée que des écarts issus du travail ou du risque peuvent être acceptables, sans aller jusqu'à une approbation générale de toutes les inégalités ; +2.";
+          ch.sources[qi]='https://www.admin.ch/de/bundesrat-legislatur';
+          function recalc(e){
+            const s={}; for(const a of qd.axes){let n=0,m=0; for(let i=0;i<qs.length;i++){const c=Number(qs[i].coefficients?.[a.key]||0);n+=Number(e.responses[i]||0)*c;m+=Math.abs(c);} s[a.key]=m?10*n/(3*m):0;} e.axisScores=s;
+            e.averageConfidence=e.confidence.reduce((a,b)=>a+b,0)/e.confidence.length;
+          }
+          recalc(dk); recalc(ch);
+          function ser(name,x){return `const ${name} = ${JSON.stringify(x,null,2)};\n`;}
+          fs.writeFileSync('data/parties.js',ser('PARTIES_DATA',parties));
+          fs.writeFileSync('data/governments.js',ser('GOVERNMENTS_DATA',govs));
+          // Build remaining weak report after safe restorations.
+          fs.rmSync('audit/question-specific/remaining',{recursive:true,force:true}); fs.mkdirSync('audit/question-specific/remaining',{recursive:true});
+          let summary={};
+          for(const e of [...parties,...govs]){
+            const rows=['qid\ttheme\tquestion\tscore\tconfidence\tsource\tjustification']; let n=0;
+            for(let i=0;i<qs.length;i++){
+              const j=String(e.justifications[i]||'');
+              const bad=oldWeak.test(j)||currentGenerated.test(j)||j.trim().length<70;
+              if(bad){const esc=s=>String(s??'').replace(/\t/g,' ').replace(/\r?\n/g,' ');rows.push([qs[i].id,qs[i].theme,esc(qs[i].text),e.responses[i],e.confidence[i],esc(e.sources[i]),esc(j)].join('\t'));n++;}
+            }
+            if(n){fs.writeFileSync(`audit/question-specific/remaining/${e.id}.tsv`,rows.join('\n')+'\n');summary[e.id]=n;}
+          }
+          fs.writeFileSync('audit/question-specific/remaining-summary.json',JSON.stringify({restored,remaining:summary},null,2)+'\n');
+          console.log({restored,remaining:summary,dkQ2:dk.responses[qi],chQ2:ch.responses[qi]});
+          NODE
+          node /tmp/restore.js
+          node --check data/parties.js
+          node --check data/governments.js
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add data/parties.js data/governments.js audit/question-specific/remaining audit/question-specific/remaining-summary.json
+          git commit -m 'Restore specific justifications and update Denmark Switzerland Q2'
+          git push
