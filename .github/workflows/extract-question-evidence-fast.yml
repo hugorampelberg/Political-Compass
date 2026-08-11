@@ -1,0 +1,92 @@
+name: Extract question evidence fast
+on:
+  push:
+    paths: ['.github/workflows/extract-question-evidence-fast.yml']
+permissions:
+  contents: write
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install requests beautifulsoup4 pypdf
+      - name: Parallel source retrieval and matching
+        run: |
+          cat > /tmp/evidence.py <<'PY'
+          import csv,re,json,math,os,io
+          from collections import Counter
+          from concurrent.futures import ThreadPoolExecutor,as_completed
+          import requests
+          from bs4 import BeautifulSoup
+          from pypdf import PdfReader
+          ROOT='audit/question-specific/remaining'; OUT='audit/question-specific/evidence-fast'; os.makedirs(OUT,exist_ok=True)
+          STOP=set('le la les un une des de du et ou en au aux pour par sur dans avec sans que qui dont ce cette ces son sa ses leur leurs il elle ils elles est sont etre être avoir plus moins tres très meme même comme si lorsque afin tout toute tous toutes entre vers chez pas ni mais donc car france français devrait pourrait faut faire fait partie niveau politique gouvernement parti question programme source'.split())
+          def clean(s):return re.sub(r'\s+',' ',s or '').strip()
+          def toks(s):return [x for x in re.findall(r"[a-zà-ÿ0-9]+",(s or '').lower()) if len(x)>2 and x not in STOP]
+          allrows={}; urls=set()
+          for fn in os.listdir(ROOT):
+            if fn.endswith('.tsv'):
+              with open(os.path.join(ROOT,fn),encoding='utf8') as f: rows=list(csv.DictReader(f,delimiter='\t'))
+              allrows[fn]=rows; urls.update(r['source'] for r in rows if r['source'])
+          def fetch(url):
+            try:
+              r=requests.get(url,timeout=(4,8),headers={'User-Agent':'Mozilla/5.0'},allow_redirects=True); r.raise_for_status(); paras=[]
+              ct=(r.headers.get('content-type') or '').lower()
+              if 'pdf' in ct or r.content[:4]==b'%PDF':
+                rd=PdfReader(io.BytesIO(r.content)); pages=rd.pages[:120]
+                for p in pages:
+                  txt=p.extract_text() or ''
+                  for x in re.split(r'\n{2,}|(?<=[.!?])\s+(?=[A-ZÀ-ÖØ-Ý])',txt):
+                    x=clean(x)
+                    if 55<=len(x)<=1600:paras.append(x)
+              else:
+                soup=BeautifulSoup(r.text,'html.parser')
+                for bad in soup(['script','style','nav','footer','header','form','svg']):bad.decompose()
+                seen=set()
+                for el in soup.find_all(['p','li','h2','h3','h4','blockquote']):
+                  x=clean(el.get_text(' ',strip=True))
+                  if 50<=len(x)<=1600 and x not in seen:seen.add(x);paras.append(x)
+              return url,paras
+            except Exception:return url,[]
+          cache={}
+          with ThreadPoolExecutor(max_workers=18) as ex:
+            futs=[ex.submit(fetch,u) for u in urls]
+            for fu in as_completed(futs):u,p=fu.result();cache[u]=p
+          def rank(q,paras):
+            qt=toks(q)
+            if not qt or not paras:return []
+            docs=[toks(p) for p in paras]; N=len(docs);df=Counter()
+            for d in docs:
+              for t in set(d):df[t]+=1
+            def v(tf):return {t:c*(math.log((N+1)/(df.get(t,0)+1))+1) for t,c in tf.items()}
+            qv=v(Counter(qt));qn=math.sqrt(sum(x*x for x in qv.values())) or 1;out=[]
+            for p,d in zip(paras,docs):
+              dv=v(Counter(d));dn=math.sqrt(sum(x*x for x in dv.values())) or 1
+              cos=sum(qv.get(t,0)*x for t,x in dv.items())/(qn*dn); ov=len(set(qt)&set(d))/max(1,len(set(qt)));s=.72*cos+.28*ov
+              if s>0:out.append((s,p))
+            out.sort(reverse=True,key=lambda x:x[0]);best=[]
+            for x in out:
+              if any(x[1][:100] in y[1] or y[1][:100] in x[1] for y in best):continue
+              best.append(x)
+              if len(best)>=3:break
+            return best
+          summary={}
+          for fn,rows in allrows.items():
+            out=[]
+            for r in rows:
+              ps=cache.get(r['source'],[]); b=rank(r['question'],ps)
+              out.append({**r,'fetch_paragraphs':len(ps),'best_score':f'{b[0][0]:.4f}' if b else '0','evidence_1':b[0][1] if b else '', 'evidence_2':b[1][1] if len(b)>1 else '', 'evidence_3':b[2][1] if len(b)>2 else ''})
+            if out:
+              with open(os.path.join(OUT,fn),'w',encoding='utf8',newline='') as f:w=csv.DictWriter(f,fieldnames=out[0].keys(),delimiter='\t',lineterminator='\n');w.writeheader();w.writerows(out)
+              summary[fn[:-4]]={'rows':len(out),'no_fetch':sum(int(r['fetch_paragraphs'])==0 for r in out),'low':sum(float(r['best_score'])<.08 for r in out),'good':sum(float(r['best_score'])>=.16 for r in out)}
+          with open(os.path.join(OUT,'summary.json'),'w',encoding='utf8') as f:json.dump(summary,f,ensure_ascii=False,indent=2)
+          print(json.dumps(summary,ensure_ascii=False))
+          PY
+          python /tmp/evidence.py
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add audit/question-specific/evidence-fast
+          git commit -m 'Extract question-specific evidence in parallel' || exit 0
+          git push
