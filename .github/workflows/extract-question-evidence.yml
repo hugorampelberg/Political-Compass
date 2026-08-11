@@ -1,0 +1,105 @@
+name: Extract question-specific source evidence
+on:
+  push:
+    paths: ['.github/workflows/extract-question-evidence.yml']
+permissions:
+  contents: write
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Install extraction dependencies
+        run: pip install requests beautifulsoup4 pypdf
+      - name: Extract best matching passages from current official sources
+        run: |
+          cat > /tmp/evidence.py <<'PY'
+          import csv,re,json,math,os,io,time
+          from collections import Counter
+          from urllib.parse import urlparse
+          import requests
+          from bs4 import BeautifulSoup
+          from pypdf import PdfReader
+          ROOT='audit/question-specific/remaining'
+          OUT='audit/question-specific/evidence'
+          os.makedirs(OUT,exist_ok=True)
+          STOP=set('''le la les un une des de du d et ou en à a au aux pour par sur dans avec sans que qui quoi dont ce cette ces son sa ses leur leurs il elle ils elles est sont être avoir plus moins très même comme si lorsque quand afin alors tout toute tous toutes entre vers chez se s ne pas ni mais donc car l au qu une un français france devrait pourrait faut faire fait partie niveau politique gouvernement parti question accord désaccord position orientation mesure mesures programme source'''.split())
+          sess=requests.Session(); sess.headers.update({'User-Agent':'Mozilla/5.0 (compatible; PoliticalCompassAudit/1.0)'})
+          cache={}
+          def clean(s): return re.sub(r'\s+',' ',s or '').strip()
+          def toks(s):
+            return [x for x in re.findall(r"[a-zà-ÿ0-9]+",(s or '').lower()) if len(x)>2 and x not in STOP]
+          def fetch(url):
+            if not url: return []
+            if url in cache:return cache[url]
+            try:
+              r=sess.get(url,timeout=25,allow_redirects=True); r.raise_for_status()
+              ctype=(r.headers.get('content-type') or '').lower()
+              paras=[]
+              if 'pdf' in ctype or r.content[:4]==b'%PDF':
+                rd=PdfReader(io.BytesIO(r.content))
+                for p in rd.pages:
+                  text=p.extract_text() or ''
+                  # preserve medium chunks to avoid sentence fragmentation
+                  for x in re.split(r'\n{2,}|(?<=[.!?])\s+(?=[A-ZÀ-ÖØ-Ý])',text):
+                    x=clean(x)
+                    if 60<=len(x)<=1800:paras.append(x)
+              else:
+                soup=BeautifulSoup(r.text,'html.parser')
+                for bad in soup(['script','style','nav','footer','header','form','svg']): bad.decompose()
+                seen=set()
+                for el in soup.find_all(['p','li','h2','h3','h4','blockquote']):
+                  x=clean(el.get_text(' ',strip=True))
+                  if 50<=len(x)<=1800 and x not in seen: seen.add(x);paras.append(x)
+              cache[url]=paras
+            except Exception as e:
+              cache[url]=[]
+            return cache[url]
+          def rank(question,paras):
+            qt=toks(question)
+            if not qt or not paras:return []
+            docs=[toks(p) for p in paras]
+            df=Counter()
+            for d in docs:
+              for t in set(d):df[t]+=1
+            N=max(1,len(docs)); qtf=Counter(qt)
+            def vec(tf):
+              return {t:c*(math.log((N+1)/(df.get(t,0)+1))+1) for t,c in tf.items()}
+            qv=vec(qtf); qn=math.sqrt(sum(v*v for v in qv.values())) or 1
+            res=[]
+            for p,d in zip(paras,docs):
+              dv=vec(Counter(d)); dn=math.sqrt(sum(v*v for v in dv.values())) or 1
+              dot=sum(qv.get(t,0)*v for t,v in dv.items())/(qn*dn)
+              overlap=len(set(qt)&set(d))/max(1,len(set(qt)))
+              score=.72*dot+.28*overlap
+              if score>0:res.append((score,p))
+            res.sort(reverse=True,key=lambda x:x[0])
+            out=[]
+            for score,p in res:
+              if any(p[:120] in q[1] or q[1][:120] in p for q in out):continue
+              out.append((score,p))
+              if len(out)==3:break
+            return out
+          summary={}
+          for fn in sorted(os.listdir(ROOT)):
+            if not fn.endswith('.tsv'):continue
+            entity=fn[:-4]; rows=[]
+            with open(os.path.join(ROOT,fn),encoding='utf-8') as f:
+              for r in csv.DictReader(f,delimiter='\t'):
+                paras=fetch(r['source']); best=rank(r['question'],paras)
+                rows.append({**r,'fetch_paragraphs':len(paras),'best_score':f'{best[0][0]:.4f}' if best else '0','evidence_1':best[0][1] if best else '', 'evidence_2':best[1][1] if len(best)>1 else '', 'evidence_3':best[2][1] if len(best)>2 else ''})
+            if rows:
+              with open(os.path.join(OUT,fn),'w',encoding='utf-8',newline='') as f:
+                w=csv.DictWriter(f,fieldnames=rows[0].keys(),delimiter='\t',lineterminator='\n');w.writeheader();w.writerows(rows)
+              summary[entity]={'rows':len(rows),'no_fetch':sum(int(r['fetch_paragraphs'])==0 for r in rows),'low':sum(float(r['best_score'])<0.08 for r in rows),'medium':sum(0.08<=float(r['best_score'])<0.16 for r in rows),'good':sum(float(r['best_score'])>=0.16 for r in rows)}
+          with open(os.path.join(OUT,'summary.json'),'w',encoding='utf-8') as f:json.dump(summary,f,ensure_ascii=False,indent=2)
+          print(json.dumps(summary,ensure_ascii=False,indent=2))
+          PY
+          python /tmp/evidence.py
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add audit/question-specific/evidence
+          git commit -m 'Extract question-specific evidence from current sources' || exit 0
+          git push
