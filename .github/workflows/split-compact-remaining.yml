@@ -1,0 +1,24 @@
+name: Split compact remaining metadata
+on:
+  push:
+    paths: ['.github/workflows/split-compact-remaining.yml']
+permissions: { contents: write }
+jobs:
+  split:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: |
+          node <<'NODE'
+          const fs=require('fs');
+          const x=JSON.parse(fs.readFileSync('audit/question-specific/compact-remaining.json','utf8'));
+          fs.mkdirSync('audit/question-specific/compact',{recursive:true});
+          for(const [id,rows] of Object.entries(x)) fs.writeFileSync(`audit/question-specific/compact/${id}.json`,JSON.stringify(rows,null,2)+'\n');
+          NODE
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add audit/question-specific/compact
+          git commit -m 'Split compact justification metadata by entity' || exit 0
+          git push
