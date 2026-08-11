@@ -1,0 +1,48 @@
+name: QA justification quality
+on:
+  push:
+    paths: ['.github/workflows/qa-justification-quality.yml']
+permissions: { contents: write }
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Audit final wording
+        run: |
+          cat >/tmp/qa.js <<'NODE'
+          const fs=require('fs'),vm=require('vm');
+          function load(p,n){const c={};vm.createContext(c);vm.runInContext(fs.readFileSync(p,'utf8')+`\nthis.x=${n}`,c);return c.x}
+          const qs=load('data/questionnaire.js','QUESTIONNAIRE_DATA').questions;
+          const es=[...load('data/parties.js','PARTIES_DATA'),...load('data/governments.js','GOVERNMENTS_DATA')];
+          const banned=[/niveau de confiance documentaire/i,/codage/i,/niveau de preuve/i,/source retenue/i,/orientation cohérente avec le document/i,/estimation prudente/i,/prises de position convergentes/i,/preuve primaire directe/i];
+          const repeats=new Map(), home=new Map(); let bannedRows=[], weak=[];
+          for(const e of es){
+            e.justifications.forEach((j,i)=>{
+              j=String(j||'').trim();
+              if(banned.some(r=>r.test(j))) bannedRows.push(`${e.id} Q${qs[i].id}: ${j}`);
+              const key=j; const a=repeats.get(key)||[]; a.push(`${e.id}:Q${qs[i].id}`); repeats.set(key,a);
+              if(j.length<110) weak.push(`${e.id} Q${qs[i].id} len=${j.length}: ${j}`);
+              const s=String(e.sources[i]||''); if(/^https?:\/\/[^/]+\/?$/.test(s)){const b=home.get(e.id)||[];b.push(qs[i].id);home.set(e.id,b);}
+            });
+          }
+          const rep=[...repeats].filter(([j,a])=>a.length>=2).sort((a,b)=>b[1].length-a[1].length);
+          console.log('BANNED',bannedRows.length);
+          console.log('SHORT_LT_110',weak.length);
+          console.log('REPEATED_EXACT_GROUPS',rep.length,'REPEATED_ROWS',rep.reduce((n,x)=>n+x[1].length,0));
+          console.log('TOP_REPEATS'); rep.slice(0,25).forEach(([j,a])=>console.log(a.length,a.slice(0,15).join(','),'::',j));
+          console.log('HOMEPAGE_SOURCES'); for(const [id,ids] of home) console.log(id,ids.length,ids.join(','));
+          NODE
+          node /tmp/qa.js
+          node --check data/parties.js
+          node --check data/governments.js
+          if [ -f scripts/validate-data.js ]; then node scripts/validate-data.js || true; fi
+      - name: Remove workflow
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git rm .github/workflows/qa-justification-quality.yml
+          git commit -m 'Remove one-shot justification QA'
+          git push
