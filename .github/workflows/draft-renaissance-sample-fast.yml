@@ -1,0 +1,41 @@
+name: Draft Renaissance sample fast
+on:
+  push:
+    paths: ['.github/workflows/draft-renaissance-sample-fast.yml']
+permissions: { contents: write }
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install -q transformers==4.48.3 torch sentencepiece accelerate
+      - run: |
+          cat > /tmp/draft.py <<'PY'
+          import csv,os,re,torch
+          from transformers import AutoTokenizer,AutoModelForCausalLM
+          rows=list(csv.DictReader(open('audit/question-specific/evidence-fast/renaissance.tsv',encoding='utf8'),delimiter='\t'))[:8]
+          mid='Qwen/Qwen2.5-0.5B-Instruct';tok=AutoTokenizer.from_pretrained(mid);tok.padding_side='left';tok.pad_token=tok.eos_token
+          model=AutoModelForCausalLM.from_pretrained(mid,torch_dtype=torch.float32,low_cpu_mem_usage=True)
+          lab={-3:'Désaccord très fort',-2:'Désaccord net',-1:'Réserve modérée',0:'Position intermédiaire',1:'Accord modéré',2:'Accord net',3:'Accord très fort'}
+          prompts=[]
+          for r in rows:
+            ev='\n'.join(x for x in [r['evidence_1'],r['evidence_2'],r['evidence_3']] if x)[:4000];s=int(r['score'])
+            p=f"Entité: Renaissance\nQuestion: {r['question']}\nNote: {s:+d} ({lab[s]})\nExtraits officiels:\n{ev}\nRédige 1 ou 2 phrases (40-85 mots) qui expliquent spécifiquement cette note. Utilise seulement les faits pertinents des extraits. Si les extraits ne suffisent pas, dis ce qu'ils établissent et la partie non tranchée. Aucun jargon d'audit, aucune mention de confiance ou de méthodologie, aucune citation longue. Commence par « {lab[s]} : »."
+            prompts.append(tok.apply_chat_template([{'role':'system','content':'Rédaction politique factuelle, prudente et strictement fondée sur les extraits.'},{'role':'user','content':p}],tokenize=False,add_generation_prompt=True))
+          enc=tok(prompts,return_tensors='pt',padding=True,truncation=True,max_length=1800)
+          with torch.no_grad():g=model.generate(**enc,max_new_tokens=130,do_sample=False,repetition_penalty=1.08)
+          os.makedirs('audit/question-specific/generated',exist_ok=True)
+          with open('audit/question-specific/generated/renaissance-sample.tsv','w',encoding='utf8',newline='') as f:
+            w=csv.writer(f,delimiter='\t',lineterminator='\n');w.writerow(['qid','question','score','evidence','draft'])
+            for i,r in enumerate(rows):
+              ans=tok.decode(g[i][enc['input_ids'].shape[1]:],skip_special_tokens=True).strip().replace('\n',' ')
+              w.writerow([r['qid'],r['question'],r['score'],r['evidence_1'],re.sub(r'\s+',' ',ans)])
+          PY
+          python /tmp/draft.py
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add audit/question-specific/generated/renaissance-sample.tsv
+          git commit -m 'Draft fast Renaissance justification sample' || exit 0
+          git push
