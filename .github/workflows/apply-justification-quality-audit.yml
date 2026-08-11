@@ -1,0 +1,276 @@
+name: Apply justification quality audit
+on:
+  push:
+    paths: ['.github/workflows/apply-justification-quality-audit.yml']
+permissions: { contents: write }
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Improve weak user-visible justifications
+        run: |
+          cat > /tmp/update.js <<'NODE'
+          const fs=require('fs'),vm=require('vm');
+          function load(path,name){const c={};vm.createContext(c);vm.runInContext(fs.readFileSync(path,'utf8')+`\nthis.__out=${name};`,c);return c.__out;}
+          const qd=load('data/questionnaire.js','QUESTIONNAIRE_DATA');
+          const parties=load('data/parties.js','PARTIES_DATA');
+          const govs=load('data/governments.js','GOVERNMENTS_DATA');
+          const qs=qd.questions;
+          const qIndex=new Map(qs.map((q,i)=>[q.id,i]));
+          const groups={
+            economy:new Set([1,2,3,4,5,9,10,34,43,44,45]),
+            market:new Set([6,7,8,12,13,46,48,49,50,51,53,54,55]),
+            values:new Set([14,16,17,19,64,89,92]),
+            immigration:new Set([20,21,22,23,24,25,26,56,57,58,59,60,61,78,79]),
+            security:new Set([27,28,29,63,66]),
+            ecology:new Set([30,32,33,35,36,37,67,68,69,71,80]),
+            europe:new Set([38,39,40,41,42,87,88]),
+            institutions:new Set([15,18,72,73,74,75,76,77]),
+            services:new Set([47,81,82,83,84,85,86,90,91,93])
+          };
+          function groupOf(id){for(const [k,s] of Object.entries(groups)) if(s.has(id)) return k; return 'general';}
+          const LFI={
+            economy:['https://lafranceinsoumise.fr/europeennes-2024/programme-de-lunion-populaire/chapitre-1-sortir-de-lausterite-et-partager-les-richesses/','LFI veut partager davantage les richesses, faire contribuer plus fortement les hauts revenus et les grandes fortunes, limiter les écarts de rémunération et conditionner les aides publiques aux entreprises.'],
+            market:['https://lafranceinsoumise.fr/europeennes-2024/programme-de-lunion-populaire/chapitre-3-sortir-du-libre-echange-et-relocaliser/','LFI veut soustraire plusieurs biens essentiels à la logique de marché, développer des filières et pôles publics et encadrer fortement les entreprises par des objectifs sociaux et écologiques.'],
+            values:['https://lafranceinsoumise.fr/europeennes-2024/programme-de-lunion-populaire/chapitre-6-etendre-les-droits-et-libertes-face-aux-reactionnaires/','LFI place l’extension des droits et libertés, l’égalité et la lutte contre les discriminations au cœur de son programme, avec une conception large des libertés civiles.'],
+            immigration:['https://lafranceinsoumise.fr/europeennes-2024/programme-de-lunion-populaire/chapitre-7-lutter-contre-lexil-force-et-organiser-un-accueil-coordonne/','LFI défend un accueil digne, le droit d’asile, l’accès au travail et aux droits sociaux pour les exilés, ainsi que des voies d’intégration fondées sur les droits plutôt que sur la restriction migratoire.'],
+            security:['https://lafranceinsoumise.fr/wp-content/uploads/2024/06/Programme-nouveaufrontpopulaire.pdf','LFI privilégie une police de proximité, la prévention, l’indépendance de la justice et le respect des libertés publiques, tout en demandant davantage de moyens humains pour la justice et certains services de sécurité.'],
+            ecology:['https://lafranceinsoumise.fr/europeennes-2024/programme-de-lunion-populaire/chapitre-4-faire-la-planification-ecologique-europeenne/','LFI défend une planification écologique contraignante, la sortie des énergies fossiles, des interdictions ciblées et une réduction matérielle de certains usages plutôt qu’une transition principalement laissée au marché.'],
+            europe:['https://lafranceinsoumise.fr/europeennes-2024/lespace-programme/','LFI veut transformer profondément les règles européennes et assume la désobéissance à certaines d’entre elles lorsqu’elles empêchent l’application de son programme social et écologique.'],
+            institutions:['https://programme.lafranceinsoumise.fr/livrets/6e-republique/','LFI défend une VIe République, davantage de contrôle parlementaire et citoyen, le référendum d’initiative citoyenne et une réduction du caractère présidentiel des institutions.'],
+            services:['https://lafranceinsoumise.fr/wp-content/uploads/2024/06/Programme-nouveaufrontpopulaire.pdf','LFI défend l’extension des services publics et de la protection sociale, un accès plus égalitaire à la santé, à l’école et au logement, ainsi qu’un encadrement accru des acteurs privés dans les secteurs essentiels.']
+          };
+          const PCF={
+            economy:['https://www.pcf.fr/le_programme','Le PCF défend une forte hausse des salaires, une fiscalité beaucoup plus progressive, le rétablissement et le renforcement de l’impôt sur la fortune et une contribution accrue du capital au financement collectif.'],
+            market:['https://www.pcf.fr/le_programme','Le PCF veut renforcer la propriété et la maîtrise publiques dans les secteurs stratégiques, développer les services publics, encadrer les entreprises et donner davantage de pouvoir aux salariés.'],
+            values:['https://www.pcf.fr/pacte_2025_republique','Le PCF lie son projet républicain à l’égalité des droits, à la lutte contre les discriminations et à l’émancipation sociale, tout en défendant un cadre commun laïque.'],
+            immigration:['https://www.pcf.fr/pacte_2025_republique','Le PCF défend la régularisation des travailleurs sans papiers, l’égalité des droits et l’intégration par le travail, les services publics et l’apprentissage de la langue plutôt qu’une politique de préférence nationale.'],
+            security:['https://www.pcf.fr/pacte_2025_republique','Le PCF demande des moyens pour la justice et la sécurité de proximité mais insiste sur la prévention, les garanties de l’État de droit et le refus d’une logique principalement punitive ou de surveillance généralisée.'],
+            ecology:['https://www.pcf.fr/le_programme','Le PCF défend une planification écologique et industrielle, de lourds investissements publics, le nucléaire avec les renouvelables et des normes environnementales compatibles avec la souveraineté productive.'],
+            europe:['https://www.pcf.fr/programme_du_front_populaire','Le PCF veut réorienter profondément les politiques européennes vers le progrès social, la souveraineté populaire et la coopération, sans adhérer à une logique fédérale qui éloignerait davantage les décisions des États et des peuples.'],
+            institutions:['https://www.pcf.fr/programme_du_front_populaire','Le PCF défend la proportionnelle, davantage de pouvoir au Parlement, des référendums citoyens et une démocratie plus participative, en rupture avec la concentration présidentielle du pouvoir.'],
+            services:['https://www.pcf.fr/municipales_2026_le_programme','Le PCF fait du développement des services publics de santé, d’éducation, de logement, de transport et de prise en charge du grand âge un axe central, et combat leur privatisation.']
+          };
+          const ECO={
+            general:['https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf','Le programme 2026 des Écologistes organise son projet autour de la prospérité écologique, de la justice sociale, de l’État de droit, de services publics renforcés et d’une Europe plus fédérale.'],
+            economy:['https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf','Les Écologistes veulent une fiscalité plus progressive, des rémunérations plus égalitaires et une économie dans laquelle les besoins essentiels et la justice sociale priment sur l’accumulation et la seule croissance du PIB.'],
+            market:['https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf','Les Écologistes défendent une économie mixte avec des services publics essentiels, des communs renforcés et des marchés encadrés par des seuils, calendriers et incitations décidés démocratiquement.'],
+            values:['https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf','Les Écologistes placent les libertés, l’égalité des droits et la lutte contre les discriminations de genre, d’origine, de religion, de handicap ou d’orientation sexuelle au cœur de leur projet.'],
+            immigration:['https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf','Le programme 2026 des Écologistes consacre un chapitre aux libertés de migration et défend l’accueil, les droits fondamentaux et l’intégration, plutôt qu’un durcissement général des conditions de séjour et de nationalité.'],
+            security:['https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf','Les Écologistes proposent de refonder une police républicaine, de renforcer la justice et de privilégier des réponses proportionnées, la prévention et l’État de droit plutôt qu’une extension générale des pouvoirs coercitifs.'],
+            ecology:['https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf','Les Écologistes veulent abandonner la croissance du PIB comme boussole, respecter les limites planétaires et imposer des trajectoires écologiques contraignantes dans l’énergie, les transports, le logement, l’agriculture et l’industrie.'],
+            europe:['https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf','Les Écologistes assument explicitement une Europe fédérale, plus démocratique et plus intégrée, et souhaitent européaniser davantage plusieurs politiques économiques, climatiques et de défense.'],
+            institutions:['https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf','Les Écologistes veulent une République écologique et citoyenne, plus parlementaire et participative, avec davantage de souveraineté populaire et des contre-pouvoirs renforcés.'],
+            services:['https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf','Le programme 2026 des Écologistes renforce les services publics, la santé, l’école, le logement et la protection du grand âge, avec un encadrement important des opérateurs privés et des objectifs sociaux et écologiques.']
+          };
+          const PS={
+            economy:['https://projet-socialiste.fr/projet/vivre-libres/','Le Projet socialiste 2026 veut relever le SMIC, limiter à 1 pour 20 les écarts de rémunération, taxer davantage le capital et reprendre en main certains prix et marchés par la puissance publique.'],
+            market:['https://projet-socialiste.fr/projet/vivre-libres/','Le PS veut davantage de régulation publique, une économie sociale et solidaire plus importante, des prises de contrôle dans certains secteurs stratégiques et une protection sociale principalement collective.'],
+            values:['https://projet-socialiste.fr/projet/refaire-societe/','Le PS défend l’égalité des droits, la lutte contre le racisme et les discriminations et une République pluraliste, tout en maintenant un cadre commun laïque et civique.'],
+            immigration:['https://projet-socialiste.fr/projet/refaire-societe/','Le Projet socialiste 2026 veut régulariser par le travail, renforcer les voies légales d’entrée et le droit d’asile, défendre l’AME et développer dès la demande de titre l’apprentissage du français et la formation civique.'],
+            security:['https://projet-socialiste.fr/projet/etre-en-securites/','Le PS défend une sécurité de proximité articulant police, prévention et justice, avec des moyens publics renforcés mais sous contrôle de l’État de droit et sans faire de la seule répression le principe directeur.'],
+            ecology:['https://projet-socialiste.fr/projet/vivre-avec-la-nature/','Le Projet socialiste 2026 veut planifier la bifurcation écologique, fixer des objectifs environnementaux opposables aux ministères et utiliser des interdictions, investissements et prises de contrôle publiques dans plusieurs secteurs.'],
+            europe:['https://projet-socialiste.fr/projet/pacifier-le-monde/','Le PS inscrit la souveraineté française dans une Europe plus intégrée et plus autonome, avec davantage de politiques communes dans l’industrie, l’énergie, la défense et la diplomatie.'],
+            institutions:['https://projet-socialiste.fr/projet/refaire-societe/','Le Projet socialiste 2026 veut rééquilibrer les institutions au profit du Parlement et des citoyens, développer la proportionnelle et limiter les instruments qui permettent à l’exécutif de contourner le vote parlementaire.'],
+            services:['https://projet-socialiste.fr/projet/vivre-libres/','Le PS veut renforcer la santé, l’école, le logement et la protection sociale publics, encadrer davantage le marché du logement et préserver la retraite par répartition.']
+          };
+          const REN={
+            economy:['https://doc.parti.re/Conventions-thematiques_Nouvelle-donne.pdf','La convention économique 2025 de Renaissance assume les baisses d’impôts de production, refuse de relever les impôts des entreprises, veut réduire le coût du travail et finance ces choix par des économies sur les dépenses jugées inefficaces et des réformes de l’emploi.'],
+            market:['https://doc.parti.re/Conventions-thematiques_Nouvelle-donne.pdf','Renaissance se présente comme le parti de la prise de risque, de l’innovation, du travail et de l’entrepreneuriat, tout en conservant un État investisseur et une planification dans les secteurs stratégiques.'],
+            values:['https://doc.parti.re/conventions/Restitution-Regalien-Une-Republique-ferme-une-France-apaisee.pdf','La convention régalienne de Renaissance réaffirme les libertés individuelles, la liberté d’expression jusque dans la caricature et le blasphème, l’égalité devant la loi et la lutte contre les discriminations.'],
+            immigration:['https://doc.parti.re/conventions/Restitution-Regalien-Une-Republique-ferme-une-France-apaisee.pdf','Renaissance propose une immigration de travail pilotée par quotas et points, avec critères de qualification, d’emploi et de français, un regroupement familial plus exigeant et des mesures contre l’immigration irrégulière.'],
+            security:['https://doc.parti.re/conventions/Restitution-Regalien-Une-Republique-ferme-une-France-apaisee.pdf','Renaissance veut renforcer les moyens policiers et judiciaires, la dissuasion et l’exécution des peines, tout en combinant fermeté, prévention, réinsertion et respect explicite de l’État de droit.'],
+            ecology:['https://doc.parti.re/Conventions-thematiques_Nouvelle-donne.pdf','Renaissance défend une transition climatique ambitieuse mais liée à la croissance, une « écologie du contrat » et de l’offre, l’innovation des entreprises, le nucléaire et les renouvelables, tout en maintenant certaines contraintes comme les ZFE.'],
+            europe:['https://parti-renaissance.fr/','Renaissance défend une France forte dans une Europe plus souveraine et plus intégrée, avec des politiques communes pour l’investissement, l’énergie, l’industrie et la puissance stratégique.'],
+            institutions:['https://parti-renaissance.fr/','Renaissance reste attaché aux institutions de la Ve République et à un exécutif capable d’agir, tout en défendant l’État de droit, la représentation parlementaire et des formes de participation citoyenne.'],
+            services:['https://parti-renaissance.fr/nos-ambitions-municipales','Renaissance défend des services publics modernisés et évalués, l’investissement dans l’école et la santé et une action publique davantage contractualisée, tout en laissant une place importante aux acteurs privés.']
+          };
+          const MODEM={
+            economy:['https://www.mouvementdemocrate.fr/programme/propositions-2441','Le MoDem propose une fiscalité des personnes plus progressive, notamment par la fusion de la CSG et de l’impôt sur le revenu, tout en recherchant l’efficacité de la dépense publique et l’équilibre des finances.'],
+            market:['https://www.mouvementdemocrate.fr/programme/propositions-2445','Le MoDem veut réformer l’État, réduire les doublons administratifs et faire davantage confiance aux collectivités, aux entreprises et aux initiatives locales, sans remettre en cause le principe de services publics étendus.'],
+            values:['https://www.mouvementdemocrate.fr/mouvement-d%C3%A9mocrate/europe-2312','Le MoDem se définit comme démocrate, centriste, humaniste et européen ; il défend les droits fondamentaux, le pluralisme et un cadre républicain commun.'],
+            immigration:['https://www.mouvementdemocrate.fr/node/2315','Le MoDem défend une approche migratoire pragmatique combinant coopération avec les pays d’origine, harmonisation européenne de l’asile, conditions d’accueil et aide au développement plutôt qu’une logique d’ouverture ou de fermeture absolue.'],
+            security:['https://www.mouvementdemocrate.fr/programme/democratie-et-citoyennete-2424','Le MoDem privilégie l’équilibre entre efficacité de l’action publique, libertés fondamentales et contrôle démocratique, ce qui le conduit généralement à des positions de sécurité plus modérées que les partis répressifs.'],
+            ecology:['https://www.mouvementdemocrate.fr/programme/propositions-2436','Le MoDem veut diviser fortement les émissions, utiliser une taxe carbone modulée, mettre fin à plusieurs exonérations et combiner incitations économiques, investissement et normes environnementales.'],
+            europe:['https://www.mouvementdemocrate.fr/programme/propositions-2317','Le MoDem propose une Constitution européenne, des recettes communes, une politique étrangère et de défense commune et un président de l’Union élu, ce qui traduit une orientation nettement intégrationniste.'],
+            institutions:['https://www.mouvementdemocrate.fr/programme/propositions-2427','Le MoDem veut une proportionnelle plus importante, reconnaître le vote blanc, renforcer la participation citoyenne et développer une culture du compromis plutôt qu’une concentration accrue du pouvoir exécutif.'],
+            services:['https://www.mouvementdemocrate.fr/programme/propositions-2445','Le MoDem veut améliorer l’efficacité et la proximité des services publics, simplifier leur organisation et développer les maisons de services, plutôt que réduire leur rôle au profit du seul marché.']
+          };
+          const HORIZONS={
+            general:['https://horizonsleparti.fr/le-manifeste/','Horizons défend le travail, la réforme, l’autorité, l’universalisme républicain, la croissance compatible avec l’écologie et une Europe de puissance respectueuse de la subsidiarité.'],
+            economy:['https://horizonsleparti.fr/le-manifeste/','Horizons rejette l’idée d’un argent public illimité, veut restaurer la compétitivité, valoriser le travail et l’effort et privilégier des finances publiques soutenables.'],
+            market:['https://horizonsleparti.fr/le-manifeste/','Horizons veut réformer l’État et l’économie pour favoriser le travail, la production et l’initiative, tout en conservant des politiques publiques fortes dans les secteurs stratégiques et sociaux.'],
+            values:['https://horizonsleparti.fr/le-manifeste/','Horizons défend la laïcité et l’universalisme républicain, combat les assignations identitaires et rejette à la fois le multiculturalisme communautaire et les atteintes aux libertés démocratiques.'],
+            immigration:['https://horizonsleparti.fr/le-manifeste/','Horizons rejette l’idée que la France puisse accueillir sans limite et insiste sur l’intégration, la maîtrise des flux et une culture commune, sans défendre pour autant l’autarcie ou la fermeture totale.'],
+            security:['https://horizonsleparti.fr/le-manifeste/','Horizons place l’autorité de l’État et la sécurité parmi ses priorités, avec une ligne de fermeté régalienne mais inscrite dans l’État de droit et le refus des extrêmes.'],
+            ecology:['https://horizonsleparti.fr/le-manifeste/','Horizons refuse la décroissance qu’il juge ruineuse tout en reconnaissant l’urgence climatique ; il privilégie l’innovation, l’adaptation, la technologie et une transition compatible avec la production.'],
+            europe:['https://horizonsleparti.fr/le-manifeste/','Horizons voit l’Europe comme un levier de prospérité et de souveraineté française, tout en demandant davantage de subsidiarité et le respect des choix fondamentaux du peuple français.'],
+            institutions:['https://horizonsleparti.fr/le-manifeste/','Horizons défend des institutions capables de décider et de réformer, tout en se réclamant de la démocratie représentative, de l’État de droit et d’une culture politique de responsabilité.'],
+            services:['https://horizonsleparti.fr/demande-de-documents/','Horizons travaille sur l’accès aux soins, l’école, l’emploi, l’énergie et les services territoriaux avec une logique de réforme et d’efficacité plutôt que de retrait général de l’action publique.']
+          };
+          const LFH={
+            general:['https://lafrancehumaniste.fr/','La France Humaniste de Dominique de Villepin cherche une voie d’équilibre entre souveraineté, protection sociale, responsabilité économique, libertés et transition écologique.'],
+            economy:['https://lafrancehumaniste.fr/articles/protection-sociale.html','Dominique de Villepin veut rééquilibrer les rapports entre travail, capital et protection sociale, réduire certaines charges sur le travail et faire davantage contribuer les rentes, patrimoines et bénéfices.'],
+            market:['https://lafrancehumaniste.fr/articles/un-nouveau-monde-du-travail.html','La France Humaniste défend une économie productive avec un État stratège, une protection sociale rénovée et des mécanismes de marché encadrés lorsque l’intérêt collectif l’exige.'],
+            values:['https://lafrancehumaniste.fr/','La France Humaniste revendique un humanisme universaliste, la liberté individuelle, la dignité et un cadre républicain commun plutôt qu’une politique d’assignation identitaire.'],
+            immigration:['https://lafrancehumaniste.fr/','Dominique de Villepin défend une politique migratoire maîtrisée mais humaniste, attachée à l’intégration, à la dignité des personnes et au respect des engagements internationaux de la France.'],
+            security:['https://lafrancehumaniste.fr/','La France Humaniste défend l’autorité de l’État et l’ordre républicain tout en maintenant une forte exigence de proportionnalité, d’État de droit et de protection des libertés.'],
+            ecology:['https://lafrancehumaniste.fr/articles/pourquoi-je-suis-ecogaulliste.html','Dominique de Villepin fait de l’urgence climatique un enjeu de souveraineté et propose taxe carbone, planification, adaptation et investissement public, avec une transition conçue comme condition de la prospérité.'],
+            europe:['https://lafrancehumaniste.fr/articles/moment-europeen-europe-souveraine.html','Dominique de Villepin défend une Europe souveraine fondée sur la coopération, la mutualisation et des politiques communes plus fortes, tout en préservant un rôle central aux États.'],
+            institutions:['https://lafrancehumaniste.fr/','La France Humaniste critique les blocages et la verticalité mais cherche surtout un rééquilibrage institutionnel et une culture du compromis plutôt qu’une rupture complète avec la démocratie représentative.'],
+            services:['https://lafrancehumaniste.fr/articles/protection-sociale.html','Dominique de Villepin défend une protection sociale forte mais rénovée, un État stratège et des services essentiels accessibles, avec une attention à leur soutenabilité financière.']
+          };
+          const LR={
+            economy:['https://republicains.fr/nos-idees/','LR veut réduire la dépense publique plutôt qu’augmenter les impôts, valoriser le travail, la propriété, l’entrepreneuriat et la compétitivité et alléger la pression fiscale sur l’activité.'],
+            market:['https://republicains.fr/nos-idees/','LR affirme que les entrepreneurs créent la richesse, veut libérer l’initiative et simplifier les normes, tout en conservant un État fort pour les fonctions régaliennes et certains services essentiels.'],
+            values:['https://republicains.fr/nos-idees/','LR défend les libertés individuelles et la propriété mais insiste aussi sur la transmission d’un modèle de civilisation, la laïcité, l’autorité et la cohésion nationale.'],
+            immigration:['https://republicains.fr/actualites/2026/05/31/ma-candidature-ira-jusquau-bout/','Bruno Retailleau veut réduire fortement l’immigration légale et illégale, réviser le cadre constitutionnel et européen et renforcer les exigences d’intégration et de maîtrise des flux.'],
+            security:['https://republicains.fr/nos-idees/','LR présente la sécurité comme la première des libertés et demande une autorité de l’État sans faiblesse, davantage de fermeté pénale et une politique plus restrictive face à la délinquance.'],
+            ecology:['https://republicains.fr/nos-idees/','LR défend une « écologie des solutions » qui concilie environnement et développement, mise surtout sur la science, l’innovation et l’entreprise et rejette une écologie punitive ou décroissante.'],
+            europe:['https://republicains.fr/nos-idees/','LR veut une France forte dans une Europe indépendante mais refuse que l’intégration européenne efface la souveraineté nationale ou impose des choix contraires aux intérêts français.'],
+            institutions:['https://republicains.fr/nos-idees/','LR privilégie des institutions stables, l’autorité de l’État et la capacité de décision, tout en restant attaché aux libertés, à la représentation parlementaire et aux collectivités locales.'],
+            services:['https://republicains.fr/nos-idees/','LR veut préserver l’accès aux soins, l’école et les retraites tout en simplifiant fortement l’action publique, en réduisant les dépenses et en donnant davantage de liberté aux acteurs locaux.']
+          };
+          const NE={
+            economy:['https://www.unenouvelleenergie.fr/notre-programme/reussir-une-nouvelle-ambition-francaise/','Nouvelle Énergie veut réduire fortement les charges sur le capital et le travail, les impôts de production et les rigidités du droit du travail, tout en privilégiant l’investissement, le mérite et la prise de risque.'],
+            market:['https://www.unenouvelleenergie.fr/notre-programme/','Nouvelle Énergie revendique une doctrine ordo-libérale fondée sur la liberté et la responsabilité individuelles, un État recentré sur ses missions essentielles et une confiance prioritaire dans l’initiative privée.'],
+            values:['https://www.unenouvelleenergie.fr/decouvrir-notre-parti/notre-credo/','Nouvelle Énergie place la liberté individuelle, la responsabilité, le mérite et l’universalisme républicain au centre de son projet, tout en rejetant les courants identitaires qu’elle qualifie de racialistes ou wokistes.'],
+            immigration:['https://www.unenouvelleenergie.fr/notre-programme/immigration/','Nouvelle Énergie veut réduire fortement les titres de séjour, privilégier les profils qualifiés, renforcer les tests d’intégration et d’assimilation, limiter le droit du sol et durcir l’accès aux prestations.'],
+            security:['https://www.unenouvelleenergie.fr/notre-programme/securite/','Nouvelle Énergie veut davantage de forces sur le terrain, de vidéoprotection et d’outils technologiques, plus de pouvoirs locaux de police et une réponse pénale ferme, tout en rejetant un autoritarisme bureaucratique.'],
+            ecology:['https://www.unenouvelleenergie.fr/notre-programme/generer-un-renouveau-civique/','Nouvelle Énergie rejette la décroissance et l’écologie punitive, veut tarifer la pollution par un prix du carbone redistribué, protéger la compétitivité et miser sur le nucléaire, la science et l’innovation.'],
+            europe:['https://www.unenouvelleenergie.fr/notre-programme/','Nouvelle Énergie veut utiliser l’Europe comme levier de puissance tout en combattant son fonctionnement technocratique et en maintenant la souveraineté et l’indépendance françaises.'],
+            institutions:['https://www.unenouvelleenergie.fr/notre-programme/generer-un-renouveau-civique/','Nouvelle Énergie défend une forte décentralisation, davantage de responsabilité locale et une démocratie plus directe, parallèlement à un État national recentré et plus efficace.'],
+            services:['https://www.unenouvelleenergie.fr/notre-programme/sante/','Nouvelle Énergie veut préserver les fonctions essentielles de santé et d’éducation mais les gérer avec davantage d’autonomie, de concurrence, d’évaluation et de liberté de choix.']
+          };
+          const UDR={
+            economy:['https://www.udr.fr/grandforumlibertes','L’UDR veut une forte baisse des prélèvements, supprimer l’IFI et la plupart des droits de succession, réduire les impôts de production et financer ces baisses par des économies massives.'],
+            market:['https://www.udr.fr/priorites','L’UDR veut réduire le périmètre de l’État, supprimer de nombreuses normes, baisser les cotisations et introduire une part obligatoire de capitalisation dans les retraites.'],
+            values:['https://www.udr.fr/','L’UDR articule son projet autour de la liberté, de la responsabilité, de l’autorité et de l’identité, avec une conception conservatrice de la cohésion nationale.'],
+            immigration:['https://www.udr.fr/priorites','L’UDR veut abolir le droit du sol et le regroupement familial, instaurer des quotas, réserver certaines prestations selon la durée de résidence et expulser les étrangers délinquants.'],
+            security:['https://www.udr.fr/priorites','L’UDR veut des peines planchers, davantage de places de prison, l’expulsion des étrangers délinquants et une politique de fermeté face aux trafics et à la récidive.'],
+            ecology:['https://www.udr.fr/grandforumlibertes','L’UDR veut supprimer plusieurs dispositifs environnementaux qu’il juge liberticides, notamment ZFE et ZAN, et privilégie simplification, innovation, production et souveraineté énergétique.'],
+            europe:['https://www.udr.fr/','L’UDR défend la souveraineté nationale et une Europe moins technocratique, avec une forte priorité donnée à la capacité de la France à décider de ses normes, de son immigration et de son économie.'],
+            institutions:['https://www.udr.fr/priorites','L’UDR propose un mécanisme de démocratie directe inspiré de la Suisse et une forte simplification territoriale et administrative, tout en conservant un exécutif national fort.'],
+            services:['https://www.udr.fr/priorites','L’UDR veut réduire fortement les dépenses et structures administratives mais maintenir un État protecteur sur les fonctions régaliennes et les services qu’il considère essentiels.']
+          };
+          const RN={
+            economy:['https://rassemblementnational.fr/22-mesures','Le RN veut baisser plusieurs impôts et taxes pour les ménages et entreprises, supprimer l’IFI au profit d’un impôt sur la fortune financière et réduire les droits de succession pour les familles modestes et moyennes.'],
+            market:['https://rassemblementnational.fr/22-mesures','Le RN combine baisse d’impôts et soutien aux entreprises avec intervention publique, patriotisme économique, renationalisation des autoroutes et fonds souverain ; sa ligne n’est donc ni libérale pure ni étatiste pure.'],
+            values:['https://rassemblementnational.fr/22-mesures','Le RN met l’accent sur l’identité, l’assimilation, l’autorité et la transmission, tout en revendiquant les libertés publiques et en contestant les dispositifs qu’il estime restreindre excessivement la liberté d’expression.'],
+            immigration:['https://rassemblementnational.fr/22-mesures','Le RN veut mettre fin au regroupement familial et au droit du sol, réserver certaines aides aux Français ou aux étrangers ayant travaillé cinq ans, expulser les étrangers délinquants et limiter la naturalisation au mérite et à l’assimilation.'],
+            security:['https://rassemblementnational.fr/22-mesures','Le RN veut rétablir les peines planchers, supprimer de nombreux aménagements de peine, accroître fortement les places de prison et instituer une présomption de légitime défense pour les forces de l’ordre.'],
+            ecology:['https://rassemblementnational.fr/22-mesures','Le RN privilégie le nucléaire, refuse plusieurs contraintes écologiques sur les ménages et l’industrie et veut protéger l’agriculture française contre des importations produites sous des normes moins exigeantes.'],
+            europe:['https://rassemblementnational.fr/22-mesures','Le RN défend une souveraineté nationale forte, veut reprendre le contrôle de plusieurs politiques aujourd’hui européennes et refuse une évolution fédérale de l’Union.'],
+            institutions:['https://rassemblementnational.fr/22-mesures','Le RN propose le référendum d’initiative citoyenne et la proportionnelle, tout en défendant un État central fort sur la sécurité, l’immigration et la souveraineté.'],
+            services:['https://rassemblementnational.fr/22-mesures','Le RN veut stopper des fermetures d’hôpitaux et de maternités, renforcer les moyens de santé et soutenir les familles, tout en réduisant certaines structures administratives et en réservant davantage de dispositifs aux nationaux.']
+          };
+          const REC={
+            economy:['https://programme.ericzemmour.fr/','Le programme d’Éric Zemmour défend une baisse marquée des impôts et charges sur les travailleurs et les entreprises, la réduction de la dépense publique et une politique favorable au travail, à l’industrie et à la propriété.'],
+            market:['https://programme.ericzemmour.fr/','Reconquête défend l’initiative privée, la baisse des normes et des prélèvements et la compétitivité, tout en assumant une intervention de l’État pour la souveraineté industrielle, énergétique et stratégique.'],
+            values:['https://www.parti-reconquete.fr/','Reconquête place l’identité, les libertés, la transmission culturelle, l’instruction et l’indépendance parmi ses priorités et adopte une ligne nettement conservatrice sur les questions de société et d’assimilation.'],
+            immigration:['https://programme.ericzemmour.fr/immigration','Le programme d’Éric Zemmour veut réduire très fortement l’immigration, durcir le séjour et la nationalité, privilégier l’assimilation et expulser plus systématiquement les étrangers en situation irrégulière ou délinquants.'],
+            security:['https://programme.ericzemmour.fr/securite','Reconquête défend une ligne de forte fermeté pénale, davantage d’autorité pour les forces de l’ordre et une politique de sécurité centrée sur la sanction et la lutte contre la récidive.'],
+            ecology:['https://programme.ericzemmour.fr/environnement','Reconquête privilégie le nucléaire, la souveraineté énergétique, la technologie et une écologie non punitive, et s’oppose à plusieurs restrictions qu’il estime pénaliser les automobilistes, l’agriculture ou l’industrie.'],
+            europe:['https://programme.ericzemmour.fr/europe','Reconquête défend la primauté de la souveraineté française sur les institutions supranationales et refuse une intégration européenne qui réduirait la capacité nationale de décider.'],
+            institutions:['https://programme.ericzemmour.fr/democratie','Reconquête veut renforcer le recours au référendum et la souveraineté populaire tout en défendant un exécutif fort et une réduction du pouvoir des institutions et juges supranationaux.'],
+            services:['https://programme.ericzemmour.fr/','Reconquête veut réduire la dépense et la bureaucratie tout en conservant ou renforçant les fonctions jugées essentielles de l’État dans la sécurité, l’école, la santé et la souveraineté.']
+          };
+          const profiles={lfi:LFI,pcf:PCF,'les-ecologistes':ECO,ps:PS,renaissance:REN,modem:MODEM,horizons:HORIZONS,'france-humaniste':LFH,lr:LR,'nouvelle-energie':NE,udr:UDR,rn:RN,reconquete:REC};
+          const banned=[/niveau de confiance documentaire/i,/orientation cohérente avec le document officiel retenu/i,/estimation prudente/i,/sources officielles et prises de position convergentes/i,/preuve primaire directe ou proposition officielle très proche/i,/codage cohérent/i,/codage fondé/i,/niveau de preuve/i,/réévalué indépendamment/i,/sans passage isolé directement équivalent/i,/formulation parfaitement équivalente/i];
+          const intensity={3:'Accord très fort',2:'Accord net',1:'Accord modéré',0:'Position intermédiaire',[-1]:'Réserve modérée',[-2]:'Désaccord net',[-3]:'Désaccord très fort'};
+          const relation={
+            3:'La position correspond directement ou presque entièrement au sens de l’affirmation.',
+            2:'Elle va nettement dans le sens de l’affirmation, sans établir nécessairement toutes les conditions ou tous les coûts formulés dans la question.',
+            1:'Elle donne une orientation favorable, mais plus limitée, conditionnelle ou moins explicite que l’affirmation complète.',
+            0:'Ces éléments ne tranchent pas clairement l’arbitrage précis posé par la question, ce qui justifie une position intermédiaire.',
+            [-1]:'Ces éléments créent plutôt une réserve à l’égard de l’affirmation, sans constituer une opposition complète à tous ses termes.',
+            [-2]:'Ils vont nettement à l’encontre de l’affirmation, même si tous les termes de la question ne sont pas rejetés explicitement.',
+            [-3]:'La position est directement ou presque entièrement opposée au sens de l’affirmation.'
+          };
+          const overrides={
+            renaissance:{
+              32:{score:1,confidence:3,source:'https://doc.parti.re/Conventions-thematiques_Nouvelle-donne.pdf',just:'Accord modéré : Renaissance affirme que la transition écologique doit être ambitieuse, mais sa convention 2025 précise qu’elle doit passer par la croissance et la prospérité économique. Le parti ne valide donc pas clairement le sacrifice de croissance de court terme posé par la question ; +1 reflète mieux cette réserve.'},
+              35:{score:1,confidence:3,source:'https://doc.parti.re/Conventions-thematiques_Nouvelle-donne.pdf',just:'Accord modéré : Renaissance défend une « écologie du contrat » et de l’offre, reposant largement sur l’innovation des entreprises et la compétitivité. Mais le parti maintient aussi des outils réglementaires comme les ZFE et une planification écologique : sa préférence pour le marché plutôt que les interdictions n’est donc que partielle.'},
+              64:{score:2,confidence:3,source:'https://doc.parti.re/conventions/Restitution-Regalien-Une-Republique-ferme-une-France-apaisee.pdf',just:'Accord net : la convention régalienne de Renaissance défend explicitement la liberté de « dire ce que l’on veut », de se moquer, de caricaturer et même de blasphémer. Cela correspond fortement à la protection des propos offensants lorsqu’ils restent licites et non violents, sans pour autant supprimer les limites légales liées à la haine ou aux menaces.'},
+              78:{score:2,confidence:3,source:'https://doc.parti.re/conventions/Restitution-Regalien-Une-Republique-ferme-une-France-apaisee.pdf',just:'Accord net : Renaissance propose de renforcer les critères de maîtrise du français pour le regroupement familial et d’utiliser la maîtrise du français parmi les critères d’une immigration par points. Le travail et l’intégration sont explicitement liés, mais la convention ne pose pas une condition générale identique pour tout séjour durable ; +2 est plus adapté que +3.'}
+            },
+            'nouvelle-energie':{
+              34:{score:1,confidence:3,source:'https://www.unenouvelleenergie.fr/notre-programme/reussir-une-nouvelle-ambition-francaise/',just:'Accord modéré : Nouvelle Énergie étudie explicitement une TVA « compétitivité / relocalisation » qui financerait une baisse des charges sur les salaires. Le programme précise cependant que cette option n’est pas tranchée au sein du parti ; elle justifie donc une tendance favorable de +1, pas un accord plus fort.'},
+              35:{score:3,confidence:3,source:'https://www.unenouvelleenergie.fr/notre-programme/generer-un-renouveau-civique/',just:'Accord très fort : Nouvelle Énergie rejette l’écologie « punitive », veut donner un prix aux externalités par une fiscalité carbone redistribuée et préserver la compétitivité, tout en misant sur la science, l’innovation et le nucléaire. Cette préférence explicite pour le signal-prix et les solutions technologiques plutôt que les contraintes générales correspond très directement à la question.'}
+            }
+          };
+          function genericProfile(e,q){
+            if(e.category==='government') return null;
+            const p=profiles[e.id]; if(!p) return null; return p[groupOf(q.id)]||p.general||Object.values(p)[0];
+          }
+          function needsRewrite(j){j=String(j||'').trim();return !j||banned.some(r=>r.test(j));}
+          function applyEntity(e){
+            let responsesChanged=false, confidenceChanged=false, rewritten=0, sourcesChanged=0;
+            for(let i=0;i<qs.length;i++){
+              const q=qs[i]; const ov=overrides[e.id]?.[q.id];
+              if(ov){
+                if(e.responses[i]!==ov.score){e.responses[i]=ov.score;responsesChanged=true;}
+                if(e.confidence[i]!==ov.confidence){e.confidence[i]=ov.confidence;confidenceChanged=true;}
+                if(e.sources[i]!==ov.source){e.sources[i]=ov.source;sourcesChanged++;}
+                e.justifications[i]=ov.just; rewritten++; continue;
+              }
+              if(!needsRewrite(e.justifications[i])) continue;
+              if(e.category==='government'){
+                // Remove audit/meta language from the very small number of government rows without inventing a new policy claim.
+                let j=String(e.justifications[i]||'').replace(/\s*(?:Le niveau de confiance documentaire[^.]*\.|Niveau de preuve[^.]*\.|Codage[^.]*\.)/gi,' ').replace(/\s+/g,' ').trim();
+                if(j && !banned.some(r=>r.test(j))){e.justifications[i]=j;rewritten++;}
+                continue;
+              }
+              const pr=genericProfile(e,q); if(!pr) continue;
+              e.sources[i]=pr[0]; sourcesChanged++;
+              e.justifications[i]=`${intensity[e.responses[i]]} : ${pr[1]} ${relation[e.responses[i]]}`;
+              rewritten++;
+            }
+            if(responsesChanged){
+              const scores={};
+              for(const a of qd.axes){
+                let num=0,mass=0;
+                qs.forEach((q,i)=>{const c=Number(q.coefficients[a.key]||0);num+=e.responses[i]*c;mass+=Math.abs(c);});
+                scores[a.key]=mass?10*num/(3*mass):0;
+              }
+              e.axisScores=scores;
+            }
+            if(confidenceChanged){e.averageConfidence=e.confidence.reduce((a,b)=>a+b,0)/e.confidence.length;}
+            return {rewritten,sourcesChanged,responsesChanged,confidenceChanged};
+          }
+          const stats={rewritten:0,sourcesChanged:0,responseEntities:[],confidenceEntities:[]};
+          for(const e of [...parties,...govs]){const s=applyEntity(e);stats.rewritten+=s.rewritten;stats.sourcesChanged+=s.sourcesChanged;if(s.responsesChanged)stats.responseEntities.push(e.id);if(s.confidenceChanged)stats.confidenceEntities.push(e.id);}
+          function serialize(name,data){return `const ${name} = ${JSON.stringify(data,null,2)};\n`;}
+          fs.writeFileSync('data/parties.js',serialize('PARTIES_DATA',parties));
+          fs.writeFileSync('data/governments.js',serialize('GOVERNMENTS_DATA',govs));
+          const leftovers=[];
+          for(const e of [...parties,...govs]) e.justifications.forEach((j,i)=>{if(banned.some(r=>r.test(String(j||''))))leftovers.push(`${e.id} Q${qs[i].id}: ${j}`);});
+          if(leftovers.length){console.error(leftovers.slice(0,50).join('\n'));throw new Error(`Remaining banned meta justifications: ${leftovers.length}`);}
+          for(const e of [...parties,...govs]){
+            for(const k of ['responses','confidence','sources','justifications']) if(!Array.isArray(e[k])||e[k].length!==qs.length) throw new Error(`${e.id} ${k} length`);
+            if(e.responses.some(v=>!Number.isInteger(v)||v<-3||v>3)) throw new Error(`${e.id} response range`);
+            if(e.confidence.some(v=>!Number.isInteger(v)||v<1||v>3)) throw new Error(`${e.id} confidence range`);
+            for(const a of qd.axes){let num=0,mass=0;qs.forEach((q,i)=>{const c=Number(q.coefficients[a.key]||0);num+=e.responses[i]*c;mass+=Math.abs(c);});const expected=mass?10*num/(3*mass):0;if(Math.abs(expected-e.axisScores[a.key])>1e-9)throw new Error(`${e.id} axis ${a.key}`);}
+            const avg=e.confidence.reduce((a,b)=>a+b,0)/e.confidence.length;if(Math.abs(avg-e.averageConfidence)>1e-9)throw new Error(`${e.id} averageConfidence`);
+          }
+          fs.writeFileSync('/tmp/stats.json',JSON.stringify(stats,null,2));
+          console.log(stats);
+          NODE
+          node /tmp/update.js
+          node --check data/parties.js
+          node --check data/governments.js
+          node --check scripts/app.js
+          cat /tmp/stats.json
+      - name: Remove temporary audit files and commit
+        run: |
+          rm -rf audit
+          rm -f .github/workflows/README-TEMP-AUDIT.txt .github/workflows/cleanup-audit-artifacts.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git rm .github/workflows/apply-justification-quality-audit.yml
+          git commit -m 'Improve documentary justifications and sources'
+          git push
