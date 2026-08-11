@@ -1,0 +1,39 @@
+name: Improve root sources
+on:
+  push:
+    paths: ['.github/workflows/improve-root-sources.yml']
+permissions: { contents: write }
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: |
+          cat >/tmp/u.js <<'NODE'
+          const fs=require('fs'),vm=require('vm');function load(p,n){const c={};vm.createContext(c);vm.runInContext(fs.readFileSync(p,'utf8')+`\nthis.x=${n}`,c);return c.x}
+          const qd=load('data/questionnaire.js','QUESTIONNAIRE_DATA'),qs=qd.questions,ps=load('data/parties.js','PARTIES_DATA'),gs=load('data/governments.js','GOVERNMENTS_DATA');const qi=new Map(qs.map((q,i)=>[q.id,i]));
+          const set=(e,id,url)=>{const i=qi.get(id);if(i===undefined)throw Error('Q'+id);e.sources[i]=url};const get=(id)=>ps.find(e=>e.id===id);
+          const ren=get('renaissance'),econ='https://doc.parti.re/Conventions-thematiques_Nouvelle-donne.pdf',reg='https://doc.parti.re/conventions/Restitution-Regalien-Une-Republique-ferme-une-France-apaisee.pdf',ens='https://ensemble-2024.fr/notre-projet';
+          [10,55,69].forEach(q=>set(ren,q,econ));[22,28,72,73,74,75,76,77].forEach(q=>set(ren,q,reg));[38,39,40,41,42,88].forEach(q=>set(ren,q,ens));set(ren,87,'https://www.assemblee-nationale.fr/dyn/17/scrutins/988');
+          const md=get('modem');[22,25,58,60,61,79].forEach(q=>set(md,q,'https://www.mouvementdemocrate.fr/node/2315'));
+          const lfh=get('france-humaniste');const lfhMap={17:'https://lafrancehumaniste.fr/articles/le-moment-francais-sorbonne.html',19:'https://lafrancehumaniste.fr/articles/le-moment-francais-sorbonne.html',24:'https://lafrancehumaniste.fr/articles/la-france-face-au-piege-identitaire.html',28:'https://lafrancehumaniste.fr/articles/la-lutte-antiterroriste.html',64:'https://lafrancehumaniste.fr/articles/la-lutte-antiterroriste.html',66:'https://lafrancehumaniste.fr/articles/la-lutte-antiterroriste.html',89:'https://lafrancehumaniste.fr/articles/protection-sociale.html'};for(const [q,u] of Object.entries(lfhMap))set(lfh,+q,u);
+          set(get('lfi'),76,'https://programme.lafranceinsoumise.fr/livrets/6e-republique/');set(get('lr'),93,'https://republicains.fr/nos-idees/');set(get('rn'),77,'https://rassemblementnational.fr/22-mesures');
+          const udr=get('udr');[14,16,17,19,38,39,40,41,42,63,64,88].forEach(q=>set(udr,q,'https://www.udr.fr/priorites'));set(udr,87,'https://www.assemblee-nationale.fr/dyn/17/scrutins/988');set(udr,89,'https://www.assemblee-nationale.fr/dyn/17/scrutins/2107');set(udr,92,'https://www.assemblee-nationale.fr/dyn/17/scrutins/8431');
+          const rec=get('reconquete');[14,16,17,19,34,45,47,50,64,89,92].forEach(q=>set(rec,q,'https://programme.ericzemmour.fr/'));set(rec,28,'https://programme.ericzemmour.fr/securite');
+          const sp=gs.find(e=>e.id==='espagne');set(sp,34,'https://www.lamoncloa.gob.es/Documents/2025/appendix-II-map-of-commitments-december.pdf');
+          fs.writeFileSync('data/parties.js',`const PARTIES_DATA = ${JSON.stringify(ps,null,2)};\n`);fs.writeFileSync('data/governments.js',`const GOVERNMENTS_DATA = ${JSON.stringify(gs,null,2)};\n`);
+          for(const e of [...ps,...gs]){for(const k of ['responses','confidence','sources','justifications'])if(e[k].length!==qs.length)throw Error(`${e.id}.${k}`);for(const a of qd.axes){let n=0,m=0;qs.forEach((q,i)=>{const c=+q.coefficients[a.key]||0;n+=e.responses[i]*c;m+=Math.abs(c)});const x=m?10*n/(3*m):0;if(Math.abs(x-e.axisScores[a.key])>1e-9)throw Error(`${e.id}.${a.key}`)}}
+          NODE
+          node /tmp/u.js
+          node scripts/validate-data.js
+          node --check data/parties.js
+          node --check data/governments.js
+      - run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add data/parties.js data/governments.js
+          git rm .github/workflows/improve-root-sources.yml
+          git commit -m 'Use more specific official sources for public notes'
+          git push
