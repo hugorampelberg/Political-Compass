@@ -77,4 +77,5 @@ if (danemarkGovernment) {
 if (typeof document !== 'undefined' && document.readyState === 'loading') {
   document.write('<script src="/data/pologne-overrides.js"></scr' + 'ipt>');
   document.write('<script src="/data/espagne-overrides.js"></scr' + 'ipt>');
+  document.write('<script src="/data/royaume-uni-overrides.js"></scr' + 'ipt>');
 }
