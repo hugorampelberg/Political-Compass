@@ -89,4 +89,5 @@ if (typeof document !== 'undefined' && document.readyState === 'loading') {
   document.write('<script src="/data/modem-overrides.js"></scr' + 'ipt>');
   document.write('<script src="/data/horizons-overrides.js"></scr' + 'ipt>');
   document.write('<script src="/data/france-humaniste-overrides.js"></scr' + 'ipt>');
+  document.write('<script src="/data/justification-alignment-overrides.js"></scr' + 'ipt>');
 }
