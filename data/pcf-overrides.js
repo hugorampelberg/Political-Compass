@@ -241,7 +241,7 @@ Object.assign(PCF_RESPONSE_OVERRIDES, {
   },
   45: {
     response: 2,
-    justification: "Accord net : le PCF défend une forte taxation des très grandes fortunes, le rétablissement d'un ISF renforcé et une lutte déterminée contre l'évasion fiscale ; il conteste aussi l'argument selon lequel l'exil des grandes fortunes devrait empêcher cette taxation. En revanche, je ne trouve pas de proposition communiste actuelle formulant exactement un maintien mondial et personnel de l'impôt français après expatriation. La direction de fond est très favorable, mais l'instrument précis reste indirectement documenté ; +2 est donc conservé.",
+    justification: "Accord net : le PCF défend une forte taxation des très grandes fortunes, le rétablissement d'un ISF renforcé et une lutte déterminée contre l'évasion fiscale ; il conteste aussi l'argument selon lequel l'exil des grandes fortunes devrait empêcher cette taxation. En revanche, il n'y a pas de proposition communiste actuelle formulant exactement un maintien mondial et personnel de l'impôt français après expatriation. La direction de fond est très favorable, mais l'instrument précis reste indirectement documenté ; +2 est donc conservé.",
     source: "https://www.pcf.fr/s_nat_r_tablir_l_isf"
   },
   46: {
