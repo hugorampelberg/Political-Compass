@@ -78,7 +78,8 @@ const GOVERNMENT_FINAL_OVERRIDES = {
       justification: "Position intermédiaire : la Finlande contribue au financement climatique international et accepte une responsabilité accrue des pays développés, mais ne défend pas clairement qu'ils doivent supporter une part prépondérante du coût mondial de la transition. 0 reflète cette absence d'engagement sur l'intensité précise de l'énoncé."
     },
     47: {
-      justification: "Accord net par analogie avec les régions très peu peuplées : la Finlande maintient pour 2026-2028 une subvention régionale de transport destinée à réduire les surcoûts de fret provoqués par les très longues distances dans plusieurs régions périphériques. Selon la distance, l'aide couvre 7 à 15 % des coûts de transport routier ou ferroviaire des produits de PME implantées dans ces zones. Le mécanisme correspond directement à l'idée de compenser un handicap logistique territorial, mais il vise la compétitivité des entreprises et non une garantie générale du prix des produits essentiels pour les consommateurs.",
+      response: 1,
+      justification: "Accord modéré par analogie avec les régions très peu peuplées : la Finlande maintient pour 2026-2028 une subvention régionale de transport destinée à réduire les surcoûts de fret provoqués par les très longues distances dans plusieurs régions périphériques. Selon la distance, l'aide couvre 7 à 15 % des coûts de transport routier ou ferroviaire des produits de PME implantées dans ces zones. Le mécanisme correspond directement à l'idée de compenser un handicap logistique territorial, mais il vise la compétitivité des entreprises et non une garantie générale du prix des produits essentiels pour les consommateurs ; +1 est donc plus précis que +2.",
       source: "https://valtioneuvosto.fi/en/-/1410877/regional-transport-subsidies-to-continue-in-2026-2028-aim-is-to-keep-all-of-finland-viable"
     },
     57: {
@@ -120,11 +121,13 @@ const GOVERNMENT_FINAL_OVERRIDES = {
       source: "https://www.gov.uk/government/speeches/andy-burnhams-first-speech-as-prime-minister-20-july-2026"
     },
     74: {
-      justification: "Désaccord modéré : le Royaume-Uni reste principalement une démocratie représentative dans laquelle la plupart des décisions sont prises par le Parlement au nom des citoyens ; les référendums y constituent un mécanisme exceptionnel de démocratie directe. Andy Burnham a en outre indiqué dès juillet 2026 qu'il privilégiait des mesures pratiques plutôt que de nouvelles modifications constitutionnelles par référendum. Le pays n'exclut pas les référendums sur de grandes questions constitutionnelles, mais ne défend pas leur utilisation beaucoup plus fréquente sur des sujets techniques.",
+      response: -2,
+      justification: "Désaccord net : le Royaume-Uni reste principalement une démocratie représentative dans laquelle la plupart des décisions sont prises par le Parlement au nom des citoyens ; les référendums y constituent un mécanisme exceptionnel de démocratie directe. Andy Burnham a en outre indiqué dès juillet 2026 qu'il privilégiait des mesures pratiques plutôt que de nouvelles modifications constitutionnelles par référendum. Le pays n'exclut pas les référendums sur de grandes questions constitutionnelles, mais ne défend pas leur utilisation beaucoup plus fréquente, notamment sur des sujets techniques mal maîtrisés ; -2 est donc plus adapté que -1.",
       source: "https://www.parliament.uk/site-information/glossary/referendum/"
     },
     75: {
-      justification: "Désaccord institutionnel clair : pour l'élection de la Chambre des communes, les électeurs choisissent leur candidat selon le même droit de vote et le candidat recueillant le plus de voix remporte la circonscription. Aucun mécanisme n'accorde un poids électoral supérieur en fonction du diplôme ou des connaissances économiques ou institutionnelles. Le cadre démocratique britannique repose donc sur l'égalité politique des électeurs ; la note actuelle reste prudente par rapport à la force de cette opposition institutionnelle.",
+      response: -3,
+      justification: "Désaccord très fort : le cadre démocratique britannique repose sur l'égalité politique des électeurs. Pour l'élection de la Chambre des communes, chaque électeur dispose du même droit de vote et aucun mécanisme n'accorde un poids électoral supérieur en fonction du diplôme ou des connaissances économiques ou institutionnelles. La proposition d'un suffrage pondéré selon le niveau de connaissance est directement contraire à ce principe ; -3 est adapté.",
       source: "https://www.parliament.uk/about/how/elections-and-voting/voting-systems/"
     },
     88: {
