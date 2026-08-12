@@ -118,231 +118,233 @@ const LFI_RESPONSE_OVERRIDES = {
 
 const LFI_DOCUMENTATION_OVERRIDES = {
   1: {
-    justification: "Désaccord très fort : LFI ne propose pas de baisse générale des impôts sur le travail et le capital financée par des coupes dans la dépense publique. Son programme 2025 prévoit au contraire une fiscalité plus progressive sur les revenus et le patrimoine, l’alignement de la fiscalité du capital sur celle du travail et de nouveaux prélèvements sur les très grandes fortunes, tout en maintenant un niveau élevé d’investissement public.",
+    justification: "Désaccord très fort : LFI ne propose pas de baisse générale des impôts sur le travail et le capital financée par des réductions de dépenses publiques. Son programme prévoit au contraire une fiscalité plus progressive sur les revenus et le patrimoine, l'alignement de la fiscalité du capital sur celle du travail et de nouveaux prélèvements sur les très grandes fortunes, tout en maintenant un niveau élevé d'investissement public. La logique économique est donc directement opposée à l'arbitrage proposé.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre6/s5/"
   },
   3: {
-    justification: "Accord très fort : le programme 2025 de LFI prévoit de renforcer l’ISF, de rendre l’impôt sur le revenu plus progressif et d’instaurer une taxe minimale de 2 % sur le patrimoine des milliardaires. L’objectif affiché est explicitement de faire davantage contribuer les hauts revenus et les grandes fortunes.",
+    justification: "Accord très fort : LFI propose de renforcer l'ISF, de rendre l'impôt sur le revenu plus progressif, de taxer davantage les revenus du capital et d'instaurer un impôt minimal de 2 % sur le patrimoine des milliardaires. Ces mesures visent explicitement à faire davantage contribuer les hauts revenus et les très gros patrimoines afin de réduire les inégalités ; +3 correspond directement à l'intensité du programme.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre6/s5/"
   },
   5: {
-    justification: "Accord très fort : LFI propose de porter immédiatement le SMIC à 1 600 euros net par mois et d’indexer les salaires sur l’inflation. Il s’agit donc bien d’une hausse importante et directe du salaire minimum légal.",
+    justification: "Accord très fort : LFI propose de porter immédiatement le SMIC à 1 600 euros net par mois et d'indexer les salaires sur l'inflation. La hausse du salaire minimum est donc à la fois importante et accompagnée d'un mécanisme destiné à empêcher l'érosion ultérieure des rémunérations par la hausse des prix ; +3 est pleinement justifié.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre8/s4/"
   },
   6: {
-    justification: "Désaccord très fort : LFI affirme que les biens et services essentiels doivent relever prioritairement de la propriété collective et du service public lorsque l’intérêt général l’exige. Son programme place notamment l’eau, la santé et l’énergie au-dessus du droit de propriété privée, ce qui est incompatible avec l’idée d’une supériorité générale du privé dans les secteurs essentiels.",
+    justification: "Désaccord très fort : LFI affirme que certains biens et services essentiels doivent échapper à la logique marchande lorsque l'intérêt général l'exige. Son programme place notamment l'eau, la santé et l'énergie sous une forte maîtrise publique ou collective et prévoit des services publics étendus. Cette conception est incompatible avec l'idée d'une supériorité générale des entreprises privées dans les secteurs essentiels.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre2/s1/"
   },
   7: {
-    justification: "Accord très fort : LFI prévoit de revenir sur certaines privatisations, de créer des pôles publics dans des secteurs stratégiques et de permettre la réquisition d’entreprises d’intérêt général. Le recours à la prise de contrôle publique d’une entreprise stratégique fait donc explicitement partie de ses instruments.",
+    justification: "Accord très fort : LFI prévoit de revenir sur certaines privatisations, de constituer des pôles publics dans des secteurs stratégiques et de permettre la réquisition ou la prise de contrôle d'entreprises d'intérêt général. La nationalisation temporaire ou durable d'une activité stratégique fait donc explicitement partie des instruments envisagés ; +3 est adapté.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre2/s2/"
   },
   8: {
-    justification: "Désaccord très fort : LFI ne fait pas de la concurrence le mécanisme privilégié pour améliorer les résultats économiques. Son programme prévoit au contraire une régulation poussée de la finance, des contrôles de capitaux, des interdictions de produits financiers et de nombreux instruments publics de planification et d’encadrement.",
+    justification: "Désaccord très fort : LFI ne considère pas la concurrence comme le mécanisme général à privilégier face à la réglementation. Son programme prévoit au contraire des contrôles de capitaux, des interdictions de certains produits financiers, des encadrements de prix et de nombreux instruments de planification et de contrôle public. La philosophie de la question est donc largement inverse de celle du programme.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre6/s1/"
   },
   9: {
-    justification: "Désaccord très fort : LFI rejette explicitement les politiques d’austérité et refuse que la dette publique serve à imposer des réductions de dépenses sociales. Son programme préfère mobiliser la fiscalité, l’investissement public et une remise en cause des règles de financement de la dette plutôt que réduire la protection sociale pour équilibrer les comptes.",
+    justification: "Désaccord très fort : LFI rejette explicitement l'austérité et refuse que le retour à l'équilibre budgétaire passe par des réductions de politiques sociales. Son programme privilégie la fiscalité progressive, l'investissement public et une remise en cause des règles qui subordonnent la politique économique à la réduction rapide de la dette. Accepter des coupes sociales pour équilibrer les comptes est donc directement contraire à cette ligne.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre6/s4/"
   },
   10: {
-    justification: "Accord très fort : LFI veut étendre la protection sociale, automatiser le versement des droits, garantir un revenu minimal jusqu’au seuil de pauvreté et rendre gratuits certains volumes essentiels d’eau, d’électricité et de gaz. Ce modèle suppose un financement collectif important et une fiscalité fortement redistributive.",
+    justification: "Accord très fort : LFI veut étendre la protection sociale, automatiser le versement de nombreux droits et garantir un revenu minimal jusqu'au seuil de pauvreté. Le programme prévoit également la gratuité de premières quantités de certains biens essentiels. Un niveau élevé de protection sociale financé collectivement, y compris par une fiscalité importante et progressive, correspond donc très fortement à sa doctrine.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre7/s4/"
   },
   12: {
-    justification: "Accord très fort : LFI revendique explicitement l’intervention publique lorsque la logique marchande entre en conflit avec l’accès aux biens essentiels ou l’intérêt général. Son programme prévoit collectivisations, services publics, régulation des prix et limitations du droit de propriété dans plusieurs secteurs.",
+    justification: "Accord très fort : LFI revendique une intervention publique forte lorsque la logique marchande entre en conflit avec l'accès aux biens essentiels, l'égalité ou l'intérêt général. Collectivisations, services publics, encadrements de prix, réquisitions et limitations du droit de propriété figurent parmi les instruments proposés. La formulation de la question correspond donc directement à cette orientation.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre2/s1/"
   },
   13: {
-    justification: "Désaccord très fort : LFI privilégie des droits sociaux universels, automatiques et mutualisés plutôt qu’un système dans lequel chacun disposerait davantage librement de la part aujourd’hui consacrée aux mécanismes collectifs. Son programme cherche notamment à automatiser les prestations et à élargir les garanties publiques.",
+    justification: "Désaccord très fort : LFI privilégie des droits sociaux universels, mutualisés et largement obligatoires plutôt qu'une individualisation permettant à chacun d'utiliser librement une part accrue de l'argent aujourd'hui consacré à la retraite, à la santé ou à la protection sociale. Son programme cherche à élargir les garanties publiques et à automatiser les prestations. La logique de libre choix individuel proposée est donc fortement opposée à son modèle social.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre7/s4/"
   },
   14: {
-    justification: "Accord très fort : le programme 2025 de LFI présente la liberté de choisir sa vie comme un principe fondamental et veut renforcer l’autonomie corporelle ainsi que les droits liés à l’orientation sexuelle, à l’identité de genre et aux choix familiaux. La tradition n’est donc pas posée comme une limite générale aux modes de vie.",
+    justification: "Accord très fort : le programme de LFI présente la liberté de choisir sa vie comme un principe fondamental et veut renforcer l'autonomie corporelle ainsi que les droits liés à l'orientation sexuelle, à l'identité de genre et aux choix familiaux. Les normes traditionnelles ne sont pas posées comme une limite générale aux modes de vie. La proposition correspond donc très directement à cette orientation.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre4/s1/"
   },
   15: {
-    justification: "Désaccord très fort : LFI veut abolir les mécanismes de vote forcé, dont l’article 49.3, et renforcer la responsabilité du gouvernement devant le Parlement. Permettre au gouvernement de faire adopter un budget sans vote de l’Assemblée va directement à l’encontre de cette réforme institutionnelle.",
+    justification: "Désaccord très fort : LFI veut abolir les procédures permettant d'imposer un texte sans vote, notamment l'article 49.3, et renforcer la responsabilité du gouvernement devant le Parlement. Permettre au gouvernement de faire adopter le budget sans vote de l'Assemblée lorsqu'aucune majorité stable ne se dégage va directement à l'encontre de ce projet institutionnel.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre1/s2/"
   },
   16: {
-    justification: "Accord net mais circonscrit : LFI accepte de limiter certaines libertés économiques ou patrimoniales lorsque l’égalité et l’accès aux biens essentiels l’exigent, par exemple en subordonnant la propriété privée au droit à l’eau, à la santé ou à l’énergie. En revanche, son programme cherche parallèlement à étendre les libertés civiles et personnelles ; l’acceptation de restrictions concerne donc surtout la sphère économique.",
+    justification: "Accord net mais limité : LFI accepte que la réduction des inégalités justifie certaines contraintes, notamment en matière de redistribution, de propriété, de parité ou de lutte contre les discriminations. En parallèle, le mouvement cherche à étendre de nombreuses libertés civiles et personnelles. L'acceptation de restrictions existe donc réellement, mais elle ne constitue pas un principe général applicable à toutes les libertés ; +2 reste plus précis que +3.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre2/s1/"
   },
   17: {
-    justification: "Accord très fort : LFI prévoit des politiques actives de lutte contre les discriminations, avec testing, contrôles, sanctions, anonymisation de certaines procédures et mesures destinées à corriger les inégalités persistantes liées notamment à l’origine. Elle ne se limite donc pas à l’égalité juridique formelle.",
+    justification: "Accord très fort : LFI prévoit des politiques actives de lutte contre les discriminations, avec testing, contrôles, sanctions, anonymisation de certaines procédures et dispositifs destinés à corriger des inégalités persistantes liées notamment à l'origine. Le programme ne se limite donc pas à l'égalité juridique formelle et assume explicitement une action correctrice des pouvoirs publics.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre10/s2/"
   },
   19: {
-    justification: "Désaccord net : LFI valorise certains héritages républicains, sociaux et culturels, mais décrit la France comme une société en transformation et défend l’élargissement des libertés individuelles. Son programme ne considère pas la préservation des traditions comme une raison suffisante pour ralentir l’évolution des normes sociales.",
+    justification: "Désaccord net : LFI valorise certains héritages républicains, sociaux et culturels, mais son programme décrit la culture française comme le résultat d'une histoire et de transformations permanentes plutôt que comme un ensemble de traditions devant être préservées contre l'évolution sociale. L'élargissement des libertés et l'idée de créolisation occupent une place importante dans cette conception. Le désaccord est donc net sans être absolu ; -2 est adapté.",
     source: "https://melenchon2027.fr/programme2025/livre/introduction/"
   },
   20: {
-    justification: "Désaccord très fort : le programme migratoire de LFI propose de faciliter l’obtention de visas, de garantir pleinement le droit d’asile et de régulariser plusieurs catégories de personnes présentes en France. Il ne fixe pas d’objectif général de réduction du nombre annuel d’immigrés et s’oppose à la logique de fermeture quantitative.",
+    justification: "Désaccord très fort : la politique migratoire de LFI prévoit de faciliter l'obtention de visas, de garantir le droit d'asile et de régulariser plusieurs catégories de personnes durablement présentes en France. Aucun objectif général de réduction quantitative du nombre annuel d'immigrés n'est proposé ; la logique défendue est au contraire celle de voies légales et de droits renforcés. La proposition est donc directement opposée à cette orientation.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre16/s7/"
   },
   23: {
-    justification: "Désaccord très fort : LFI veut garantir un droit du sol intégral et faciliter l’accès à la nationalité française. Cette orientation est directement opposée à un durcissement général des conditions d’acquisition de la nationalité.",
+    justification: "Désaccord très fort : LFI veut garantir un droit du sol intégral et faciliter l'accès à la nationalité française. Cette orientation vise explicitement à rendre l'accès à la citoyenneté plus ouvert et s'oppose donc directement à un durcissement général des conditions d'acquisition de la nationalité ; -3 est adapté.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre10/s2/"
   },
   24: {
-    justification: "Désaccord net : les députés LFI s’opposent à l’extension de régimes d’éloignement ou de rétention spécifiques aux étrangers condamnés ou présentés comme menaçants lorsqu’ils affaiblissent les garanties individuelles, en dénonçant une logique de suspicion et de double traitement. LFI ne s’oppose toutefois pas à toute mesure individuelle d’éloignement légalement justifiée dans les cas les plus graves.",
-    source: "https://www.assemblee-nationale.fr/dyn/17/amendements/1148/CION_LOIS/CL22"
+    justification: "Désaccord net : les députés LFI se sont opposés à l'assouplissement des conditions permettant d'expulser des étrangers protégés par leur ancienneté de séjour ou leurs attaches familiales, y compris dans le cadre de mesures visant des personnes condamnées. Cette position montre un refus clair d'un durcissement général des expulsions. Elle ne signifie toutefois pas une opposition à toute expulsion individuelle légalement justifiée pour des faits graves ; -2 est donc plus précis que -3.",
+    source: "https://www.assemblee-nationale.fr/dyn/17/amendements/0265/CION_LOIS/CL2"
   },
   25: {
-    justification: "Désaccord très fort : LFI fonde sa politique migratoire sur les droits, l’égalité et l’accueil plutôt que sur la recherche d’une homogénéité culturelle. Son programme défend une conception ouverte de la citoyenneté et de la société française et ne propose pas de plafonner une immigration par ailleurs bénéfique au nom de la cohésion culturelle.",
-    source: "https://melenchon2027.fr/programme2025/livre/chapitre10/s2/"
+    justification: "Désaccord très fort : LFI fonde sa politique migratoire sur les droits, l'égalité et une conception ouverte et créolisée de la société française plutôt que sur la recherche d'une homogénéité culturelle. Le programme ne propose pas de limiter une immigration par ailleurs bénéfique afin de préserver une identité culturelle uniforme. La justification avancée dans la question est donc directement contraire à sa doctrine.",
+    source: "https://melenchon2027.fr/programme2025/livre/introduction/"
   },
   26: {
-    justification: "Accord très fort : LFI affirme explicitement le devoir d’accueil envers les personnes réfugiées, veut garantir pleinement le droit d’asile et renforcer les structures d’accueil. Cette orientation demeure assumée même lorsqu’elle implique des moyens publics supplémentaires.",
+    justification: "Accord très fort : LFI affirme le devoir d'accueil envers les personnes réfugiées, veut garantir pleinement le droit d'asile et renforcer les structures d'accueil. Cette orientation est présentée comme une obligation politique et humanitaire, et non comme une politique subordonnée à son absence de coût budgétaire. L'acceptation d'un coût économique ne remet donc pas en cause l'accord ; +3 est adapté.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre16/s7/"
   },
   28: {
-    justification: "Accord très fort : LFI veut lutter contre la récidive par la réinsertion, développer les alternatives à l’incarcération et faire de la police de proximité et de la prévention des axes centraux de sa politique de sûreté. Cette stratégie privilégie donc explicitement la prévention et la réinsertion plutôt qu’un alourdissement général des sanctions.",
+    justification: "Accord très fort : LFI veut lutter contre la récidive en renforçant la réinsertion, développer les alternatives à l'incarcération et réduire la surpopulation carcérale. Sa politique de sûreté accorde également une place centrale à la prévention et à la police de proximité. Cette stratégie privilégie explicitement prévention et réinsertion plutôt qu'un alourdissement général des sanctions ; +3 est adapté.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre7/s7/"
   },
   29: {
-    justification: "Désaccord très fort : LFI veut abroger plusieurs lois sécuritaires, renforcer le contrôle des forces de l’ordre et limiter certains équipements ou techniques jugés dangereux pour les libertés. Son programme définit au contraire la police comme un service devant protéger les libertés individuelles et collectives.",
+    justification: "Désaccord très fort : LFI veut abroger plusieurs lois sécuritaires, renforcer le contrôle des forces de l'ordre et limiter certains équipements ou techniques jugés dangereux pour les libertés. Le programme définit la police comme un service devant assurer la sûreté dans le respect des libertés individuelles et collectives. Accroître ses pouvoirs au prix de contrôles supplémentaires sur les libertés correspond donc à une logique largement inverse.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre4/s3/"
   },
   30: {
-    justification: "Accord net : LFI veut imposer aux produits importés le respect de normes sociales et environnementales comparables à celles exigées en France et recourir à des protections commerciales écologiques. En revanche, le programme ne dit pas explicitement qu’il accepterait la disparition des produits alimentaires les moins chers ou l’intégralité du surcoût envisagé par la question.",
-    source: "https://melenchon2027.fr/programme2025/livre/chapitre9/s2/"
+    justification: "Accord net : LFI défend l'application aux produits importés de normes sanitaires et environnementales comparables à celles imposées aux producteurs français. En juin 2026, le mouvement a notamment revendiqué l'adoption d'une disposition interdisant l'importation de denrées produites avec des substances interdites en France. En revanche, cette position vise aussi à protéger les agriculteurs français et ne formule pas explicitement l'acceptation de la disparition des produits alimentaires les moins chers ; +2 reste donc plus précis que +3.",
+    source: "https://lafranceinsoumise.fr/2026/06/03/loi-durgence-agricole-les-textes-agricoles-passent-le-vivant-trepasse-sans-perspective-pour-les-agriculteurs/"
   },
   32: {
-    justification: "Accord très fort : LFI place l’urgence climatique et la planification écologique au cœur de la politique économique et prévoit des investissements publics massifs pour la bifurcation. La croissance de court terme n’est pas érigée en contrainte prioritaire face aux objectifs climatiques.",
-    source: "https://melenchon2027.fr/programme2025/livre/chapitre13/s1/"
+    justification: "Accord très fort : LFI place la planification écologique et la règle verte au cœur de son programme et affirme que l'activité économique doit respecter les limites écologiques. Le mouvement refuse par ailleurs de réduire l'évaluation du progrès au seul PIB. La croissance de court terme n'est donc pas posée comme une contrainte supérieure aux objectifs climatiques ; +3 est cohérent avec cette hiérarchie assumée.",
+    source: "https://programme.lafranceinsoumise.fr/plans/regle-verte/"
   },
   35: {
-    justification: "Désaccord très fort : LFI privilégie la réglementation, la planification, les normes et des interdictions ciblées plutôt qu’une politique écologique reposant principalement sur les signaux de prix. Son programme propose explicitement de renforcer le contrôle public face au libre marché et de rétablir des protections environnementales.",
+    justification: "Désaccord très fort : LFI privilégie la réglementation, la planification, les normes et des interdictions ciblées plutôt qu'une politique écologique reposant principalement sur les mécanismes de marché et la seule tarification du carbone. Son programme prévoit de renforcer les contrôles publics et les protections environnementales. La préférence explicite de la question pour le marché est donc fortement contraire à cette approche.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre14/s1/"
   },
   36: {
-    justification: "Accord très fort : LFI propose d’interdire ou de faire cesser des activités et substances jugées dangereuses pour l’environnement ou la santé, même lorsqu’elles répondent à une demande économique. L’interdiction fait donc explicitement partie de ses instruments écologiques.",
+    justification: "Accord très fort : LFI propose d'interdire ou de faire cesser des activités, substances et produits jugés particulièrement dangereux pour l'environnement ou la santé, y compris lorsqu'ils conservent une demande économique. L'interdiction fait donc explicitement partie de ses instruments de politique écologique ; +3 correspond à l'intensité de cette position.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre14/s1/"
   },
   37: {
-    justification: "Accord clair sur une responsabilité accrue des pays riches : LFI veut porter l’aide publique au développement à 0,7 % du revenu national brut, développer le codéveloppement climatique et restructurer les dettes qui empêchent les pays pauvres de financer leur transition. Le programme établit donc une solidarité Nord-Sud importante, sans toutefois chiffrer une prise en charge « prépondérante » de l’ensemble du coût mondial de la transition.",
+    response: 2,
+    justification: "Accord net : LFI défend une responsabilité financière importante des pays riches envers les pays vulnérables, notamment par une aide publique au développement portée à 0,7 % du revenu national brut, le codéveloppement climatique et la restructuration de dettes qui empêchent d'investir dans la transition. En revanche, le programme ne va pas jusqu'à attribuer explicitement aux pays riches une part prépondérante de l'ensemble du coût mondial de la transition. L'accord est donc fort mais pas maximal ; +2 est plus rigoureux que +3.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre16/s9/"
   },
   39: {
-    justification: "Accord net : LFI veut récupérer pour les États une large souveraineté budgétaire et conserver la possibilité d’appliquer un programme national même lorsqu’il entre en conflit avec certaines règles européennes. Le mouvement reste cependant favorable à des coopérations et harmonisations européennes dans plusieurs domaines sociaux et écologiques.",
-    source: "https://melenchon2027.fr/programme2025/livre/chapitre17/"
+    justification: "Accord net : LFI veut préserver ou récupérer d'importantes marges nationales de décision, notamment en matière budgétaire et économique, et affirme qu'un programme démocratiquement choisi en France doit pouvoir être appliqué malgré certaines règles européennes contraires. Le mouvement reste néanmoins favorable à des coopérations et harmonisations européennes dans plusieurs domaines. La souveraineté nationale est donc fortement privilégiée sans constituer un principe absolu ; +2 est adapté.",
+    source: "https://lafranceinsoumise.fr/europeennes-2024/programme-de-lunion-populaire/chapitre-1-sortir-de-lausterite-et-partager-les-richesses/"
   },
   40: {
-    justification: "Position intermédiaire : LFI ne propose pas de sortir de l’euro, mais veut transformer profondément les règles monétaires européennes, modifier le mandat de la BCE et récupérer des marges nationales de politique économique. Sa ligne ne permet donc ni de présenter l’euro actuel comme globalement bénéfique, ni de le rejeter purement et simplement.",
-    source: "https://melenchon2027.fr/programme2025/livre/chapitre17/"
+    justification: "Position intermédiaire : LFI ne propose pas de sortir de l'euro, mais conteste fortement son architecture actuelle et veut transformer le mandat de la BCE ainsi que les règles monétaires et budgétaires européennes. Le mouvement ne présente donc ni l'euro actuel comme globalement satisfaisant, ni sa disparition comme un objectif politique. Une note neutre traduit mieux cette position qu'un accord ou un désaccord marqué.",
+    source: "https://lafranceinsoumise.fr/europeennes-2024/programme-de-lunion-populaire/chapitre-1-sortir-de-lausterite-et-partager-les-richesses/"
   },
   41: {
-    justification: "Position intermédiaire : LFI veut davantage de règles européennes communes en matière sociale, fiscale et écologique, mais refuse plusieurs règles communes de concurrence, de discipline budgétaire et de libre circulation des capitaux. Elle souhaite donc renforcer certaines normes européennes tout en en supprimant ou désobéissant à d’autres.",
-    source: "https://melenchon2027.fr/programme2025/livre/chapitre17/"
+    justification: "Position intermédiaire : LFI souhaite davantage de règles communes européennes en matière sociale, fiscale et écologique, mais refuse ou veut désappliquer certaines règles communes de concurrence, de discipline budgétaire et de libre circulation des capitaux. La question porte sur une augmentation générale du pouvoir réglementaire de l'Union, alors que la ligne de LFI dépend fortement du domaine concerné. Une note de 0 reflète donc correctement cette combinaison.",
+    source: "https://lafranceinsoumise.fr/europeennes-2024/programme-de-lunion-populaire/chapitre-1-sortir-de-lausterite-et-partager-les-richesses/"
   },
   42: {
-    justification: "Accord très fort : le programme 2025 de LFI prévoit explicitement de cesser unilatéralement d’appliquer les règles européennes incompatibles avec son programme, notamment en matière budgétaire, de concurrence et de circulation des capitaux. Le principe de désobéissance ciblée posé par la question est donc directement assumé.",
-    source: "https://melenchon2027.fr/programme2025/livre/chapitre17/s2/"
+    justification: "Accord très fort : la stratégie européenne de LFI prévoit explicitement de ne pas appliquer certaines règles européennes lorsqu'elles empêchent la mise en œuvre de son programme, notamment dans les domaines budgétaire, économique ou de la concurrence. Le principe d'une désobéissance ciblée à des règles européennes en conflit avec les choix économiques français est donc directement assumé ; +3 est adapté.",
+    source: "https://lafranceinsoumise.fr/europeennes-2024/programme-de-lunion-populaire/chapitre-1-sortir-de-lausterite-et-partager-les-richesses/"
   },
   43: {
-    justification: "Désaccord très fort : LFI veut rétablir et renforcer l’ISF et rendre la fiscalité immobilière plus progressive. La suppression de l’IFI et de toute fiscalité patrimoniale spécifique sur les grands patrimoines immobiliers est donc directement opposée à son programme.",
+    justification: "Désaccord très fort : LFI veut rétablir et renforcer l'ISF et rendre la fiscalité du patrimoine plus progressive. La suppression de l'IFI accompagnée de l'abandon de toute fiscalité spécifique sur les grands patrimoines immobiliers est donc directement opposée à son programme ; -3 est adapté.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre6/s5/"
   },
   45: {
-    justification: "Accord net : LFI veut taxer beaucoup plus fortement les très grandes fortunes, rétablir l’exit tax et instaurer des mécanismes de fiscalité universelle pour limiter l’évitement par le départ à l’étranger. En revanche, son programme ne formule pas exactement une taxation perpétuelle de l’ensemble du patrimoine mondial de toute grande fortune après expatriation, ce qui justifie une intensité inférieure au maximum.",
+    justification: "Accord net : LFI veut rétablir l'exit tax et instaurer un impôt universel afin de limiter l'évitement fiscal par le départ à l'étranger. Le programme vise donc clairement à maintenir une capacité d'imposition au-delà de la seule résidence fiscale française. Toutefois, l'impôt universel est formulé principalement sur les revenus et ne correspond pas exactement à une taxation permanente de l'ensemble du patrimoine mondial après expatriation ; +2 est plus précis que +3.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre6/s5/"
   },
   49: {
-    justification: "Désaccord très fort : LFI veut maintenir un système de retraite par répartition financé principalement par les cotisations, qu’elle souhaite élargir notamment aux revenus financiers. Elle ne propose pas de déplacer une part du système vers la capitalisation.",
+    justification: "Désaccord très fort : LFI veut maintenir et renforcer un système de retraite par répartition financé principalement par les cotisations, avec notamment une mise à contribution accrue des revenus financiers. Le programme ne propose pas de transférer progressivement une part du système vers la capitalisation. La réforme décrite dans la question est donc directement opposée à son modèle ; -3 est adapté.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre8/s8/"
   },
   50: {
-    justification: "Désaccord très fort : LFI propose un âge légal de départ à 60 ans avec une durée de cotisation déterminée politiquement. Cette logique est directement opposée à une indexation automatique de l’âge de départ sur l’espérance de vie.",
+    justification: "Désaccord très fort : LFI propose un âge légal de départ à la retraite fixé politiquement à 60 ans et rejette le recul de l'âge de départ. Cette logique est directement opposée à une indexation automatique de l'âge légal sur l'espérance de vie, qui ferait évoluer la retraite selon un mécanisme démographique plutôt que selon un choix politique ; -3 est adapté.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre8/s8/"
   },
   51: {
-    justification: "Désaccord très fort : LFI veut attacher davantage les droits sociaux à la personne et les maintenir y compris pendant certaines périodes hors emploi, notamment de formation ou de reconversion. Son projet de sécurité sociale professionnelle s’oppose donc à une forte conditionnalité des prestations à la participation immédiate au marché du travail.",
+    justification: "Désaccord très fort : LFI veut attacher davantage les droits sociaux à la personne et les maintenir pendant certaines périodes sans emploi, notamment de formation ou de reconversion, au moyen d'une sécurité sociale professionnelle. Cette logique cherche à sécuriser les parcours au-delà de la participation immédiate au marché du travail. Une forte conditionnalité des prestations à la durée de cotisation ou d'emploi est donc largement contraire à cette orientation.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre8/s6/"
   },
   53: {
-    justification: "Accord très fort : LFI veut conditionner toutes les aides publiques aux grandes entreprises à des objectifs sociaux, écologiques et fiscaux contraignants et exiger leur remboursement en cas de non-respect. Le mouvement défend aussi des restrictions sur les dividendes des entreprises aidées ou qui licencient.",
+    justification: "Accord très fort : LFI veut conditionner les aides publiques aux grandes entreprises à des objectifs sociaux, écologiques et fiscaux contraignants et exiger leur remboursement en cas de non-respect. Le mouvement défend également des restrictions sur les dividendes et les rémunérations lorsque l'entreprise bénéficie d'un soutien public. La contrainte décrite par la question correspond donc très directement à sa ligne ; +3 est adapté.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre9/s2/"
   },
   54: {
-    justification: "Accord très fort : LFI veut constituer ou renforcer des pôles publics dans des secteurs stratégiques, revenir sur certaines privatisations et utiliser la propriété ou le contrôle public pour orienter la production. Cette conception va au moins aussi loin que l’usage actif du pouvoir d’actionnaire envisagé dans la question.",
+    justification: "Accord très fort : LFI veut constituer ou renforcer des pôles publics dans des secteurs stratégiques, revenir sur certaines privatisations et utiliser la propriété ou le contrôle public pour orienter la production, l'investissement et l'emploi. Cette conception va au moins aussi loin que l'utilisation active du pouvoir d'actionnaire de l'État envisagée dans la question ; +3 est adapté.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre2/s2/"
   },
   55: {
-    justification: "Désaccord très fort avec la contrepartie de la question : LFI veut restaurer des normes environnementales affaiblies, renforcer les moyens de contrôle et de sanction et encadrer davantage certaines activités. Elle peut soutenir des simplifications administratives ponctuelles, mais pas lorsqu’elles réduisent explicitement les protections sociales ou environnementales.",
+    justification: "Désaccord très fort : LFI veut restaurer ou renforcer des normes environnementales, les moyens de contrôle et les sanctions applicables aux entreprises. Des simplifications administratives ponctuelles peuvent être soutenues, mais pas lorsqu'elles ont pour contrepartie explicite un affaiblissement des protections sociales ou environnementales. L'arbitrage proposé est donc directement contraire à la ligne générale du mouvement.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre14/s1/"
   },
   56: {
-    justification: "Accord très fort : le programme migratoire de LFI prévoit explicitement de régulariser les travailleurs sans papiers ainsi que d’autres catégories durablement installées. Un étranger en situation irrégulière qui travaille depuis plusieurs années correspond donc directement à l’une des catégories visées.",
+    justification: "Accord très fort : le programme migratoire de LFI prévoit explicitement de régulariser les travailleurs sans papiers ainsi que plusieurs autres catégories de personnes durablement installées. Un étranger en situation irrégulière travaillant de façon stable depuis plusieurs années et n'ayant commis aucun délit correspond directement au cœur de cette politique de régularisation ; +3 est adapté.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre16/s7/"
   },
   57: {
-    justification: "Désaccord très fort : LFI s’est explicitement opposée aux dispositions instaurant une forme de préférence nationale ou retardant l’accès des étrangers en situation régulière à certaines prestations sociales. Le mouvement défend l’égalité des droits sociaux plutôt qu’une période générale de carence de plusieurs années.",
+    justification: "Désaccord très fort : LFI s'est opposée aux dispositions instaurant une forme de préférence nationale ou retardant l'accès des étrangers en situation régulière à certaines prestations sociales. Le mouvement défend l'égalité des droits sociaux plutôt qu'une période générale de carence de plusieurs années après l'arrivée en France. La proposition est donc directement contraire à cette position.",
     source: "https://lafranceinsoumise.fr/2024/01/25/immigration-le-conseil-censure-les-mesures-lepenistes-mais-conserve-la-reforme-darmanin-qui-porte-une-grave-atteinte-aux-droits-des-etrangers/"
   },
   60: {
-    justification: "Désaccord très fort : LFI défend l’égalité des droits indépendamment de l’origine et facilite l’accès au séjour et à la nationalité. Son programme ne prévoit pas de refuser l’entrée à une personne par ailleurs admissible sur la base d’une appréciation préalable de sa capacité supposée à s’intégrer culturellement.",
+    justification: "Désaccord très fort : LFI défend l'égalité des droits indépendamment de l'origine et une politique facilitant l'accès au séjour et à la nationalité. Son programme ne prévoit pas de refuser l'entrée à une personne légalement admissible sur la base d'une appréciation préalable et subjective de sa volonté supposée de s'intégrer culturellement. Le mécanisme proposé est donc fortement contraire à sa conception de l'immigration.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre10/s2/"
   },
   61: {
-    justification: "Accord très fort : LFI défend la liberté des pratiques culturelles et religieuses tant qu’elles respectent la loi commune et les droits fondamentaux, et lutte contre les discriminations liées à l’origine ou à la religion. La différence culturelle n’est donc pas considérée en elle-même comme un problème politique.",
+    justification: "Accord très fort : LFI défend l'égalité des droits, la liberté de conscience et la pluralité des pratiques culturelles ou religieuses tant qu'elles respectent la loi commune et les droits fondamentaux. La différence culturelle n'est donc pas considérée en elle-même comme un problème politique. La formulation de la question correspond directement à cette conception ; +3 est adapté.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre10/s2/"
   },
   69: {
-    justification: "Désaccord très fort : LFI planifie explicitement une sortie du nucléaire et un système énergétique fondé à terme sur 100 % d’énergies renouvelables, avec abandon des nouveaux EPR et reconversion progressive de la filière. Prioriser le nucléaire au détriment des renouvelables est donc l’inverse direct de sa stratégie.",
+    justification: "Désaccord très fort : LFI planifie explicitement une sortie progressive du nucléaire et un système énergétique reposant à terme sur 100 % d'énergies renouvelables, avec abandon des nouveaux EPR et reconversion de la filière. Donner la priorité au nucléaire au prix d'une réduction des investissements dans les renouvelables est donc exactement l'inverse de sa stratégie énergétique ; -3 est adapté.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre13/s3/"
   },
   71: {
-    justification: "LFI place clairement la réduction des émissions et la planification écologique au-dessus de la recherche de rendement financier et veut compléter ou remplacer le PIB par des indicateurs de progrès humain. En revanche, aucune proposition actuelle n’établit explicitement qu’elle accepterait précisément une perte de 3 % du PIB pour réduire les émissions de 20 % si les autres pays ne faisaient aucun effort comparable.",
-    source: "https://melenchon2027.fr/programme2025/livre/chapitre6/s3/"
+    justification: "Accord net : LFI place la réduction des émissions, la règle verte et la planification écologique au-dessus de la recherche de croissance du PIB à court terme, et souhaite compléter le PIB par d'autres indicateurs de progrès. En revanche, aucune proposition actuelle n'établit explicitement que le mouvement accepterait précisément une perte de 3 % du PIB pour réduire les émissions de 20 % si les autres pays ne faisaient aucun effort comparable. L'orientation permet un accord fort mais pas une certitude maximale ; +2 est adapté.",
+    source: "https://programme.lafranceinsoumise.fr/plans/regle-verte/"
   },
   72: {
-    justification: "Désaccord net : LFI veut que les grandes orientations économiques, monétaires et financières soient soumises à un contrôle démocratique renforcé, notamment via des institutions publiques et une gestion démocratique du crédit. Elle valorise l’expertise, mais ne souhaite pas transférer la décision politique générale d’élus vers des institutions technocratiques indépendantes.",
+    justification: "Désaccord net : LFI veut soumettre davantage les grandes orientations économiques, monétaires et financières au contrôle démocratique, notamment par une maîtrise publique du crédit et une remise en cause du pouvoir de certaines institutions indépendantes. Le mouvement valorise néanmoins l'expertise technique et ne propose pas de supprimer toute indépendance institutionnelle. Le transfert général de pouvoir des élus vers des experts est donc rejeté nettement mais pas absolument ; -2 est adapté.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre6/s2/"
   },
   73: {
-    justification: "Position intermédiaire : LFI accepte qu’un gouvernement élu prenne et assume des décisions, mais veut parallèlement accroître fortement les moyens d’intervention populaire entre les élections, notamment avec le référendum d’initiative citoyenne et la révocation d’élus. Son programme ne tranche pas directement l’arbitrage précis entre nécessité économique alléguée et absence d’approbation populaire immédiate.",
+    justification: "Position intermédiaire : LFI accepte qu'un gouvernement élu exerce ses responsabilités et prenne des décisions sans organiser en permanence une consultation populaire. En parallèle, son projet institutionnel veut accroître fortement l'intervention directe des citoyens entre les élections, notamment par le référendum d'initiative citoyenne et la révocation d'élus. Le programme ne tranche pas directement l'arbitrage précis entre nécessité économique alléguée et impopularité immédiate ; 0 est donc la note la plus prudente.",
     source: "https://melenchon2027.fr/programme2025/livre/faire-la-revolution-citoyenne/s4/"
   },
   74: {
-    justification: "Accord net : LFI veut instaurer un référendum d’initiative citoyenne permettant de proposer ou d’abroger une loi, de modifier la Constitution ou de révoquer des élus, et prévoit aussi des référendums obligatoires sur certaines réformes institutionnelles. Le programme ne dit toutefois pas que tout sujet technique mal maîtrisé devrait être soumis au vote populaire.",
+    justification: "Accord net : LFI veut instaurer un référendum d'initiative citoyenne permettant de proposer ou d'abroger une loi, de modifier la Constitution ou de révoquer des élus, et prévoit aussi davantage de recours direct au vote populaire. Le programme ne dit toutefois pas que tout sujet complexe devrait systématiquement être soumis à référendum sans dispositif d'information ou de délibération. L'accord avec un recours beaucoup plus fréquent au référendum est donc fort mais pas absolu ; +2 est adapté.",
     source: "https://melenchon2027.fr/programme2025/livre/faire-la-revolution-citoyenne/s4/"
   },
   77: {
-    justification: "Accord très fort : LFI propose explicitement l’élection de l’Assemblée nationale à la proportionnelle dans le cadre d’une VIe République parlementaire. Le principe central de la question correspond donc directement à son projet institutionnel, même si le programme ne recherche pas l’instabilité gouvernementale pour elle-même.",
+    justification: "Accord très fort : LFI propose explicitement l'élection de l'Assemblée nationale à la proportionnelle dans le cadre d'une VIe République plus parlementaire. Le système assumé rendrait mécaniquement plus fréquentes les coalitions lorsque aucune force n'obtient seule la majorité, même si l'instabilité n'est pas recherchée pour elle-même. Le principe central de la question correspond donc directement au projet institutionnel ; +3 est adapté.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre1/s2/"
   },
   79: {
-    justification: "Accord très fort : des responsables LFI rejettent explicitement l’idée d’un lien causal entre immigration et délinquance et présentent les explications culturalistes comme trompeuses. Plus largement, la politique de sécurité du mouvement met l’accent sur la précarité, la prévention, les services publics et les conditions sociales plutôt que sur l’origine culturelle.",
+    justification: "Accord très fort : des responsables et députés LFI rejettent explicitement les explications qui attribuent la délinquance à l'origine culturelle et mettent davantage en avant la précarité, les inégalités, les conditions sociales, la prévention et les services publics. La causalité sociale et économique proposée dans la question correspond donc très fortement à leur lecture politique ; +3 est adapté.",
     source: "https://www.assemblee-nationale.fr/dyn/opendata/CRCANR5L17S2026PO59051N010.html"
   },
   82: {
-    justification: "Accord très fort : LFI propose une « Sécu à 100 % » dans laquelle les soins prescrits seraient remboursés intégralement par l’Assurance maladie et les complémentaires seraient intégrées au système public. La mesure correspond presque exactement à la proposition de réduire fortement le rôle des mutuelles sur les soins essentiels.",
+    justification: "Accord très fort : LFI propose une « Sécu à 100 % » dans laquelle les soins prescrits seraient remboursés intégralement par l'Assurance maladie et où les complémentaires seraient intégrées au système public. Cette mesure correspond presque exactement à la proposition de rembourser intégralement les soins essentiels tout en réduisant fortement le rôle des mutuelles ; +3 est adapté.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre15/s2/"
   },
   83: {
-    justification: "Désaccord très fort : LFI propose au contraire de rouvrir des services d’urgence et des maternités et de garantir l’accès à des structures publiques de soins sur le territoire. La concentration de l’offre par fermeture de petits services est donc directement opposée à sa stratégie hospitalière.",
+    justification: "Désaccord très fort : LFI propose au contraire de rouvrir des services d'urgence et des maternités et de garantir l'accès territorial à des structures publiques de soins. La fermeture ou le regroupement de petits services afin de concentrer l'offre dans de grands établissements va donc directement à l'encontre de sa stratégie hospitalière ; -3 est adapté.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre15/s2/"
   },
   84: {
-    justification: "Désaccord très fort : LFI veut restaurer un cadre national du service public d’éducation, recruter les enseignants principalement par concours nationaux et mettre fin aux dispositifs d’évaluation et de contrôle permanents. Son programme associe davantage les équipes, parents et élèves aux décisions des établissements plutôt que de renforcer un pouvoir managérial individuel du chef d’établissement sur le recrutement et l’évaluation des professeurs.",
+    justification: "Désaccord très fort : LFI veut restaurer un cadre national du service public d'éducation, recruter les enseignants principalement par concours nationaux et mettre fin aux dispositifs de contrôle permanent. Le programme privilégie une gouvernance plus collective des établissements plutôt qu'un renforcement du pouvoir managérial individuel du chef d'établissement sur le recrutement et l'évaluation des professeurs. La proposition est donc fortement contraire à sa ligne.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre5/s3/"
   },
   86: {
-    justification: "Accord net : LFI veut limiter fortement les locations de courte durée de type Airbnb, notamment en plafonnant leur location à 60 jours par an et en supprimant leurs avantages fiscaux. Cette politique va clairement dans le sens de la question, mais reste moins radicale qu’une interdiction municipale complète de toute location touristique régulière d’une résidence non principale.",
+    justification: "Accord net : LFI veut limiter fortement les locations touristiques de courte durée, notamment en réduisant le nombre de jours autorisés et en supprimant leurs avantages fiscaux. Cette politique va clairement dans le sens d'un pouvoir municipal accru pour protéger le logement permanent. Elle reste toutefois moins radicale qu'une interdiction générale de toute location touristique régulière d'une résidence non principale ; +2 est donc plus précis que +3.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre7/s5/"
   },
   88: {
-    justification: "Désaccord très fort : LFI rejette explicitement l’idée d’un « parapluie nucléaire français » étendu aux autres pays européens et conteste que la France doive laisser entendre qu’elle utiliserait l’arme nucléaire pour défendre un partenaire. Cette position est directement opposée à l’extension de la garantie nucléaire française proposée par la question.",
+    justification: "Désaccord très fort : LFI rejette explicitement l'idée d'étendre la dissuasion nucléaire française à la protection des autres pays européens et conteste la notion de « parapluie nucléaire français » au bénéfice des partenaires. Cette position est directement opposée à la proposition selon laquelle la France devrait offrir sa garantie nucléaire aux autres Européens tout en conservant la décision finale d'emploi ; -3 est adapté.",
     source: "https://lafranceinsoumise.fr/2025/10/02/non-monsieur-macron-il-ny-a-pas-de-parapluie-nucleaire-francais/"
   },
   89: {
-    justification: "Accord très fort : lors du vote définitif du 15 juillet 2026 sur la proposition de loi créant un droit strictement encadré à l’aide à mourir, 61 des 71 députés du groupe LFI-NFP ont voté pour, contre seulement 2 oppositions et 3 abstentions parmi les votants recensés. L’orientation du groupe est donc très nettement favorable à un dispositif médical et légal encadré.",
+    justification: "Accord très fort : lors du vote définitif du 15 juillet 2026 sur la proposition de loi créant un droit strictement encadré à l'aide à mourir, une très large majorité des députés LFI-NFP a voté en faveur du texte : 61 pour, 2 contre et 3 abstentions parmi les suffrages et positions recensés du groupe. Cette orientation collective très nette justifie +3 pour un dispositif médical et légal strictement contrôlé.",
     source: "https://www.assemblee-nationale.fr/dyn/17/scrutins/8280"
   },
   91: {
-    justification: "Accord direct : en juin 2025, des députés LFI ont déposé un amendement demandant explicitement la fin de la modulation du montant des allocations familiales selon le revenu du ménage et le retour à une universalité où le montant dépend avant tout du nombre d’enfants. La position documentée correspond presque mot pour mot au principe posé par la question.",
+    response: 3,
+    justification: "Accord très fort : en juin 2025, des députés LFI ont déposé un amendement demandant explicitement la fin de la modulation des allocations familiales selon le revenu du ménage et le retour à leur caractère universel. La position documentée correspond presque mot pour mot à la proposition de verser les allocations selon le nombre d'enfants sans en diminuer le montant lorsque les revenus augmentent. La correspondance est directe ; +3 est plus adapté que +2.",
     source: "https://www.assemblee-nationale.fr/dyn/17/amendements/1473/AN/27"
   }
 };
