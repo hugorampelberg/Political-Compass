@@ -72,3 +72,7 @@ if (royaumeUniGovernment) {
   });
   royaumeUniGovernment.axisScores = scores;
 }
+
+if (typeof document !== 'undefined' && document.readyState === 'loading') {
+  document.write('<script src="/data/q47-overrides.js"></scr' + 'ipt>');
+}
