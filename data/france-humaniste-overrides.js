@@ -1,6 +1,10 @@
 // Ajustements documentaires validés pour La France Humaniste en août 2026.
 // Les clés correspondent aux IDs stables des questions, jamais à leur position dans le tableau.
 const FRANCE_HUMANISTE_OVERRIDES = {
+  1: {
+    justification: "Position intermédiaire : La France Humaniste propose d’alléger d’environ 5 points les cotisations patronales, ce qui va dans le sens d’une baisse des prélèvements sur le travail. Mais cet allègement serait financé par une contribution accrue de la consommation et des bénéfices ; LFH ne défend donc ni une baisse générale de la fiscalité du capital, ni un financement prioritaire par des réductions de dépenses publiques. Les différents volets de la proposition se compensent, ce qui justifie 0.",
+    source: "https://lafrancehumaniste.fr/articles/un-nouveau-monde-du-travail.html"
+  },
   75: {
     justification: "Désaccord très fort : La France Humaniste fonde sa conception démocratique sur l'égalité politique des citoyens, la souveraineté populaire et le refus qu'une minorité de techniciens ou de « sachants » confisque la décision publique. Donner davantage de poids politique à certains électeurs en fonction de leur connaissance des institutions ou de l'économie contredirait directement l'égalité du suffrage ; -3 reste donc pleinement justifié.",
     source: "https://lafrancehumaniste.fr/articles/sortir-de-l-impasse.html"
