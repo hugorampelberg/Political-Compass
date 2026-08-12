@@ -178,15 +178,15 @@ const MODEM_OVERRIDES = {
   },
   "46": {
     "justification": "Accord modéré : le MoDem accepte des obligations réelles de recherche d'emploi et des sanctions lorsque des offres raisonnables sont refusées de manière répétée. Le parti insiste cependant sur l'accompagnement et la proportionnalité plutôt que sur une perte massive automatique des droits ; +1 reste adapté.",
-    "source": "https://www.mouvementdemocrate.fr/actualites/marc-fesneau-nous-proposons-un-impot-sur-la-fortune-improductive-image-7951-image"
+    "source": "https://www.mouvementdemocrate.fr/actualites/francois-bayrou-partir-du-10-juin-dessine-un-paysage-politique-nouveau-video-6951-video"
   },
   "47": {
     "justification": "Accord modéré : le MoDem accepte une intervention publique pour réduire la vie chère outre-mer, notamment sur les coûts de transport, la concurrence et certains prix essentiels. Aucune doctrine n'établit toutefois une garantie nationale permanente d'alignement des prix avec l'Hexagone ; +1 reste prudent.",
-    "source": "https://www.mouvementdemocrate.fr/federations/69-rhone-2454"
+    "source": "https://www.mouvementdemocrate.fr/actualites/philippe-vigier-le-gouvernement-pris-bras-le-corps-le-sujet-de-lacces-leau-video-6526"
   },
   "48": {
     "justification": "Accord modéré : le MoDem a régulièrement défendu davantage de souplesse dans le marché du travail et des transitions professionnelles plus fluides. Il ne présente toutefois pas la protection du CDI comme la cause principale de l'exclusion des jeunes et précaires, ni ne veut supprimer les garanties contre les licenciements abusifs ; +1 reste adapté.",
-    "source": "https://www.mouvementdemocrate.fr/relancer-la-production-7926"
+    "source": "https://www.mouvementdemocrate.fr/archives/chomage-il-faut-sortir-du-deni-et-arreter-de-dire-ca-va-aller-mieux-car-il-y-quelque-chose"
   },
   "49": {
     "response": -2,
