@@ -10,8 +10,8 @@
   const Q47_PARTY_OVERRIDES = {
     lfi: {
       response: 2,
-      justification: "Accord net : LFI défend une forte solidarité nationale avec les territoires ultramarins et des interventions publiques importantes pour réduire le prix des biens essentiels. Le mouvement cherche toutefois à éviter que le financement de cette solidarité repose sur la consommation courante et privilégie davantage la contribution des hauts revenus, des grandes entreprises ou des profits. L’acceptation d’une légère hausse de certains prix en métropole reste donc moins directement établie que le principe de soutien aux outre-mer ; +2 est plus adapté que +3.",
-      source: "https://lafranceinsoumise.fr/2024/11/04/budget-outre-mer-le-nfp-vote-un-budget-augmente-de-plus-dun-milliard-deuros/"
+      justification: "Accord net : des députés LFI ont proposé dans le cadre du budget 2025 d’étudier une continuité territoriale économique pour le fret de marchandises outre-mer afin d’en faire un levier direct de baisse des prix, et ont parallèlement défendu un renforcement du bouclier qualité-prix sur les produits de première nécessité. L’intervention publique sur le fret ou les prix est donc clairement soutenue. En revanche, LFI ne propose pas de financer cette solidarité par une hausse des prix payés par les consommateurs métropolitains et privilégie plutôt le budget public, la régulation des marges ou la contribution des acteurs les plus aisés ; +2 reste donc plus précis que +3.",
+      source: "https://www.assemblee-nationale.fr/dyn/17/amendements/AMANR5L17PO59048B0324P2D1N001039"
     },
     pcf: {
       response: 2,
