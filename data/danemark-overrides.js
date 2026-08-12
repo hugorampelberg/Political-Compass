@@ -83,4 +83,10 @@ if (typeof document !== 'undefined' && document.readyState === 'loading') {
   document.write('<script src="/data/rn-research-overrides.js"></scr' + 'ipt>');
   document.write('<script src="/data/rn-source-fixes.js"></scr' + 'ipt>');
   document.write('<script src="/data/reconquete-research-overrides.js"></scr' + 'ipt>');
+  document.write('<script src="/data/ecologistes-overrides.js"></scr' + 'ipt>');
+  document.write('<script src="/data/ps-overrides.js"></scr' + 'ipt>');
+  document.write('<script src="/data/renaissance-overrides.js"></scr' + 'ipt>');
+  document.write('<script src="/data/modem-overrides.js"></scr' + 'ipt>');
+  document.write('<script src="/data/horizons-overrides.js"></scr' + 'ipt>');
+  document.write('<script src="/data/france-humaniste-overrides.js"></scr' + 'ipt>');
 }
