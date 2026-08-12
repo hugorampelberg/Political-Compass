@@ -97,3 +97,8 @@ if (allemagneGovernment) {
   });
   allemagneGovernment.axisScores = scores;
 }
+
+// Dernière couche gouvernementale : chargée synchroniquement avant app.js.
+if (typeof document !== 'undefined' && document.readyState === 'loading') {
+  document.write('<script src="/data/government-final-overrides.js"></scr' + 'ipt>');
+}
