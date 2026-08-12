@@ -190,8 +190,8 @@ const GOVERNMENT_FINAL_OVERRIDES = {
       justification: "Désaccord net : la Pologne refuse explicitement que la politique climatique impose des coûts élevés à la croissance, à l'industrie ou au pouvoir d'achat sans garanties de réciprocité et de compétitivité. Une perte de 3 % du PIB sans effort comparable des autres pays serait nettement contraire à cette position ; -2 est adapté."
     },
     92: {
-      justification: "Accord modéré : en 2026, la coalition au pouvoir et les ministères compétents travaillent activement sur la protection des mineurs en ligne et des responsables de la coalition ont annoncé un projet visant à limiter l'accès aux réseaux sociaux des moins de 15 ans. Les travaux parlementaires associent également le ministère de la Numérisation aux questions de vérification de l'âge. Il ne s'agit toutefois pas encore d'une interdiction nationale adoptée et pleinement portée sous une forme définitive par le gouvernement ; +1 reste donc un codage prudent.",
-      source: "https://www.sejm.gov.pl/Sejm10.nsf/biuletyn.xsp?skrnr=CODC-78"
+      justification: "Accord modéré : le gouvernement Tusk examine explicitement en 2026 des règles pouvant limiter, voire interdire, l'accès des moins de 15 ans aux réseaux sociaux. Une consultation organisée à l'initiative du Premier ministre a porté directement sur cette option, et le gouvernement a indiqué qu'il déciderait ensuite de la forme d'éventuelles restrictions. Aucune interdiction nationale n'est toutefois encore adoptée ni définitivement arrêtée ; +1 reste donc un codage prudent.",
+      source: "https://www.gov.pl/web/edukacja/konsultacje-cyfrowa-przyszlosc-mlodziezy-z-udzialem-premiera-i-minister-edukacji"
     }
   }
 };
