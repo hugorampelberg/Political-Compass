@@ -80,4 +80,5 @@ if (typeof document !== 'undefined' && document.readyState === 'loading') {
   document.write('<script src="/data/royaume-uni-overrides.js"></scr' + 'ipt>');
   document.write('<script src="/data/nouvelle-energie-overrides.js"></scr' + 'ipt>');
   document.write('<script src="/data/udr-overrides.js"></scr' + 'ipt>');
+  document.write('<script src="/data/rn-research-overrides.js"></scr' + 'ipt>');
 }
