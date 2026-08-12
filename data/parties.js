@@ -2788,7 +2788,7 @@ const PARTIES_DATA = [
       3
     ],
     "justifications": [
-      "Position intermédiaire : le projet articule baisse ciblée des cotisations patronales, contribution de la consommation et des profits et hausse du revenu des bas salaires, sans priorité univoque donnée aux seules charges.",
+      "Position intermédiaire : La France Humaniste propose d’alléger d’environ 5 points les cotisations patronales afin de réduire le coût du travail, mais souhaite financer cet allègement par une contribution accrue de la consommation et des bénéfices.",
       "Accord modéré : Villepin réhabilite explicitement l'effort, le mérite, l'entrepreneuriat et la liberté d'entreprendre, tout en refusant que la rente et les inégalités patrimoniales dominent la mobilité sociale.",
       "Accord modéré : le texte demande que les plus aisés contribuent selon leurs moyens et défend une fiscalité plus progressive.",
       "Position intermédiaire : LFH encadre la rémunération des dirigeants sans proposer de ratio légal directement lié au salaire le plus faible. La note 0 traduit cette combinaison plutôt qu’une absence artificielle de position.",
