@@ -7,9 +7,9 @@ const RECONQUETE_RESEARCH_OVERRIDES_20260812 = {
   3: { confidence: 3, source: "https://www.budget2026.fr/" },
   4: { confidence: 1, source: "https://www.budget2026.fr/" },
   5: {
-    response: 1,
+    response: -2,
     confidence: 2,
-    justification: "Accord modéré : Éric Zemmour veut explicitement augmenter le revenu des salariés modestes et des travailleurs au SMIC, notamment par une baisse de CSG et de charges qui augmente le salaire net, ainsi que par la participation. Il ne propose toutefois pas une forte hausse du SMIC légal lui-même et privilégie d'autres instruments pour atteindre l'objectif de revalorisation des bas salaires. Le sens social de la proposition justifie +1, mais pas davantage.",
+    justification: "Désaccord net : Reconquête veut augmenter le revenu net des salariés modestes principalement par une baisse de CSG et de cotisations, en préservant le salaire brut et en évitant d'alourdir le coût du travail pour l'entreprise. Cette stratégie est distincte d'une hausse significative du SMIC légal, dont la question assume précisément le coût potentiel pour les marges ou les prix ; -2 est donc plus fidèle.",
     source: "https://www.ericzemmour.fr/discours-lille"
   },
   6: { confidence: 2, source: "https://www.ericzemmour.fr/discours-saulieu" },
