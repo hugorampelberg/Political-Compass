@@ -103,4 +103,5 @@ if (allemagneGovernment) {
 if (typeof document !== 'undefined' && document.readyState === 'loading') {
   document.write('<script src="/data/government-final-overrides.js"></scr' + 'ipt>');
   document.write('<script src="/data/q75-overrides.js"></scr' + 'ipt>');
+  document.write('<script src="/data/q75-question-restore.js"></scr' + 'ipt>');
 }
