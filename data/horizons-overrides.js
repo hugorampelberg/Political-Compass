@@ -289,16 +289,16 @@ const HORIZONS_OVERRIDES = {
   },
   "83": {
     "response": 1,
-    "justification": "Accord modéré : Horizons accepte des regroupements de services lorsqu'ils sont nécessaires à la qualité, à la sécurité des soins et à la disponibilité des équipes, mais ne porte pas une doctrine générale de fermeture des petites maternités ou urgences. +1 est plus prudent que +2.",
-    "source": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere"
+    "justification": "Accord modéré : Frédéric Valletoux a assumé, lorsqu'il était ministre de la santé, qu'un hôpital puisse adapter son organisation et ses moyens à son niveau réel d'activité afin de garantir une gestion soutenable. Cette logique rend compatibles des regroupements ciblés, mais Horizons ne porte pas une doctrine générale de fermeture des petites maternités ou urgences ; +1 est plus prudent que +2.",
+    "source": "https://questions.assemblee-nationale.fr/q16/16-1632QG.htm"
   },
   "84": {
     "justification": "Accord très fort : le programme d'Édouard Philippe propose explicitement que les chefs d'établissement puissent choisir et évaluer les enseignants. La question correspond directement à cette proposition ; +3 reste pleinement justifié.",
     "source": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants"
   },
   "85": {
-    "justification": "Position intermédiaire : Horizons reconnaît l'enjeu de mixité sociale dans l'enseignement privé mais ne défend pas clairement une règle générale diminuant les financements de chaque établissement selon un indicateur chiffré. Des élus Horizons ont même exprimé des réserves sur l'usage de l'IPS comme fondement de décisions individuelles ; 0 reste adapté.",
-    "source": "https://www.assemblee-nationale.fr/dyn/17/amendements/2835/AN/2"
+    "justification": "Position intermédiaire : Horizons reconnaît l'objectif de mixité sociale, mais son groupe parlementaire a voté en commission pour supprimer un dispositif qui aurait diminué de 10 à 50 % le financement des établissements privés en fonction d'un indicateur de mixité, notamment parce qu'il ne traitait pas aussi la ségrégation dans le public. Le parti ne rejette donc pas la mixité, mais ne soutient pas la condition financière précise de Q85 ; 0 reste adapté.",
+    "source": "https://www.assemblee-nationale.fr/dyn/opendata/RAPPANR5L17B0609.html"
   },
   "86": {
     "response": 1,
