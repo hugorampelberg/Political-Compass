@@ -2,7 +2,7 @@ const DANEMARK_RESPONSE_OVERRIDES = {
   3: {
     response: -1,
     justification: "Désaccord modéré : le gouvernement Frederiksen III maintient une forte redistribution, mais sa politique fiscale d'ensemble ne consiste pas à augmenter nettement l'imposition des hauts revenus et des grands patrimoines. La coalition supprime notamment la top-top-skat, allège plusieurs prélèvements sur le capital et reconnaît qu'il n'existe pas de majorité pour instaurer un impôt général sur la fortune. Elle renforce parallèlement la progressivité de certaines successions, ce qui empêche un désaccord plus fort ; -1 est donc plus précis que 0.",
-    source: "https://stm.dk/presse/pressemoedearkiv/2026/pressemoede-den-2-juin-2026/"
+    source: "https://stm.dk/presse/pressemoedearkiv/2026/pressemoede-den-2-juni-2026/"
   },
   5: {
     response: -3,
@@ -22,7 +22,7 @@ const DANEMARK_RESPONSE_OVERRIDES = {
   33: {
     response: 0,
     justification: "Position intermédiaire : le Danemark utilise fortement la tarification carbone et des signaux-prix pour accélérer la transition énergétique, mais le nouveau gouvernement insiste également sur une énergie abordable, la protection du pouvoir d'achat et la compétitivité. Il ne défend donc pas sans réserve une forte augmentation du prix des énergies fossiles supportée par les ménages. L'ambition climatique et la priorité donnée à l'abordabilité se compensent ici, ce qui justifie 0 plutôt que +1.",
-    source: "https://stm.dk/presse/pressemoedearkiv/2026/pressemoede-den-2-juin-2026/"
+    source: "https://stm.dk/presse/pressemoedearkiv/2026/pressemoede-den-2-juni-2026/"
   },
   66: {
     response: -3,
