@@ -219,6 +219,14 @@ rgba(255,255,255,.9)
 .seo-content h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); line-height: 1.12; letter-spacing: -.03em; margin: 0 0 14px; }
 .seo-content h2 + p { margin-top: 0; }
 .seo-content p { color: var(--ink-2); font-size: 1rem; line-height: 1.7; margin: 0 0 18px; }
+.seo-link-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 20px; }
+.seo-link-grid a { display: flex; flex-direction: column; gap: 5px; padding: 18px; border: 1px solid var(--line); border-radius: 18px; background: var(--paper); text-decoration: none; box-shadow: 0 5px 16px rgba(32,54,77,.05); }
+.seo-link-grid a:hover { border-color: rgba(45,140,135,.45); transform: translateY(-1px); }
+.seo-link-grid strong { color: var(--ink); }
+.seo-link-grid span { color: var(--muted); font-size: .9rem; line-height: 1.45; }
+.seo-faq { margin: 10px 0; padding: 15px 17px; border: 1px solid var(--line); border-radius: 15px; background: #fbfbf8; }
+.seo-faq summary { cursor: pointer; color: var(--ink); font-weight: 800; }
+.seo-faq p { margin: 12px 0 0; }
 .feature-icon { width: 42px; height: 42px; border-radius: 14px; display: grid; place-items: center; }
 .feature-icon svg { width: 23px; height: 23px; }
 .i-teal { background: var(--teal-soft); color: var(--teal-dark); }
@@ -566,6 +574,8 @@ details.method p { color: var(--ink-2); margin-bottom: 0; }
 .source-list { margin: 20px 0 0; padding-left: 18px; word-break: break-word; font-size: .82rem; }
 
 footer { padding: 50px 0; color: var(--muted); font-size: .85rem; text-align: center; }
+.footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 18px; margin-bottom: 16px; }
+.footer-links a { font-weight: 750; }
 .toast { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 20px); opacity: 0; pointer-events: none; z-index: 120; color: white; background: var(--ink); padding: 12px 18px; border-radius: 999px; box-shadow: var(--shadow); transition: .25s ease; }
 .toast.show { transform: translate(-50%, 0); opacity: 1; }
 
@@ -575,6 +585,7 @@ footer { padding: 50px 0; color: var(--muted); font-size: .85rem; text-align: ce
   .hero-art { min-height: 390px; }
   .hero-art svg { min-height: 390px; }
   .feature-grid { grid-template-columns: 1fr; }
+  .seo-link-grid { grid-template-columns: 1fr; }
   .quiz-mode-grid { grid-template-columns: 1fr; }
   .match-grid { grid-template-columns: 1fr 1fr; }
   .result-art { min-height: 300px; }

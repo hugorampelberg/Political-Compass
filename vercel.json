@@ -17,6 +17,11 @@
       "source": "/confidentalite.html",
       "destination": "/confidentialite.html",
       "permanent": true
+    },
+    {
+      "source": "/index2.html",
+      "destination": "/",
+      "permanent": true
     }
   ],
   "headers": [

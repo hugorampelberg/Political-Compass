@@ -11,6 +11,11 @@ suivantes dans l'ordre :
 - `data/index.js` : assemblage des données dans le format attendu par le moteur ;
 - `scripts/app.js` : état, calculs, rendu, analyse Gemini et événements.
 
+Les pages éditoriales indexables se trouvent dans `methodologie/`,
+`partis-politiques/`, `quel-parti-politique-me-correspond/` et
+`test-gauche-droite/`. Toute nouvelle page publique doit être reliée depuis une
+page existante et ajoutée à `sitemap.xml`.
+
 ## Modifier une question
 
 Les 87 questions fermées sont dans le tableau `questions` de

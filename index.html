@@ -16,7 +16,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <meta name="color-scheme" content="light" />
   <meta name="theme-color" content="#20364d" />
-  <title>Compas politique français – Connaissez-vous vraiment votre appartenance politique ?</title>
+  <title>Test politique français – Quel parti vous correspond ?</title>
   <meta name="description" content="Test politique français gratuit basé sur des sources référencées. Comparez vos opinions aux positions des principaux partis sur les grands enjeux politiques actuels." />
   <link rel="canonical" href="https://www.frenchpoliticalcompass.com/" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -65,6 +65,36 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           "priceCurrency": "EUR"
         },
         "isPartOf": { "@id": "https://www.frenchpoliticalcompass.com/#website" }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.frenchpoliticalcompass.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Comment fonctionne ce test politique français ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Vous répondez à 40 ou 87 affirmations. Le site calcule votre position sur six axes et compare vos réponses aux positions documentées de treize partis français."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quel parti politique me correspond ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Le classement indique les partis dont les réponses codées sont mathématiquement les plus proches des vôtres. Il ne constitue pas une recommandation de vote."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Le questionnaire est-il seulement un test gauche-droite ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Non. Il distingue l’économie, les libertés et l’autorité, l’Europe, l’écologie, l’immigration et l’intégration, ainsi que la démocratie et les institutions."
+            }
+          }
+        ]
       }
     ]
   }</script>
@@ -96,8 +126,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="hero">
           <div>
             <span class="eyebrow">6 axes politiques · anonyme · calcul transparent</span>
-            <h1>Compas politique français</h1>
-            <p class="hero-copy">Un ensemble de questions notées sur l’économie, la santé, l’éducation, le logement, la sécurité, la défense, le numérique, l’Europe, l’écologie, l’immigration et la démocratie. Vos résultats sont comparés aux principaux partis français et à plusieurs gouvernements européens. Cinq questions ouvertes et une analyse par IA sont également proposées, mais restent entièrement facultatives.</p>
+            <h1>Test politique français : quel parti vous correspond ?</h1>
+            <p class="hero-copy">Répondez à 40 ou 87 questions pour découvrir votre positionnement politique sur six axes et comparer vos opinions aux principaux partis français. Chaque position attribuée est accompagnée d’une justification et de sources publiques consultables.</p>
             <p class="hero-copy">Au-delà d’un simple test politique, ce site permet aussi d’explorer en détail les positions des différents partis. Pour chaque question, vous pourrez consulter la note attribuée à chaque parti, sa justification et les sources utilisées : programmes, déclarations, amendements, votes et autres sources publiques.</p>
             <div class="quiz-mode-grid" aria-label="Choisir la durée du questionnaire">
               <button class="quiz-mode-card" id="start-full-btn" type="button">
@@ -164,6 +194,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <h2>Un test politique indépendant</h2>
           <p>Ce compas politique français n’est affilié à aucun parti politique. Il vise à éclairer les convergences et les divergences entre vos réponses et plusieurs familles politiques, sans vous imposer une étiquette unique.</p>
+
+          <h2>Questions fréquentes sur le test politique</h2>
+          <details class="seo-faq"><summary>Comment fonctionne ce test politique français ?</summary><p>Vous répondez à 40 ou 87 affirmations. Le site calcule votre position sur six axes et compare vos réponses aux positions documentées de treize partis français.</p></details>
+          <details class="seo-faq"><summary>Quel parti politique me correspond ?</summary><p>Le classement indique les partis dont les réponses codées sont mathématiquement les plus proches des vôtres. Il faut lire les accords, les désaccords et les scores par axe : le résultat ne constitue pas une recommandation de vote.</p></details>
+          <details class="seo-faq"><summary>Le questionnaire est-il seulement un test gauche-droite ?</summary><p>Non. Il distingue l’économie, les libertés et l’autorité, l’Europe, l’écologie, l’immigration et l’intégration, ainsi que la démocratie et les institutions.</p></details>
+
+          <h2>Pour approfondir</h2>
+          <nav class="seo-link-grid" aria-label="Comprendre le test politique">
+            <a href="/quel-parti-politique-me-correspond/"><strong>Quel parti politique me correspond ?</strong><span>Comprendre ce que mesure la comparaison et comment lire le classement.</span></a>
+            <a href="/test-gauche-droite/"><strong>Test gauche-droite</strong><span>Voir pourquoi un seul axe ne suffit pas à décrire un profil politique.</span></a>
+            <a href="/methodologie/"><strong>Méthodologie</strong><span>Consulter les axes, le codage des partis, les sources et les limites du calcul.</span></a>
+            <a href="/partis-politiques/"><strong>Partis politiques comparés</strong><span>Découvrir les treize partis français actuellement intégrés au questionnaire.</span></a>
+          </nav>
         </div>
         </section>
       </div>
@@ -359,9 +402,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="modal"><div class="modal-head"><div><h2 id="modal-title"></h2><div id="modal-subtitle" style="color:var(--muted)"></div></div><button class="close-btn" id="modal-close" aria-label="Fermer">×</button></div><div class="modal-body" id="modal-body"></div></div>
   </div>
   <div class="toast" id="toast"></div>
-  <footer><div class="shell">Outil exploratoire indépendant. Les réponses politiques et les textes libres restent dans votre navigateur, sauf activation volontaire de l’analyse Gemini après consentement explicite. Les codages reposent principalement sur les programmes officiels et positions publiques documentées ; les scores sont des distances mathématiques, pas des recommandations de vote. <a href="/confidentialite.html">
-  Politique de confidentialité
-</a></div></footer>
+  <footer><div class="shell"><nav class="footer-links" aria-label="Informations sur le test"><a href="/quel-parti-politique-me-correspond/">Quel parti me correspond ?</a><a href="/test-gauche-droite/">Test gauche-droite</a><a href="/methodologie/">Méthodologie</a><a href="/partis-politiques/">Partis comparés</a><a href="/confidentialite.html">Confidentialité</a></nav>Outil exploratoire indépendant. Les réponses politiques et les textes libres restent dans votre navigateur, sauf activation volontaire de l’analyse Gemini après consentement explicite. Les codages reposent principalement sur les programmes officiels et positions publiques documentées ; les scores sont des distances mathématiques, pas des recommandations de vote.</div></footer>
 
   <script src="/data/questionnaire.js"></script>
   <script src="/data/parties.js"></script>
