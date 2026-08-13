@@ -98,10 +98,11 @@ if (allemagneGovernment) {
   allemagneGovernment.axisScores = scores;
 }
 
-// Dernières couches synchrones : d'abord les ajustements gouvernementaux généraux,
-// puis la calibration Q75 commune aux partis et gouvernements avant app.js.
+// Dernières couches synchrones : ajustements gouvernementaux généraux,
+// calibration Q75 et restauration de sa formulation historique, puis calibration Q50 finale.
 if (typeof document !== 'undefined' && document.readyState === 'loading') {
   document.write('<script src="/data/government-final-overrides.js"></scr' + 'ipt>');
   document.write('<script src="/data/q75-overrides.js"></scr' + 'ipt>');
   document.write('<script src="/data/q75-question-restore.js"></scr' + 'ipt>');
+  document.write('<script src="/data/q50-overrides.js"></scr' + 'ipt>');
 }
