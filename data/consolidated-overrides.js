@@ -1,12 +1,12 @@
-// Snapshot consolidé des overrides de production, organisé par ID stable de question.
+// Snapshot consolidé des overrides de production, organisé par ID ordinal de question.
 // Fichier de revue uniquement : il n'est volontairement chargé par aucune page.
-// Source : main @ a6f656ff51795e9c2257fc905fa8a77da89c6028
+// Source : main @ d85dc835bfd60fc227224b0b1dab080ea3aeb725
 (() => {
   'use strict';
 
   const CONSOLIDATED_OVERRIDES =
   {
-    "sourceCommit": "a6f656ff51795e9c2257fc905fa8a77da89c6028",
+    "sourceCommit": "d85dc835bfd60fc227224b0b1dab080ea3aeb725",
     "generatedOn": "2026-08-13",
     "questionCount": 87,
     "entityCount": 21,
@@ -414,6 +414,22 @@
         }
       },
       "8": {
+        "question": {
+          "id": 8,
+          "theme": "Économie",
+          "text": "La concurrence est généralement préférable à l'encadrement par des normes pour améliorer les prix, la qualité et l'innovation.",
+          "explanation": "Par exemple laisser plusieurs entreprises se concurrencer sur les prix et la qualité plutôt que d’imposer des prix, des normes ou des règles détaillées pour encadrer leurs produits et services.",
+          "defaultAnswer": 0,
+          "note": "",
+          "coefficients": {
+            "economy": 0.7,
+            "authority": 0,
+            "europe": 0,
+            "ecology": 0,
+            "immigration": 0,
+            "democracy": 0
+          }
+        },
         "entities": {
           "lfi": {
             "response": -3,
@@ -593,7 +609,7 @@
           }
         }
       },
-      "12": {
+      "11": {
         "entities": {
           "lfi": {
             "response": 3,
@@ -651,7 +667,7 @@
           }
         }
       },
-      "13": {
+      "12": {
         "entities": {
           "lfi": {
             "response": -3,
@@ -709,7 +725,7 @@
           }
         }
       },
-      "14": {
+      "13": {
         "entities": {
           "lfi": {
             "response": 3,
@@ -773,7 +789,7 @@
           }
         }
       },
-      "15": {
+      "14": {
         "entities": {
           "lfi": {
             "response": -3,
@@ -861,7 +877,7 @@
           }
         }
       },
-      "16": {
+      "15": {
         "entities": {
           "lfi": {
             "response": 2,
@@ -919,7 +935,7 @@
           }
         }
       },
-      "17": {
+      "16": {
         "entities": {
           "lfi": {
             "response": 3,
@@ -977,7 +993,7 @@
           }
         }
       },
-      "18": {
+      "17": {
         "entities": {
           "lfi": {
             "response": -2,
@@ -1017,7 +1033,7 @@
           }
         }
       },
-      "19": {
+      "18": {
         "entities": {
           "lfi": {
             "response": -2,
@@ -1063,7 +1079,7 @@
           }
         }
       },
-      "20": {
+      "19": {
         "entities": {
           "lfi": {
             "response": -3,
@@ -1115,7 +1131,7 @@
           }
         }
       },
-      "21": {
+      "20": {
         "entities": {
           "lfi": {
             "response": 3,
@@ -1155,7 +1171,7 @@
           }
         }
       },
-      "22": {
+      "21": {
         "entities": {
           "pcf": {
             "response": 3,
@@ -1177,7 +1193,7 @@
           }
         }
       },
-      "23": {
+      "22": {
         "entities": {
           "lfi": {
             "response": -3,
@@ -1235,7 +1251,7 @@
           }
         }
       },
-      "24": {
+      "23": {
         "entities": {
           "lfi": {
             "response": -2,
@@ -1275,7 +1291,7 @@
           }
         }
       },
-      "25": {
+      "24": {
         "entities": {
           "lfi": {
             "response": -3,
@@ -1321,7 +1337,7 @@
           }
         }
       },
-      "26": {
+      "25": {
         "entities": {
           "lfi": {
             "response": 3,
@@ -1379,7 +1395,7 @@
           }
         }
       },
-      "27": {
+      "26": {
         "entities": {
           "lfi": {
             "response": -3,
@@ -1449,7 +1465,7 @@
           }
         }
       },
-      "28": {
+      "27": {
         "entities": {
           "lfi": {
             "response": 3,
@@ -1507,7 +1523,7 @@
           }
         }
       },
-      "29": {
+      "28": {
         "entities": {
           "lfi": {
             "response": -3,
@@ -1559,7 +1575,7 @@
           }
         }
       },
-      "30": {
+      "29": {
         "entities": {
           "lfi": {
             "response": 2,
@@ -1587,7 +1603,7 @@
           }
         }
       },
-      "32": {
+      "30": {
         "entities": {
           "lfi": {
             "response": 3,
@@ -1681,7 +1697,7 @@
           }
         }
       },
-      "33": {
+      "31": {
         "entities": {
           "lfi": {
             "response": -3,
@@ -1769,7 +1785,7 @@
           }
         }
       },
-      "34": {
+      "32": {
         "entities": {
           "lfi": {
             "response": -3,
@@ -1809,7 +1825,7 @@
           }
         }
       },
-      "35": {
+      "33": {
         "entities": {
           "lfi": {
             "response": -3,
@@ -1867,7 +1883,7 @@
           }
         }
       },
-      "36": {
+      "34": {
         "entities": {
           "lfi": {
             "response": 3,
@@ -1925,7 +1941,7 @@
           }
         }
       },
-      "37": {
+      "35": {
         "entities": {
           "lfi": {
             "response": 2,
@@ -2025,7 +2041,7 @@
           }
         }
       },
-      "38": {
+      "36": {
         "entities": {
           "lfi": {
             "response": -2,
@@ -2071,7 +2087,7 @@
           }
         }
       },
-      "39": {
+      "37": {
         "entities": {
           "lfi": {
             "response": 2,
@@ -2135,7 +2151,7 @@
           }
         }
       },
-      "40": {
+      "38": {
         "entities": {
           "lfi": {
             "response": 0,
@@ -2199,7 +2215,7 @@
           }
         }
       },
-      "41": {
+      "39": {
         "entities": {
           "lfi": {
             "response": 0,
@@ -2263,7 +2279,7 @@
           }
         }
       },
-      "42": {
+      "40": {
         "entities": {
           "lfi": {
             "response": 3,
@@ -2321,7 +2337,7 @@
           }
         }
       },
-      "43": {
+      "41": {
         "entities": {
           "lfi": {
             "response": -3,
@@ -2350,7 +2366,7 @@
           "modem": {
             "response": -2,
             "confidence": 2,
-            "justification": "Désaccord net : Marc Fesneau propose de remplacer l'IFI par un impôt sur la fortune improductive à l'assiette plus large, afin de moins pénaliser l'investissement productif sans supprimer toute fiscalité spécifique du patrimoine. La suppression pure et simple demandée par Q43 est donc nettement rejetée ; -2 reste justifié.",
+            "justification": "Désaccord net : Marc Fesneau propose de remplacer l'IFI par un impôt sur la fortune improductive à l'assiette plus large, afin de moins pénaliser l'investissement productif sans supprimer toute fiscalité spécifique du patrimoine. La suppression pure et simple demandée par Q41 est donc nettement rejetée ; -2 reste justifié.",
             "source": "https://www.mouvementdemocrate.fr/actualites/marc-fesneau-nous-proposons-un-impot-sur-la-fortune-improductive-image-7951-image"
           },
           "horizons": {
@@ -2385,7 +2401,7 @@
           }
         }
       },
-      "44": {
+      "42": {
         "entities": {
           "lfi": {
             "response": 2,
@@ -2455,7 +2471,7 @@
           }
         }
       },
-      "45": {
+      "43": {
         "entities": {
           "lfi": {
             "response": 2,
@@ -2531,7 +2547,7 @@
           }
         }
       },
-      "46": {
+      "44": {
         "entities": {
           "lfi": {
             "response": -3,
@@ -2601,9 +2617,9 @@
           }
         }
       },
-      "47": {
+      "45": {
         "question": {
-          "id": 47,
+          "id": 45,
           "theme": "Outre-mer / vie chère",
           "text": "L’État devrait davantage subventionner les produits de première nécessité dans les DOM-TOM afin d’y réduire les prix, même si leur financement faisait légèrement augmenter le prix de certains produits consommés en France métropolitaine en contribution. ",
           "defaultAnswer": 0,
@@ -2747,7 +2763,7 @@
           }
         }
       },
-      "48": {
+      "46": {
         "entities": {
           "lfi": {
             "response": -3,
@@ -2805,7 +2821,7 @@
           }
         }
       },
-      "49": {
+      "47": {
         "entities": {
           "lfi": {
             "response": -3,
@@ -2869,9 +2885,9 @@
           }
         }
       },
-      "50": {
+      "48": {
         "question": {
-          "id": 50,
+          "id": 48,
           "theme": "Retraites",
           "text": "L'âge légal de départ à la retraite devrait être augmenté afin d'assurer plus facilement le financement du système de retraite.",
           "defaultAnswer": -3,
@@ -3014,7 +3030,7 @@
           }
         }
       },
-      "51": {
+      "49": {
         "entities": {
           "lfi": {
             "response": -3,
@@ -3078,7 +3094,7 @@
           }
         }
       },
-      "53": {
+      "50": {
         "entities": {
           "lfi": {
             "response": 3,
@@ -3136,7 +3152,7 @@
           }
         }
       },
-      "54": {
+      "51": {
         "entities": {
           "lfi": {
             "response": 3,
@@ -3206,7 +3222,7 @@
           }
         }
       },
-      "55": {
+      "52": {
         "entities": {
           "lfi": {
             "response": -3,
@@ -3282,7 +3298,7 @@
           }
         }
       },
-      "56": {
+      "53": {
         "entities": {
           "lfi": {
             "response": 3,
@@ -3310,7 +3326,7 @@
           }
         }
       },
-      "57": {
+      "54": {
         "entities": {
           "lfi": {
             "response": -3,
@@ -3345,7 +3361,7 @@
           "modem": {
             "response": 0,
             "confidence": 2,
-            "justification": "Position intermédiaire : le MoDem accepte certaines conditions de résidence, de régularité et d'intégration pour l'accès à certains droits, mais ne défend pas une exclusion générale des immigrés légaux de la protection sociale pendant leurs premières années. La proposition précise de Q57 n'est ni pleinement soutenue ni totalement rejetée ; 0 reste adapté.",
+            "justification": "Position intermédiaire : le MoDem accepte certaines conditions de résidence, de régularité et d'intégration pour l'accès à certains droits, mais ne défend pas une exclusion générale des immigrés légaux de la protection sociale pendant leurs premières années. La proposition précise de Q54 n'est ni pleinement soutenue ni totalement rejetée ; 0 reste adapté.",
             "source": "https://www.mouvementdemocrate.fr/actualites/francois-bayrou-le-droit-dasile-que-nous-defendons-est-completement-devoye-video-6608"
           },
           "horizons": {
@@ -3374,7 +3390,7 @@
           }
         }
       },
-      "58": {
+      "55": {
         "entities": {
           "lfi": {
             "response": -3,
@@ -3444,7 +3460,7 @@
           }
         }
       },
-      "59": {
+      "56": {
         "entities": {
           "lfi": {
             "response": 3,
@@ -3467,7 +3483,7 @@
           "modem": {
             "response": -1,
             "confidence": 2,
-            "justification": "Désaccord modéré : François Bayrou souhaite qu'un jeune né en France manifeste entre 16 et 18 ans sa volonté de devenir français, alors que Q59 prévoit une acquisition automatique sans déclaration supplémentaire. La formalité défendue reste très légère et ne remet pas en cause le droit du sol ; -1 correspond mieux que -2.",
+            "justification": "Désaccord modéré : François Bayrou souhaite qu'un jeune né en France manifeste entre 16 et 18 ans sa volonté de devenir français, alors que Q56 prévoit une acquisition automatique sans déclaration supplémentaire. La formalité défendue reste très légère et ne remet pas en cause le droit du sol ; -1 correspond mieux que -2.",
             "source": "https://www.mouvementdemocrate.fr/actualites/francois-bayrou-le-droit-dasile-que-nous-defendons-est-completement-devoye-video-6608"
           },
           "horizons": {
@@ -3490,7 +3506,7 @@
           }
         }
       },
-      "60": {
+      "57": {
         "entities": {
           "lfi": {
             "response": -3,
@@ -3548,7 +3564,7 @@
           }
         }
       },
-      "61": {
+      "58": {
         "entities": {
           "lfi": {
             "response": 3,
@@ -3606,7 +3622,7 @@
           }
         }
       },
-      "63": {
+      "59": {
         "entities": {
           "lfi": {
             "response": -2,
@@ -3694,7 +3710,7 @@
           }
         }
       },
-      "64": {
+      "60": {
         "entities": {
           "lfi": {
             "response": 2,
@@ -3764,7 +3780,7 @@
           }
         }
       },
-      "66": {
+      "61": {
         "entities": {
           "danemark": {
             "response": -3,
@@ -3774,7 +3790,7 @@
           }
         }
       },
-      "67": {
+      "62": {
         "entities": {
           "lfi": {
             "response": -2,
@@ -3856,7 +3872,7 @@
           }
         }
       },
-      "68": {
+      "63": {
         "entities": {
           "lfi": {
             "response": 2,
@@ -3914,7 +3930,7 @@
           }
         }
       },
-      "69": {
+      "64": {
         "entities": {
           "lfi": {
             "response": -3,
@@ -3955,7 +3971,7 @@
           "horizons": {
             "response": 0,
             "confidence": 2,
-            "justification": "Position intermédiaire : Édouard Philippe propose simultanément de relancer le nucléaire et de développer les renouvelables. Le parti ne soutient donc pas l'arbitrage précis de Q69 consistant à réduire certains investissements renouvelables au profit du nucléaire ; 0 est plus juste que +1.",
+            "justification": "Position intermédiaire : Édouard Philippe propose simultanément de relancer le nucléaire et de développer les renouvelables. Le parti ne soutient donc pas l'arbitrage précis de Q64 consistant à réduire certains investissements renouvelables au profit du nucléaire ; 0 est plus juste que +1.",
             "source": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante"
           },
           "lr": {
@@ -3996,7 +4012,7 @@
           }
         }
       },
-      "71": {
+      "65": {
         "entities": {
           "lfi": {
             "response": 2,
@@ -4108,7 +4124,7 @@
           }
         }
       },
-      "72": {
+      "66": {
         "entities": {
           "lfi": {
             "response": -2,
@@ -4184,7 +4200,7 @@
           }
         }
       },
-      "73": {
+      "67": {
         "entities": {
           "lfi": {
             "response": 0,
@@ -4248,7 +4264,7 @@
           }
         }
       },
-      "74": {
+      "68": {
         "entities": {
           "lfi": {
             "response": 2,
@@ -4318,7 +4334,7 @@
           }
         }
       },
-      "75": {
+      "69": {
         "entities": {
           "lfi": {
             "response": -3,
@@ -4448,7 +4464,7 @@
           }
         }
       },
-      "76": {
+      "70": {
         "entities": {
           "les-ecologistes": {
             "response": -3,
@@ -4471,7 +4487,7 @@
           "modem": {
             "response": -2,
             "confidence": 2,
-            "justification": "Désaccord net : la tradition démocrate privilégie la proportionnelle, le compromis et la responsabilisation du Parlement. Le soutien ponctuel à des mécanismes permettant d'adopter un budget ne signifie pas une volonté de renforcer durablement le président contre le Parlement ; Q76 va au contraire contre cette culture institutionnelle, d'où -2.",
+            "justification": "Désaccord net : la tradition démocrate privilégie la proportionnelle, le compromis et la responsabilisation du Parlement. Le soutien ponctuel à des mécanismes permettant d'adopter un budget ne signifie pas une volonté de renforcer durablement le président contre le Parlement ; Q70 va au contraire contre cette culture institutionnelle, d'où -2.",
             "source": "https://www.mouvementdemocrate.fr/programme/democratie-et-citoyennete-2424"
           },
           "horizons": {
@@ -4536,7 +4552,7 @@
           }
         }
       },
-      "77": {
+      "71": {
         "entities": {
           "lfi": {
             "response": 3,
@@ -4588,7 +4604,7 @@
           }
         }
       },
-      "78": {
+      "72": {
         "entities": {
           "lfi": {
             "response": -2,
@@ -4617,13 +4633,13 @@
           "modem": {
             "response": 3,
             "confidence": 2,
-            "justification": "Accord très fort : François Bayrou relie explicitement la régularité et la durée du séjour à des efforts de travail, de maîtrise du français et d'acceptation des principes communs. Ces exigences correspondent directement à la logique d'intégration concrète décrite par Q78 ; +3 reste justifié.",
+            "justification": "Accord très fort : François Bayrou relie explicitement la régularité et la durée du séjour à des efforts de travail, de maîtrise du français et d'acceptation des principes communs. Ces exigences correspondent directement à la logique d'intégration concrète décrite par Q72 ; +3 reste justifié.",
             "source": "https://www.mouvementdemocrate.fr/actualites/francois-bayrou-notre-desordre-politique-rend-la-france-faible-video-7531-video"
           },
           "horizons": {
             "response": 3,
             "confidence": 2,
-            "justification": "Accord très fort : Édouard Philippe lie explicitement le séjour durable et l'intégration à la maîtrise du français, au travail et au respect des valeurs républicaines. La condition d'efforts concrets formulée par Q78 correspond directement à sa ligne ; +3 reste justifié.",
+            "justification": "Accord très fort : Édouard Philippe lie explicitement le séjour durable et l'intégration à la maîtrise du français, au travail et au respect des valeurs républicaines. La condition d'efforts concrets formulée par Q72 correspond directement à sa ligne ; +3 reste justifié.",
             "source": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure"
           },
           "nouvelle-energie": {
@@ -4634,7 +4650,7 @@
           }
         }
       },
-      "79": {
+      "73": {
         "entities": {
           "lfi": {
             "response": 3,
@@ -4698,7 +4714,7 @@
           }
         }
       },
-      "80": {
+      "74": {
         "entities": {
           "lfi": {
             "response": 2,
@@ -4714,7 +4730,7 @@
           }
         }
       },
-      "81": {
+      "75": {
         "entities": {
           "lfi": {
             "response": 3,
@@ -4778,7 +4794,7 @@
           }
         }
       },
-      "82": {
+      "76": {
         "entities": {
           "lfi": {
             "response": 3,
@@ -4836,7 +4852,7 @@
           }
         }
       },
-      "83": {
+      "77": {
         "entities": {
           "lfi": {
             "response": -3,
@@ -4912,7 +4928,7 @@
           }
         }
       },
-      "84": {
+      "78": {
         "entities": {
           "lfi": {
             "response": -3,
@@ -4941,7 +4957,7 @@
           "modem": {
             "response": -2,
             "confidence": 1,
-            "justification": "Désaccord net : François Bayrou s'est explicitement opposé au recrutement des enseignants par les chefs d'établissement et ne souhaite pas transformer ces derniers en employeurs locaux disposant d'un fort pouvoir hiérarchique. Cette opposition directe à l'instrument décrit par Q84 justifie -2.",
+            "justification": "Désaccord net : François Bayrou s'est explicitement opposé au recrutement des enseignants par les chefs d'établissement et ne souhaite pas transformer ces derniers en employeurs locaux disposant d'un fort pouvoir hiérarchique. Cette opposition directe à l'instrument décrit par Q78 justifie -2.",
             "source": "https://www.mouvementdemocrate.fr/actualites/francois-bayrou-invite-de-bfm-politique-ce-dimanche-12h-video-5223-video"
           },
           "horizons": {
@@ -4976,7 +4992,7 @@
           }
         }
       },
-      "85": {
+      "79": {
         "entities": {
           "lfi": {
             "response": 3,
@@ -5005,7 +5021,7 @@
           "horizons": {
             "response": 0,
             "confidence": 1,
-            "justification": "Position intermédiaire : Horizons reconnaît l'objectif de mixité sociale, mais son groupe parlementaire a voté en commission pour supprimer un dispositif qui aurait diminué de 10 à 50 % le financement des établissements privés en fonction d'un indicateur de mixité, notamment parce qu'il ne traitait pas aussi la ségrégation dans le public. Le parti ne rejette donc pas la mixité, mais ne soutient pas la condition financière précise de Q85 ; 0 reste adapté.",
+            "justification": "Position intermédiaire : Horizons reconnaît l'objectif de mixité sociale, mais son groupe parlementaire a voté en commission pour supprimer un dispositif qui aurait diminué de 10 à 50 % le financement des établissements privés en fonction d'un indicateur de mixité, notamment parce qu'il ne traitait pas aussi la ségrégation dans le public. Le parti ne rejette donc pas la mixité, mais ne soutient pas la condition financière précise de Q79 ; 0 reste adapté.",
             "source": "https://www.assemblee-nationale.fr/dyn/opendata/RAPPANR5L17B0609.html"
           },
           "nouvelle-energie": {
@@ -5034,7 +5050,7 @@
           }
         }
       },
-      "86": {
+      "80": {
         "entities": {
           "lfi": {
             "response": 2,
@@ -5104,7 +5120,7 @@
           }
         }
       },
-      "87": {
+      "81": {
         "entities": {
           "lfi": {
             "response": -1,
@@ -5138,7 +5154,7 @@
           }
         }
       },
-      "88": {
+      "82": {
         "entities": {
           "lfi": {
             "response": -3,
@@ -5161,7 +5177,7 @@
           "modem": {
             "response": 3,
             "confidence": 2,
-            "justification": "Accord très fort : Jean-Noël Barrot soutient l'ouverture d'un dialogue stratégique sur la dimension européenne de la dissuasion française tout en rappelant que la force reste autonome et que la décision d'emploi demeure française. Cette combinaison correspond presque exactement à Q88 ; +3 reste adapté.",
+            "justification": "Accord très fort : Jean-Noël Barrot soutient l'ouverture d'un dialogue stratégique sur la dimension européenne de la dissuasion française tout en rappelant que la force reste autonome et que la décision d'emploi demeure française. Cette combinaison correspond presque exactement à Q82 ; +3 reste adapté.",
             "source": "https://www.mouvementdemocrate.fr/actualites/jean-noel-barrot-cest-le-moment-apres-des-decennies-dinsouciance-de-reprendre-notre"
           },
           "horizons": {
@@ -5202,7 +5218,7 @@
           }
         }
       },
-      "89": {
+      "83": {
         "entities": {
           "lfi": {
             "response": 3,
@@ -5266,7 +5282,7 @@
           }
         }
       },
-      "90": {
+      "84": {
         "entities": {
           "lfi": {
             "response": 3,
@@ -5324,7 +5340,7 @@
           }
         }
       },
-      "91": {
+      "85": {
         "entities": {
           "lfi": {
             "response": 3,
@@ -5359,7 +5375,7 @@
           "modem": {
             "response": 3,
             "confidence": 1,
-            "justification": "Accord très fort : Anne Bergantz défend explicitement des allocations familiales pleinement universelles, sans modulation liée aux revenus des parents et ouvertes dès le premier enfant. La proposition correspond directement à Q91 ; +3 est pleinement justifié.",
+            "justification": "Accord très fort : Anne Bergantz défend explicitement des allocations familiales pleinement universelles, sans modulation liée aux revenus des parents et ouvertes dès le premier enfant. La proposition correspond directement à Q85 ; +3 est pleinement justifié.",
             "source": "https://www.mouvementdemocrate.fr/actualites/face-la-crise-de-la-natalite-refonder-notre-politique-familiale-pour-aider-le-desir"
           },
           "horizons": {
@@ -5400,7 +5416,7 @@
           }
         }
       },
-      "92": {
+      "86": {
         "entities": {
           "lfi": {
             "response": -3,
@@ -5488,7 +5504,7 @@
           }
         }
       },
-      "93": {
+      "87": {
         "entities": {
           "lfi": {
             "response": 1,

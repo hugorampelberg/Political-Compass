@@ -65,7 +65,7 @@ function validateQuizPayload(payload) {
   const ids = new Set();
   for (const item of payload.question_responses) {
     if (!item || typeof item !== "object") return false;
-    if (!Number.isInteger(item.id) || item.id < 1 || item.id > 93 || ids.has(item.id)) return false;
+    if (!Number.isInteger(item.id) || item.id < 1 || item.id > 87 || ids.has(item.id)) return false;
     ids.add(item.id);
     if (!Number.isInteger(item.answer) || item.answer < -3 || item.answer > 3) return false;
     if (!textLength(item.question, 1_200) || !textLength(item.theme || "", 200)) return false;

@@ -53,6 +53,10 @@ assert(
   'Les identifiants des questions fermées et ouvertes ne sont pas uniques.'
 );
 assert(
+  allQuestionIds.every((id, index) => id === index + 1),
+  'Les identifiants doivent être continus et correspondre à la position ordinale des questions (1 à 92).'
+);
+assert(
   Math.max(...questionIds) < Math.min(...openQuestionIds),
   'Les questions ouvertes doivent toutes être numérotées après les questions fermées.'
 );

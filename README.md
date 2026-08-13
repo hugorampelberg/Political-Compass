@@ -16,7 +16,7 @@ suivantes dans l'ordre :
 Les 87 questions fermées sont dans le tableau `questions` de
 `data/questionnaire.js`. Chaque entrée contient :
 
-- `id` : identifiant stable de la question ;
+- `id` : position ordinale continue de la question (`1–87`, puis `88–92` pour les questions ouvertes) ;
 - `theme` : thème affiché dans le questionnaire ;
 - `text` : formulation affichée ;
 - `explanation` : exemple ou précision affiché sous la question, facultatif ;
@@ -24,10 +24,11 @@ Les 87 questions fermées sont dans le tableau `questions` de
 - `note` : précision éditoriale facultative ;
 - `coefficients` : contribution aux six axes.
 
-Les questions ouvertes se trouvent dans `openQuestions`. Si le nombre total de
-questions change, mettre également à jour `meta.questionCount`. La sélection des
-40 questions du mode rapide est définie par `QUICK_QUESTION_IDS` au début de
-`scripts/app.js`.
+Les questions ouvertes se trouvent dans `openQuestions`. Si une question est
+ajoutée ou supprimée, renuméroter toutes les questions suivantes, mettre à jour
+`meta.questionCount`, les clés d'override et les identifiants du mode rapide. La
+sélection des 40 questions du mode rapide est définie par `QUICK_QUESTION_IDS` au
+début de `scripts/app.js`.
 
 ## Audit éditorial
 
