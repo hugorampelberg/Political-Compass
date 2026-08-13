@@ -1,7 +1,7 @@
 // deployment-sync: documentary-justification-audit-2026-08-11
 const STORAGE_KEY = 'boussole-politique-state-v4';
 const QUIZ_MODES = { FULL:'full', QUICK:'quick' };
-const STRUCTURAL_WEIGHT_SHARE = 0.5;
+const STRUCTURAL_WEIGHT_SHARE = 0.4;
 const QUESTION_SIMILARITY_SHARE = 1;
 const AXIS_COORDINATE_SIMILARITY_SHARE = 0;
 const QUICK_QUESTION_IDS = new Set([1,3,5,7,8,9,10,14,15,17,20,22,24,25,29,30,32,35,38,42,46,48,49,50,56,61,64,67,68,69,74,76,77,82,84,86,87,88,89,92]);
