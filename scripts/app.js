@@ -1,10 +1,10 @@
 // deployment-sync: documentary-justification-audit-2026-08-11
 const STORAGE_KEY = 'boussole-politique-state-v4';
 const QUIZ_MODES = { FULL:'full', QUICK:'quick' };
-const STRUCTURAL_WEIGHT_SHARE = 0.4;
+const STRUCTURAL_WEIGHT_SHARE = 0.5;
 const QUESTION_SIMILARITY_SHARE = 1;
 const AXIS_COORDINATE_SIMILARITY_SHARE = 0;
-const QUICK_QUESTION_IDS = new Set([1,3,5,7,9,10,14,19,20,21,24,25,26,27,28,29,32,34,35,38,39,40,42,46,49,50,56,63,64,66,67,71,72,74,76,77,78,79,81,87]);
+const QUICK_QUESTION_IDS = new Set([1,3,5,7,8,9,10,14,15,17,20,22,24,25,29,30,32,35,38,42,46,48,49,50,56,61,64,67,68,69,74,76,77,82,84,86,87,88,89,92]);
 const AXIS_COLORS = { economy:'#d96c57', authority:'#6f63a8', europe:'#4e77a7', ecology:'#2d8c87', immigration:'#d7a744', democracy:'#40556a' };
 const PRIORITY_LABELS = {
   economy:'Économie',
@@ -54,7 +54,7 @@ function showScreen(name){ screens.forEach(s => $('#screen-'+s).classList.toggle
 function toast(msg){ const el=$('#toast'); el.textContent=msg; el.classList.add('show'); setTimeout(()=>el.classList.remove('show'),2200); }
 function clamp(v,min,max){ return Math.min(max,Math.max(min,v)); }
 function fmt(v,d=1){ return Number(v).toLocaleString('fr-FR',{minimumFractionDigits:d,maximumFractionDigits:d}); }
-function esc(s){ return String(s ?? '').replace(/[&<>'"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c])); }
+function esc(s){ return String(s ?? '').replace(/[&<>'"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt',"'":'&#39;','"':'&quot;'}[c])); }
 function cleanAIQuestionReferences(value){
   return String(value ?? '')
     .replace(/\s*\((?:Q|question)\s*#?\s*\d+\)/gi,'')
