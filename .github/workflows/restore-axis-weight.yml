@@ -1,0 +1,36 @@
+name: Restore axis weighting
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/restore-axis-weight.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore 40 percent structural weighting
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('scripts/app.js')
+          text = path.read_text(encoding='utf-8')
+          old = 'const STRUCTURAL_WEIGHT_SHARE = 0.5;'
+          new = 'const STRUCTURAL_WEIGHT_SHARE = 0.4;'
+          if text.count(old) != 1:
+              raise SystemExit(f'Expected exactly one {old!r}, found {text.count(old)}')
+          path.write_text(text.replace(old, new, 1), encoding='utf-8')
+          PY
+      - name: Commit change and remove temporary workflow
+        run: |
+          rm .github/workflows/restore-axis-weight.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scripts/app.js .github/workflows/restore-axis-weight.yml
+          git commit -m "Restore 40-60 axis weighting"
+          git push
