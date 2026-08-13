@@ -1,7 +1,12 @@
-// Restaure la formulation historique de Q75 et applique la formulation validée de Q50.
+// Applique les formulations validées de Q8 et Q50 et restaure la formulation historique de Q75.
 // Les scores, confiances, justifications et sources restent inchangés.
 (() => {
   if (typeof DATA === 'undefined' || !Array.isArray(DATA.questions)) return;
+
+  const q8 = DATA.questions.find(item => item.id === 8);
+  if (q8) {
+    q8.text = "La concurrence est généralement préférable à l'encadrement par des normes pour améliorer les prix, la qualité et l'innovation.";
+  }
 
   const q50 = DATA.questions.find(item => item.id === 50);
   if (q50) {
