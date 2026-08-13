@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Justifications et sources des partis politiques</title>
+  <meta id="profile-description" name="description" content="Consultez, pour chaque parti politique comparé, la justification et la source associées à chacune des 87 questions du test.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://www.frenchpoliticalcompass.com/partis-politiques/profils/">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/styles/content.css">
+</head>
+<body>
+  <header class="topbar"><div class="shell topbar-inner"><a class="brand" href="/"><span class="brand-mark" aria-hidden="true">◇</span><span>Boussole politique</span></a><nav class="top-nav" aria-label="Navigation principale"><a href="/">Faire le test</a><a href="/partis-politiques/">Partis comparés</a><a href="/test-gauche-droite/">Gauche-droite</a><a href="/methodologie/">Méthodologie</a></nav></div></header>
+  <main><article class="shell article">
+    <span class="eyebrow">Documentation question par question</span>
+    <h1 id="profile-title">Justifications et sources des partis politiques</h1>
+    <p class="lead" id="profile-intro">Choisissez un parti pour consulter la justification et la source retenues pour chacune des questions du test.</p>
+
+    <div class="profile-picker">
+      <label for="party-selector">Parti affiché</label>
+      <select id="party-selector" aria-controls="party-evidence-table"></select>
+    </div>
+
+    <p class="profile-summary" id="profile-summary"></p>
+    <p class="profile-status" id="profile-status" role="status">Chargement des données documentaires…</p>
+    <div class="evidence-table-wrap" id="profile-table-wrap" hidden>
+      <table class="evidence-table" id="party-evidence-table">
+        <caption id="profile-caption"></caption>
+        <thead>
+          <tr><th scope="col">Question</th><th scope="col">Justification</th><th scope="col">Source</th></tr>
+        </thead>
+        <tbody id="profile-table-body"></tbody>
+      </table>
+    </div>
+    <noscript><p class="note">JavaScript doit être activé pour charger les justifications et les sources à jour.</p></noscript>
+
+    <section class="related"><h2>À lire également</h2><nav class="related-links"><a href="/partis-politiques/">Revenir aux partis comparés</a><a href="/methodologie/">Consulter la méthodologie</a><a href="/">Faire le test politique</a></nav></section>
+  </article></main>
+  <footer><div class="shell">Outil indépendant et exploratoire · <a href="/confidentialite.html">Politique de confidentialité</a></div></footer>
+
+  <script src="/data/questionnaire.js"></script>
+  <script src="/data/parties.js"></script>
+  <script src="/data/governments.js"></script>
+  <script src="/data/index.js"></script>
+  <script src="/data/pcf-overrides.js"></script>
+  <script src="/data/rn-overrides.js"></script>
+  <script src="/data/lfi-overrides.js"></script>
+  <script src="/data/pays-bas-overrides.js"></script>
+  <script src="/data/danemark-overrides.js"></script>
+  <script src="/data/suisse-overrides.js"></script>
+  <script src="/data/finlande-overrides.js"></script>
+  <script src="/data/allemagne-overrides.js"></script>
+  <script src="/scripts/party-profile.js"></script>
+</body>
+</html>
