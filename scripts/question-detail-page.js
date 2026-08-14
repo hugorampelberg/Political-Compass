@@ -17,7 +17,10 @@
       }).join('')}</span>`
     : '';
   const itemMarkup=item=>`<li><strong>${item.title}</strong>${item.text}${citationMarkup(item.sources)}</li>`;
-  const paragraphMarkup=paragraph=>`<p>${paragraph}</p>`;
+  const paragraphMarkup=paragraph=>{
+    const item=typeof paragraph==='string' ? {text:paragraph} : paragraph;
+    return `<p>${item.text}${citationMarkup(item.sources)}</p>`;
+  };
 
   document.title=`Q${questionId} — ${detail.shortTitle} | Boussole politique`;
   document.querySelectorAll('[data-question-theme]').forEach(node=>node.textContent=detail.theme);
