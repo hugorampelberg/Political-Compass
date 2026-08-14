@@ -5,6 +5,7 @@ const STRUCTURAL_WEIGHT_SHARE = 0.4;
 const QUESTION_SIMILARITY_SHARE = 1;
 const AXIS_COORDINATE_SIMILARITY_SHARE = 0;
 const QUICK_QUESTION_IDS = new Set([1,3,5,7,8,9,10,13,14,16,19,21,23,24,28,29,30,33,36,40,44,46,47,48,53,58,60,62,63,64,68,70,71,76,78,80,81,82,83,86]);
+const TECHNICAL_QUESTION_IDS = new Set([5,6,8,12,17,27,32,36,38,41,47,49,50,62,71,76,78,79]);
 const OPEN_QUESTION_ID_MIGRATION = { 94:88, 95:89, 96:90, 97:91, 98:92 };
 const AXIS_COLORS = { economy:'#d96c57', authority:'#6f63a8', europe:'#4e77a7', ecology:'#2d8c87', immigration:'#d7a744', democracy:'#40556a' };
 const PRIORITY_LABELS = {
@@ -147,6 +148,11 @@ function renderQuestion(){
     explanation.textContent='';
     explanation.classList.add('hidden');
   }
+  const detailLink=$('#question-detail-link');
+  const hasDetail=TECHNICAL_QUESTION_IDS.has(q.id);
+  detailLink.href=hasDetail ? `/questions/q${q.id}/` : '#';
+  detailLink.setAttribute('aria-label',hasDetail ? `Ouvrir les précisions sur la question ${q.id} dans un nouvel onglet` : '');
+  detailLink.classList.toggle('hidden',!hasDetail);
   $('#prev-btn').disabled=state.current===0;
   $('#next-btn').textContent=state.current===total-1?'Questions ouvertes':'Question suivante';
   $('#next-btn').disabled=state.answers[originalIndex]===null;
