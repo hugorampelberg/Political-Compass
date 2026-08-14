@@ -12,7 +12,7 @@ const QUESTION_DETAILS = {
     favour: [
       { title: "Un revenu plus élevé pour les bas salaires.", text: " La mesure bénéficie d’abord aux salariés payés au SMIC. En France, les règles de revalorisation du SMIC ont mieux protégé les plus bas salaires pendant la récente hausse des prix.", sources: ["oecd", "insee"] },
       { title: "Davantage de consommation possible.", text: " Les ménages modestes dépensent souvent une grande part de tout revenu supplémentaire. Si leur gain n’est pas annulé par les prix ou une baisse des heures travaillées, leurs achats peuvent soutenir l’activité économique.", sources: ["dares"] },
-      { title: "Une baisse de l’emploi n’est pas systématique.", text: " En 1992, l’État américain du New Jersey a relevé son salaire minimum. Card et Krueger ont comparé des restaurants rapides du New Jersey avec ceux de la Pennsylvanie voisine et n’ont pas constaté de baisse relative de l’emploi. Cette étude montre qu’une hausse n’entraîne pas toujours le même résultat ; elle ne permet pas de prévoir l’effet d’une forte hausse en France.", sources: ["card"] }
+      { title: "La hausse des prix n’efface pas forcément le gain.", text: " Le pouvoir d’achat d’un salarié au SMIC augmente si son salaire progresse davantage que l’ensemble des prix qu’il paie. Les entreprises peuvent répartir le surcoût entre leurs prix, leurs bénéfices et des gains d’efficacité : tous les prix ne montent donc pas automatiquement autant que le SMIC. Le gain final dépend aussi des heures travaillées et des aides reçues.", sources: ["prices", "insee"] }
     ],
     reserve: [
       { title: "Des prix peuvent augmenter.", text: " Les secteurs qui emploient beaucoup de salariés au SMIC peuvent répercuter une partie du surcoût sur leurs clients. Des chercheurs ont suivi les prix de restaurants en France : après les revalorisations du SMIC, ils ont mesuré des hausses de prix progressives pendant plus d’un an. Ce résultat concerne un secteur précis et ne signifie pas que tous les prix augmenteraient dans la même proportion.", sources: ["prices"] },
@@ -28,7 +28,6 @@ const QUESTION_DETAILS = {
     ],
     decisionPrompt: "La question est de savoir si le gain attendu pour les salariés au SMIC l’emporte sur les risques de hausse des prix, de tassement des autres salaires et de difficultés pour certaines entreprises. Votre réponse peut dépendre du montant, du rythme et des mesures d’accompagnement.",
     sources: [
-      { id: "card", title: "Minimum Wages and Employment: A Case Study of the Fast Food Industry in New Jersey and Pennsylvania", publisher: "NBER — David Card et Alan B. Krueger", year: "1993", url: "https://www.nber.org/papers/w4509", note: "expérience naturelle souvent citée" },
       { id: "dares", title: "Salaire minimum interprofessionnel de croissance — rapport du groupe d’experts", publisher: "Dares / ministère du Travail", year: "2023", url: "https://dares.travail-emploi.gouv.fr/publication/salaire-minimum-interprofessionnel-de-croissance-rapport-2023" },
       { id: "oecd", title: "OECD Employment Outlook 2025 — France", publisher: "OCDE", year: "2025", url: "https://www.oecd.org/en/publications/oecd-employment-outlook-2025-country-notes_f91531f7-en/france_32a23b25-en.html" },
       { id: "insee", title: "Les salaires dans le secteur privé en 2023", publisher: "Insee", year: "2024", url: "https://www.insee.fr/fr/statistiques/8270416" },
@@ -192,7 +191,7 @@ const QUESTION_DETAILS = {
     ],
     favour: [
       { title: "Éviter qu’une victime subisse l’infraction.", text: " Un meilleur éclairage, un soutien précoce, le traitement des addictions ou une présence policière bien ciblée peuvent agir avant qu’un dommage ait lieu.", sources: ["whatworks"] },
-      { title: "Réduire le risque de recommencer.", text: " Une formation, des soins, un logement et un suivi à la sortie peuvent aider une personne condamnée à ne pas récidiver. Une peine plus longue ne prépare pas, à elle seule, le retour dans la société." },
+      { title: "L’exemple norvégien montre qu’une réinsertion bien organisée peut fonctionner.", text: " En Norvège, la prison comprend notamment des formations, des programmes d’emploi et un accompagnement au retour dans la société. Une étude estime que, dans ce système, l’incarcération a réduit de 29 points le risque de récidive dans les cinq ans. L’effet se concentre sur les personnes qui ne travaillaient pas avant leur peine : elles participent davantage aux programmes et retrouvent plus souvent un emploi. Ce résultat ne se transpose pas automatiquement à la France.", sources: ["norway"] },
       { title: "Rendre la réponse plus certaine et plus rapide.", text: " Augmenter les chances qu’une infraction reçoive une réponse crédible peut décourager davantage que relever encore la peine maximale.", sources: ["nij"] }
     ],
     reserve: [
@@ -204,12 +203,15 @@ const QUESTION_DETAILS = {
       { title: "Type d’infraction", text: "Une violence grave, un vol occasionnel et une récidive liée à une addiction ne demandent pas la même réponse." },
       { title: "Probabilité et rapidité de la réponse", text: "Une peine lourde mais rarement appliquée n’a pas le même effet qu’une réponse certaine et proportionnée." },
       { title: "Qualité du programme", text: "Le personnel, le suivi et l’adaptation aux besoins déterminent largement les résultats." },
-      { title: "Délai recherché", text: "Protéger aujourd’hui, éviter une récidive dans deux ans et prévenir sur une génération sont trois objectifs différents." }
+      { title: "Délai recherché", text: "Protéger aujourd’hui, éviter une récidive dans deux ans et prévenir sur une génération sont trois objectifs différents." },
+      { title: "Comparaisons entre pays", text: "Les pays ne définissent et n’enregistrent pas tous les infractions ou la récidive de la même façon. Un classement brut ne permet donc pas d’affirmer que le faible niveau observé dans un pays vient uniquement de ses dépenses de prévention.", sources: ["comparability"] }
     ],
     decisionPrompt: "Votre réponse dépend de l’importance donnée à la protection immédiate, à la juste peine et à la baisse durable des infractions. On peut privilégier prévention et réinsertion tout en maintenant des sanctions certaines pour les actes graves.",
     sources: [
       { id: "nij", title: "Five Things About Deterrence", publisher: "National Institute of Justice — U.S. Department of Justice", year: "2016", url: "https://nij.ojp.gov/topics/articles/five-things-about-deterrence" },
-      { id: "whatworks", title: "Preventing Crime: What Works, What Doesn't, What's Promising", publisher: "U.S. Department of Justice", year: "1997", url: "https://www.ojp.gov/pdffiles/171676.pdf" }
+      { id: "whatworks", title: "Preventing Crime: What Works, What Doesn't, What's Promising", publisher: "U.S. Department of Justice", year: "1997", url: "https://www.ojp.gov/pdffiles/171676.pdf" },
+      { id: "norway", title: "Incarceration, Recidivism, and Employment", publisher: "Journal of Political Economy — Manudeep Bhuller, Gordon B. Dahl, Katrine V. Løken et Magne Mogstad", year: "2020", url: "https://www.journals.uchicago.edu/doi/10.1086/705330", note: "étude causale menée dans le système pénitentiaire norvégien" },
+      { id: "comparability", title: "International Statistics on Crime and Justice", publisher: "Office des Nations unies contre la drogue et le crime (ONUDC)", year: "2010", url: "https://www.unodc.org/documents/data-and-analysis/Crime-statistics/International_Statistics_on_Crime_and_Justice.pdf", note: "précautions pour comparer les statistiques entre pays" }
     ]
   },
 
@@ -226,12 +228,12 @@ const QUESTION_DETAILS = {
     ],
     favour: [
       { title: "Réduire le coût d’une embauche.", text: " Si les cotisations de l’employeur baissent réellement, certaines entreprises peuvent davantage recruter ou conserver des emplois, surtout lorsque le coût du travail compte beaucoup.", sources: ["france"] },
-      { title: "Faire contribuer davantage la consommation.", text: " Les achats financés par les retraites, les revenus du patrimoine ou les produits importés participent davantage au financement social, qui repose alors moins sur les seuls salaires." },
+      { title: "Un impôt difficile à éviter lors d’un achat déclaré.", text: " La TVA concerne la grande majorité des biens et services et la plupart des produits importés. Même une personne très riche qui réduit ses autres impôts la paie lorsqu’elle réalise en France un achat taxé. Elle n’est toutefois pas impossible à contourner : l’argent épargné n’est taxé que lorsqu’il est dépensé, certains achats sont exonérés et la fraude existe.", sources: ["vat", "vatgap"] },
       { title: "Soutenir les exportations.", text: " Les produits français vendus à l’étranger peuvent devenir temporairement plus compétitifs. Les achats venant d’autres pays peuvent donc compenser une partie de la baisse des achats en France, sans garantie de compensation totale.", sources: ["devaluation", "france"] },
       { title: "Transformer une partie du gain en épargne.", text: " L’argent épargné peut financer des entreprises, des logements ou des emprunts publics. S’il sert à acheter davantage de dette française, l’État peut plus facilement trouver des prêteurs et, dans certaines conditions, emprunter à un taux plus bas. Mais l’épargne peut aussi aller vers l’immobilier ou des placements étrangers.", sources: ["savings"] }
     ],
     reserve: [
-      { title: "Les prix peuvent augmenter.", text: " Si les entreprises répercutent la TVA, le prix payé par les clients monte. Les retraités, les chômeurs et les personnes qui ne profitent pas de la baisse des cotisations sont particulièrement exposés.", sources: ["equity"] },
+      { title: "Les prix vont augmenter, mais pas forcément autant que la TVA.", text: " Une hausse de TVA pousse les prix payés par les clients à la hausse. Les entreprises peuvent en absorber une partie en réduisant leurs marges, mais la transmission peut aussi être presque complète. La Banque de France estime qu’environ 80 % des changements de TVA observés en France se retrouvaient dans les prix après un trimestre. Les retraités, les chômeurs et les personnes qui ne profitent pas de la baisse des cotisations sont particulièrement exposés.", sources: ["vatprices", "equity"] },
       { title: "Les ménages modestes peuvent être plus touchés.", text: " Ils consacrent généralement une plus grande part de leur revenu aux achats courants. Des aides ciblées peuvent les protéger, mais elles utilisent une partie des recettes attendues.", sources: ["equity", "labour"] },
       { title: "Le partage du gain reste incertain.", text: " Rien ne garantit à la fois une forte hausse du salaire net et une baisse complète du coût pour l’employeur. Le résultat dépend des négociations salariales, de la concurrence et des décisions de chaque entreprise.", sources: ["france"] },
       { title: "Une baisse de la consommation peut freiner l’activité.", text: " Si beaucoup de ménages épargnent leur gain tandis que les autres réduisent leurs achats à cause de la TVA, les entreprises françaises peuvent vendre moins à court terme. Tout le monde n’épargnera pas, et l’épargne peut financer l’investissement, mais elle ne remplace pas automatiquement la consommation perdue.", sources: ["france", "savings"] }
@@ -249,7 +251,10 @@ const QUESTION_DETAILS = {
       { id: "equity", title: "Fiscal Devaluation: Efficiency and Equity", publisher: "Commission européenne — DG ECFIN", year: "2014", url: "https://ec.europa.eu/economy_finance/publications/economic_paper/2014/pdf/ecp542_en.pdf" },
       { id: "france", title: "The Economic Effects of a Tax Shift from Direct to Indirect Taxation in France", publisher: "Commission européenne — DG ECFIN", year: "2017", url: "https://economy-finance.ec.europa.eu/document/download/61577801-5b9e-498c-b422-2c0b304a9ae2_en?filename=dp077.pdf" },
       { id: "labour", title: "The role and impact of labour taxation policies", publisher: "Commission européenne", year: "2011", url: "https://ec.europa.eu/social/BlobServlet?docId=7404&langId=en" },
-      { id: "savings", title: "Comptes financiers des agents non financiers — 2025 T4", publisher: "Banque de France", year: "2026", url: "https://www.banque-france.fr/fr/statistiques/comptes-nationaux-financiers/comptes-financiers-des-agents-non-financiers-2025-q4", note: "répartition des placements financiers des ménages" }
+      { id: "savings", title: "Comptes financiers des agents non financiers — 2025 T4", publisher: "Banque de France", year: "2026", url: "https://www.banque-france.fr/fr/statistiques/comptes-nationaux-financiers/comptes-financiers-des-agents-non-financiers-2025-q4", note: "répartition des placements financiers des ménages" },
+      { id: "vat", title: "Value Added Tax (VAT)", publisher: "Commission européenne", year: "mise à jour continue", url: "https://taxation-customs.ec.europa.eu/taxation/vat_en", note: "fonctionnement général de la TVA et traitement des importations" },
+      { id: "vatgap", title: "VAT Gap", publisher: "Commission européenne", year: "2025", url: "https://taxation-customs.ec.europa.eu/taxation/vat/fight-against-vat-fraud/vat-gap_en", note: "écart entre la TVA attendue et la TVA effectivement collectée" },
+      { id: "vatprices", title: "Quels sont les effets sur l’inflation des changements de TVA en France ?", publisher: "Banque de France — Erwan Gautier et Antoine Lalliard", year: "2013", url: "https://publications.banque-france.fr/sites/default/files/medias/documents/bulletin-de-la-banque-de-france_194_2013-t4.pdf", note: "étude de la transmission des changements de TVA aux prix" }
     ]
   },
 
