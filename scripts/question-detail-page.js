@@ -2,6 +2,7 @@
   const questionId=Number(document.body.dataset.questionId);
   const detail=QUESTION_DETAILS[questionId];
   const root=document.querySelector('[data-question-detail-root]');
+  const questionnaireReturnUrl=`/?resumeQuestion=${questionId}`;
 
   if(!detail || !root){
     if(root) root.innerHTML='<p class="loading-error">Cette page de précision est momentanément indisponible.</p>';
@@ -69,6 +70,6 @@
 
     <nav class="review-nav" aria-label="Navigation de validation">
       <a href="/questions/">Voir les 18 pages</a>
-      <a href="/">Retour au questionnaire</a>
+      <a href="${questionnaireReturnUrl}">Retour au questionnaire</a>
     </nav>`;
 })();

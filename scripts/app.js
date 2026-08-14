@@ -121,6 +121,21 @@ function renderPriority(){
 
 function startFresh(mode=QUIZ_MODES.FULL){ restoreRealState(); state=initialState(mode); results=null; aiAnalysisResult=null; saveState(); renderPriority(); showScreen('priority'); }
 function resume(){ restoreRealState(); if(state.priority===null){ renderPriority(); showScreen('priority'); return; } const firstMissing=firstMissingActivePosition(); state.current=firstMissing>=0?firstMissing:Math.min(state.current,activeQuestionCount()-1); showScreen('quiz'); renderQuestion(); }
+function resumeQuestionFromUrl(){
+  const url=new URL(window.location.href);
+  const requestedId=Number(url.searchParams.get('resumeQuestion'));
+  if(!url.searchParams.has('resumeQuestion')) return false;
+  url.searchParams.delete('resumeQuestion');
+  window.history.replaceState(null,'',`${url.pathname}${url.search}${url.hash}`);
+  if(!Number.isInteger(requestedId) || state.priority===null || state.completed) return false;
+  const requestedPosition=activeQuestions().findIndex(({q})=>q.id===requestedId);
+  if(requestedPosition<0) return false;
+  state.current=requestedPosition;
+  saveState();
+  showScreen('quiz');
+  renderQuestion();
+  return true;
+}
 
 function renderScale(){
   const originalIndex=activeOriginalIndex();
@@ -1088,4 +1103,5 @@ document.addEventListener('keydown',e=>{
 });
 
 renderPriority(); refreshResume();
-if(state.completed && activeAnswersComplete()){ results=calculateResults(); renderResults(); showScreen('results'); }
+const resumedQuestionFromUrl=resumeQuestionFromUrl();
+if(!resumedQuestionFromUrl && state.completed && activeAnswersComplete()){ results=calculateResults(); renderResults(); showScreen('results'); }
