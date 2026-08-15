@@ -46,6 +46,7 @@
 .question-index-card:hover { border-color: var(--teal); box-shadow: 0 8px 24px rgba(32,54,77,.08); }
 .question-index-card span { color: var(--teal-dark); font-size: .76rem; font-weight: 850; letter-spacing: .05em; text-transform: uppercase; }
 .question-index-card strong { line-height: 1.42; }
+.question-index-card small { color: var(--muted); font-size: .82rem; }
 
 @media (max-width: 760px) {
   .question-heading { font-size: clamp(1.75rem, 8.8vw, 2.5rem); }

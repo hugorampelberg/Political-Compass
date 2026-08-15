@@ -2,44 +2,162 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.frenchpoliticalcompass.com/</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-08-16</lastmod>
   </url>
   <url>
     <loc>https://www.frenchpoliticalcompass.com/quel-parti-politique-me-correspond/</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-08-16</lastmod>
   </url>
   <url>
     <loc>https://www.frenchpoliticalcompass.com/test-gauche-droite/</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-08-16</lastmod>
   </url>
   <url>
     <loc>https://www.frenchpoliticalcompass.com/methodologie/</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/questions/</loc>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/questions/q5/</loc>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/questions/q6/</loc>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/questions/q8/</loc>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/questions/q12/</loc>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/questions/q17/</loc>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/questions/q27/</loc>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/questions/q32/</loc>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/questions/q36/</loc>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/questions/q38/</loc>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/questions/q41/</loc>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/questions/q47/</loc>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/questions/q49/</loc>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/questions/q50/</loc>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/questions/q62/</loc>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/questions/q71/</loc>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/questions/q76/</loc>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/questions/q78/</loc>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/questions/q79/</loc>
+    <lastmod>2026-08-16</lastmod>
   </url>
   <url>
     <loc>https://www.frenchpoliticalcompass.com/partis-politiques/</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-08-16</lastmod>
   </url>
   <url>
     <loc>https://www.frenchpoliticalcompass.com/partis-politiques/profils/</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/partis-politiques/profils/lfi/</loc>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/partis-politiques/profils/pcf/</loc>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/partis-politiques/profils/les-ecologistes/</loc>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/partis-politiques/profils/ps/</loc>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/partis-politiques/profils/renaissance/</loc>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/partis-politiques/profils/modem/</loc>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/partis-politiques/profils/horizons/</loc>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/partis-politiques/profils/france-humaniste/</loc>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/partis-politiques/profils/lr/</loc>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/partis-politiques/profils/nouvelle-energie/</loc>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/partis-politiques/profils/udr/</loc>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/partis-politiques/profils/rn/</loc>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/partis-politiques/profils/reconquete/</loc>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.frenchpoliticalcompass.com/a-propos/</loc>
+    <lastmod>2026-08-16</lastmod>
   </url>
   <url>
     <loc>https://www.frenchpoliticalcompass.com/confidentialite.html</loc>
     <lastmod>2026-08-08</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
   </url>
 </urlset>
