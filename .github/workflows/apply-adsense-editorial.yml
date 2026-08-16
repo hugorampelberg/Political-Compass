@@ -1,0 +1,90 @@
+name: Apply AdSense to editorial pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/apply-adsense-editorial.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply-adsense:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Update SEO generator and editorial pages
+        shell: bash
+        run: |
+          python <<'PY'
+          from pathlib import Path
+          import re
+
+          publisher = 'ca-pub-6201499207692945'
+          adsense = '''  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6201499207692945"
+             crossorigin="anonymous"></script>'''
+
+          # Keep generated SEO pages AdSense-enabled on future regenerations.
+          generator_path = Path('scripts/generate-seo-pages.mjs')
+          generator = generator_path.read_text(encoding='utf-8')
+          if publisher not in generator:
+              needle = '  <meta name="viewport" content="width=device-width, initial-scale=1">\n  <title>${escapeHtml(title)}</title>'
+              replacement = '  <meta name="viewport" content="width=device-width, initial-scale=1">\n' + adsense + '\n  <title>${escapeHtml(title)}</title>'
+              if needle not in generator:
+                  raise SystemExit('Could not locate documentHead insertion point in SEO generator')
+              generator = generator.replace(needle, replacement, 1)
+          generator = generator.replace("['/confidentialite.html', '2026-08-08']", "['/confidentialite.html', '2026-08-12']")
+          generator_path.write_text(generator, encoding='utf-8')
+
+          # Substantive hand-written editorial pages. Deliberately excluded:
+          # - index.html: it contains the interactive questionnaire flow
+          # - confidentialite.html: legal/utility page, not a monetisation target
+          # - a-propos/index.html: trust/about page, kept ad-free
+          editorial_pages = [
+              Path('quel-parti-politique-me-correspond/index.html'),
+              Path('test-gauche-droite/index.html'),
+              Path('methodologie/index.html'),
+              Path('partis-politiques/index.html'),
+          ]
+
+          viewport_re = re.compile(r'(^[ \t]*<meta\s+name="viewport"[^>]*>\s*$)', re.MULTILINE)
+          for page in editorial_pages:
+              html = page.read_text(encoding='utf-8')
+              if publisher in html:
+                  continue
+              match = viewport_re.search(html)
+              if not match:
+                  raise SystemExit(f'Could not locate viewport meta in {page}')
+              indent = re.match(r'^[ \t]*', match.group(1)).group(0)
+              snippet = adsense.replace('  ', indent, 1)
+              html = html[:match.end()] + '\n' + snippet + html[match.end():]
+              page.write_text(html, encoding='utf-8')
+          PY
+
+          SEO_LASTMOD=2026-08-16 npm run generate:seo
+          npm test
+
+      - name: Remove one-shot workflow and commit generated pages
+        shell: bash
+        run: |
+          rm -f .github/workflows/apply-adsense-editorial.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "Add AdSense to editorial content pages"
+          git push origin HEAD:main
