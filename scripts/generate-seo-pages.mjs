@@ -172,6 +172,8 @@ function structuredPage({ canonical, title, description, crumbs }) {
 function documentHead({ title, description, canonical, type = 'website', structuredData }) {
   return `<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6201499207692945"
+   crossorigin="anonymous"></script>
   <title>${escapeHtml(title)}</title>
   <meta name="description" content="${escapeHtml(description)}">
   <meta name="robots" content="index, follow, max-image-preview:large">
@@ -449,7 +451,7 @@ function generateSitemap(questionIds, parties) {
     ['/partis-politiques/profils/', lastModified],
     ...parties.map((party) => [`/partis-politiques/profils/${party.id}/`, lastModified]),
     ['/a-propos/', lastModified],
-    ['/confidentialite.html', '2026-08-08']
+    ['/confidentialite.html', '2026-08-12']
   ];
   const entries = urls.map(([pathname, date]) => `  <url>\n    <loc>${siteOrigin}${pathname}</loc>\n    <lastmod>${date}</lastmod>\n  </url>`).join('\n');
   write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>`);
