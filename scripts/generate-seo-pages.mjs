@@ -4,6 +4,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
+import {
+  PARTY_EDITORIAL_CONTENT,
+  PROFILE_EDITORIAL_REVIEW_DATE
+} from '../data/party-editorial-content.mjs';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const siteOrigin = 'https://www.frenchpoliticalcompass.com';
@@ -347,6 +351,20 @@ function sourceLink(source, questionId) {
   }
 }
 
+function partyEditorialSection(partyId, label, questionCount) {
+  const paragraphs = PARTY_EDITORIAL_CONTENT[partyId];
+  if (!Array.isArray(paragraphs) || paragraphs.length < 3) {
+    throw new Error(`Synthèse éditoriale absente ou incomplète pour ${partyId}.`);
+  }
+
+  return `<section class="profile-editorial" aria-labelledby="profile-editorial-title">
+      <span class="profile-editorial-kicker">Repères de lecture</span>
+      <h2 id="profile-editorial-title">Lecture d’ensemble du profil</h2>
+      <div class="profile-editorial-body">${paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</div>
+      <p class="profile-editorial-note"><strong>Méthode et date.</strong> Synthèse éditoriale vérifiée le ${escapeHtml(PROFILE_EDITORIAL_REVIEW_DATE)}, à partir des ${questionCount} positions et des sources publiques présentées ci-dessous. Elle décrit le corpus retenu pour ${escapeHtml(label)} et ne constitue ni une prise de position du site, ni une communication officielle du parti. <a href="/methodologie/">Voir la méthode de codage et de comparaison.</a></p>
+    </section>`;
+}
+
 function partyCard(party) {
   const label = PARTY_LABELS[party.id] || party.name;
   return `<li><strong>${escapeHtml(label)}</strong><a class="party-profile-link" href="/partis-politiques/profils/${escapeHtml(party.id)}/">Voir les 87 justifications et sources.</a></li>`;
@@ -382,6 +400,7 @@ function generatePartyProfilePages(data) {
     <span class="eyebrow">Documentation question par question</span>
     <h1>${escapeHtml(label)} : justifications et sources</h1>
     <p class="lead">Retrouvez la position documentaire de ${escapeHtml(label)} pour chacune des ${data.questions.length} questions du test politique.</p>
+    ${partyEditorialSection(party.id, label, data.questions.length)}
     <p class="profile-summary">Ce tableau affiche uniquement les questions, les justifications et les sources publiques utilisées. Il ne contient ni votre score ni la note attribuée au parti.</p>
     <div class="evidence-table-wrap">
       <table class="evidence-table">
@@ -451,7 +470,7 @@ function generateSitemap(questionIds, parties) {
     ['/partis-politiques/profils/', lastModified],
     ...parties.map((party) => [`/partis-politiques/profils/${party.id}/`, lastModified]),
     ['/a-propos/', lastModified],
-    ['/confidentialite.html', '2026-08-12']
+    ['/confidentialite.html', '2026-08-16']
   ];
   const entries = urls.map(([pathname, date]) => `  <url>\n    <loc>${siteOrigin}${pathname}</loc>\n    <lastmod>${date}</lastmod>\n  </url>`).join('\n');
   write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>`);
