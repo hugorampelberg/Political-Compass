@@ -62,11 +62,22 @@ for (const url of questionPages) {
 
 const profilePages = urls.filter((url) => /\/partis-politiques\/profils\/[^/]+\/$/.test(url));
 assert(profilePages.length === 13, `Le sitemap devrait contenir 13 profils de partis, pas ${profilePages.length}.`);
+const profileEditorialTexts = new Set();
 for (const url of profilePages) {
   const html = read(pathnameToFile(new URL(url).pathname));
   const rowCount = (html.match(/class="evidence-question-meta"/g) || []).length;
   assert(rowCount === 87, `${url} devrait contenir 87 questions statiques, pas ${rowCount}.`);
   assert(!html.includes('Chargement des données documentaires'), `Profil encore dépendant du JavaScript : ${url}`);
+
+  const editorialBody = html.match(/<div class="profile-editorial-body">([\s\S]*?)<\/div>/)?.[1];
+  assert(editorialBody, `Synthèse éditoriale absente : ${url}`);
+  const editorialText = editorialBody.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  const editorialWordCount = editorialText.split(/\s+/u).length;
+  assert(editorialWordCount >= 300 && editorialWordCount <= 500, `${url} devrait contenir une synthèse de 300 à 500 mots, pas ${editorialWordCount}.`);
+  assert(!profileEditorialTexts.has(editorialText), `Synthèse éditoriale dupliquée : ${url}`);
+  profileEditorialTexts.add(editorialText);
+  assert(html.includes('profile-editorial-note'), `Note méthodologique absente : ${url}`);
+  assert(html.includes('16 août 2026'), `Date de vérification éditoriale absente : ${url}`);
 }
 
 const questionHub = read('questions/index.html');
