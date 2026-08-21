@@ -470,7 +470,7 @@ function generateSitemap(questionIds, parties) {
     ['/partis-politiques/profils/', lastModified],
     ...parties.map((party) => [`/partis-politiques/profils/${party.id}/`, lastModified]),
     ['/a-propos/', lastModified],
-    ['/confidentialite.html', '2026-08-16']
+    ['/confidentialite.html', '2026-08-21']
   ];
   const entries = urls.map(([pathname, date]) => `  <url>\n    <loc>${siteOrigin}${pathname}</loc>\n    <lastmod>${date}</lastmod>\n  </url>`).join('\n');
   write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>`);
