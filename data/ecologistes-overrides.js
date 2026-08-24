@@ -61,10 +61,6 @@ const ECOLOGISTES_OVERRIDES = {
     justification: 'Désaccord net : le projet écologiste valorise l\'émancipation, l\'évolution des normes sociales et la pluralité des modes de vie plutôt que la préservation de traditions en tant que telles. Il ne rejette pas pour autant tout héritage culturel ou toute continuité historique. Un désaccord net, plutôt que maximal, reste donc le meilleur calibrage.',
     source: 'https://lesecologistes.fr/pages/5ejHks7BbNKNnK2pX4cfp5/valeurs-et-principes'
   },
-  19: {
-    justification: 'Désaccord très fort : Les Écologistes ne fixent pas d\'objectif général de réduction du nombre d\'immigrés accueillis. Leur politique privilégie les voies légales, la protection des personnes exilées, l\'asile et l\'intégration par les droits. Une baisse quantitative générale des entrées est donc directement contraire à leur orientation.',
-    source: 'https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf'
-  },
   20: {
     justification: 'Accord net : Les Écologistes soulignent la contribution des personnes immigrées au travail, à l\'activité économique et à la société, et rejettent les discours présentant l\'immigration comme un coût global. L\'utilité économique n\'est cependant pas le fondement central de leur politique migratoire, qui repose d\'abord sur les droits ; +2 reste plus précis qu\'un accord maximal.',
     source: 'https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf'

@@ -3,8 +3,8 @@ const QUESTIONNAIRE_DATA = {
   "meta": {
     "title": "French Political Compass",
     "subtitle": "Test politique multidimensionnel",
-    "version": "2026-08-09",
-    "questionCount": 87,
+    "version": "2026-08-24",
+    "questionCount": 88,
     "openQuestionCount": 5,
     "scale": {
       "min": -3,
@@ -57,10 +57,10 @@ const QUESTIONNAIRE_DATA = {
   ],
   "axisMasses": {
     "economy": 24.3,
-    "authority": 19.699999999999996,
+    "authority": 19.7,
     "europe": 6.2,
     "ecology": 8.5,
-    "immigration": 11.400000000000002,
+    "immigration": 12.4,
     "democracy": 7.8
   },
   "defaultPriority": "economy",
@@ -343,16 +343,16 @@ const QUESTIONNAIRE_DATA = {
     },
     {
       "id": 19,
-      "theme": "Immigration",
-      "text": "La France devrait réduire le nombre d'immigrants qu'elle accueille chaque année.",
-      "defaultAnswer": 2,
+      "theme": "Immigration / droits sociaux",
+      "text": "À situation comparable, les personnes titulaires d’un titre de séjour mais n’ayant pas la nationalité française devraient avoir accès aux mêmes prestations sociales que les citoyens français.",
+      "defaultAnswer": 0,
       "note": "",
       "coefficients": {
         "economy": 0,
-        "authority": 0.2,
+        "authority": 0,
         "europe": 0,
         "ecology": 0,
-        "immigration": -1,
+        "immigration": 1,
         "democracy": 0
       }
     },
@@ -1385,35 +1385,50 @@ const QUESTIONNAIRE_DATA = {
         "immigration": 0,
         "democracy": 0
       }
+    },
+    {
+      "id": 88,
+      "theme": "Immigration",
+      "text": "Les conditions d’obtention et de renouvellement des titres de séjour en France devraient être rendues plus exigeantes.",
+      "defaultAnswer": 0,
+      "note": "",
+      "coefficients": {
+        "economy": 0,
+        "authority": 0.2,
+        "europe": 0,
+        "ecology": 0,
+        "immigration": -1,
+        "democracy": 0
+      }
     }
   ],
   "openQuestions": [
     {
-      "id": 88,
+      "id": 89,
       "theme": "Question ouverte",
       "text": "Quel est actuellement le plus gros problème économique de la France ?",
       "defaultAnswer": ""
     },
     {
-      "id": 89,
+      "id": 90,
       "theme": "Question ouverte",
       "text": "Si tu devenais président demain et que tu ne pouvais prendre que trois mesures économiques, lesquelles choisirais-tu ?",
       "defaultAnswer": ""
     },
     {
-      "id": 90,
+      "id": 91,
       "theme": "Question ouverte",
       "text": "Quelle est la limite acceptable de l'immigration en France ? Et qu'est-ce qui devrait déterminer cette limite ?",
       "defaultAnswer": ""
     },
     {
-      "id": 91,
+      "id": 92,
       "theme": "Question ouverte",
       "text": "Jusqu'où l'État peut-il légitimement aller pour lutter contre le changement climatique si cela impose des contraintes importantes aux citoyens ?",
       "defaultAnswer": ""
     },
     {
-      "id": 92,
+      "id": 93,
       "theme": "Question ouverte",
       "text": "Qu'est-ce qui te ferait voter pour un parti de gauche plutôt que pour un parti de droite, et inversement ?",
       "defaultAnswer": ""
