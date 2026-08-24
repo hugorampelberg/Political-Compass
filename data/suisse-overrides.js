@@ -9,11 +9,6 @@ const SUISSE_RESPONSE_OVERRIDES = {
     justification: "Désaccord très fort : le Conseil fédéral prépare le budget, mais l'Assemblée fédérale dispose de la souveraineté budgétaire et doit approuver les crédits et les dépenses de la Confédération. Le gouvernement ne peut pas mettre en vigueur seul un nouveau budget afin de contourner l'absence de majorité parlementaire. La proposition est donc directement contraire au fonctionnement institutionnel suisse ; -3 est adapté.",
     source: "https://www.parlament.ch/fr/%C3%BCber-das-parlament/portrait-du-parlement/attributions-assemblee-federale/finances/budget-assorti-un-plan-int%C3%A9gr%C3%A9-t%C3%A2ches-finances"
   },
-  19: {
-    response: 0,
-    justification: "Position intermédiaire : le Conseil fédéral veut maîtriser les effets de l'immigration et conserver des instruments de régulation, mais il s'est opposé à une limitation globale et rigide de la population et des entrées. En 2026, il a notamment rejeté l'initiative « Pas de Suisse à 10 millions » en soulignant les besoins du marché du travail, la prospérité et les relations avec l'Union européenne. Il ne défend donc pas clairement un objectif général de réduction du nombre d'immigrés ; 0 est plus précis que +1.",
-    source: "https://www.ejpd.admin.ch/fr/le-conseil-federal-rejette-linitiative-populaire-pas-de-suisse-a-10-millions-"
-  },
   22: {
     response: 3,
     justification: "Accord très fort : la naturalisation ordinaire suisse exige en principe dix années de résidence, un permis C, une intégration réussie, des connaissances linguistiques, le respect de l'ordre public et des valeurs constitutionnelles ainsi qu'une participation à la vie économique ou à une formation. Les cantons et communes peuvent en outre fixer certaines exigences complémentaires. L'accès à la nationalité est donc déjà particulièrement exigeant et correspond directement à la proposition ; +3 est adapté.",

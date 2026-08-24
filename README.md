@@ -18,10 +18,10 @@ page existante et ajoutée à `sitemap.xml`.
 
 ## Modifier une question
 
-Les 87 questions fermées sont dans le tableau `questions` de
+Les 88 questions fermées sont dans le tableau `questions` de
 `data/questionnaire.js`. Chaque entrée contient :
 
-- `id` : position ordinale continue de la question (`1–87`, puis `88–92` pour les questions ouvertes) ;
+- `id` : position ordinale continue de la question (`1–88`, puis `89–93` pour les questions ouvertes) ;
 - `theme` : thème affiché dans le questionnaire ;
 - `text` : formulation affichée ;
 - `explanation` : exemple ou précision affiché sous la question, facultatif ;

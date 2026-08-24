@@ -177,10 +177,6 @@ const LFI_DOCUMENTATION_OVERRIDES = {
     justification: "Désaccord net : LFI valorise certains héritages républicains, sociaux et culturels, mais son programme décrit la culture française comme le résultat d'une histoire et de transformations permanentes plutôt que comme un ensemble de traditions devant être préservées contre l'évolution sociale. L'élargissement des libertés et l'idée de créolisation occupent une place importante dans cette conception. Le désaccord est donc net sans être absolu ; -2 est adapté.",
     source: "https://melenchon2027.fr/programme2025/livre/introduction/"
   },
-  19: {
-    justification: "Désaccord très fort : la politique migratoire de LFI prévoit de faciliter l'obtention de visas, de garantir le droit d'asile et de régulariser plusieurs catégories de personnes durablement présentes en France. Aucun objectif général de réduction quantitative du nombre annuel d'immigrés n'est proposé ; la logique défendue est au contraire celle de voies légales et de droits renforcés. La proposition est donc directement opposée à cette orientation.",
-    source: "https://melenchon2027.fr/programme2025/livre/chapitre16/s7/"
-  },
   22: {
     justification: "Désaccord très fort : LFI veut garantir un droit du sol intégral et faciliter l'accès à la nationalité française. Cette orientation vise explicitement à rendre l'accès à la citoyenneté plus ouvert et s'oppose donc directement à un durcissement général des conditions d'acquisition de la nationalité ; -3 est adapté.",
     source: "https://melenchon2027.fr/programme2025/livre/chapitre10/s2/"

@@ -1,3 +1,4 @@
+// Positions documentées des gouvernements étrangers comparés.
 const GOVERNMENTS_DATA = [
   {
     "id": "allemagne",
@@ -24,7 +25,7 @@ const GOVERNMENTS_DATA = [
       2,
       3,
       1,
-      2,
+      1,
       2,
       2,
       2,
@@ -92,6 +93,7 @@ const GOVERNMENTS_DATA = [
       -2,
       3,
       -2,
+      2,
       2
     ],
     "confidence": [
@@ -181,7 +183,8 @@ const GOVERNMENTS_DATA = [
       2,
       3,
       3,
-      2
+      2,
+      3
     ],
     "justifications": [
       "Accord net : Allemagne privilégie la baisse des prélèvements sur le travail et le capital et accepte de rechercher en contrepartie des économies dans la dépense publique. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
@@ -202,7 +205,7 @@ const GOVERNMENTS_DATA = [
       "Accord net : Allemagne soutient des politiques actives visant à corriger les discriminations persistantes ou structurelles au-delà de la seule égalité juridique formelle. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
       "Accord très fort : l’Allemagne est un État fédéral dans lequel les Länder disposent de leurs propres compétences législatives et peuvent adopter des lois applicables uniquement sur leur territoire dans les domaines qui leur appartiennent.",
       "Accord modéré : Allemagne accorde une valeur politique à la transmission du patrimoine culturel, des traditions ou d’un cadre commun même lorsque ces références évoluent lentement. L’orientation va dans ce sens mais reste partielle, conditionnelle ou moins ambitieuse que l’énoncé, d’où +1.",
-      "Accord net : Allemagne cherche explicitement à réduire ou à plafonner une partie importante des flux migratoires plutôt qu’à seulement mieux les organiser. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
+      "Accord modéré : en Allemagne, un étranger peut recevoir l’allocation citoyenne s’il réside légalement et remplit les mêmes conditions de ressources et d’aptitude au travail, mais certaines catégories de séjour restent exclues ou relèvent d’un autre régime. Le système se rapproche de l’égalité sans l’appliquer à tout titulaire d’un titre.",
       "Accord net : Allemagne considère la main-d’œuvre immigrée comme utile à la croissance, aux secteurs en pénurie ou aux finances publiques et soutient une immigration économique organisée. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
       "Accord net : Allemagne refuse une préférence durable fondée sur la nationalité pour les prestations et le logement social une fois qu’un étranger est légalement et durablement installé. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
       "Accord net : Allemagne veut renforcer les critères de résidence, de langue, d’intégration ou d’adhésion civique nécessaires à l’obtention de la nationalité. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
@@ -270,7 +273,8 @@ const GOVERNMENTS_DATA = [
       "Désaccord net : Allemagne accepte durablement la présence d’opérateurs privés lucratifs dans les EHPAD, éventuellement sous davantage de contrôle et de transparence. Le désaccord est net, mais tous les termes de l’énoncé ne sont pas nécessairement rejetés avec la même intensité, d’où -2.",
       "Accord très fort : Allemagne défend le caractère universel des allocations familiales en fonction du nombre d’enfants et refuse leur diminution avec le revenu. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
       "Désaccord net : le vote ou la politique publique sur l'âge d'accès aux réseaux sociaux permet de distinguer interdiction stricte, autorisation parentale et régulation plus souple.",
-      "Accord net : Allemagne donne la priorité à la souveraineté numérique et à l’hébergement européen pour les systèmes d’intelligence artificielle publics, même lorsque cela impose un surcoût ou un retard de performance. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2."
+      "Accord net : Allemagne donne la priorité à la souveraineté numérique et à l’hébergement européen pour les systèmes d’intelligence artificielle publics, même lorsque cela impose un surcoût ou un retard de performance. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
+      "Accord net : le gouvernement Merz a rétabli comme objectif la limitation de la migration, suspendu certaines réunifications familiales et renforcé le contrôle des admissions, tout en maintenant des voies pour la main-d’œuvre qualifiée. La ligne est plus exigeante mais demeure sélective plutôt qu’uniformément fermée."
     ],
     "sources": [
       "https://www.bundesregierung.de/breg-de/aktuelles/koalitionsvertrag-2025-2340970",
@@ -291,7 +295,7 @@ const GOVERNMENTS_DATA = [
       "https://www.bundesregierung.de/breg-de/aktuelles/koalitionsvertrag-2025-2340970",
       "https://www.bundestag.de/fr/parlement/fonctions/legislation/competences-246012",
       "https://www.bundesregierung.de/breg-de/aktuelles/koalitionsvertrag-2025-2340970",
-      "https://www.bundesregierung.de/breg-de/aktuelles/koalitionsvertrag-2025-2340970",
+      "https://www.arbeitsagentur.de/grundsicherung/infos-fuer-menschen-aus-dem-ausland",
       "https://www.bundesregierung.de/breg-de/aktuelles/koalitionsvertrag-2025-2340970",
       "https://www.bundesregierung.de/breg-de/aktuelles/koalitionsvertrag-2025-2340970",
       "https://www.bundesregierung.de/breg-de/aktuelles/koalitionsvertrag-2025-2340970",
@@ -359,17 +363,18 @@ const GOVERNMENTS_DATA = [
       "https://www.bundesregierung.de/breg-de/aktuelles/koalitionsvertrag-2025-2340970",
       "https://www.bundesregierung.de/breg-de/aktuelles/koalitionsvertrag-2025-2340970",
       "https://www.bundesregierung.de/breg-de/aktuelles/regierungspressekonferenz-vom-20-april-2026-2422158",
-      "https://www.bundesregierung.de/breg-de/aktuelles/koalitionsvertrag-2025-2340970"
+      "https://www.bundesregierung.de/breg-de/aktuelles/koalitionsvertrag-2025-2340970",
+      "https://www.bmi.bund.de/SharedDocs/schwerpunkte/EN/migration-dobrindt_EN/migration-dobrindt-schwerpunkt.html"
     ],
     "axisScores": {
       "economy": 2.085048010973937,
-      "authority": 0.5076142131979697,
+      "authority": 0.5076142131979695,
       "europe": 7.311827956989247,
       "ecology": -1.1372549019607845,
-      "immigration": -2.7777777777777777,
+      "immigration": -2.2849462365591395,
       "democracy": 1.9658119658119666
     },
-    "averageConfidence": 2.2873563218390807
+    "averageConfidence": 2.2954545454545454
   },
   {
     "id": "espagne",
@@ -396,7 +401,7 @@ const GOVERNMENTS_DATA = [
       3,
       3,
       -1,
-      -2,
+      3,
       3,
       3,
       -1,
@@ -464,7 +469,8 @@ const GOVERNMENTS_DATA = [
       -1,
       -2,
       3,
-      2
+      2,
+      -3
     ],
     "confidence": [
       2,
@@ -485,62 +491,62 @@ const GOVERNMENTS_DATA = [
       3,
       3,
       2,
-      2,
       3,
-      3,
-      2,
-      2,
-      2,
-      2,
-      1,
-      2,
-      2,
       3,
       3,
       2,
-      3,
       2,
-      3,
-      2,
-      3,
-      2,
-      3,
-      3,
-      2,
-      3,
-      3,
-      1,
-      3,
-      3,
-      3,
-      3,
-      1,
-      2,
-      3,
-      3,
-      2,
-      3,
-      2,
-      2,
-      3,
-      2,
-      2,
-      2,
-      2,
-      3,
-      3,
-      3,
       2,
       2,
       1,
+      2,
+      2,
+      3,
+      3,
+      2,
+      3,
+      2,
+      3,
+      2,
+      3,
+      2,
+      3,
+      3,
+      2,
+      3,
+      3,
       1,
-      1,
-      1,
-      1,
+      3,
+      3,
       3,
       3,
       1,
       2,
+      3,
+      3,
+      2,
+      3,
+      2,
+      2,
+      3,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      2,
+      2,
+      1,
+      1,
+      1,
+      1,
+      1,
+      3,
+      3,
+      1,
+      2,
       2,
       3,
       2,
@@ -552,6 +558,7 @@ const GOVERNMENTS_DATA = [
       3,
       2,
       2,
+      3,
       3,
       3
     ],
@@ -574,7 +581,7 @@ const GOVERNMENTS_DATA = [
       "Accord très fort : Espagne soutient des politiques actives visant à corriger les discriminations persistantes ou structurelles au-delà de la seule égalité juridique formelle. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
       "Accord très fort : les communautés autonomes espagnoles disposent d’institutions et de compétences normatives propres dans de nombreux domaines ; l’existence de règles territoriales différentes fait structurellement partie du modèle espagnol.",
       "Désaccord modéré : Espagne privilégie l’évolution des normes sociales et l’autonomie individuelle et refuse que la tradition constitue en elle-même un motif pour ralentir le changement. La réserve est réelle mais partielle ou insuffisamment générale pour retenir un désaccord plus fort, d’où -1.",
-      "Désaccord net : Espagne refuse un objectif général de baisse des entrées et privilégie l’accueil, les voies légales et la régularisation ou l’intégration. Le désaccord est net, mais tous les termes de l’énoncé ne sont pas nécessairement rejetés avec la même intensité, d’où -2.",
+      "Accord très fort : la loi organique espagnole prévoit que les étrangers résidents ont accès aux prestations et services de la sécurité sociale dans les mêmes conditions que les Espagnols, sous réserve des critères propres à chaque prestation. Le droit en vigueur correspond directement à la formulation à situation comparable.",
       "Accord très fort : le gouvernement Sánchez présente explicitement l’immigration comme une opportunité économique, souligne sa contribution à l’emploi et organise des voies légales de mobilité professionnelle répondant aux besoins de l’économie : +3.",
       "Accord très fort : Espagne refuse une préférence durable fondée sur la nationalité pour les prestations et le logement social une fois qu’un étranger est légalement et durablement installé. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
       "Désaccord modéré : Espagne souhaite faciliter ou maintenir des voies relativement accessibles d’acquisition de la nationalité et s’oppose à leur durcissement général. La réserve est réelle mais partielle ou insuffisamment générale pour retenir un désaccord plus fort, d’où -1.",
@@ -642,7 +649,8 @@ const GOVERNMENTS_DATA = [
       "Réserve modérée : le gouvernement espagnol renforce les exigences de qualité et l'encadrement public de la prise en charge de la dépendance, mais la réglementation actuelle continue d'accréditer des centres et services privés dans le système public. Elle ne prévoit donc pas la disparition progressive des opérateurs privés lucratifs ; -1 reflète ce décalage sans surestimer l'opposition.",
       "Désaccord net : le modèle de prestations familiales et la ligne programmatique permettent d'estimer la préférence pour l'universalité ou le ciblage.",
       "Accord très fort : Espagne soutient une interdiction d’accès aux réseaux sociaux pour les moins de 15 ans qui s’applique même lorsque les parents donnent leur accord. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
-      "Accord net : Espagne donne la priorité à la souveraineté numérique et à l’hébergement européen pour les systèmes d’intelligence artificielle publics, même lorsque cela impose un surcoût ou un retard de performance. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2."
+      "Accord net : Espagne donne la priorité à la souveraineté numérique et à l’hébergement européen pour les systèmes d’intelligence artificielle publics, même lorsque cela impose un surcoût ou un retard de performance. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
+      "Désaccord très fort : le gouvernement Sánchez a simplifié les procédures de séjour, élargi les voies liées au travail, à la formation et à la famille, puis engagé une régularisation extraordinaire assortie d’un titre d’un an. Sa politique récente facilite l’accès au séjour plutôt qu’elle ne le durcit."
     ],
     "sources": [
       "https://www.lamoncloa.gob.es/Documents/2025/appendix-II-map-of-commitments-december.pdf",
@@ -663,7 +671,7 @@ const GOVERNMENTS_DATA = [
       "https://www.lamoncloa.gob.es/Documents/2025/appendix-II-map-of-commitments-december.pdf",
       "https://administracion.gob.es/pag_Home/espanaAdmon/directorioOrganigrama/comunidadesAutonomas/comunidadesAutonomas.htm",
       "https://www.lamoncloa.gob.es/Documents/2025/appendix-II-map-of-commitments-december.pdf",
-      "https://www.lamoncloa.gob.es/Documents/2025/appendix-II-map-of-commitments-december.pdf",
+      "https://www.boe.es/buscar/doc.php?id=BOE-A-2000-544",
       "https://www.lamoncloa.gob.es/lang/en/presidente/news/Paginas/2026/20260630-integration-and-citizenship-plan.aspx",
       "https://www.lamoncloa.gob.es/lang/en/gobierno/councilministers/paginas/2026/20260127-council-press-conference.aspx",
       "https://www.lamoncloa.gob.es/Documents/2025/appendix-II-map-of-commitments-december.pdf",
@@ -731,17 +739,18 @@ const GOVERNMENTS_DATA = [
       "https://www.boe.es/eli/es/o/2026/01/02/dca5",
       "https://www.lamoncloa.gob.es/Documents/2025/appendix-II-map-of-commitments-december.pdf",
       "https://www.lamoncloa.gob.es/presidente/actividades/paginas/2026/030226-sanchez-cumbre-gobiernos-dubai.aspx",
-      "https://www.lamoncloa.gob.es/consejodeministros/resumenes/Documents/2026/240226-soberania-digital.pdf"
+      "https://www.lamoncloa.gob.es/consejodeministros/resumenes/Documents/2026/240226-soberania-digital.pdf",
+      "https://www.inclusion.gob.es/w/el-gobierno-aprueba-un-nuevo-reglamento-de-extranjeria-para-mejorar-la-integracion-de-las-personas-migrantes-a-traves-de-tres-palancas-trabajo-formacion-y-familia"
     ],
     "axisScores": {
       "economy": -4.224965706447188,
-      "authority": -0.1353637901861253,
+      "authority": -0.16920473773265682,
       "europe": 6.666666666666666,
       "ecology": 4.862745098039215,
-      "immigration": 4.444444444444445,
+      "immigration": 5.161290322580646,
       "democracy": 2.9914529914529915
     },
-    "averageConfidence": 2.32183908045977
+    "averageConfidence": 2.340909090909091
   },
   {
     "id": "suisse",
@@ -768,7 +777,7 @@ const GOVERNMENTS_DATA = [
       1,
       3,
       2,
-      1,
+      -1,
       2,
       1,
       2,
@@ -836,7 +845,8 @@ const GOVERNMENTS_DATA = [
       -2,
       2,
       -1,
-      0
+      0,
+      2
     ],
     "confidence": [
       3,
@@ -857,7 +867,7 @@ const GOVERNMENTS_DATA = [
       2,
       3,
       2,
-      2,
+      3,
       3,
       2,
       2,
@@ -925,7 +935,8 @@ const GOVERNMENTS_DATA = [
       2,
       2,
       1,
-      2
+      2,
+      3
     ],
     "justifications": [
       "Accord net : Suisse privilégie la baisse des prélèvements sur le travail et le capital et accepte de rechercher en contrepartie des économies dans la dépense publique. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
@@ -946,7 +957,7 @@ const GOVERNMENTS_DATA = [
       "Accord modéré : Suisse soutient des politiques actives visant à corriger les discriminations persistantes ou structurelles au-delà de la seule égalité juridique formelle. L’orientation va dans ce sens mais reste partielle, conditionnelle ou moins ambitieuse que l’énoncé, d’où +1.",
       "Accord très fort : le fédéralisme suisse répartit les pouvoirs politiques et législatifs entre Confédération, cantons et communes afin de leur laisser une large autonomie ; les cantons ont leurs propres constitutions, parlements et gouvernements.",
       "Accord net : Suisse accorde une valeur politique à la transmission du patrimoine culturel, des traditions ou d’un cadre commun même lorsque ces références évoluent lentement. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
-      "Accord modéré : Suisse cherche explicitement à réduire ou à plafonner une partie importante des flux migratoires plutôt qu’à seulement mieux les organiser. L’orientation va dans ce sens mais reste partielle, conditionnelle ou moins ambitieuse que l’énoncé, d’où +1.",
+      "Désaccord modéré : les étrangers légalement établis peuvent recevoir l’aide sociale en Suisse, mais les droits et montants varient selon le statut et le canton, et une dépendance importante peut peser sur le renouvellement ou le retrait du permis. Un titre de séjour n’assure donc pas à lui seul une égalité complète avec les citoyens.",
       "Accord net : Suisse considère la main-d’œuvre immigrée comme utile à la croissance, aux secteurs en pénurie ou aux finances publiques et soutient une immigration économique organisée. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
       "Accord modéré : Suisse refuse une préférence durable fondée sur la nationalité pour les prestations et le logement social une fois qu’un étranger est légalement et durablement installé. L’orientation va dans ce sens mais reste partielle, conditionnelle ou moins ambitieuse que l’énoncé, d’où +1.",
       "Accord net : Suisse veut renforcer les critères de résidence, de langue, d’intégration ou d’adhésion civique nécessaires à l’obtention de la nationalité. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
@@ -1014,7 +1025,8 @@ const GOVERNMENTS_DATA = [
       "Désaccord net : Suisse accepte durablement la présence d’opérateurs privés lucratifs dans les EHPAD, éventuellement sous davantage de contrôle et de transparence. Le désaccord est net, mais tous les termes de l’énoncé ne sont pas nécessairement rejetés avec la même intensité, d’où -2.",
       "Accord net : le modèle de prestations familiales et la ligne programmatique permettent d'estimer la préférence pour l'universalité ou le ciblage.",
       "Réserve modérée : le vote ou la politique publique sur l'âge d'accès aux réseaux sociaux permet de distinguer interdiction stricte, autorisation parentale et régulation plus souple.",
-      "Position intermédiaire : la Confédération recherche une forte souveraineté numérique pour les usages sensibles, tout en appliquant une stratégie hybride multi-cloud qui autorise aussi le recours à des fournisseurs publics étrangers lorsque c’est la solution la plus adaptée. Elle ne privilégie donc pas systématiquement l’hébergement européen au prix d’une moindre performance ou d’un surcoût : 0."
+      "Position intermédiaire : la Confédération recherche une forte souveraineté numérique pour les usages sensibles, tout en appliquant une stratégie hybride multi-cloud qui autorise aussi le recours à des fournisseurs publics étrangers lorsque c’est la solution la plus adaptée. Elle ne privilégie donc pas systématiquement l’hébergement européen au prix d’une moindre performance ou d’un surcoût : 0.",
+      "Accord net : la Suisse conditionne déjà l’octroi et le renouvellement de nombreux permis aux ressources, à l’intégration, à la langue, au respect de l’ordre public et parfois à l’absence de dépendance durable à l’aide sociale. Le régime est clairement exigeant, sans viser un durcissement maximal pour tous les permis."
     ],
     "sources": [
       "https://www.bfs.admin.ch/bfs/en/home/statistics/cross-sectional-topics/monitoring-legislature-plan.html",
@@ -1035,7 +1047,7 @@ const GOVERNMENTS_DATA = [
       "https://www.bfs.admin.ch/bfs/en/home/statistics/cross-sectional-topics/monitoring-legislature-plan.html",
       "https://www.aboutswitzerland.eda.admin.ch/en/federalism",
       "https://www.bfs.admin.ch/bfs/en/home/statistics/cross-sectional-topics/monitoring-legislature-plan.html",
-      "https://www.bfs.admin.ch/bfs/en/home/statistics/cross-sectional-topics/monitoring-legislature-plan.html",
+      "https://www.sem.admin.ch/sem/fr/home/themen/aufenthalt/faq.html",
       "https://www.bfs.admin.ch/bfs/en/home/statistics/cross-sectional-topics/monitoring-legislature-plan.html",
       "https://www.ch.ch/en/foreign-nationals-in-switzerland/living-in-switzerland/social-assistance/",
       "https://www.bfs.admin.ch/bfs/en/home/statistics/cross-sectional-topics/monitoring-legislature-plan.html",
@@ -1103,17 +1115,18 @@ const GOVERNMENTS_DATA = [
       "https://www.bag.admin.ch/fr/soins-de-longue-duree",
       "https://www.bsv.admin.ch/bsv/fr/home/assurances-sociales/famz.html",
       "https://www.admin.ch/gov/fr/accueil/documentation/communiques.msg-id-104729.html",
-      "https://www.bk.admin.ch/en/cloud-6"
+      "https://www.bk.admin.ch/en/cloud-6",
+      "https://www.sem.admin.ch/sem/fr/home/themen/aufenthalt/faq.html"
     ],
     "axisScores": {
       "economy": 3.251028806584362,
-      "authority": -0.8121827411167515,
+      "authority": -0.7783417935702203,
       "europe": -4.946236559139785,
       "ecology": 1.0588235294117647,
-      "immigration": -2.39766081871345,
+      "immigration": -2.7419354838709675,
       "democracy": 6.324786324786325
     },
-    "averageConfidence": 2.0919540229885056
+    "averageConfidence": 2.1136363636363638
   },
   {
     "id": "finlande",
@@ -1140,7 +1153,7 @@ const GOVERNMENTS_DATA = [
       1,
       1,
       2,
-      2,
+      -2,
       2,
       2,
       3,
@@ -1208,7 +1221,8 @@ const GOVERNMENTS_DATA = [
       -2,
       3,
       1,
-      2
+      2,
+      3
     ],
     "confidence": [
       3,
@@ -1297,7 +1311,8 @@ const GOVERNMENTS_DATA = [
       2,
       3,
       2,
-      2
+      2,
+      3
     ],
     "justifications": [
       "Accord très fort : Finlande privilégie la baisse des prélèvements sur le travail et le capital et accepte de rechercher en contrepartie des économies dans la dépense publique. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
@@ -1318,7 +1333,7 @@ const GOVERNMENTS_DATA = [
       "Accord modéré : Finlande soutient des politiques actives visant à corriger les discriminations persistantes ou structurelles au-delà de la seule égalité juridique formelle. L’orientation va dans ce sens mais reste partielle, conditionnelle ou moins ambitieuse que l’énoncé, d’où +1.",
       "Accord modéré : la Finlande dispose d'une administration territoriale décentralisée, mais les régions de bien-être appliquent principalement des missions définies par la loi nationale et ne disposent pas d'une large autonomie législative comparable à un État fédéral.",
       "Accord net : Finlande accorde une valeur politique à la transmission du patrimoine culturel, des traditions ou d’un cadre commun même lorsque ces références évoluent lentement. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
-      "Accord net : le gouvernement Orpo veut réduire et mieux contrôler plusieurs flux migratoires, mais reconnaît parallèlement le besoin d’immigration de travail, notamment qualifiée. La volonté de diminution globale existe sans être absolue : +2.",
+      "Désaccord net : le gouvernement Orpo prévoit une aide d’intégration d’un montant inférieur à la prestation générale pour les immigrés présents depuis moins de trois ans, avant un éventuel passage au régime commun sous conditions de travail ou de langue. Le titre de séjour ne donne donc pas immédiatement accès au même niveau de prestations.",
       "Accord net : Finlande considère la main-d’œuvre immigrée comme utile à la croissance, aux secteurs en pénurie ou aux finances publiques et soutient une immigration économique organisée. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
       "Accord net : Finlande refuse une préférence durable fondée sur la nationalité pour les prestations et le logement social une fois qu’un étranger est légalement et durablement installé. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
       "Accord très fort : le gouvernement Orpo a successivement renforcé la durée de résidence, les critères d’intégrité et de ressources et prévoit un test de citoyenneté. Le durcissement de l’accès à la nationalité est explicite et systématique : +3.",
@@ -1386,7 +1401,8 @@ const GOVERNMENTS_DATA = [
       "Désaccord net : Finlande accepte durablement la présence d’opérateurs privés lucratifs dans les EHPAD, éventuellement sous davantage de contrôle et de transparence. Le désaccord est net, mais tous les termes de l’énoncé ne sont pas nécessairement rejetés avec la même intensité, d’où -2.",
       "Accord très fort : Finlande défend le caractère universel des allocations familiales en fonction du nombre d’enfants et refuse leur diminution avec le revenu. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
       "Accord modéré : le vote ou la politique publique sur l'âge d'accès aux réseaux sociaux permet de distinguer interdiction stricte, autorisation parentale et régulation plus souple.",
-      "Accord net : Finlande donne la priorité à la souveraineté numérique et à l’hébergement européen pour les systèmes d’intelligence artificielle publics, même lorsque cela impose un surcoût ou un retard de performance. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2."
+      "Accord net : Finlande donne la priorité à la souveraineté numérique et à l’hébergement européen pour les systèmes d’intelligence artificielle publics, même lorsque cela impose un surcoût ou un retard de performance. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
+      "Accord très fort : depuis janvier 2026, la Finlande exige en principe six années de résidence pour le permis permanent, ainsi que des conditions renforcées de langue, de travail, d’intégrité et d’autonomie. Ce durcissement récent correspond directement à la proposition."
     ],
     "sources": [
       "https://valtioneuvosto.fi/en/governments/government-programme",
@@ -1407,7 +1423,7 @@ const GOVERNMENTS_DATA = [
       "https://valtioneuvosto.fi/en/-/outcome-of-the-negotiations-on-the-new-government-programme-a-strong-and-committed-finland",
       "https://valtioneuvosto.fi/-/10623/kuntien-erilaiset-lahtokohdat-nakyvat-tehtavien-eriytymisena-",
       "https://valtioneuvosto.fi/en/-/outcome-of-the-negotiations-on-the-new-government-programme-a-strong-and-committed-finland",
-      "https://valtioneuvosto.fi/en/-/1410877/report-points-based-labour-migration-system-can-be-used-for-different-purposes",
+      "https://valtioneuvosto.fi/en/-/1271139/new-integration-assistance-to-improve-incentives-to-work-and-strengthen-language-skills",
       "https://valtioneuvosto.fi/en/governments/government-programme",
       "https://valtioneuvosto.fi/en/-/1271139/new-integration-assistance-to-improve-incentives-to-work-and-strengthen-language-skills",
       "https://valtioneuvosto.fi/en/-/1410869/citizenship-test-to-be-introduced-in-early-2027?languageId=en_US",
@@ -1475,17 +1491,18 @@ const GOVERNMENTS_DATA = [
       "https://valtioneuvosto.fi/en/governments/government-programme",
       "https://valtioneuvosto.fi/en/governments/government-programme",
       "https://valtioneuvosto.fi/-/1271139/stm-keraa-lasten-ja-nuorten-nakemyksia-ja-kokemuksia-sosiaalisen-median-kaytosta",
-      "https://valtioneuvosto.fi/en/-/1410829/finland-among-top-eu-countries-in-digitalisation"
+      "https://valtioneuvosto.fi/en/-/1410829/finland-among-top-eu-countries-in-digitalisation",
+      "https://valtioneuvosto.fi/en/-/1410869/stricter-conditions-for-permanent-residence-permits-as-of-8-january"
     ],
     "axisScores": {
       "economy": 4.101508916323731,
-      "authority": 2.3011844331641287,
+      "authority": 2.3350253807106607,
       "europe": 5.698924731182795,
       "ecology": -1.411764705882353,
-      "immigration": -5.6725146198830405,
+      "immigration": -6.021505376344086,
       "democracy": 1.3675213675213673
     },
-    "averageConfidence": 2.1954022988505746
+    "averageConfidence": 2.2045454545454546
   },
   {
     "id": "royaume-uni",
@@ -1512,7 +1529,7 @@ const GOVERNMENTS_DATA = [
       2,
       3,
       0,
-      2,
+      -3,
       2,
       2,
       2,
@@ -1580,7 +1597,8 @@ const GOVERNMENTS_DATA = [
       -2,
       -2,
       3,
-      0
+      0,
+      3
     ],
     "confidence": [
       2,
@@ -1669,7 +1687,8 @@ const GOVERNMENTS_DATA = [
       2,
       3,
       3,
-      2
+      2,
+      3
     ],
     "justifications": [
       "Position intermédiaire : Royaume-Uni combine des baisses ciblées de prélèvements avec le maintien d’un niveau élevé de dépenses publiques, sans arbitrage général conforme à l’énoncé. La note 0 traduit cette combinaison plutôt qu’une absence artificielle de position.",
@@ -1690,7 +1709,7 @@ const GOVERNMENTS_DATA = [
       "Accord net : Royaume-Uni soutient des politiques actives visant à corriger les discriminations persistantes ou structurelles au-delà de la seule égalité juridique formelle. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
       "Accord très fort : le Royaume-Uni a transféré par la dévolution de larges compétences législatives et exécutives à l’Écosse, au pays de Galles et à l’Irlande du Nord, ce qui produit volontairement des règles différentes selon les nations.",
       "Position intermédiaire : Royaume-Uni valorise certaines traditions tout en défendant fortement l’évolution des droits et des modes de vie. La note 0 traduit cette combinaison plutôt qu’une absence artificielle de position.",
-      "Accord net : Royaume-Uni cherche explicitement à réduire ou à plafonner une partie importante des flux migratoires plutôt qu’à seulement mieux les organiser. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
+      "Désaccord très fort : de nombreux titres temporaires britanniques comportent la condition « no recourse to public funds », qui exclut l’accès à la plupart des prestations et aides au logement, sauf dérogations liées notamment à la vulnérabilité. La nationalité ou le statut d’installation produit donc une différence majeure.",
       "Accord net : Royaume-Uni considère la main-d’œuvre immigrée comme utile à la croissance, aux secteurs en pénurie ou aux finances publiques et soutient une immigration économique organisée. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
       "Accord net : Royaume-Uni refuse une préférence durable fondée sur la nationalité pour les prestations et le logement social une fois qu’un étranger est légalement et durablement installé. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
       "Accord net : la politique britannique évolue vers une logique de citoyenneté et d’installation davantage « earned », fondée sur la contribution, la conduite, le travail et l’intégration. Le durcissement est clair mais une partie du dispositif reste en cours de mise en œuvre : +2.",
@@ -1758,7 +1777,8 @@ const GOVERNMENTS_DATA = [
       "Désaccord net : Royaume-Uni accepte durablement la présence d’opérateurs privés lucratifs dans les EHPAD, éventuellement sous davantage de contrôle et de transparence. Le désaccord est net, mais tous les termes de l’énoncé ne sont pas nécessairement rejetés avec la même intensité, d’où -2.",
       "Désaccord net : le Child Benefit est juridiquement universel, mais son montant est progressivement récupéré par l’impôt pour les revenus individuels élevés et peut être entièrement repris. Il n’est donc pas réellement indépendant du revenu : -2.",
       "Accord très fort : Royaume-Uni soutient une interdiction d’accès aux réseaux sociaux pour les moins de 15 ans qui s’applique même lorsque les parents donnent leur accord. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
-      "Position intermédiaire : le gouvernement britannique développe explicitement des capacités d’IA souveraines et une infrastructure nationale de calcul, ce qui contredit une préférence pour la dépendance technologique étrangère. Mais cette stratégie est britannique, pas spécifiquement européenne, et n’établit pas qu’il accepterait une solution européenne moins performante ou plus coûteuse : 0."
+      "Position intermédiaire : le gouvernement britannique développe explicitement des capacités d’IA souveraines et une infrastructure nationale de calcul, ce qui contredit une préférence pour la dépendance technologique étrangère. Mais cette stratégie est britannique, pas spécifiquement européenne, et n’établit pas qu’il accepterait une solution européenne moins performante ou plus coûteuse : 0.",
+      "Accord très fort : le gouvernement britannique veut doubler à dix ans la durée normale avant l’installation permanente, renforcer les critères de contribution, d’intégration et de conduite et allonger encore le parcours pour certains profils. Il s’agit d’un durcissement explicite et systématique du séjour durable."
     ],
     "sources": [
       "https://www.gov.uk/government/publications/plan-for-change",
@@ -1779,7 +1799,7 @@ const GOVERNMENTS_DATA = [
       "https://www.gov.uk/government/publications/plan-for-change",
       "https://www.deliveringforscotland.gov.uk/scotland-in-the-uk/devolution/",
       "https://www.gov.uk/government/publications/plan-for-change",
-      "https://www.gov.uk/government/news/kings-speech-to-build-a-stronger-and-fairer-britain",
+      "https://www.gov.uk/government/publications/public-funds",
       "https://www.gov.uk/government/news/kings-speech-to-build-a-stronger-and-fairer-britain",
       "https://www.gov.uk/government/publications/public-funds",
       "https://www.gov.uk/government/speeches/home-secretarys-speech-on-immigration-5-march-2026",
@@ -1847,17 +1867,18 @@ const GOVERNMENTS_DATA = [
       "https://www.gov.uk/government/publications/plan-for-change",
       "https://www.gov.uk/child-benefit-tax-charge",
       "https://www.gov.uk/government/news/social-media-to-be-banned-for-under-16s-in-landmark-government-move-to-givekids-their-childhood-back",
-      "https://www.gov.uk/government/publications/expression-of-interest-airr-heterogeneous-supercomputer-host-site-selection"
+      "https://www.gov.uk/government/publications/expression-of-interest-airr-heterogeneous-supercomputer-host-site-selection",
+      "https://www.gov.uk/government/consultations/earned-settlement/a-fairer-pathway-to-settlement-statement-and-accompanying-consultation-on-earned-settlement-accessible"
     ],
     "axisScores": {
       "economy": -1.49519890260631,
-      "authority": 2.3350253807106602,
+      "authority": 2.3688663282571927,
       "europe": -0.7526881720430108,
       "ecology": 3.607843137254902,
-      "immigration": -2.6608187134502925,
+      "immigration": -3.5215053763440856,
       "democracy": 1.0256410256410262
     },
-    "averageConfidence": 2.218390804597701
+    "averageConfidence": 2.227272727272727
   },
   {
     "id": "danemark",
@@ -1884,7 +1905,7 @@ const GOVERNMENTS_DATA = [
       2,
       1,
       1,
-      2,
+      -3,
       2,
       1,
       2,
@@ -1952,6 +1973,7 @@ const GOVERNMENTS_DATA = [
       -3,
       -1,
       3,
+      2,
       2
     ],
     "confidence": [
@@ -2041,7 +2063,8 @@ const GOVERNMENTS_DATA = [
       2,
       2,
       3,
-      2
+      2,
+      3
     ],
     "justifications": [
       "Accord modéré : le gouvernement Frederiksen III prévoit des allègements ciblés de fiscalité pour soutenir le travail, l’investissement et les entreprises, mais il maintient parallèlement un État-providence très développé et de nouvelles dépenses sociales. Il ne lie donc pas une baisse générale des impôts sur le travail et le capital à une réduction importante de la protection sociale ; +1 reflète ce compromis.",
@@ -2062,7 +2085,7 @@ const GOVERNMENTS_DATA = [
       "Accord net : la coalition comporte plusieurs partis qui défendent des politiques actives d’égalité, notamment entre femmes et hommes, de lutte contre les discriminations et d’accès égal à l’éducation et à l’emploi. Le gouvernement ne se limite donc pas à une égalité juridique abstraite, même si son approche reste universaliste plutôt que fondée sur des quotas généralisés.",
       "Accord modéré : le Danemark accorde une autonomie importante aux communes et régions dans l’organisation et la mise en œuvre de nombreux services publics et recherche des solutions adaptées localement, mais l’essentiel du pouvoir législatif reste national.",
       "Accord modéré : le gouvernement insiste à la fois sur la liberté individuelle et sur la préservation d’un socle culturel et civique danois commun, notamment la démocratie, l’égalité et la confiance sociale. Cette volonté de continuité culturelle donne une place aux traditions, sans s’opposer à l’évolution des mœurs ou des droits ; +1.",
-      "Accord net : Danemark cherche explicitement à réduire ou à plafonner une partie importante des flux migratoires plutôt qu’à seulement mieux les organiser. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
+      "Désaccord très fort : au Danemark, le plein accès à l’aide sociale dépend en règle générale de neuf années de résidence légale sur les dix dernières et d’une durée minimale d’emploi ; plusieurs permis imposent en outre l’autonomie financière. Un titre valide ne suffit donc clairement pas à ouvrir les mêmes prestations.",
       "Accord net : le gouvernement souligne que la main-d’œuvre internationale contribue fortement à la croissance et aux finances publiques danoises, tout en voulant mieux contrôler l’immigration irrégulière. Il distingue donc nettement immigration économique utile et immigration non maîtrisée ; l’apport économique est clairement reconnu.",
       "Accord modéré : Danemark refuse une préférence durable fondée sur la nationalité pour les prestations et le logement social une fois qu’un étranger est légalement et durablement installé. L’orientation va dans ce sens mais reste partielle, conditionnelle ou moins ambitieuse que l’énoncé, d’où +1.",
       "Accord net : l’accès à la nationalité danoise est déjà soumis à des conditions exigeantes de résidence, de langue, d’autonomie économique et de connaissance de la société, et la ligne gouvernementale ne prévoit pas de les assouplir fortement. Cela correspond clairement à une conception exigeante de la naturalisation, sans aller jusqu’aux restrictions maximales proposées par certains partis.",
@@ -2130,7 +2153,8 @@ const GOVERNMENTS_DATA = [
       "Désaccord très fort : la politique danoise de la dépendance maintient et organise la coexistence de prestataires publics et privés, avec libre choix et égalité de traitement ; elle est à l’opposé d’une interdiction des gestionnaires privés lucratifs.",
       "Réserve modérée : le modèle de prestations familiales et la ligne programmatique permettent d'estimer la préférence pour l'universalité ou le ciblage.",
       "Accord très fort : le gouvernement met en œuvre une limite de 15 ans pour l’accès aux réseaux sociaux et veut supprimer la dérogation parentale permettant actuellement un accès plus précoce.",
-      "Accord net : la stratégie numérique danoise insiste sur la souveraineté, la sécurité des données et le développement de capacités numériques européennes, tout en recherchant les meilleurs outils disponibles. Elle favorise donc un hébergement européen pour les usages publics sensibles, sans imposer de sacrifier systématiquement performance ou coût quel que soit l’écart."
+      "Accord net : la stratégie numérique danoise insiste sur la souveraineté, la sécurité des données et le développement de capacités numériques européennes, tout en recherchant les meilleurs outils disponibles. Elle favorise donc un hébergement européen pour les usages publics sensibles, sans imposer de sacrifier systématiquement performance ou coût quel que soit l’écart.",
+      "Accord net : le gouvernement danois maintient un système de séjour fortement conditionné par l’emploi, les ressources, l’intégration et le motif précis du permis, et a encore restreint certaines voies étudiantes et familiales. Il conserve toutefois des canaux ciblés pour le travail international utile à l’économie."
     ],
     "sources": [
       "https://stm.dk/statsministeriet/publikationer/det-politiske-grundlag-for-firkloeverregeringen/?embed=true",
@@ -2151,7 +2175,7 @@ const GOVERNMENTS_DATA = [
       "https://stm.dk/statsministeriet/publikationer/det-politiske-grundlag-for-firkloeverregeringen/?embed=true",
       "https://stm.dk/media/rc1ktdmg/det-politiske-grundlag-for-firkloeverregeringen.pdf",
       "https://stm.dk/statsministeriet/publikationer/det-politiske-grundlag-for-firkloeverregeringen/?embed=true",
-      "https://stm.dk/media/rc1ktdmg/det-politiske-grundlag-for-firkloeverregeringen.pdf",
+      "https://lifeindenmark.borger.dk/money-and-tax/social-benefits/social-assistance",
       "https://stm.dk/presse/pressemoedearkiv/2026/pressemoede-den-30-januar-2026/",
       "https://stm.dk/media/rc1ktdmg/det-politiske-grundlag-for-firkloeverregeringen.pdf",
       "https://stm.dk/statsministeriet/publikationer/det-politiske-grundlag-for-firkloeverregeringen/?embed=true",
@@ -2219,17 +2243,18 @@ const GOVERNMENTS_DATA = [
       "https://stm.dk/media/rc1ktdmg/det-politiske-grundlag-for-firkloeverregeringen.pdf",
       "https://stm.dk/media/rc1ktdmg/det-politiske-grundlag-for-firkloeverregeringen.pdf",
       "https://www.digmin.dk/Media/638981156766342129/Aftaletekst%20om%20digital%20brnebeskyttelse.pdf",
-      "https://regeringen.dk/media/ohljoptp/digitaliseringspartnerskabets-rapport.pdf"
+      "https://regeringen.dk/media/ohljoptp/digitaliseringspartnerskabets-rapport.pdf",
+      "https://stm.dk/media/rc1ktdmg/det-politiske-grundlag-for-firkloeverregeringen.pdf"
     ],
     "axisScores": {
       "economy": 0.43895747599451307,
-      "authority": 2.0812182741116754,
+      "authority": 2.0812182741116763,
       "europe": 6.021505376344086,
       "ecology": 5.019607843137255,
-      "immigration": -5.584795321637427,
+      "immigration": -5.940860215053762,
       "democracy": 2.5641025641025643
     },
-    "averageConfidence": 2.1724137931034484
+    "averageConfidence": 2.1818181818181817
   },
   {
     "id": "pays-bas",
@@ -2256,7 +2281,7 @@ const GOVERNMENTS_DATA = [
       2,
       2,
       1,
-      1,
+      -2,
       2,
       2,
       2,
@@ -2324,7 +2349,8 @@ const GOVERNMENTS_DATA = [
       -2,
       1,
       3,
-      2
+      2,
+      1
     ],
     "confidence": [
       3,
@@ -2413,6 +2439,7 @@ const GOVERNMENTS_DATA = [
       3,
       3,
       3,
+      3,
       3
     ],
     "justifications": [
@@ -2434,7 +2461,7 @@ const GOVERNMENTS_DATA = [
       "Accord net : Pays-Bas soutient des politiques actives visant à corriger les discriminations persistantes ou structurelles au-delà de la seule égalité juridique formelle. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
       "Accord net : les provinces néerlandaises ont des pouvoirs autonomes dans plusieurs domaines, notamment l’aménagement, l’économie régionale, les infrastructures et la nature, mais une grande partie du cadre juridique demeure fixé nationalement.",
       "Accord modéré : Pays-Bas accorde une valeur politique à la transmission du patrimoine culturel, des traditions ou d’un cadre commun même lorsque ces références évoluent lentement. L’orientation va dans ce sens mais reste partielle, conditionnelle ou moins ambitieuse que l’énoncé, d’où +1.",
-      "Accord modéré : le gouvernement Jetten veut reprendre le contrôle des flux en fonction de la capacité d’accueil et des besoins du pays, mais maintient l’immigration professionnelle utile et qualifiée. Une réduction générale est souhaitée de façon sélective plutôt qu’absolue : +1.",
+      "Désaccord net : aux Pays-Bas, demander certaines prestations financées sur fonds publics peut conduire l’administration à modifier ou retirer le droit de séjour, selon le type de permis et la situation. Les titulaires d’un titre n’ont donc pas tous le même accès aux prestations que les citoyens néerlandais.",
       "Accord net : Pays-Bas considère la main-d’œuvre immigrée comme utile à la croissance, aux secteurs en pénurie ou aux finances publiques et soutient une immigration économique organisée. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
       "Accord net : Pays-Bas refuse une préférence durable fondée sur la nationalité pour les prestations et le logement social une fois qu’un étranger est légalement et durablement installé. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
       "Accord net : Pays-Bas veut renforcer les critères de résidence, de langue, d’intégration ou d’adhésion civique nécessaires à l’obtention de la nationalité. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
@@ -2502,7 +2529,8 @@ const GOVERNMENTS_DATA = [
       "Désaccord net : Pays-Bas accepte durablement la présence d’opérateurs privés lucratifs dans les EHPAD, éventuellement sous davantage de contrôle et de transparence. Le désaccord est net, mais tous les termes de l’énoncé ne sont pas nécessairement rejetés avec la même intensité, d’où -2.",
       "Accord modéré : Pays-Bas défend le caractère universel des allocations familiales en fonction du nombre d’enfants et refuse leur diminution avec le revenu. L’orientation va dans ce sens mais reste partielle, conditionnelle ou moins ambitieuse que l’énoncé, d’où +1.",
       "Accord très fort : Pays-Bas soutient une interdiction d’accès aux réseaux sociaux pour les moins de 15 ans qui s’applique même lorsque les parents donnent leur accord. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
-      "Accord net : Pays-Bas donne la priorité à la souveraineté numérique et à l’hébergement européen pour les systèmes d’intelligence artificielle publics, même lorsque cela impose un surcoût ou un retard de performance. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2."
+      "Accord net : Pays-Bas donne la priorité à la souveraineté numérique et à l’hébergement européen pour les systèmes d’intelligence artificielle publics, même lorsque cela impose un surcoût ou un retard de performance. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
+      "Accord modéré : le gouvernement Jetten veut mieux contrôler l’asile et la migration de travail, accélérer les refus et examiner plus strictement les demandes répétées, tout en facilitant le travail et l’intégration des personnes ayant de bonnes perspectives de séjour. La ligne est plus sélective, mais pas un durcissement uniforme de tous les titres."
     ],
     "sources": [
       "https://www.government.nl/site/binaries/site-content/collections/documents/2026/02/23/2026-2030-coalition-agreement-lets-get-to-work---building-a-better-netherlands/2026-2030-coalition-agreement-let%E2%80%99s-get-to-work-building-a-better-netherlands.pdf",
@@ -2523,7 +2551,7 @@ const GOVERNMENTS_DATA = [
       "https://www.government.nl/site/binaries/site-content/collections/documents/2026/02/23/2026-2030-coalition-agreement-lets-get-to-work---building-a-better-netherlands/2026-2030-coalition-agreement-let%E2%80%99s-get-to-work-building-a-better-netherlands.pdf",
       "https://www.government.nl/themes/government-and-democracy/provinces/provincial-tasks",
       "https://www.government.nl/site/binaries/site-content/collections/documents/2026/02/23/2026-2030-coalition-agreement-lets-get-to-work---building-a-better-netherlands/2026-2030-coalition-agreement-let%E2%80%99s-get-to-work-building-a-better-netherlands.pdf",
-      "https://www.government.nl/government/coalition-agreement",
+      "https://ind.nl/en/benefits-from-public-funds",
       "https://www.government.nl/site/binaries/site-content/collections/documents/2026/02/23/2026-2030-coalition-agreement-lets-get-to-work---building-a-better-netherlands/2026-2030-coalition-agreement-let%E2%80%99s-get-to-work-building-a-better-netherlands.pdf",
       "https://www.government.nl/documents/publications/2026/02/23/2026-2030-coalition-agreement-lets-get-to-work-building-a-better-netherlands",
       "https://www.government.nl/site/binaries/site-content/collections/documents/2026/02/23/2026-2030-coalition-agreement-lets-get-to-work---building-a-better-netherlands/2026-2030-coalition-agreement-let%E2%80%99s-get-to-work-building-a-better-netherlands.pdf",
@@ -2591,17 +2619,18 @@ const GOVERNMENTS_DATA = [
       "https://www.government.nl/site/binaries/site-content/collections/documents/2026/02/23/2026-2030-coalition-agreement-lets-get-to-work---building-a-better-netherlands/2026-2030-coalition-agreement-let%E2%80%99s-get-to-work-building-a-better-netherlands.pdf",
       "https://www.government.nl/site/binaries/site-content/collections/documents/2026/02/23/2026-2030-coalition-agreement-lets-get-to-work---building-a-better-netherlands/2026-2030-coalition-agreement-let%E2%80%99s-get-to-work-building-a-better-netherlands.pdf",
       "https://www.government.nl/site/binaries/site-content/collections/documents/2026/02/23/2026-2030-coalition-agreement-lets-get-to-work---building-a-better-netherlands/2026-2030-coalition-agreement-let%E2%80%99s-get-to-work-building-a-better-netherlands.pdf",
-      "https://www.government.nl/site/binaries/site-content/collections/documents/2026/02/23/2026-2030-coalition-agreement-lets-get-to-work---building-a-better-netherlands/2026-2030-coalition-agreement-let%E2%80%99s-get-to-work-building-a-better-netherlands.pdf"
+      "https://www.government.nl/site/binaries/site-content/collections/documents/2026/02/23/2026-2030-coalition-agreement-lets-get-to-work---building-a-better-netherlands/2026-2030-coalition-agreement-let%E2%80%99s-get-to-work-building-a-better-netherlands.pdf",
+      "https://www.government.nl/government/coalition-agreement/the-netherlands-in-the-world"
     ],
     "axisScores": {
       "economy": 2.2085048010973933,
-      "authority": 1.1675126903553303,
+      "authority": 1.1675126903553308,
       "europe": 7.741935483870967,
       "ecology": 4.078431372549019,
-      "immigration": -2.865497076023391,
+      "immigration": -3.1720430107526876,
       "democracy": 2.8632478632478633
     },
-    "averageConfidence": 2.1494252873563218
+    "averageConfidence": 2.159090909090909
   },
   {
     "id": "pologne",
@@ -2628,7 +2657,7 @@ const GOVERNMENTS_DATA = [
       1,
       1,
       2,
-      3,
+      -2,
       2,
       2,
       2,
@@ -2696,6 +2725,7 @@ const GOVERNMENTS_DATA = [
       -1,
       3,
       1,
+      2,
       2
     ],
     "confidence": [
@@ -2785,6 +2815,7 @@ const GOVERNMENTS_DATA = [
       1,
       3,
       1,
+      3,
       3
     ],
     "justifications": [
@@ -2806,7 +2837,7 @@ const GOVERNMENTS_DATA = [
       "Accord modéré : Pologne soutient des politiques actives visant à corriger les discriminations persistantes ou structurelles au-delà de la seule égalité juridique formelle. L’orientation va dans ce sens mais reste partielle, conditionnelle ou moins ambitieuse que l’énoncé, d’où +1.",
       "Accord modéré : les voïvodies polonaises disposent d’une autonomie régionale et peuvent adopter des actes de droit local dans les domaines confiés par la loi, mais leur pouvoir normatif reste nettement encadré par la législation nationale.",
       "Accord net : Pologne accorde une valeur politique à la transmission du patrimoine culturel, des traditions ou d’un cadre commun même lorsque ces références évoluent lentement. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
-      "Accord très fort : Pologne cherche explicitement à réduire ou à plafonner une partie importante des flux migratoires plutôt qu’à seulement mieux les organiser. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
+      "Désaccord net : en Pologne, l’aide sociale générale est ouverte notamment aux titulaires d’un permis permanent, d’un statut de résident de longue durée ou d’une protection, mais pas à l’ensemble des titulaires de permis temporaires. L’accès dépend donc fortement du statut de séjour et n’est pas identique à celui des citoyens.",
       "Accord net : Pologne considère la main-d’œuvre immigrée comme utile à la croissance, aux secteurs en pénurie ou aux finances publiques et soutient une immigration économique organisée. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
       "Accord net : Pologne refuse une préférence durable fondée sur la nationalité pour les prestations et le logement social une fois qu’un étranger est légalement et durablement installé. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
       "Accord net : Pologne veut renforcer les critères de résidence, de langue, d’intégration ou d’adhésion civique nécessaires à l’obtention de la nationalité. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
@@ -2874,7 +2905,8 @@ const GOVERNMENTS_DATA = [
       "Désaccord modéré : Pologne accepte durablement la présence d’opérateurs privés lucratifs dans les EHPAD, éventuellement sous davantage de contrôle et de transparence. La réserve est réelle mais partielle ou insuffisamment générale pour retenir un désaccord plus fort, d’où -1.",
       "Accord très fort : Pologne défend le caractère universel des allocations familiales en fonction du nombre d’enfants et refuse leur diminution avec le revenu. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
       "Accord modéré : Pologne soutient une interdiction d’accès aux réseaux sociaux pour les moins de 15 ans qui s’applique même lorsque les parents donnent leur accord. L’orientation va dans ce sens mais reste partielle, conditionnelle ou moins ambitieuse que l’énoncé, d’où +1.",
-      "Accord net : Pologne donne la priorité à la souveraineté numérique et à l’hébergement européen pour les systèmes d’intelligence artificielle publics, même lorsque cela impose un surcoût ou un retard de performance. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2."
+      "Accord net : Pologne donne la priorité à la souveraineté numérique et à l’hébergement européen pour les systèmes d’intelligence artificielle publics, même lorsque cela impose un surcoût ou un retard de performance. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
+      "Accord net : la stratégie migratoire du gouvernement Tusk vise à reprendre le contrôle des entrées, sécuriser les visas et les permis et renforcer la vérification par l’État, tout en conservant des voies transparentes pour la migration légale utile. L’orientation est plus exigeante sans chercher à fermer tous les canaux."
     ],
     "sources": [
       "https://www.gov.pl/web/primeminister/poland-a-year-of-breakthrough---the-prime-minister-unveils-polands-2025-economic-plan",
@@ -2895,7 +2927,7 @@ const GOVERNMENTS_DATA = [
       "https://www.gov.pl/web/primeminister/expose",
       "https://eli.gov.pl/eli/DU/1998/576",
       "https://www.gov.pl/web/primeminister/expose",
-      "https://www.gov.pl/web/primeminister/taking-back-control-ensuring-security",
+      "https://www.gov.pl/web/family/social-assistance-for-foreigners-what-kind-of-support-in-poland-can-they-expect",
       "https://www.gov.pl/web/primeminister/taking-back-control-ensuring-security",
       "https://www.gov.pl/web/family/social-assistance-principles",
       "https://www.gov.pl/web/primeminister/taking-back-control-ensuring-security",
@@ -2963,16 +2995,17 @@ const GOVERNMENTS_DATA = [
       "https://www.gov.pl/web/primeminister/expose",
       "https://www.gov.pl/web/primeminister/expose",
       "https://www.gov.pl/web/primeminister/poland-a-year-of-breakthrough---the-prime-minister-unveils-polands-2025-economic-plan",
-      "https://www.gov.pl/web/primeminister/poland-a-year-of-breakthrough---the-prime-minister-unveils-polands-2025-economic-plan"
+      "https://www.gov.pl/web/primeminister/poland-a-year-of-breakthrough---the-prime-minister-unveils-polands-2025-economic-plan",
+      "https://www.gov.pl/web/primeminister/taking-back-control-ensuring-security"
     ],
     "axisScores": {
       "economy": -0.16460905349794228,
-      "authority": 2.18274111675127,
+      "authority": 2.1489001692047385,
       "europe": 3.4408602150537626,
       "ecology": -3.3725490196078436,
-      "immigration": -5.4678362573099415,
+      "immigration": -5.295698924731182,
       "democracy": 2.264957264957265
     },
-    "averageConfidence": 1.8275862068965518
+    "averageConfidence": 1.8409090909090908
   }
 ];

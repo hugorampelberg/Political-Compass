@@ -366,9 +366,9 @@ function partyEditorialSection(partyId, label, questionCount) {
     </section>`;
 }
 
-function partyCard(party) {
+function partyCard(party, questionCount) {
   const label = PARTY_LABELS[party.id] || party.name;
-  return `<li><strong>${escapeHtml(label)}</strong><a class="party-profile-link" href="/partis-politiques/profils/${escapeHtml(party.id)}/">Voir les 87 justifications et sources.</a></li>`;
+  return `<li><strong>${escapeHtml(label)}</strong><a class="party-profile-link" href="/partis-politiques/profils/${escapeHtml(party.id)}/">Voir les ${questionCount} justifications et sources.</a></li>`;
 }
 
 function generatePartyProfilePages(data) {
@@ -420,7 +420,7 @@ function generatePartyProfilePages(data) {
 
   const canonical = `${siteOrigin}/partis-politiques/profils/`;
   const title = 'Positions, justifications et sources des partis politiques';
-  const description = 'Choisissez un parti français et consultez, pour les 87 questions du test politique, sa justification documentaire et la source publique associée.';
+  const description = `Choisissez un parti français et consultez, pour les ${data.questions.length} questions du test politique, sa justification documentaire et la source publique associée.`;
   const crumbs = [
     { name: 'Test politique', url: `${siteOrigin}/` },
     { name: 'Partis politiques', url: `${siteOrigin}/partis-politiques/` },
@@ -439,10 +439,10 @@ function generatePartyProfilePages(data) {
     ${breadcrumb([{ name: 'Accueil', url: '/' }, { name: 'Partis politiques', url: '/partis-politiques/' }, { name: 'Profils documentés' }])}
     <span class="eyebrow">Documentation question par question</span>
     <h1>Justifications et sources des partis politiques</h1>
-    <p class="lead">Chaque profil rassemble les 87 questions du test, la justification retenue pour le parti et la source publique associée. Les notes numériques restent volontairement absentes de ces tableaux.</p>
+    <p class="lead">Chaque profil rassemble les ${data.questions.length} questions du test, la justification retenue pour le parti et la source publique associée. Les notes numériques restent volontairement absentes de ces tableaux.</p>
     <a class="cta" href="/">Comparer mes opinions aux partis</a>
     <h2>Choisir un parti</h2>
-    <ul class="party-list">${parties.map(partyCard).join('')}</ul>
+    <ul class="party-list">${parties.map((party) => partyCard(party, data.questions.length)).join('')}</ul>
     <section class="related"><h2>À lire également</h2><nav class="related-links"><a href="/partis-politiques/">Comprendre la comparaison</a><a href="/methodologie/">Consulter la méthodologie</a><a href="/questions/">Questions expliquées</a></nav></section>
   </article></main>
   ${footer()}

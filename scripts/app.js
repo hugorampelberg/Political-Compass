@@ -6,7 +6,10 @@ const QUESTION_SIMILARITY_SHARE = 1;
 const AXIS_COORDINATE_SIMILARITY_SHARE = 0;
 const QUICK_QUESTION_IDS = new Set([1,3,5,7,8,9,10,13,14,16,19,21,23,24,28,29,30,33,36,40,44,46,47,48,53,58,60,62,63,64,68,70,71,76,78,80,81,82,83,86]);
 const TECHNICAL_QUESTION_IDS = new Set([5,6,8,12,17,27,32,36,38,41,47,49,50,62,71,76,78,79]);
-const OPEN_QUESTION_ID_MIGRATION = { 94:88, 95:89, 96:90, 97:91, 98:92 };
+const OPEN_QUESTION_ID_MIGRATIONS = {
+  legacy: { from:[94,95,96,97,98], to:[89,90,91,92,93] },
+  previous: { from:[88,89,90,91,92], to:[89,90,91,92,93] }
+};
 const AXIS_COLORS = { economy:'#d96c57', authority:'#6f63a8', europe:'#4e77a7', ecology:'#2d8c87', immigration:'#d7a744', democracy:'#40556a' };
 const PRIORITY_LABELS = {
   economy:'Économie',
@@ -39,13 +42,31 @@ function loadState(){
     const raw=localStorage.getItem(STORAGE_KEY);
     if(!raw) return null;
     const saved=JSON.parse(raw);
+    const previousQuestionCount=Array.isArray(saved.answers)?saved.answers.length:null;
+    if(previousQuestionCount===87){
+      saved.answers=[...saved.answers,null];
+      saved.answers[18]=null;
+      const comments=Array.isArray(saved.questionComments)?saved.questionComments.slice(0,87):Array(87).fill('');
+      saved.questionComments=[...comments,''];
+      saved.questionComments[18]='';
+      saved.completed=false;
+    }
     if(saved.openAnswers && typeof saved.openAnswers==='object' && !Array.isArray(saved.openAnswers)){
-      Object.entries(OPEN_QUESTION_ID_MIGRATION).forEach(([oldId,newId])=>{
-        if(saved.openAnswers[oldId]!==undefined && saved.openAnswers[newId]===undefined){
-          saved.openAnswers[newId]=saved.openAnswers[oldId];
-        }
-        delete saved.openAnswers[oldId];
-      });
+      const hasLegacyIds=OPEN_QUESTION_ID_MIGRATIONS.legacy.from.some(id=>saved.openAnswers[id]!==undefined);
+      const migration=hasLegacyIds
+        ? OPEN_QUESTION_ID_MIGRATIONS.legacy
+        : previousQuestionCount===87
+          ? OPEN_QUESTION_ID_MIGRATIONS.previous
+          : null;
+      if(migration){
+        const source={...saved.openAnswers};
+        const knownIds=new Set(Object.values(OPEN_QUESTION_ID_MIGRATIONS).flatMap(({from,to})=>[...from,...to]));
+        const migrated=Object.fromEntries(Object.entries(source).filter(([id])=>!knownIds.has(Number(id))));
+        migration.from.forEach((oldId,index)=>{
+          if(source[oldId]!==undefined) migrated[migration.to[index]]=source[oldId];
+        });
+        saved.openAnswers=migrated;
+      }
     }
     return {...initialState(), ...saved};
   } catch(e){ return null; }

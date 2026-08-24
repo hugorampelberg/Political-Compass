@@ -15,6 +15,12 @@ function read(relativePath) {
   return fs.readFileSync(path.join(projectRoot, relativePath), 'utf8');
 }
 
+const questionnaireSource = read('data/questionnaire.js');
+const expectedProfileQuestionCount = Number(
+  questionnaireSource.match(/"questionCount"\s*:\s*(\d+)/)?.[1]
+);
+assert(Number.isInteger(expectedProfileQuestionCount), 'Nombre de questions introuvable dans data/questionnaire.js.');
+
 function pathnameToFile(pathname) {
   if (pathname === '/') return 'index.html';
   if (pathname.endsWith('/')) return `${pathname.slice(1)}index.html`;
@@ -66,7 +72,7 @@ const profileEditorialTexts = new Set();
 for (const url of profilePages) {
   const html = read(pathnameToFile(new URL(url).pathname));
   const rowCount = (html.match(/class="evidence-question-meta"/g) || []).length;
-  assert(rowCount === 87, `${url} devrait contenir 87 questions statiques, pas ${rowCount}.`);
+  assert(rowCount === expectedProfileQuestionCount, `${url} devrait contenir ${expectedProfileQuestionCount} questions statiques, pas ${rowCount}.`);
   assert(!html.includes('Chargement des données documentaires'), `Profil encore dépendant du JavaScript : ${url}`);
 
   const editorialBody = html.match(/<div class="profile-editorial-body">([\s\S]*?)<\/div>/)?.[1];
