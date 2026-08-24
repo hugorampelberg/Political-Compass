@@ -1,13 +1,13 @@
 (() => {
   const questionIndexById = new Map(DATA.questions.map((question, index) => [question.id, index]));
-  const q45Index = questionIndexById.get(45);
-  if (q45Index === undefined) return;
+  const q46Index = questionIndexById.get(46);
+  if (q46Index === undefined) return;
 
-  const q45 = DATA.questions[q45Index];
-  q45.text = "L’État devrait davantage subventionner les produits de première nécessité dans les DOM-TOM afin d’y réduire les prix, même si leur financement faisait légèrement augmenter le prix de certains produits consommés en France métropolitaine en contribution. ";
-  q45.explanation = "Faire ses courses dans les DOM-TOM coûte en moyenne 30 % à 40 % plus cher pour l'alimentation par rapport à la France hexagonale, notamment à cause du coût d'acheminement dû l'éloignement géographique. ";
+  const q46 = DATA.questions[q46Index];
+  q46.text = "L’État devrait davantage subventionner les produits de première nécessité dans les DOM-TOM afin d’y réduire les prix, même si leur financement faisait légèrement augmenter le prix de certains produits consommés en France métropolitaine en contribution. ";
+  q46.explanation = "Faire ses courses dans les DOM-TOM coûte en moyenne 30 % à 40 % plus cher pour l'alimentation par rapport à la France hexagonale, notamment à cause du coût d'acheminement dû l'éloignement géographique. ";
 
-  const Q45_PARTY_OVERRIDES = {
+  const Q46_PARTY_OVERRIDES = {
     lfi: {
       response: 2,
       justification: "Accord net : des députés LFI ont proposé dans le cadre du budget 2025 d’étudier une continuité territoriale économique pour le fret de marchandises outre-mer afin d’en faire un levier direct de baisse des prix, et ont parallèlement défendu un renforcement du bouclier qualité-prix sur les produits de première nécessité. L’intervention publique sur le fret ou les prix est donc clairement soutenue. En revanche, LFI ne propose pas de financer cette solidarité par une hausse des prix payés par les consommateurs métropolitains et privilégie plutôt le budget public, la régulation des marges ou la contribution des acteurs les plus aisés ; +2 reste donc plus précis que +3.",
@@ -91,13 +91,13 @@
     entity.axisScores = scores;
   };
 
-  Object.entries(Q45_PARTY_OVERRIDES).forEach(([entityId, override]) => {
+  Object.entries(Q46_PARTY_OVERRIDES).forEach(([entityId, override]) => {
     const entity = DATA.entities.find(candidate => candidate.id === entityId && candidate.category === 'party');
     if (!entity) return;
 
-    entity.responses[q45Index] = override.response;
-    entity.justifications[q45Index] = override.justification;
-    if (Array.isArray(entity.sources)) entity.sources[q45Index] = override.source;
+    entity.responses[q46Index] = override.response;
+    entity.justifications[q46Index] = override.justification;
+    if (Array.isArray(entity.sources)) entity.sources[q46Index] = override.source;
     recomputeAxisScores(entity);
   });
 })();

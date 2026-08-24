@@ -180,7 +180,7 @@ const QUESTION_DETAILS = {
     ]
   },
 
-  27: {
+  28: {
     theme: "Sécurité / justice",
     shortTitle: "Prévention, réinsertion et sanctions",
     question: "Il vaut mieux investir dans la prévention et la réinsertion que dans l'augmentation des sanctions.",
@@ -216,7 +216,7 @@ const QUESTION_DETAILS = {
     ]
   },
 
-  32: {
+  33: {
     theme: "Économie",
     shortTitle: "TVA sociale et cotisations",
     question: "Une partie des cotisations sociales sur les salaires devrait être remplacée par une hausse de la TVA afin d’augmenter les salaires nets et de réduire le coût du travail, même si cela augmente le prix des biens et services consommés",
@@ -262,7 +262,7 @@ const QUESTION_DETAILS = {
     ]
   },
 
-  36: {
+  37: {
     theme: "Europe",
     shortTitle: "Transfert de compétences à l’Union européenne",
     question: "La France devrait transférer davantage de compétences à l'Union européenne afin de renforcer son poids économique et géopolitique.",
@@ -296,7 +296,7 @@ const QUESTION_DETAILS = {
     ]
   },
 
-  38: {
+  39: {
     theme: "Europe",
     shortTitle: "Bilan de l’euro pour la France",
     question: "L'euro est globalement bénéfique pour la France malgré la perte de certains instruments de politique économique.",
@@ -342,7 +342,7 @@ const QUESTION_DETAILS = {
     ]
   },
 
-  41: {
+  42: {
     theme: "Fiscalité / patrimoine",
     shortTitle: "Suppression de l’IFI",
     question: "Il faudrait supprimer l'IFI et ne plus taxer spécifiquement le patrimoine immobilier au-delà de la fiscalité ordinaire.",
@@ -375,7 +375,7 @@ const QUESTION_DETAILS = {
     ]
   },
 
-  47: {
+  48: {
     theme: "Retraites",
     shortTitle: "Répartition et capitalisation",
     question: "Les retraites devraient être progressivement réformées vers un système combinant répartition et capitalisation, même si cela implique une période de transition coûteuse.",
@@ -412,7 +412,7 @@ const QUESTION_DETAILS = {
     ]
   },
 
-  49: {
+  50: {
     theme: "Protection sociale",
     shortTitle: "Conditionner les prestations aux cotisations",
     question: "Les prestations sociales devraient être fortement conditionnées à la durée de cotisation et de participation au marché du travail.",
@@ -446,7 +446,7 @@ const QUESTION_DETAILS = {
     ]
   },
 
-  50: {
+  51: {
     theme: "État / entreprises",
     shortTitle: "Aides publiques, dividendes et dirigeants",
     question: "Une entreprise qui reçoit plusieurs milliards d'euros d'aides publiques devrait pouvoir être contrainte de limiter ses dividendes et les rémunérations de ses dirigeants tant que l'aide n'est pas remboursée.",
@@ -488,7 +488,7 @@ const QUESTION_DETAILS = {
     ]
   },
 
-  62: {
+  63: {
     theme: "Écologie",
     shortTitle: "Taxe carbone et compensation",
     question: "Une taxe carbone qui réduit les émissions de CO₂ devrait être maintenue même si elle diminue le pouvoir d’achat des ménages modestes, à condition de compenser ces derniers par des aides ciblées.",
@@ -522,7 +522,7 @@ const QUESTION_DETAILS = {
     ]
   },
 
-  71: {
+  72: {
     theme: "Institutions",
     shortTitle: "Proportionnelle intégrale",
     question: "La proportionnelle intégrale serait préférable au système actuel, même si elle rendait plus fréquentes les coalitions et les gouvernements instables.",
@@ -555,7 +555,7 @@ const QUESTION_DETAILS = {
     ]
   },
 
-  76: {
+  77: {
     theme: "Santé / assurance maladie",
     shortTitle: "Remboursement intégral des soins essentiels",
     question: "L'Assurance maladie devrait rembourser intégralement les soins essentiels, quitte à réduire fortement le rôle des complémentaires santé.",
@@ -595,7 +595,7 @@ const QUESTION_DETAILS = {
     ]
   },
 
-  78: {
+  79: {
     theme: "Éducation / autonomie",
     shortTitle: "Recrutement et évaluation par les chefs d’établissement",
     question: "Les chefs d'établissement scolaire devraient pouvoir recruter eux-même une partie de leurs enseignants et peser davantage dans leur évaluation.",
@@ -629,7 +629,7 @@ const QUESTION_DETAILS = {
     ]
   },
 
-  79: {
+  80: {
     theme: "Éducation / mixité sociale",
     shortTitle: "Financement du privé et mixité sociale",
     question: "Le financement public des établissements privés sous contrat devrait être conditionné à des objectifs mesurables de mixité sociale.",

@@ -1,15 +1,15 @@
-// Calibration finale de Q69 après reformulation de la question.
+// Calibration finale de Q70 après reformulation de la question.
 // Cette couche est chargée après les autres overrides afin de conserver un codage
-// homogène entre partis et gouvernements, toujours résolu par l'ID ordinal 69.
+// homogène entre partis et gouvernements, toujours résolu par l'ID ordinal 70.
 (() => {
   if (typeof DATA === 'undefined' || !Array.isArray(DATA.questions) || !Array.isArray(DATA.entities)) return;
 
-  const question = DATA.questions.find(item => item.id === 69);
+  const question = DATA.questions.find(item => item.id === 70);
   if (!question) return;
 
   question.text = "Pour avoir le droit de voter, les citoyens devraient avoir suivi une formation de base en économie.";
 
-  const Q69_OVERRIDES = {
+  const Q70_OVERRIDES = {
     lfi: {
       response: -3,
       confidence: 3,
@@ -138,7 +138,7 @@
     }
   };
 
-  const questionIndex = DATA.questions.findIndex(item => item.id === 69);
+  const questionIndex = DATA.questions.findIndex(item => item.id === 70);
   if (questionIndex < 0) return;
 
   const recalculate = entity => {
@@ -164,7 +164,7 @@
     }
   };
 
-  Object.entries(Q69_OVERRIDES).forEach(([entityId, override]) => {
+  Object.entries(Q70_OVERRIDES).forEach(([entityId, override]) => {
     const entity = DATA.entities.find(item => item.id === entityId);
     if (!entity || !Array.isArray(entity.responses)) return;
 

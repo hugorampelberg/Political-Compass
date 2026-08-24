@@ -57,7 +57,7 @@ const QUESTIONNAIRE_DATA = {
   ],
   "axisMasses": {
     "economy": 24.3,
-    "authority": 19.7,
+    "authority": 19.699999999999996,
     "europe": 6.2,
     "ecology": 8.5,
     "immigration": 12.4,
@@ -343,16 +343,16 @@ const QUESTIONNAIRE_DATA = {
     },
     {
       "id": 19,
-      "theme": "Immigration / droits sociaux",
-      "text": "À situation comparable, les personnes titulaires d’un titre de séjour mais n’ayant pas la nationalité française devraient avoir accès aux mêmes prestations sociales que les citoyens français.",
-      "defaultAnswer": 0,
+      "theme": "Immigration",
+      "text": "La France devrait restreindre le nombre de titres de séjour qu'elle délivre ou rendre leurs conditions d'obtention plus difficiles.",
+      "defaultAnswer": 2,
       "note": "",
       "coefficients": {
         "economy": 0,
-        "authority": 0,
+        "authority": 0.2,
         "europe": 0,
         "ecology": 0,
-        "immigration": 1,
+        "immigration": -1,
         "democracy": 0
       }
     },
@@ -374,7 +374,7 @@ const QUESTIONNAIRE_DATA = {
     {
       "id": 21,
       "theme": "Immigration / droits sociaux",
-      "text": "Un étranger installé légalement en France depuis de nombreuses années devrait, à situation économique comparable, bénéficier des mêmes prestations sociales et du même accès au logement social qu’un citoyen français, sans priorité fondée sur la nationalité.",
+      "text": "À situation sociale comparable, une personne ayant acquis la nationalité française par naturalisation devrait bénéficier des mêmes prestations sociales et du même accès au logement social qu’une personne française de naissance.",
       "defaultAnswer": 3,
       "note": "",
       "coefficients": {
@@ -388,6 +388,21 @@ const QUESTIONNAIRE_DATA = {
     },
     {
       "id": 22,
+      "theme": "Immigration / droits sociaux",
+      "text": "Les personnes disposant d'un titre de séjour, mais pas de la nationalité française, devraient avoir accès aux mêmes prestations sociales que les personnes de nationalité française.",
+      "defaultAnswer": 3,
+      "note": "",
+      "coefficients": {
+        "economy": 0,
+        "authority": 0,
+        "europe": 0,
+        "ecology": 0,
+        "immigration": 1,
+        "democracy": 0
+      }
+    },
+    {
+      "id": 23,
       "theme": "Immigration",
       "text": "L'accès à la nationalité française devrait être rendu plus exigeant.",
       "defaultAnswer": 1,
@@ -402,7 +417,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 23,
+      "id": 24,
       "theme": "Immigration",
       "text": "La France devrait être beaucoup plus stricte concernant l'expulsion des étrangers condamnés pour des crimes graves.",
       "defaultAnswer": 3,
@@ -417,7 +432,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 24,
+      "id": 25,
       "theme": "Immigration",
       "text": "Même lorsque l'immigration est économiquement bénéfique, elle peut être légitimement limitée pour préserver la cohésion culturelle du pays.",
       "defaultAnswer": 1,
@@ -432,7 +447,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 25,
+      "id": 26,
       "theme": "Immigration",
       "text": "La France devrait accueillir davantage de réfugiés lorsqu'ils fuient une guerre ou une persécution, même si cela représente un coût économique.",
       "defaultAnswer": -2,
@@ -447,7 +462,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 26,
+      "id": 27,
       "theme": "Sécurité / justice",
       "text": "Les peines de prison effectives devraient être plus sévères, même si cela augmente fortement la population carcérale.",
       "defaultAnswer": 2,
@@ -462,7 +477,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 27,
+      "id": 28,
       "theme": "Sécurité / justice",
       "text": "Il vaut mieux investir dans la prévention et la réinsertion que dans l'augmentation des sanctions.",
       "defaultAnswer": 2,
@@ -477,7 +492,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 28,
+      "id": 29,
       "theme": "Sécurité / justice",
       "text": "La police devrait disposer de pouvoirs plus importants pour lutter contre la criminalité, quitte à accepter davantage de contrôles sur certaines libertés individuelles.",
       "explanation": "Par exemple : développer la vidéosurveillance, même si cela signifie être davantage surveillé dans l’espace public.",
@@ -493,7 +508,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 29,
+      "id": 30,
       "theme": "Agriculture / commerce",
       "text": "La France devrait pouvoir interdire l’importation de produits agricoles fabriqués selon des normes qu’elle interdit à ses propres agriculteurs, même si cela faisait disparaître des rayons les produits alimentaires les moins chers.",
       "defaultAnswer": 0,
@@ -508,7 +523,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 30,
+      "id": 31,
       "theme": "Écologie",
       "text": "La lutte contre le changement climatique doit rester prioritaire même lorsqu'elle réduit la croissance économique à court terme.",
       "defaultAnswer": 2,
@@ -523,7 +538,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 31,
+      "id": 32,
       "theme": "Écologie",
       "text": "Il faut accepter une hausse importante du prix des énergies fossiles pour accélérer la transition écologique.",
       "defaultAnswer": 2,
@@ -538,7 +553,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 32,
+      "id": 33,
       "theme": "Economie",
       "text": "Une partie des cotisations sociales sur les salaires devrait être remplacée par une hausse de la TVA afin d’augmenter les salaires nets et de réduire le coût du travail, même si cela augmente le prix des biens et services consommés",
       "defaultAnswer": 0,
@@ -553,7 +568,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 33,
+      "id": 34,
       "theme": "Écologie",
       "text": "Les politiques écologiques devraient reposer principalement sur des mécanismes de marché comme la taxe carbone plutôt que sur des interdictions.",
       "defaultAnswer": -1,
@@ -568,7 +583,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 34,
+      "id": 35,
       "theme": "Écologie",
       "text": "Il est justifié d'interdire certains produits ou comportements très polluants même lorsque les consommateurs les souhaitent.",
       "defaultAnswer": 1,
@@ -583,7 +598,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 35,
+      "id": 36,
       "theme": "Écologie",
       "text": "Les pays riches devraient supporter une part prépondérante du coût de la transition écologique mondiale.",
       "defaultAnswer": 1,
@@ -598,7 +613,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 36,
+      "id": 37,
       "theme": "Europe",
       "text": "La France devrait transférer davantage de compétences à l'Union européenne afin de renforcer son poids économique et géopolitique.",
       "explanation": "Par exemple : confier davantage de décisions sur la défense, la fiscalité, l’énergie ou la politique étrangère aux institutions européennes plutôt qu’à chaque État séparément.",
@@ -614,7 +629,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 37,
+      "id": 38,
       "theme": "Europe",
       "text": "La France devrait conserver autant que possible sa souveraineté nationale, même si cela réduit son influence au niveau européen.",
       "defaultAnswer": 1,
@@ -629,7 +644,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 38,
+      "id": 39,
       "theme": "Europe",
       "text": "L'euro est globalement bénéfique pour la France malgré la perte de certains instruments de politique économique.",
       "defaultAnswer": 2,
@@ -644,7 +659,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 39,
+      "id": 40,
       "theme": "Europe",
       "text": "L'Union européenne devrait pouvoir imposer davantage de règles communes aux États membres.",
       "defaultAnswer": 2,
@@ -659,7 +674,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 40,
+      "id": 41,
       "theme": "Europe",
       "text": "En cas de conflit entre les intérêts économiques français et les règles européennes, la France devrait pouvoir désobéir à certaines règles européennes.",
       "defaultAnswer": 3,
@@ -674,7 +689,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 41,
+      "id": 42,
       "theme": "Fiscalité / patrimoine",
       "text": "Il faudrait supprimer l'IFI et ne plus taxer spécifiquement le patrimoine immobilier au-delà de la fiscalité ordinaire.",
       "explanation": "L’IFI est un impôt spécifique sur les patrimoines immobiliers élevés. La question demande s’il faut le supprimer et ne conserver que les impôts immobiliers ordinaires.",
@@ -690,7 +705,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 42,
+      "id": 43,
       "theme": "Fiscalité / patrimoine",
       "text": "L'héritage devrait être davantage taxé au-delà d'un certain seuil de patrimoine transmis, même si cela conduit certaines familles à transmettre moins de patrimoine à leurs enfants.",
       "defaultAnswer": 0,
@@ -705,7 +720,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 43,
+      "id": 44,
       "theme": "Fiscalité / patrimoine",
       "text": "Les très grandes fortunes devraient être imposées sur leur patrimoine mondial, même lorsqu'elles quittent la France.",
       "defaultAnswer": 3,
@@ -720,7 +735,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 44,
+      "id": 45,
       "theme": "Travail / chômage",
       "text": "Un chômeur devrait pouvoir perdre une partie significative de ses allocations s'il refuse plusieurs emplois raisonnablement adaptés à ses compétences.",
       "defaultAnswer": 3,
@@ -735,7 +750,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 45,
+      "id": 46,
       "theme": "Outre-mer / vie chère",
       "text": "L’État devrait garantir que les produits essentiels ne coûtent pas beaucoup plus cher dans les DOM/TOM que dans l’Hexagone, quitte à subventionner durablement leur transport ou leur prix avec l’argent public national.",
       "defaultAnswer": 0,
@@ -751,7 +766,7 @@ const QUESTIONNAIRE_DATA = {
       "explanation": "Par exemple : l’État pourrait prendre en charge durablement une partie du coût du fret ou subventionner certains produits de première nécessité afin de limiter l’écart de prix avec l’Hexagone."
     },
     {
-      "id": 46,
+      "id": 47,
       "theme": "Travail / chômage",
       "text": "Le CDI protège trop fortement les salariés déjà en poste et peut rendre plus difficile l’accès à l’emploi stable, au détriment des jeunes, chômeurs ou travailleurs en contrats précaires.",
       "explanation": "Par exemple : une entreprise devrait pouvoir se séparer plus facilement d’un salarié peu performant, même s’il est déjà bien intégré et protégé par son CDI.",
@@ -767,7 +782,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 47,
+      "id": 48,
       "theme": "Retraites",
       "text": "Les retraites devraient être progressivement réformées vers un système combinant répartition et capitalisation, même si cela implique une période de transition coûteuse.",
       "defaultAnswer": 2,
@@ -782,7 +797,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 48,
+      "id": 49,
       "theme": "Retraites",
       "text": "L'âge légal de départ à la retraite devrait être automatiquement indexé sur l'espérance de vie nationale.",
       "defaultAnswer": -3,
@@ -797,7 +812,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 49,
+      "id": 50,
       "theme": "Protection sociale",
       "text": "Les prestations sociales devraient être fortement conditionnées à la durée de cotisation et de participation au marché du travail.",
       "defaultAnswer": 2,
@@ -812,7 +827,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 50,
+      "id": 51,
       "theme": "État / entreprises",
       "text": "Une entreprise qui reçoit plusieurs milliards d'euros d'aides publiques devrait pouvoir être contrainte de limiter ses dividendes et les rémunérations de ses dirigeants tant que l'aide n'est pas remboursée.",
       "defaultAnswer": 2,
@@ -827,7 +842,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 51,
+      "id": 52,
       "theme": "État / entreprises",
       "text": "L'État devrait davantage utiliser son pouvoir d'actionnaire pour orienter les grandes entreprises françaises vers des objectifs industriels de long terme.",
       "explanation": "Par exemple : lorsque l’État détient des parts dans une grande entreprise, il pourrait peser sur ses décisions pour favoriser l’investissement, l’emploi en France ou le maintien d’activités jugées stratégiques à long terme.",
@@ -843,7 +858,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 52,
+      "id": 53,
       "theme": "État / entreprises",
       "text": "Il faudrait réduire fortement les normes administratives pesant sur les entreprises, même si certaines protections environnementales ou sociales deviennent moins strictes.",
       "defaultAnswer": -1,
@@ -858,7 +873,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 53,
+      "id": 54,
       "theme": "Immigration / régularisation",
       "text": "Un étranger en situation irrégulière qui travaille de façon stable en France depuis plusieurs années et n’a commis aucun délit devrait pouvoir être régularisé, même s’il est entré ou est resté sur le territoire sans autorisation.",
       "defaultAnswer": 0,
@@ -873,7 +888,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 54,
+      "id": 55,
       "theme": "Immigration / assimilation",
       "text": "L'accès à certaines prestations sociales devrait être beaucoup plus limité pendant les premières années suivant l'arrivée d'un immigré.",
       "defaultAnswer": 1,
@@ -888,7 +903,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 55,
+      "id": 56,
       "theme": "Immigration / assimilation",
       "text": "La France devrait privilégier l'immigration économique qualifiée, même si cela signifie accueillir moins de personnes peu qualifiées.",
       "defaultAnswer": 1,
@@ -903,7 +918,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 56,
+      "id": 57,
       "theme": "Immigration / assimilation",
       "text": "Une personne née en France de parents étrangers devrait automatiquement devenir française à sa majorité si elle y a grandi, même si elle ne manifeste pas particulièrement d'attachement à la France.",
       "defaultAnswer": -1,
@@ -918,7 +933,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 57,
+      "id": 58,
       "theme": "Immigration / assimilation",
       "text": "La France devrait pouvoir refuser l'entrée à un immigré légalement admissible lorsqu'il existe de fortes raisons de penser qu'il ne souhaite pas s'intégrer culturellement à la société française.",
       "defaultAnswer": 2,
@@ -933,7 +948,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 58,
+      "id": 59,
       "theme": "Immigration / assimilation",
       "text": "Le fait de conserver des pratiques culturelles ou religieuses très différentes de celles de la majorité française n'est pas en soi un problème tant que les lois françaises sont respectées.",
       "defaultAnswer": 2,
@@ -948,7 +963,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 59,
+      "id": 60,
       "theme": "Libertés / sécurité",
       "text": "Pour lutter contre le terrorisme, l'État devrait pouvoir surveiller préventivement une personne considérée comme présentant un risque sérieux, même sans preuve suffisante pour engager des poursuites pénales.",
       "defaultAnswer": 2,
@@ -963,7 +978,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 60,
+      "id": 61,
       "theme": "Libertés / expression",
       "text": "Une personne qui tient publiquement des propos profondément offensants mais qui n'appelle ni à la violence ni à commettre une infraction devrait être protégée par la liberté d'expression.",
       "defaultAnswer": 1,
@@ -978,7 +993,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 61,
+      "id": 62,
       "theme": "Sécurité",
       "text": "Lorsqu’un conducteur refuse d’obtempérer et prend la fuite, les policiers devraient pouvoir utiliser leur arme à feu même si le danger pour leur vie n’est pas immédiat.",
       "defaultAnswer": -1,
@@ -993,7 +1008,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 62,
+      "id": 63,
       "theme": "Écologie",
       "text": "Une taxe carbone qui réduit les émissions de CO₂ devrait être maintenue même si elle diminue le pouvoir d’achat des ménages modestes, à condition de compenser ces derniers par des aides ciblées.",
       "defaultAnswer": 1,
@@ -1008,7 +1023,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 63,
+      "id": 64,
       "theme": "Écologie",
       "text": "La France devrait interdire progressivement la vente de voitures thermiques même si cela augmente temporairement le prix moyen des véhicules.",
       "defaultAnswer": -1,
@@ -1023,7 +1038,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 64,
+      "id": 65,
       "theme": "Écologie",
       "text": "Il faut privilégier le nucléaire même si cela conduit à réduire certains investissements dans les renouvelables.",
       "defaultAnswer": -1,
@@ -1038,7 +1053,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 65,
+      "id": 66,
       "theme": "Écologie / croissance",
       "text": "Si la France pouvait réduire ses émissions de 20 % mais que cela réduisait son PIB de 3 %, alors que les autres pays ne faisaient aucun effort comparable, il faudrait quand même le faire.",
       "defaultAnswer": 1,
@@ -1053,7 +1068,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 66,
+      "id": 67,
       "theme": "Institutions",
       "text": "Pour certaines décisions économiques complexes, il serait préférable de confier davantage de pouvoir à des institutions indépendantes composées d'experts plutôt qu'aux responsables politiques élus.",
       "defaultAnswer": 1,
@@ -1068,7 +1083,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 67,
+      "id": 68,
       "theme": "Institutions",
       "text": "Un gouvernement devrait pouvoir prendre une décision économiquement nécessaire mais très impopulaire sans chercher à obtenir l'approbation immédiate de la population.",
       "defaultAnswer": 0,
@@ -1083,7 +1098,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 68,
+      "id": 69,
       "theme": "Institutions",
       "text": "Le référendum devrait être beaucoup plus utilisé, même lorsque les citoyens votent sur des sujets dont ils maîtrisent mal les aspects techniques.",
       "defaultAnswer": 2,
@@ -1098,7 +1113,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 69,
+      "id": 70,
       "theme": "Institutions",
       "text": "Il serait acceptable de donner davantage de poids politique aux citoyens qui démontrent un niveau élevé de connaissance du fonctionnement des institutions et de l'économie.",
       "defaultAnswer": 1,
@@ -1113,7 +1128,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 70,
+      "id": 71,
       "theme": "Institutions",
       "text": "Le président de la République devrait disposer de davantage de pouvoirs pour pouvoir mettre en œuvre un programme pendant cinq ans sans être constamment bloqué par le Parlement.",
       "defaultAnswer": 1,
@@ -1128,7 +1143,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 71,
+      "id": 72,
       "theme": "Institutions",
       "text": "La proportionnelle intégrale serait préférable au système actuel, même si elle rendait plus fréquentes les coalitions et les gouvernements instables.",
       "explanation": "Avec la proportionnelle intégrale, le nombre de députés de chaque parti correspondrait directement à son pourcentage de voix au niveau national. Les petits partis seraient donc mieux représentés, mais il serait plus rare qu’un seul parti dispose d’une majorité, ce qui obligerait plus souvent plusieurs partis à gouverner ensemble.",
@@ -1144,7 +1159,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 72,
+      "id": 73,
       "theme": "Immigration / assimilation",
       "text": "Le droit de séjour durable en France devrait dépendre, sauf impossibilité particulière, d’efforts concrets pour apprendre le français, comprendre les règles et usages du pays et participer à la vie collective.",
       "defaultAnswer": 2,
@@ -1159,7 +1174,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 73,
+      "id": 74,
       "theme": "Immigration / délinquance",
       "text": "Les différences de délinquance observées s’expliquent davantage par les inégalités sociales et économiques que par la culture d’origine des personnes concernées.",
       "defaultAnswer": -2,
@@ -1174,7 +1189,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 74,
+      "id": 75,
       "theme": "Écologie / agriculture",
       "text": "La France devrait interdire aux agriculteurs l’usage d’un produit jugé trop polluant, même si cette interdiction les désavantage face à des concurrents étrangers qui peuvent encore l’utiliser.",
       "defaultAnswer": 0,
@@ -1189,7 +1204,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 75,
+      "id": 76,
       "theme": "Santé / accès aux soins",
       "text": "Dans les zones où l'accès aux soins est insuffisant, l'Assurance maladie devrait pouvoir limiter le conventionnement de nouveaux médecins dans les zones déjà bien dotées afin d'encourager leur installation dans les déserts médicaux.",
       "explanation": "Un médecin non conventionné peut toujours s'installer, mais ses patients sont beaucoup moins remboursés. La mesure vise donc à orienter les installations sans imposer directement un lieu d'exercice.",
@@ -1205,7 +1220,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 76,
+      "id": 77,
       "theme": "Santé / assurance maladie",
       "text": "L'Assurance maladie devrait rembourser intégralement les soins essentiels, quitte à réduire fortement le rôle des complémentaires santé.",
       "defaultAnswer": 0,
@@ -1220,7 +1235,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 77,
+      "id": 78,
       "theme": "Santé / hôpital",
       "text": "Il faut accepter de fermer ou regrouper certaines petites maternités et certains services d'urgence afin de concentrer les équipes et les équipements dans des établissements plus importants.",
       "defaultAnswer": 0,
@@ -1235,7 +1250,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 78,
+      "id": 79,
       "theme": "Éducation / autonomie",
       "text": "Les chefs d'établissement scolaire devraient pouvoir recruter eux-même une partie de leurs enseignants et peser davantage dans leur évaluation.",
       "explanation": "Aujourd'hui, l'affectation et la carrière des enseignants relèvent principalement de règles nationales et de l'administration de l'Éducation nationale.",
@@ -1251,7 +1266,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 79,
+      "id": 80,
       "theme": "Éducation / mixité sociale",
       "text": "Le financement public des établissements privés sous contrat devrait être conditionné à des objectifs mesurables de mixité sociale.",
       "explanation": "Un établissement qui accueille durablement très peu d'élèves défavorisés pourrait perdre une partie de ses financements publics s'il ne respecte pas les objectifs de mixité fixés.",
@@ -1267,7 +1282,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 80,
+      "id": 81,
       "theme": "Logement / locations touristiques",
       "text": "Dans les zones où le logement manque, une commune devrait pouvoir interdire la location touristique régulière d'un logement qui n'est pas la résidence principale de son propriétaire.",
       "defaultAnswer": 0,
@@ -1282,7 +1297,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 81,
+      "id": 82,
       "theme": "Défense / Ukraine",
       "text": "La France devrait continuer à fournir une aide militaire et financière importante à l'Ukraine tant que son territoire reste occupé, même si la guerre se prolonge.",
       "defaultAnswer": 0,
@@ -1297,7 +1312,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 82,
+      "id": 83,
       "theme": "Défense / dissuasion nucléaire",
       "text": "La dissuasion nucléaire française devrait aussi protéger les partenaires européens, tout en laissant à la France seule la décision finale de l'employer.",
       "defaultAnswer": 0,
@@ -1312,7 +1327,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 83,
+      "id": 84,
       "theme": "Santé / fin de vie",
       "text": "Une personne majeure atteinte d'une maladie grave et incurable provoquant des souffrances insupportables devrait pouvoir recevoir une aide médicale à mourir dans un cadre strictement contrôlé.",
       "defaultAnswer": 0,
@@ -1327,7 +1342,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 84,
+      "id": 85,
       "theme": "Dépendance / EHPAD",
       "text": "Les groupes privés à but lucratif ne devraient plus pouvoir gérer d'EHPAD. Les établissements existants devraient progressivement devenir publics ou non lucratifs.",
       "defaultAnswer": 0,
@@ -1342,7 +1357,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 85,
+      "id": 86,
       "theme": "Famille / prestations",
       "text": "Les allocations familiales devraient être versées à toutes les familles selon le nombre d'enfants, sans diminuer lorsque les revenus augmentent.",
       "defaultAnswer": 0,
@@ -1357,7 +1372,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 86,
+      "id": 87,
       "theme": "Numérique / mineurs",
       "text": "L'accès aux réseaux sociaux devrait être interdit aux moins de 15 ans, même avec l'accord de leurs parents.",
       "defaultAnswer": 0,
@@ -1372,7 +1387,7 @@ const QUESTIONNAIRE_DATA = {
       }
     },
     {
-      "id": 87,
+      "id": 88,
       "theme": "Numérique / intelligence artificielle",
       "text": "Les administrations publiques devraient privilégier des modèles d'intelligence artificielle hébergés en Europe, même s'ils sont temporairement moins performants ou plus coûteux que leurs concurrents étrangers.",
       "defaultAnswer": 0,
@@ -1383,21 +1398,6 @@ const QUESTIONNAIRE_DATA = {
         "europe": 0.4,
         "ecology": 0,
         "immigration": 0,
-        "democracy": 0
-      }
-    },
-    {
-      "id": 88,
-      "theme": "Immigration",
-      "text": "Les conditions d’obtention et de renouvellement des titres de séjour en France devraient être rendues plus exigeantes.",
-      "defaultAnswer": 0,
-      "note": "",
-      "coefficients": {
-        "economy": 0,
-        "authority": 0.2,
-        "europe": 0,
-        "ecology": 0,
-        "immigration": -1,
         "democracy": 0
       }
     }

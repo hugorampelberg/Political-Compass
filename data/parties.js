@@ -1,4 +1,3 @@
-// Positions documentées des partis politiques français.
 const PARTIES_DATA = [
   {
     "id": "lfi",
@@ -25,6 +24,7 @@ const PARTIES_DATA = [
       3,
       -3,
       -2,
+      -3,
       3,
       3,
       3,
@@ -93,8 +93,7 @@ const PARTIES_DATA = [
       3,
       2,
       -3,
-      1,
-      -3
+      1
     ],
     "confidence": [
       2,
@@ -119,6 +118,7 @@ const PARTIES_DATA = [
       2,
       3,
       3,
+      3,
       2,
       2,
       3,
@@ -183,8 +183,7 @@ const PARTIES_DATA = [
       3,
       1,
       3,
-      2,
-      3
+      2
     ],
     "justifications": [
       "Désaccord très fort : LFI privilégie le financement des services publics et de la protection sociale et refuse de faire dépendre une baisse générale des prélèvements de coupes dans ces dépenses. Cette position est presque entièrement opposée à l’arbitrage posé, ce qui justifie -3.",
@@ -205,9 +204,10 @@ const PARTIES_DATA = [
       "Accord très fort : LFI soutient des politiques actives visant à corriger les discriminations persistantes ou structurelles au-delà de la seule égalité juridique formelle. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
       "Désaccord très fort : LFI s’oppose explicitement au droit à la différenciation lorsqu’il permet à des collectivités de déroger aux normes nationales, en particulier par crainte de moins-disant social ou environnemental et d’une rupture de l’égalité républicaine.",
       "Désaccord net : LFI privilégie l’évolution des normes sociales et l’autonomie individuelle et refuse que la tradition constitue en elle-même un motif pour ralentir le changement. Le désaccord est net, mais tous les termes de l’énoncé ne sont pas nécessairement rejetés avec la même intensité, d’où -2.",
-      "Accord très fort : LFI a dénoncé comme une préférence nationale le report de l’accès aux prestations sociales pour les étrangers en situation régulière. Cette opposition explicite à une différence fondée sur la nationalité correspond directement à l’énoncé.",
+      "Désaccord très fort : LFI propose de faire de la carte de séjour de dix ans le titre de référence, de régulariser plusieurs catégories de personnes durablement présentes et de rendre les critères d'obtention des titres plus objectifs. Restreindre le nombre de titres ou en durcir globalement l'accès va directement à l'encontre de cette politique ; -3 est adapté.",
       "Accord très fort : LFI considère la main-d’œuvre immigrée comme utile à la croissance, aux secteurs en pénurie ou aux finances publiques et soutient une immigration économique organisée. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
-      "Accord très fort : LFI rejette explicitement la préférence nationale dans l’accès aux prestations sociales et défend l’égalité des droits des étrangers en situation régulière durablement installés.",
+      "Accord très fort : LFI rejette déjà la préférence nationale pour les étrangers en situation régulière. A fortiori, le mouvement ne propose aucune différence de prestations ou d'accès au logement entre une personne française par naturalisation et une personne française de naissance ; toutes deux relèvent de la même citoyenneté, d'où +3.",
+      "Accord très fort : LFI rejette explicitement les délais de carence et la préférence nationale dans l'accès aux prestations sociales pour les étrangers en situation régulière. Le mouvement défend l'égalité des droits sociaux entre résidents réguliers et citoyens français, sous les mêmes conditions ordinaires d'éligibilité ; +3 correspond directement à cette position.",
       "Désaccord très fort : LFI souhaite faciliter ou maintenir des voies relativement accessibles d’acquisition de la nationalité et s’oppose à leur durcissement général. Cette position est presque entièrement opposée à l’arbitrage posé, ce qui justifie -3.",
       "Désaccord net : LFI s’oppose à une politique d’expulsion beaucoup plus stricte des étrangers condamnés et critique la logique de double peine, tout en laissant une marge pour les situations criminelles les plus graves : -2.",
       "Désaccord très fort : LFI refuse de faire de l’homogénéité ou de la cohésion culturelle un motif autonome de restriction et privilégie les droits et l’intégration. Cette position est presque entièrement opposée à l’arbitrage posé, ce qui justifie -3.",
@@ -273,8 +273,7 @@ const PARTIES_DATA = [
       "Accord très fort : des députés LFI ont déposé une proposition de loi visant explicitement à mettre fin aux EHPAD privés à but lucratif et à privilégier les établissements publics ou privés non lucratifs. La proposition correspond presque exactement au principe posé par la question.",
       "Accord net : LFI défend le caractère universel des allocations familiales en fonction du nombre d’enfants et refuse leur diminution avec le revenu. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
       "Désaccord très fort : LFI refuse une interdiction légale générale par âge et privilégie le contrôle parental, l’éducation numérique ou des obligations imposées aux plateformes. Cette position est presque entièrement opposée à l’arbitrage posé, ce qui justifie -3.",
-      "Accord modéré : LFI donne la priorité à la souveraineté numérique et à l’hébergement européen pour les systèmes d’intelligence artificielle publics, même lorsque cela impose un surcoût ou un retard de performance. L’orientation va dans ce sens mais reste partielle, conditionnelle ou moins ambitieuse que l’énoncé, d’où +1.",
-      "Désaccord très fort : LFI s’oppose au durcissement général du droit au séjour, propose de rétablir la carte de dix ans comme titre de référence et de régulariser les travailleurs sans papiers. Cette ligne est directement contraire à des conditions d’obtention et de renouvellement globalement plus exigeantes."
+      "Accord modéré : LFI donne la priorité à la souveraineté numérique et à l’hébergement européen pour les systèmes d’intelligence artificielle publics, même lorsque cela impose un surcoût ou un retard de performance. L’orientation va dans ce sens mais reste partielle, conditionnelle ou moins ambitieuse que l’énoncé, d’où +1."
     ],
     "sources": [
       "https://lafranceinsoumise.fr/europeennes-2024/programme-de-lunion-populaire/chapitre-1-sortir-de-lausterite-et-partager-les-richesses/",
@@ -295,8 +294,9 @@ const PARTIES_DATA = [
       "https://lafranceinsoumise.fr/europeennes-2024/programme-de-lunion-populaire/chapitre-6-etendre-les-droits-et-libertes-face-aux-reactionnaires/",
       "https://www.assemblee-nationale.fr/dyn/docs/RINFANR5L16B2463.raw",
       "https://lafranceinsoumise.fr/europeennes-2024/programme-de-lunion-populaire/chapitre-6-etendre-les-droits-et-libertes-face-aux-reactionnaires/",
-      "https://lafranceinsoumise.fr/2024/01/25/immigration-le-conseil-censure-les-mesures-lepenistes-mais-conserve-la-reforme-darmanin-qui-porte-une-grave-atteinte-aux-droits-des-etrangers/",
+      "https://melenchon2027.fr/livrets-2022/migrations/",
       "https://lafranceinsoumise.fr/europeennes-2024/programme-de-lunion-populaire/chapitre-7-lutter-contre-lexil-force-et-organiser-un-accueil-coordonne/",
+      "https://lafranceinsoumise.fr/2024/01/25/immigration-le-conseil-censure-les-mesures-lepenistes-mais-conserve-la-reforme-darmanin-qui-porte-une-grave-atteinte-aux-droits-des-etrangers/",
       "https://lafranceinsoumise.fr/2024/01/25/immigration-le-conseil-censure-les-mesures-lepenistes-mais-conserve-la-reforme-darmanin-qui-porte-une-grave-atteinte-aux-droits-des-etrangers/",
       "https://lafranceinsoumise.fr/europeennes-2024/programme-de-lunion-populaire/chapitre-7-lutter-contre-lexil-force-et-organiser-un-accueil-coordonne/",
       "https://lafranceinsoumise.fr/wp-content/uploads/2024/06/Programme-nouveaufrontpopulaire.pdf",
@@ -363,12 +363,11 @@ const PARTIES_DATA = [
       "https://www.assemblee-nationale.fr/dyn/docs/PIONANR5L15B5251.raw",
       "https://lafranceinsoumise.fr/wp-content/uploads/2024/06/Programme-nouveaufrontpopulaire.pdf",
       "https://lafranceinsoumise.fr/europeennes-2024/programme-de-lunion-populaire/chapitre-6-etendre-les-droits-et-libertes-face-aux-reactionnaires/",
-      "https://lafranceinsoumise.fr/wp-content/uploads/2024/06/Programme-nouveaufrontpopulaire.pdf",
-      "https://lafranceinsoumise.fr/2023/12/19/projet-de-loi-asile-et-immigration-une-enieme-loi-degradant-la-situation-des-femmes-migrantes/"
+      "https://lafranceinsoumise.fr/wp-content/uploads/2024/06/Programme-nouveaufrontpopulaire.pdf"
     ],
     "axisScores": {
       "economy": -9.080932784636486,
-      "authority": -3.9424703891708996,
+      "authority": -3.9424703891708974,
       "europe": -4.408602150537635,
       "ecology": 8.03921568627451,
       "immigration": 8.89784946236559,
@@ -401,8 +400,9 @@ const PARTIES_DATA = [
       2,
       -2,
       0,
-      3,
+      -3,
       2,
+      3,
       3,
       -2,
       -2,
@@ -469,8 +469,7 @@ const PARTIES_DATA = [
       2,
       2,
       0,
-      2,
-      -3
+      2
     ],
     "confidence": [
       2,
@@ -494,6 +493,7 @@ const PARTIES_DATA = [
       3,
       2,
       3,
+      3,
       2,
       2,
       2,
@@ -559,7 +559,6 @@ const PARTIES_DATA = [
       3,
       2,
       3,
-      2,
       2
     ],
     "justifications": [
@@ -581,9 +580,10 @@ const PARTIES_DATA = [
       "Accord net : PCF soutient des politiques actives visant à corriger les discriminations persistantes ou structurelles au-delà de la seule égalité juridique formelle. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
       "Désaccord net : le PCF défend une décentralisation dotée de moyens et de compétences locales, mais reste attaché à l’égalité républicaine et à l’unicité des règles nationales dans les domaines sociaux essentiels ; il est donc réservé face à une différenciation normative large entre régions.",
       "Position intermédiaire : PCF valorise certaines traditions tout en défendant fortement l’évolution des droits et des modes de vie. La note 0 traduit cette combinaison plutôt qu’une absence artificielle de position.",
-      "Accord très fort : le PCF s’est opposé au report de l’ouverture des prestations non contributives pour les étrangers en situation régulière et défend l’accès aux droits sociaux sans discrimination pour ceux qui vivent, travaillent et cotisent en France. Cette ligne correspond directement à l’égalité posée par la question.",
+      "Désaccord très fort : le PCF défend l'ouverture de voies légales, des régularisations et des titres de séjour stables plutôt qu'une politique de quotas restrictifs ou de durcissement général des conditions. La proposition prend donc la direction opposée à sa ligne migratoire ; -3 est adapté.",
       "Accord net : le PCF souligne la contribution économique, fiscale et sociale positive de l’immigration, tout en refusant d’en faire le seul critère de la politique migratoire ; +2 plutôt que +3.",
-      "Accord très fort : Le PCF défend l’égalité des droits sociaux des immigrés et combat la préférence nationale ; la nouvelle formulation correspond directement à cette ligne.",
+      "Accord très fort : le PCF combat les restrictions de droits sociaux fondées sur la nationalité, y compris lorsqu'elles visent des étrangers réguliers. Il défend donc sans ambiguïté l'égalité entre deux citoyens français, que la nationalité ait été acquise par naturalisation ou à la naissance ; +3 est adapté.",
+      "Accord très fort : le PCF combat la préférence nationale et les restrictions qui subordonnent l'accès aux droits sociaux à la nationalité. Il défend l'égalité d'accès aux prestations pour les étrangers en situation régulière dès lors qu'ils remplissent les mêmes critères sociaux que les Français ; +3 est directement cohérent.",
       "Désaccord net : PCF souhaite faciliter ou maintenir des voies relativement accessibles d’acquisition de la nationalité et s’oppose à leur durcissement général. Le désaccord est net, mais tous les termes de l’énoncé ne sont pas nécessairement rejetés avec la même intensité, d’où -2.",
       "Désaccord net : le PCF critique la double peine et les expulsions automatiques après condamnation ; la mention spécifique des crimes graves empêche toutefois de retenir une opposition maximale.",
       "Désaccord net : PCF refuse de faire de l’homogénéité ou de la cohésion culturelle un motif autonome de restriction et privilégie les droits et l’intégration. Le désaccord est net, mais tous les termes de l’énoncé ne sont pas nécessairement rejetés avec la même intensité, d’où -2.",
@@ -649,8 +649,7 @@ const PARTIES_DATA = [
       "Accord net : le PCF propose explicitement d’interdire la création d’EHPAD à but lucratif et de développer un service public du grand âge ; cela va très nettement dans le sens de la sortie du lucratif, même si la transformation de tous les établissements existants est formulée différemment.",
       "Accord net : PCF défend le caractère universel des allocations familiales en fonction du nombre d’enfants et refuse leur diminution avec le revenu. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
       "Position intermédiaire : PCF soutient une forte vérification d’âge et des restrictions pour les mineurs sans aller clairement jusqu’à l’interdiction générale avant 15 ans. La note 0 traduit cette combinaison plutôt qu’une absence artificielle de position.",
-      "Accord net : PCF donne la priorité à la souveraineté numérique et à l’hébergement européen pour les systèmes d’intelligence artificielle publics, même lorsque cela impose un surcoût ou un retard de performance. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
-      "Désaccord très fort : le PCF critique les obstacles au renouvellement des titres et défend des voies de régularisation et des titres plus stables. La ligne publiée va clairement à l’inverse d’un durcissement général, même si toutes les catégories de titres ne sont pas détaillées dans une proposition unique."
+      "Accord net : PCF donne la priorité à la souveraineté numérique et à l’hébergement européen pour les systèmes d’intelligence artificielle publics, même lorsque cela impose un surcoût ou un retard de performance. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2."
     ],
     "sources": [
       "https://www.pcf.fr/le_programme",
@@ -671,9 +670,10 @@ const PARTIES_DATA = [
       "https://www.pcf.fr/pacte_2025_republique",
       "https://www.pcf.fr/pacte_2025_republique",
       "https://www.pcf.fr/pacte_2025_republique",
-      "https://www.pcf.fr/loi_immigration_sort_etudiants_etrangers_sur_la_table",
+      "https://www.pcf.fr/mediapart_la_gauche_et_l_immigration_les_r_ponses_et_propositions_du_pcf",
       "https://www.pcf.fr/immigration_est_un_enjeu_de_classe",
-      "https://www.pcf.fr/immigration_est_un_enjeu_de_classe",
+      "https://www.pcf.fr/immigration_une_loi_r_actionnaire_et_cruelle",
+      "https://www.pcf.fr/immigration_une_loi_r_actionnaire_et_cruelle",
       "https://www.pcf.fr/pacte_2025_republique",
       "https://www.pcf.fr/immigration_est_un_enjeu_de_classe",
       "https://www.pcf.fr/pacte_2025_republique",
@@ -739,18 +739,17 @@ const PARTIES_DATA = [
       "https://www.pcf.fr/contrat_de_legislature_projet_propos_par_le_pcf",
       "https://www.pcf.fr/municipales_2026_le_programme",
       "https://www.pcf.fr/pacte_2025_republique",
-      "https://www.pcf.fr/municipales_2026_le_programme",
-      "https://www.pcf.fr/mediapart_la_gauche_et_l_immigration_les_r_ponses_et_propositions_du_pcf"
+      "https://www.pcf.fr/municipales_2026_le_programme"
     ],
     "axisScores": {
       "economy": -9.218106995884773,
-      "authority": -2.791878172588834,
+      "authority": -2.791878172588833,
       "europe": -4.731182795698924,
       "ecology": 5.686274509803923,
       "immigration": 8.440860215053764,
       "democracy": 6.581196581196582
     },
-    "averageConfidence": 2.2954545454545454
+    "averageConfidence": 2.3068181818181817
   },
   {
     "id": "les-ecologistes",
@@ -777,8 +776,9 @@ const PARTIES_DATA = [
       3,
       3,
       -2,
-      3,
+      -3,
       2,
+      3,
       3,
       -3,
       -2,
@@ -845,8 +845,7 @@ const PARTIES_DATA = [
       1,
       0,
       1,
-      2,
-      -3
+      2
     ],
     "confidence": [
       2,
@@ -871,6 +870,7 @@ const PARTIES_DATA = [
       2,
       3,
       3,
+      3,
       2,
       2,
       3,
@@ -934,7 +934,6 @@ const PARTIES_DATA = [
       3,
       2,
       1,
-      3,
       3,
       3
     ],
@@ -957,9 +956,10 @@ const PARTIES_DATA = [
       "Accord très fort : Les Écologistes soutient des politiques actives visant à corriger les discriminations persistantes ou structurelles au-delà de la seule égalité juridique formelle. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
       "Accord très fort : Les Écologistes défendent un fédéralisme différencié, le principe de subsidiarité ainsi qu’une autonomie réglementaire et fiscale accrue des territoires ; la proposition correspond directement à leur modèle institutionnel.",
       "Désaccord net : Les Écologistes privilégie l’évolution des normes sociales et l’autonomie individuelle et refuse que la tradition constitue en elle-même un motif pour ralentir le changement. Le désaccord est net, mais tous les termes de l’énoncé ne sont pas nécessairement rejetés avec la même intensité, d’où -2.",
-      "Accord très fort : Les Écologistes ont combattu les délais de résidence supplémentaires imposés aux étrangers pour les APL, les prestations familiales et d’autres aides, qu’ils rattachent à une logique de préférence nationale. Leur position soutient donc directement l’égalité d’accès à situation comparable.",
+      "Désaccord très fort : Les Écologistes proposent des voies de migration légales, la régularisation de plusieurs catégories et un accès plus stable au séjour. Ils ne font pas du plafonnement des titres ni de leur durcissement un objectif ; la proposition est directement contraire à cette orientation, d'où -3.",
       "Accord net : Les Écologistes considère la main-d’œuvre immigrée comme utile à la croissance, aux secteurs en pénurie ou aux finances publiques et soutient une immigration économique organisée. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
-      "Accord très fort : Les Écologistes s’opposent explicitement à la préférence nationale dans l’accès aux prestations et défendent l’égalité des droits des résidents réguliers.",
+      "Accord très fort : Les Écologistes défendent une protection sociale sans discrimination et refusent déjà les différences de droits fondées sur la nationalité pour les résidents réguliers. L'égalité entre Français naturalisés et Français de naissance est donc pleinement cohérente avec leur programme ; +3 est adapté.",
+      "Accord très fort : le programme écologiste ouvre la protection sociale à toutes et tous sans discrimination et rejette les restrictions de prestations fondées sur la nationalité ou une longue durée de résidence. L'égalité d'accès pour les titulaires d'un séjour régulier correspond donc directement à la ligne publiée ; +3 est adapté.",
       "Désaccord très fort : Les Écologistes souhaite faciliter ou maintenir des voies relativement accessibles d’acquisition de la nationalité et s’oppose à leur durcissement général. Cette position est presque entièrement opposée à l’arbitrage posé, ce qui justifie -3.",
       "Désaccord net : Les Écologistes s’opposent à la généralisation des expulsions et à la logique de double peine, y compris après condamnation, sans exclure toute mesure individuelle dans les cas les plus graves : -2.",
       "Désaccord très fort : Les Écologistes refuse de faire de l’homogénéité ou de la cohésion culturelle un motif autonome de restriction et privilégie les droits et l’intégration. Cette position est presque entièrement opposée à l’arbitrage posé, ce qui justifie -3.",
@@ -1025,8 +1025,7 @@ const PARTIES_DATA = [
       "Accord modéré : Les Écologistes veulent développer les EHPAD publics et non lucratifs, mais ne proposent pas clairement d'interdire tous les EHPAD privés lucratifs existants ni de les convertir.",
       "Position intermédiaire : Les Écologistes combine une composante universelle et des prestations familiales sous conditions de ressources sans position nette sur une allocation entièrement universelle. La note 0 traduit cette combinaison plutôt qu’une absence artificielle de position.",
       "Accord modéré : Les Écologistes soutient une interdiction d’accès aux réseaux sociaux pour les moins de 15 ans qui s’applique même lorsque les parents donnent leur accord. L’orientation va dans ce sens mais reste partielle, conditionnelle ou moins ambitieuse que l’énoncé, d’où +1.",
-      "Accord net : Les Écologistes donne la priorité à la souveraineté numérique et à l’hébergement européen pour les systèmes d’intelligence artificielle publics, même lorsque cela impose un surcoût ou un retard de performance. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
-      "Désaccord très fort : Les Écologistes demandent l’abrogation des durcissements du droit au séjour, défendent des voies légales et sûres et veulent un système administratif stable qui ne fasse pas obstacle aux étudiants, aux personnes malades ou à celles pouvant être régularisées. Cette orientation est directement opposée à l’énoncé."
+      "Accord net : Les Écologistes donne la priorité à la souveraineté numérique et à l’hébergement européen pour les systèmes d’intelligence artificielle publics, même lorsque cela impose un surcoût ou un retard de performance. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2."
     ],
     "sources": [
       "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf",
@@ -1047,9 +1046,10 @@ const PARTIES_DATA = [
       "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf",
       "https://lesecologistes.fr/pages/6930DbJUnKbVCve3jxr595/v-la-republique-partout-et-pour-tou-te-s-organiser-le-partage-reel-des-pouvoirs",
       "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf",
-      "https://lesecologistes.fr/document/2CFCTwHsIKciaXk96zZf53/24-01-face-a-la-loi-immigration.pdf",
       "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf",
-      "https://lesecologistes.fr/pages/358vv7W974UgosGhCBbIPT/notre-projet",
+      "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf",
+      "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf",
+      "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf",
       "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf",
       "https://lesecologistes.fr/pages/358vv7W974UgosGhCBbIPT/notre-projet",
       "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf",
@@ -1115,12 +1115,11 @@ const PARTIES_DATA = [
       "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf",
       "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf",
       "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf",
-      "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf",
-      "https://lesecologistes.fr/document/2CFCTwHsIKciaXk96zZf53/24-01-face-a-la-loi-immigration.pdf"
+      "https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf"
     ],
     "axisScores": {
       "economy": -7.873799725651575,
-      "authority": -3.2994923857868024,
+      "authority": -3.299492385786802,
       "europe": 9.35483870967742,
       "ecology": 9.058823529411764,
       "immigration": 9.032258064516128,
@@ -1153,8 +1152,9 @@ const PARTIES_DATA = [
       3,
       2,
       -1,
-      3,
+      -2,
       2,
+      3,
       3,
       -2,
       -2,
@@ -1221,8 +1221,7 @@ const PARTIES_DATA = [
       -1,
       -2,
       1,
-      2,
-      -3
+      2
     ],
     "confidence": [
       2,
@@ -1246,6 +1245,7 @@ const PARTIES_DATA = [
       3,
       2,
       3,
+      3,
       2,
       2,
       2,
@@ -1311,8 +1311,7 @@ const PARTIES_DATA = [
       3,
       2,
       3,
-      2,
-      3
+      2
     ],
     "justifications": [
       "Désaccord net : PS privilégie le financement des services publics et de la protection sociale et refuse de faire dépendre une baisse générale des prélèvements de coupes dans ces dépenses. Le désaccord est net, mais tous les termes de l’énoncé ne sont pas nécessairement rejetés avec la même intensité, d’où -2.",
@@ -1333,9 +1332,10 @@ const PARTIES_DATA = [
       "Accord très fort : PS soutient des politiques actives visant à corriger les discriminations persistantes ou structurelles au-delà de la seule égalité juridique formelle. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
       "Accord net : le PS se déclare favorable à une plus grande différenciation territoriale et à des adaptations normatives locales, tout en maintenant un socle national d’égalité et un encadrement par la loi.",
       "Désaccord modéré : PS privilégie l’évolution des normes sociales et l’autonomie individuelle et refuse que la tradition constitue en elle-même un motif pour ralentir le changement. La réserve est réelle mais partielle ou insuffisamment générale pour retenir un désaccord plus fort, d’où -1.",
-      "Accord très fort : le PS combat explicitement la préférence nationale consistant à conditionner les prestations sociales à cinq années de résidence et invoque le principe d’égalité. La position publiée correspond directement à l’accès aux mêmes prestations à situation comparable.",
+      "Désaccord net : le projet socialiste refuse une « logique du chiffre », veut créer davantage de voies légales et faciliter le titre de séjour des personnes qui travaillent durablement en France. Le PS conserve toutefois des conditions de séjour et une politique de maîtrise organisée des flux ; le désaccord avec un durcissement général est donc net mais non absolu, d'où -2.",
       "Accord net : PS considère la main-d’œuvre immigrée comme utile à la croissance, aux secteurs en pénurie ou aux finances publiques et soutient une immigration économique organisée. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
-      "Accord très fort : Le PS combat explicitement la préférence nationale dans l’accès aux prestations sociales et à l’hébergement ; après installation durable, il défend l’égalité de traitement.",
+      "Accord très fort : le PS s'oppose explicitement à la préférence nationale et défend l'égalité des droits sociaux. Une personne naturalisée étant française à part entière, le parti ne soutient aucune priorité liée au fait d'être Français de naissance ; la proposition correspond directement à sa ligne, d'où +3.",
+      "Accord très fort : le PS combat explicitement la préférence nationale et les délais de carence visant les étrangers en situation régulière. Il défend l'accès aux prestations selon les critères sociaux de droit commun plutôt que selon la nationalité ; la proposition correspond directement à cette ligne, d'où +3.",
       "Désaccord net : PS souhaite faciliter ou maintenir des voies relativement accessibles d’acquisition de la nationalité et s’oppose à leur durcissement général. Le désaccord est net, mais tous les termes de l’énoncé ne sont pas nécessairement rejetés avec la même intensité, d’où -2.",
       "Désaccord net : PS refuse une politique générale d’expulsion renforcée des étrangers condamnés et insiste sur l’individualisation des peines et l’interdiction de la double peine. Le désaccord est net, mais tous les termes de l’énoncé ne sont pas nécessairement rejetés avec la même intensité, d’où -2.",
       "Désaccord net : PS refuse de faire de l’homogénéité ou de la cohésion culturelle un motif autonome de restriction et privilégie les droits et l’intégration. Le désaccord est net, mais tous les termes de l’énoncé ne sont pas nécessairement rejetés avec la même intensité, d’où -2.",
@@ -1401,8 +1401,7 @@ const PARTIES_DATA = [
       "Réserve modérée : les socialistes veulent encadrer et taxer les profits excessifs des EHPAD lucratifs et conditionner davantage les financements publics, mais leurs propositions n'interdisent pas aux opérateurs privés lucratifs de continuer à gérer des établissements. La disparition progressive de tout EHPAD lucratif va donc plus loin que leur position actuelle.",
       "Désaccord net : PS privilégie le ciblage des prestations familiales vers les ménages modestes et accepte leur réduction ou modulation lorsque les revenus augmentent. Le désaccord est net, mais tous les termes de l’énoncé ne sont pas nécessairement rejetés avec la même intensité, d’où -2.",
       "Accord modéré : PS soutient une interdiction d’accès aux réseaux sociaux pour les moins de 15 ans qui s’applique même lorsque les parents donnent leur accord. L’orientation va dans ce sens mais reste partielle, conditionnelle ou moins ambitieuse que l’énoncé, d’où +1.",
-      "Accord net : PS donne la priorité à la souveraineté numérique et à l’hébergement européen pour les systèmes d’intelligence artificielle publics, même lorsque cela impose un surcoût ou un retard de performance. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
-      "Désaccord très fort : le projet socialiste propose un titre de séjour après six mois de contrat de travail, davantage de voies légales et le renouvellement automatique des titres de longue durée. Il veut donc faciliter et sécuriser le séjour plutôt qu’en rendre globalement les conditions plus exigeantes."
+      "Accord net : PS donne la priorité à la souveraineté numérique et à l’hébergement européen pour les systèmes d’intelligence artificielle publics, même lorsque cela impose un surcoût ou un retard de performance. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2."
     ],
     "sources": [
       "https://projet-socialiste.fr/projet/vivre-libres/",
@@ -1423,8 +1422,9 @@ const PARTIES_DATA = [
       "https://projet-socialiste.fr/projet/refaire-societe/",
       "https://www.assemblee-nationale.fr/dyn/docs/RINFANR5L16B2463.raw",
       "https://projet-socialiste.fr/projet/refaire-societe/",
-      "https://parti-socialiste.fr/vie-parlementaire/contre-la-preference-nationale-nous-continuons-le-combat-non-au-rip-de-la-honte/",
       "https://projet-socialiste.fr/projet/refaire-societe/",
+      "https://projet-socialiste.fr/projet/refaire-societe/",
+      "https://www.parti-socialiste.fr/contre_la_preference_nationale_nous_continuons_le_combat_non_au_rip_de_la_honte",
       "https://www.parti-socialiste.fr/contre_la_preference_nationale_nous_continuons_le_combat_non_au_rip_de_la_honte",
       "https://projet-socialiste.fr/projet/refaire-societe/",
       "https://projet-socialiste.fr/projet/refaire-societe/",
@@ -1491,15 +1491,14 @@ const PARTIES_DATA = [
       "https://www.senat.fr/cra/s20241017/s20241017_2.html",
       "https://projet-socialiste.fr/projet/vivre-libres/",
       "https://projet-socialiste.fr/projet/refaire-societe/",
-      "https://projet-socialiste.fr/projet/vivre-libres/",
-      "https://projet-socialiste.fr/projet/refaire-societe/"
+      "https://projet-socialiste.fr/projet/vivre-libres/"
     ],
     "axisScores": {
       "economy": -6.2139917695473255,
-      "authority": -2.419627749576989,
+      "authority": -2.3857868020304576,
       "europe": 9.35483870967742,
       "ecology": 6.9411764705882355,
-      "immigration": 7.338709677419356,
+      "immigration": 7.069892473118281,
       "democracy": 4.188034188034188
     },
     "averageConfidence": 2.1704545454545454
@@ -1529,9 +1528,10 @@ const PARTIES_DATA = [
       2,
       2,
       1,
-      1,
+      3,
       2,
-      2,
+      3,
+      -1,
       1,
       3,
       1,
@@ -1597,7 +1597,6 @@ const PARTIES_DATA = [
       -1,
       -2,
       3,
-      2,
       2
     ],
     "confidence": [
@@ -1619,6 +1618,7 @@ const PARTIES_DATA = [
       2,
       3,
       2,
+      3,
       2,
       2,
       2,
@@ -1686,7 +1686,6 @@ const PARTIES_DATA = [
       3,
       1,
       2,
-      3,
       3,
       3
     ],
@@ -1709,9 +1708,10 @@ const PARTIES_DATA = [
       "Accord net : la charte de Renaissance affirme que le parti combat les inégalités de naissance et de statut, les discriminations et les plafonds de verre, et cherche activement à renforcer l’égalité entre les femmes et les hommes. Il ne se limite donc pas à l’égalité juridique formelle, même si son approche reste universaliste plutôt que fondée sur des droits différenciés entre groupes.",
       "Accord net : Renaissance accepte la différenciation territoriale dans le respect du principe d’égalité et souhaite laisser davantage de place au pouvoir réglementaire local pour adapter l’application des politiques publiques.",
       "Accord modéré : Renaissance affirme vouloir « chérir, protéger et transmettre » l’histoire, la culture, la langue, le patrimoine et les paysages français. Cette volonté de transmission donne un poids réel aux traditions, mais le parti défend parallèlement le progrès social et l’évolution des droits ; il ne place donc pas la tradition au-dessus du changement de société.",
-      "Accord modéré : la convention régalienne de Renaissance propose de faire cesser toute prestation sociale à l’expiration du titre de séjour, ce qui réserve cette sanction à l’absence de titre valide. Le document ne demande toutefois pas explicitement une égalité immédiate pour toutes les prestations et toutes les catégories de titres ; l’accord reste donc limité.",
+      "Accord très fort : la convention régalienne de Renaissance propose de piloter les entrées par des quotas et un système à points, de durcir le regroupement familial et de contrôler chaque année le maintien des conditions du titre étudiant. Ces mesures restreignent directement certains titres et en rendent l'obtention ou le renouvellement plus exigeants ; +3 est adapté.",
       "Accord net : Renaissance propose explicitement de développer des filières d’immigration économique choisie en fonction des besoins de l’économie et des compétences recherchées. Le parti considère donc cette immigration comme utile lorsqu’elle est pilotée et intégrée, sans affirmer pour autant que toute immigration économique est bénéfique quelles que soient les conditions.",
-      "Accord net : Renaissance refuse une préférence durable fondée sur la nationalité pour les prestations et le logement social une fois qu’un étranger est légalement et durablement installé. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
+      "Accord très fort : les restrictions proposées par Renaissance portent sur les étrangers, les titres de séjour ou les conditions d'accès à la nationalité, pas sur les droits sociaux d'une personne une fois devenue française. Le parti ne propose aucune distinction entre Français naturalisés et Français de naissance ; +3 est donc le codage cohérent, avec une confiance limitée à 2 faute de passage consacré précisément à ce cas.",
+      "Désaccord modéré : Renaissance conserve des conditions liées à la durée de résidence, au statut et à l'intégration pour certaines prestations et veut interrompre les droits dès l'expiration du titre. Le parti ne défend pas une préférence nationale permanente et maintient de nombreux droits pour les résidents réguliers, mais il n'endosse pas l'égalité immédiate pour tout type de titre de séjour ; -1 traduit cette distinction.",
       "Accord modéré : Renaissance veut renforcer les exigences de langue, d’intégration et de respect des règles pour l’installation durable, mais sa convention régalienne réaffirme son attachement au droit du sol en métropole. La ligne est donc plus exigeante sur l’intégration sans remettre en cause l’ensemble des voies actuelles d’accès à la nationalité.",
       "Accord très fort : Renaissance propose d’accélérer l’expulsion des étrangers condamnés pour des actes criminels ou appartenant à une organisation criminelle, d’allonger la durée de rétention et d’assortir davantage de condamnations d’interdictions du territoire. La position correspond directement à un durcissement marqué envers les étrangers condamnés pour des faits graves.",
       "Accord modéré : Renaissance affirme que l’immigration ne peut fonctionner que si le pays d’accueil peut offrir des opportunités aux nouveaux arrivants sans dégrader celles de ses propres citoyens, et insiste sur l’intégration au cadre républicain. Le parti ne formule toutefois pas la limitation de l’immigration principalement comme un moyen de préserver une homogénéité culturelle : +1 reste prudent.",
@@ -1777,8 +1777,7 @@ const PARTIES_DATA = [
       "Réserve modérée : Renaissance veut renforcer la qualité, le contrôle et l’accessibilité de la prise en charge du grand âge, mais ne propose pas d’interdire aux groupes privés lucratifs de gérer des EHPAD ni de convertir progressivement tous les établissements existants au public ou au non-lucratif. Sa ligne va donc plutôt contre l’interdiction générale, sans défendre pour autant un secteur sans régulation.",
       "Désaccord net : la politique familiale défendue par le bloc central conserve une modulation de plusieurs prestations selon les revenus afin de cibler davantage l’aide vers les ménages qui en ont le plus besoin. Cela s’oppose au versement d’un montant identique d’allocations familiales indépendamment du revenu, même si Renaissance reste attaché à une protection familiale large.",
       "Accord très fort : la convention régalienne de Renaissance propose explicitement d’interdire réellement l’accès aux écrans ou réseaux sociaux aux moins de 15 ans et prévoit des restrictions supplémentaires pour les 15-18 ans. La mesure vise bien une interdiction liée à l’âge et ne dépend pas d’une simple autorisation parentale.",
-      "Accord net : Renaissance fait de la souveraineté numérique française et européenne un objectif stratégique et veut investir massivement dans l’intelligence artificielle et les infrastructures européennes. Cette priorité peut justifier de préférer un hébergement européen dans l’administration, mais le parti conserve aussi une forte exigence de performance et ne formule pas un choix automatique quel qu’en soit le surcoût ; +2.",
-      "Accord net : Renaissance propose une admission par points, des quotas selon les besoins, un contrôle annuel des études et des règles plus strictes pour le regroupement familial. Le parti veut parallèlement simplifier le renouvellement des titres des étrangers qui travaillent régulièrement ; ce volet empêche un accord maximal avec un durcissement uniforme."
+      "Accord net : Renaissance fait de la souveraineté numérique française et européenne un objectif stratégique et veut investir massivement dans l’intelligence artificielle et les infrastructures européennes. Cette priorité peut justifier de préférer un hébergement européen dans l’administration, mais le parti conserve aussi une forte exigence de performance et ne formule pas un choix automatique quel qu’en soit le surcoût ; +2."
     ],
     "sources": [
       "https://doc.parti.re/Conventions-thematiques_Nouvelle-donne.pdf",
@@ -1799,6 +1798,7 @@ const PARTIES_DATA = [
       "https://parti-renaissance.fr/",
       "https://www.assemblee-nationale.fr/dyn/docs/RINFANR5L16B2463.raw",
       "https://parti-renaissance.fr/",
+      "https://doc.parti.re/conventions/Restitution-Regalien-Une-Republique-ferme-une-France-apaisee.pdf",
       "https://doc.parti.re/conventions/Restitution-Regalien-Une-Republique-ferme-une-France-apaisee.pdf",
       "https://doc.parti.re/conventions/Restitution-Regalien-Une-Republique-ferme-une-France-apaisee.pdf",
       "https://doc.parti.re/conventions/Restitution-Regalien-Une-Republique-ferme-une-France-apaisee.pdf",
@@ -1867,15 +1867,14 @@ const PARTIES_DATA = [
       "https://parti-renaissance.fr/",
       "https://parti-renaissance.fr/",
       "https://doc.parti.re/conventions/Restitution-Regalien-Une-Republique-ferme-une-France-apaisee.pdf",
-      "https://doc.parti.re/Conventions-thematiques_Nouvelle-donne.pdf",
-      "https://doc.parti.re/conventions/Restitution-Regalien-Une-Republique-ferme-une-France-apaisee.pdf"
+      "https://doc.parti.re/Conventions-thematiques_Nouvelle-donne.pdf"
     ],
     "axisScores": {
       "economy": 2.880658436213992,
-      "authority": 1.7428087986463632,
+      "authority": 1.7766497461928943,
       "europe": 8.172043010752688,
       "ecology": 1.9607843137254906,
-      "immigration": -0.5107526881720428,
+      "immigration": -1.0483870967741935,
       "democracy": -2.264957264957265
     },
     "averageConfidence": 2.1704545454545454
@@ -1905,9 +1904,10 @@ const PARTIES_DATA = [
       2,
       1,
       1,
+      1,
+      2,
+      3,
       0,
-      2,
-      2,
       0,
       2,
       2,
@@ -1973,7 +1973,6 @@ const PARTIES_DATA = [
       0,
       2,
       3,
-      2,
       2
     ],
     "confidence": [
@@ -1995,9 +1994,10 @@ const PARTIES_DATA = [
       2,
       3,
       2,
+      2,
+      2,
+      2,
       1,
-      2,
-      2,
       2,
       2,
       2,
@@ -2063,7 +2063,6 @@ const PARTIES_DATA = [
       1,
       1,
       3,
-      2,
       2
     ],
     "justifications": [
@@ -2085,9 +2084,10 @@ const PARTIES_DATA = [
       "Accord net : MoDem soutient des politiques actives visant à corriger les discriminations persistantes ou structurelles au-delà de la seule égalité juridique formelle. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
       "Accord modéré : MoDem accepte une différenciation territoriale importante et davantage de pouvoir normatif local ou régional dans des domaines économiques, sociaux ou environnementaux. L’orientation va dans ce sens mais reste partielle, conditionnelle ou moins ambitieuse que l’énoncé, d’où +1.",
       "Accord modéré : MoDem accorde une valeur politique à la transmission du patrimoine culturel, des traditions ou d’un cadre commun même lorsque ces références évoluent lentement. L’orientation va dans ce sens mais reste partielle, conditionnelle ou moins ambitieuse que l’énoncé, d’où +1.",
-      "Position intermédiaire : François Bayrou refuse que l’accès aux soins indispensables dépende du passeport, mais il ne se prononce pas clairement sur une égalité immédiate pour l’ensemble des prestations sociales. Il lie par ailleurs le séjour régulier au travail, à la langue et au respect des principes communs ; la source ne permet donc pas de trancher davantage.",
+      "Accord modéré : François Bayrou souhaite réguler l'immigration et lie la régularité puis la durée du séjour au travail, à la maîtrise du français et au respect des principes communs. Il ne propose toutefois ni plafond général de titres ni durcissement uniforme de toutes les catégories ; +1 est plus précis qu'un accord fort.",
       "Accord net : MoDem considère la main-d’œuvre immigrée comme utile à la croissance, aux secteurs en pénurie ou aux finances publiques et soutient une immigration économique organisée. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
-      "Accord net : MoDem refuse une préférence durable fondée sur la nationalité pour les prestations et le logement social une fois qu’un étranger est légalement et durablement installé. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
+      "Accord très fort : le MoDem rattache la citoyenneté à l'égalité des droits et ne propose pas de distinguer les Français selon le mode d'acquisition de leur nationalité. Ses conditions d'intégration interviennent avant l'accès à la nationalité ; une fois naturalisée, la personne relève des mêmes droits sociaux, d'où +3 avec une confiance documentaire de 2.",
+      "Position intermédiaire : le MoDem défend une solidarité attachée à la résidence régulière et refuse que les soins indispensables dépendent du passeport, tout en acceptant des conditions de séjour, d'activité ou d'intégration pour l'accès à certains droits. Aucune position actuelle ne tranche l'égalité immédiate pour l'ensemble des prestations et des titres ; 0 est le codage le plus prudent.",
       "Position intermédiaire : MoDem maintient des critères d’intégration substantiels sans chercher clairement à les durcir ou à les assouplir. La note 0 traduit cette combinaison plutôt qu’une absence artificielle de position.",
       "Accord net : MoDem veut faciliter et accélérer l’éloignement des étrangers condamnés pour des crimes graves et lever plusieurs obstacles pratiques ou juridiques aux expulsions. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
       "Accord net : François Bayrou défend un accueil proportionné et estime que des flux trop importants peuvent déstabiliser les repères et la cohésion d’une communauté, sans faire de la fermeture culturelle un principe absolu.",
@@ -2153,8 +2153,7 @@ const PARTIES_DATA = [
       "Position intermédiaire : MoDem veut fortement encadrer ou taxer le lucratif dans les EHPAD sans demander clairement sa disparition progressive. La note 0 traduit cette combinaison plutôt qu’une absence artificielle de position.",
       "Accord net : MoDem défend le caractère universel des allocations familiales en fonction du nombre d’enfants et refuse leur diminution avec le revenu. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
       "Accord très fort : MoDem soutient une interdiction d’accès aux réseaux sociaux pour les moins de 15 ans qui s’applique même lorsque les parents donnent leur accord. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
-      "Accord net : MoDem donne la priorité à la souveraineté numérique et à l’hébergement européen pour les systèmes d’intelligence artificielle publics, même lorsque cela impose un surcoût ou un retard de performance. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
-      "Accord net : François Bayrou présente le travail, la maîtrise du français et l’adhésion aux principes communs comme des obligations ouvrant la voie à la régularité du séjour. Cette conception soutient des conditions exigeantes, sans préciser un durcissement identique pour chaque type de titre ou chaque renouvellement."
+      "Accord net : MoDem donne la priorité à la souveraineté numérique et à l’hébergement européen pour les systèmes d’intelligence artificielle publics, même lorsque cela impose un surcoût ou un retard de performance. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2."
     ],
     "sources": [
       "https://www.mouvementdemocrate.fr/programme/propositions-2441",
@@ -2177,7 +2176,8 @@ const PARTIES_DATA = [
       "https://www.mouvementdemocrate.fr/mouvement-d%C3%A9mocrate/europe-2312",
       "https://www.mouvementdemocrate.fr/actualites/francois-bayrou-notre-desordre-politique-rend-la-france-faible-video-7531-video",
       "https://www.mouvementdemocrate.fr/node/2315",
-      "https://www.mouvementdemocrate.fr/node/2315",
+      "https://www.mouvementdemocrate.fr/actualites/francois-bayrou-notre-desordre-politique-rend-la-france-faible-video-7531-video",
+      "https://www.mouvementdemocrate.fr/actualites/francois-bayrou-notre-desordre-politique-rend-la-france-faible-video-7531-video",
       "https://www.mouvementdemocrate.fr/node/2315",
       "https://www.mouvementdemocrate.fr/node/2315",
       "https://www.mouvementdemocrate.fr/node/2315",
@@ -2243,15 +2243,14 @@ const PARTIES_DATA = [
       "https://www.mouvementdemocrate.fr/programme/propositions-2445",
       "https://www.mouvementdemocrate.fr/programme/propositions-2445",
       "https://www.mouvementdemocrate.fr/mouvement-d%C3%A9mocrate/europe-2312",
-      "https://www.mouvementdemocrate.fr/programme/propositions-2445",
-      "https://www.mouvementdemocrate.fr/actualites/francois-bayrou-notre-desordre-politique-rend-la-france-faible-video-7531-video"
+      "https://www.mouvementdemocrate.fr/programme/propositions-2445"
     ],
     "axisScores": {
       "economy": 0.46639231824417005,
-      "authority": 1.4213197969543152,
+      "authority": 1.3874788494077839,
       "europe": 7.741935483870967,
       "ecology": 4.313725490196078,
-      "immigration": -0.48387096774193544,
+      "immigration": 0.053763440860215096,
       "democracy": -0.47008547008547025
     },
     "averageConfidence": 1.9659090909090908
@@ -2281,9 +2280,10 @@ const PARTIES_DATA = [
       1,
       2,
       2,
+      3,
+      2,
+      3,
       1,
-      2,
-      2,
       1,
       3,
       2,
@@ -2349,7 +2349,6 @@ const PARTIES_DATA = [
       -2,
       1,
       3,
-      2,
       2
     ],
     "confidence": [
@@ -2371,6 +2370,7 @@ const PARTIES_DATA = [
       2,
       3,
       2,
+      3,
       2,
       2,
       2,
@@ -2439,8 +2439,7 @@ const PARTIES_DATA = [
       1,
       1,
       3,
-      2,
-      3
+      2
     ],
     "justifications": [
       "Accord très fort : Horizons privilégie la baisse des prélèvements sur le travail et le capital et accepte de rechercher en contrepartie des économies dans la dépense publique. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
@@ -2461,9 +2460,10 @@ const PARTIES_DATA = [
       "Accord modéré : Horizons soutient des politiques actives visant à corriger les discriminations persistantes ou structurelles au-delà de la seule égalité juridique formelle. L’orientation va dans ce sens mais reste partielle, conditionnelle ou moins ambitieuse que l’énoncé, d’où +1.",
       "Accord net : les députés Horizons ayant participé au rapport sur la décentralisation jugent important de renforcer le pouvoir réglementaire des collectivités au nom de la subsidiarité, même s’ils insistent particulièrement sur l’échelon communal.",
       "Accord net : Horizons accorde une valeur politique à la transmission du patrimoine culturel, des traditions ou d’un cadre commun même lorsque ces références évoluent lentement. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
-      "Accord modéré : Horizons propose de supprimer les aides sociales aux étrangers délinquants, et non à tous les titulaires d’un titre, tout en voulant mieux intégrer ceux qui ont le droit de résider en France. Cela écarte une exclusion générale fondée sur la nationalité, mais le parti ne formule pas une égalité immédiate pour toutes les prestations ; +1 reste prudent.",
+      "Accord très fort : Horizons propose des quotas migratoires, un durcissement du regroupement familial et une sélection plus exigeante des admissions selon le travail, la langue et les capacités d'intégration. La restriction du nombre de titres ou de leurs conditions est donc un instrument central de sa politique ; +3 est adapté.",
       "Accord net : Horizons considère la main-d’œuvre immigrée comme utile à la croissance, aux secteurs en pénurie ou aux finances publiques et soutient une immigration économique organisée. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
-      "Accord net : Horizons défend une immigration plus maîtrisée et des conditions d’intégration, sans proposer de préférence nationale permanente pour les résidents légaux installés de longue date.",
+      "Accord très fort : Horizons veut durcir l'admission, l'intégration et certaines règles applicables aux étrangers, mais ne propose aucune catégorie sociale inférieure pour les citoyens naturalisés. Après acquisition de la nationalité, Français naturalisés et Français de naissance sont placés dans la même catégorie de droits ; +3 est adapté, avec une confiance de 2 car cette égalité est implicite.",
+      "Accord modéré : le programme d'Horizons cible la suppression des aides sur les étrangers délinquants, mais ne propose pas de priver en général les autres titulaires d'un séjour régulier des prestations de droit commun. L'égalité est donc largement compatible avec sa ligne pour les résidents respectant les règles, sans engagement explicite couvrant tout titre et toute prestation ; +1 reste prudent.",
       "Accord modéré : Horizons veut renforcer les critères de résidence, de langue, d’intégration ou d’adhésion civique nécessaires à l’obtention de la nationalité. L’orientation va dans ce sens mais reste partielle, conditionnelle ou moins ambitieuse que l’énoncé, d’où +1.",
       "Accord très fort : Horizons veut faciliter et accélérer l’éloignement des étrangers condamnés pour des crimes graves et lever plusieurs obstacles pratiques ou juridiques aux expulsions. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
       "Accord net : Horizons considère que la capacité d’intégration et la cohésion culturelle peuvent justifier de limiter certains flux même lorsque ceux-ci ont une utilité économique. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
@@ -2529,8 +2529,7 @@ const PARTIES_DATA = [
       "Désaccord net : Horizons accepte durablement la présence d’opérateurs privés lucratifs dans les EHPAD, éventuellement sous davantage de contrôle et de transparence. Le désaccord est net, mais tous les termes de l’énoncé ne sont pas nécessairement rejetés avec la même intensité, d’où -2.",
       "Accord modéré : Horizons défend le caractère universel des allocations familiales en fonction du nombre d’enfants et refuse leur diminution avec le revenu. L’orientation va dans ce sens mais reste partielle, conditionnelle ou moins ambitieuse que l’énoncé, d’où +1.",
       "Accord très fort : Horizons soutient une interdiction d’accès aux réseaux sociaux pour les moins de 15 ans qui s’applique même lorsque les parents donnent leur accord. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
-      "Accord net : Horizons donne la priorité à la souveraineté numérique et à l’hébergement européen pour les systèmes d’intelligence artificielle publics, même lorsque cela impose un surcoût ou un retard de performance. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
-      "Accord net : Horizons veut choisir davantage qui entre et réside en France, restreindre l’immigration familiale, instaurer des quotas et renforcer l’intégration par la langue, le travail et les valeurs républicaines. La ligne va clairement vers des conditions plus exigeantes, tout en maintenant une immigration économique choisie."
+      "Accord net : Horizons donne la priorité à la souveraineté numérique et à l’hébergement européen pour les systèmes d’intelligence artificielle publics, même lorsque cela impose un surcoût ou un retard de performance. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2."
     ],
     "sources": [
       "https://horizonsleparti.fr/le-manifeste/",
@@ -2553,7 +2552,8 @@ const PARTIES_DATA = [
       "https://horizonsleparti.fr/le-manifeste/",
       "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure",
       "https://horizonsleparti.fr/le-manifeste/",
-      "https://horizonsleparti.fr/le-manifeste/",
+      "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure",
+      "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure",
       "https://horizonsleparti.fr/le-manifeste/",
       "https://horizonsleparti.fr/le-manifeste/",
       "https://horizonsleparti.fr/le-manifeste/",
@@ -2619,12 +2619,11 @@ const PARTIES_DATA = [
       "https://horizonsleparti.fr/demande-de-documents/",
       "https://horizonsleparti.fr/demande-de-documents/",
       "https://horizonsleparti.fr/le-manifeste/",
-      "https://horizonsleparti.fr/demande-de-documents/",
-      "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure"
+      "https://horizonsleparti.fr/demande-de-documents/"
     ],
     "axisScores": {
       "economy": 4.554183813443071,
-      "authority": 2.605752961082911,
+      "authority": 2.6395939086294415,
       "europe": 7.741935483870967,
       "ecology": 1.0980392156862748,
       "immigration": -1.9354838709677418,
@@ -2659,7 +2658,8 @@ const PARTIES_DATA = [
       2,
       1,
       2,
-      2,
+      3,
+      0,
       0,
       2,
       0,
@@ -2725,8 +2725,7 @@ const PARTIES_DATA = [
       0,
       2,
       0,
-      2,
-      1
+      2
     ],
     "confidence": [
       2,
@@ -2747,66 +2746,67 @@ const PARTIES_DATA = [
       3,
       3,
       3,
-      1,
-      3,
-      2,
-      2,
-      2,
-      2,
-      2,
-      2,
-      2,
-      3,
-      3,
-      2,
-      3,
-      1,
-      3,
-      2,
-      2,
-      3,
-      3,
-      2,
-      3,
-      2,
-      3,
-      3,
-      1,
-      2,
-      1,
-      3,
-      3,
-      3,
-      2,
-      3,
-      3,
-      2,
-      2,
-      2,
-      2,
-      1,
-      2,
-      3,
-      2,
-      3,
-      2,
-      3,
-      3,
-      2,
-      3,
-      2,
-      2,
-      2,
-      2,
-      3,
-      2,
-      3,
-      2,
-      3,
       2,
       3,
       2,
       1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      2,
+      3,
+      1,
+      3,
+      2,
+      2,
+      3,
+      3,
+      2,
+      3,
+      2,
+      3,
+      3,
+      1,
+      2,
+      1,
+      3,
+      3,
+      3,
+      2,
+      3,
+      3,
+      2,
+      2,
+      2,
+      2,
+      1,
+      2,
+      3,
+      2,
+      3,
+      2,
+      3,
+      3,
+      2,
+      3,
+      2,
+      2,
+      2,
+      2,
+      3,
+      2,
+      3,
+      2,
+      3,
+      2,
+      3,
+      2,
+      1,
       1,
       1,
       2,
@@ -2815,8 +2815,7 @@ const PARTIES_DATA = [
       2,
       2,
       2,
-      3,
-      2
+      3
     ],
     "justifications": [
       "Position intermédiaire : La France Humaniste propose d’alléger d’environ 5 points les cotisations patronales afin de réduire le coût du travail, mais souhaite financer cet allègement par une contribution accrue de la consommation et des bénéfices.",
@@ -2837,9 +2836,10 @@ const PARTIES_DATA = [
       "Accord net : LFH soutient des politiques actives visant à corriger les discriminations persistantes ou structurelles au-delà de la seule égalité juridique formelle. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
       "Accord modéré : LFH accepte une différenciation territoriale importante et davantage de pouvoir normatif local ou régional dans des domaines économiques, sociaux ou environnementaux. L’orientation va dans ce sens mais reste partielle, conditionnelle ou moins ambitieuse que l’énoncé, d’où +1.",
       "Accord net : LFH accorde une valeur politique à la transmission du patrimoine culturel, des traditions ou d’un cadre commun même lorsque ces références évoluent lentement. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
-      "Accord modéré, fondé sur une orientation générale : La France Humaniste revendique l’universalité républicaine, le renforcement de l’État social et une politique migratoire appliquant les mêmes règles et des efforts partagés. Aucun passage ne tranche toutefois précisément l’accès immédiat à toutes les prestations selon le seul titre de séjour ; l’inférence reste donc prudente.",
+      "Accord modéré : La France Humaniste veut réguler l'immigration, mieux exécuter les décisions de retour et conditionner le séjour durable à la langue, au travail et à l'intégration. Elle reconnaît parallèlement les besoins démographiques, économiques et universitaires du pays et ne propose pas un plafond général des titres ; +1 traduit cet équilibre.",
       "Accord net : le discours de la Sorbonne relie explicitement une politique d'immigration de long terme à la stabilisation démographique, à la croissance et au financement des retraites.",
-      "Accord net : LFH refuse une préférence durable fondée sur la nationalité pour les prestations et le logement social une fois qu’un étranger est légalement et durablement installé. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
+      "Accord très fort : La France Humaniste insiste sur l'intégration avant l'accès durable à la communauté nationale, sans proposer ensuite de hiérarchie entre citoyens français selon leur origine ou leur mode de naturalisation. L'égalité des prestations et du logement social entre Français est donc cohérente avec sa ligne ; +3, avec une confiance de 2.",
+      "Position intermédiaire : La France Humaniste affirme que les soins indispensables ne doivent pas dépendre du passeport et ne propose pas de préférence nationale générale pour les résidents réguliers. Ses textes distinguent néanmoins la citoyenneté, l'intégration et certains droits attachés au séjour, sans traiter l'égalité de toutes les prestations ; 0 évite d'extrapoler au-delà de la source.",
       "Position intermédiaire : LFH exige davantage d'intégration, de maîtrise du français et de respect des règles communes, mais ne formule pas de durcissement explicite des conditions juridiques d'accès à la nationalité.",
       "Accord net : LFH veut faciliter et accélérer l’éloignement des étrangers condamnés pour des crimes graves et lever plusieurs obstacles pratiques ou juridiques aux expulsions. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
       "Position intermédiaire : le texte refuse la fermeture identitaire tout en reconnaissant la nécessité de règles et d’une politique migratoire maîtrisée.",
@@ -2905,8 +2905,7 @@ const PARTIES_DATA = [
       "Position intermédiaire : l’autonomie devient une branche pleine de la Sécurité sociale et le pilotage public est renforcé, mais aucune interdiction des EHPAD lucratifs n’est formulée.",
       "Accord net : LFH défend le caractère universel des allocations familiales en fonction du nombre d’enfants et refuse leur diminution avec le revenu. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
       "Position intermédiaire : LFH veut protéger fortement les mineurs des mécanismes addictifs des réseaux sociaux (notamment algorithmes de recommandation et défilement infini), sans proposer dans la source une interdiction totale avant 15 ans, même avec accord parental.",
-      "Accord net : LFH donne la priorité à la souveraineté numérique et à l’hébergement européen pour les systèmes d’intelligence artificielle publics, même lorsque cela impose un surcoût ou un retard de performance. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
-      "Accord modéré : La France Humaniste veut une immigration pilotée, fondée sur la réciprocité, la coopération des pays d’origine, la langue, la formation et une meilleure connaissance des populations présentes. Ces exigences vont dans le sens de conditions plus strictes, mais le mouvement ne propose pas un durcissement général de chaque délivrance et renouvellement."
+      "Accord net : LFH donne la priorité à la souveraineté numérique et à l’hébergement européen pour les systèmes d’intelligence artificielle publics, même lorsque cela impose un surcoût ou un retard de performance. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2."
     ],
     "sources": [
       "https://lafrancehumaniste.fr/articles/un-nouveau-monde-du-travail.html",
@@ -2929,7 +2928,8 @@ const PARTIES_DATA = [
       "https://lafrancehumaniste.fr/articles/le-moment-francais-sorbonne.html",
       "https://lafrancehumaniste.fr/articles/le-moment-francais-sorbonne.html",
       "https://lafrancehumaniste.fr/articles/le-moment-francais-sorbonne.html",
-      "https://lafrancehumaniste.fr/articles/chemin-gaulliste.html",
+      "https://lafrancehumaniste.fr/articles/le-moment-francais-sorbonne.html",
+      "https://lafrancehumaniste.fr/articles/le-moment-francais-sorbonne.html",
       "https://lafrancehumaniste.fr/articles/le-moment-francais-sorbonne.html",
       "https://lafrancehumaniste.fr/articles/la-france-face-au-piege-identitaire.html",
       "https://lafrancehumaniste.fr/articles/la-france-face-au-piege-identitaire.html",
@@ -2995,12 +2995,11 @@ const PARTIES_DATA = [
       "https://lafrancehumaniste.fr/articles/protection-sociale.html",
       "https://www.vie-publique.fr/discours/162308-declaration-de-m-dominique-de-villepin-premier-ministre-sur-les-orien",
       "https://lafrancehumaniste.fr/articles/le-moment-francais-sorbonne.html",
-      "https://lafrancehumaniste.fr/articles/protection-sociale.html",
-      "https://lafrancehumaniste.fr/articles/le-moment-francais-sorbonne.html"
+      "https://lafrancehumaniste.fr/articles/protection-sociale.html"
     ],
     "axisScores": {
       "economy": -1.0973936899862824,
-      "authority": -0.20304568527918795,
+      "authority": -0.2030456852791879,
       "europe": 3.8709677419354835,
       "ecology": 4.745098039215685,
       "immigration": 0.4301075268817206,
@@ -3033,9 +3032,10 @@ const PARTIES_DATA = [
       -1,
       2,
       3,
-      -3,
+      3,
       -2,
-      2,
+      3,
+      -3,
       2,
       3,
       3,
@@ -3101,8 +3101,7 @@ const PARTIES_DATA = [
       -2,
       3,
       3,
-      2,
-      3
+      2
     ],
     "confidence": [
       2,
@@ -3126,6 +3125,7 @@ const PARTIES_DATA = [
       3,
       3,
       3,
+      3,
       2,
       2,
       2,
@@ -3191,8 +3191,7 @@ const PARTIES_DATA = [
       1,
       3,
       3,
-      2,
-      3
+      2
     ],
     "justifications": [
       "Accord très fort : LR privilégie la baisse des prélèvements sur le travail et le capital et accepte de rechercher en contrepartie des économies dans la dépense publique. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
@@ -3213,9 +3212,10 @@ const PARTIES_DATA = [
       "Désaccord modéré : LR privilégie l’égalité devant la loi et les mesures universalistes et se montre hostile aux politiques correctrices ciblant explicitement des groupes. La réserve est réelle mais partielle ou insuffisamment générale pour retenir un désaccord plus fort, d’où -1.",
       "Accord net : LR soutient le principe de différenciation territoriale et n’est pas opposé à un pouvoir réglementaire local accru, à condition de préserver l’unité nationale et de ne pas systématiser les dérogations.",
       "Accord très fort : LR accorde une valeur politique à la transmission du patrimoine culturel, des traditions ou d’un cadre commun même lorsque ces références évoluent lentement. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
-      "Désaccord très fort : LR veut conditionner l’accès des étrangers aux aides sociales à cinq années de résidence légale et de travail. Cette période de carence crée précisément une différence avec les citoyens français malgré la détention d’un titre de séjour ; la position est donc directement opposée à l’énoncé.",
+      "Accord très fort : Bruno Retailleau veut réduire l'immigration légale et agir directement sur les titres accordés au titre de l'asile, des études, de la famille et du travail. Le durcissement et la diminution des admissions régulières correspondent exactement à la proposition ; +3 est adapté.",
       "Désaccord net : Bruno Retailleau affirme explicitement que l’immigration « n’est pas une chance pour la France, mais une charge » et rejette l’idée de recourir à davantage d’immigration pour répondre aux pénuries de main-d’œuvre, préférant former les Français et les étrangers déjà présents légalement.",
-      "Accord net : LR veut imposer une durée de résidence et d’activité avant l’accès à certaines aides, mais refuse une priorité au logement social fondée sur la nationalité ; la formulation visant les résidents de longue date recueille donc un accord net.",
+      "Accord très fort : LR formule ses délais d'accès aux prestations pour les étrangers, donc avant une éventuelle naturalisation, et Laurent Wauquiez a même refusé une priorité au logement social fondée sur la nationalité au profit d'un critère de travail. Rien ne distingue les droits d'un Français naturalisé de ceux d'un Français de naissance ; +3 est directement justifié.",
+      "Désaccord très fort : Bruno Retailleau propose de réserver les aides sociales aux étrangers justifiant cinq années de résidence légale et de travail. Un titulaire récent d'un titre n'aurait donc pas les mêmes droits qu'un Français placé dans la même situation ; cette opposition directe à l'égalité immédiate justifie -3.",
       "Accord net : LR veut renforcer les critères de résidence, de langue, d’intégration ou d’adhésion civique nécessaires à l’obtention de la nationalité. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
       "Accord très fort : LR veut faciliter et accélérer l’éloignement des étrangers condamnés pour des crimes graves et lever plusieurs obstacles pratiques ou juridiques aux expulsions. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
       "Accord très fort : LR considère que la capacité d’intégration et la cohésion culturelle peuvent justifier de limiter certains flux même lorsque ceux-ci ont une utilité économique. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
@@ -3281,8 +3281,7 @@ const PARTIES_DATA = [
       "Désaccord net : LR accepte durablement la présence d’opérateurs privés lucratifs dans les EHPAD, éventuellement sous davantage de contrôle et de transparence. Le désaccord est net, mais tous les termes de l’énoncé ne sont pas nécessairement rejetés avec la même intensité, d’où -2.",
       "Accord très fort : Bruno Retailleau propose un revenu familial versé par enfant quel que soit le niveau de revenus des parents, ce qui correspond directement au principe d’allocations familiales universelles posé par la question.",
       "Accord très fort : LR soutient une interdiction d’accès aux réseaux sociaux pour les moins de 15 ans qui s’applique même lorsque les parents donnent leur accord. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
-      "Accord net : LR défend explicitement une indépendance numérique française et européenne et le refus de la dépendance technologique ; la question ajoute toutefois l’acceptation d’un surcoût ou d’une moindre performance, qui n’est pas formulée explicitement.",
-      "Accord très fort : LR affirme vouloir durcir les règles migratoires, réduire l’immigration légale, limiter les régularisations et renforcer les conditions liées au séjour. Cette orientation reprend directement l’objectif général de la question."
+      "Accord net : LR défend explicitement une indépendance numérique française et européenne et le refus de la dépendance technologique ; la question ajoute toutefois l’acceptation d’un surcoût ou d’une moindre performance, qui n’est pas formulée explicitement."
     ],
     "sources": [
       "https://republicains.fr/nos-idees/",
@@ -3306,6 +3305,7 @@ const PARTIES_DATA = [
       "https://republicains.fr/actualites/2026/05/31/ma-candidature-ira-jusquau-bout/",
       "https://republicains.fr/actualites/2026/05/31/ma-candidature-ira-jusquau-bout/",
       "https://republicains.fr/actualites/2025/02/03/laurent-wauquiez-il-faut-passer-des-paroles-aux-actes/",
+      "https://republicains.fr/actualites/2026/05/31/ma-candidature-ira-jusquau-bout/",
       "https://republicains.fr/actualites/2026/05/31/ma-candidature-ira-jusquau-bout/",
       "https://republicains.fr/actualites/2026/05/31/ma-candidature-ira-jusquau-bout/",
       "https://republicains.fr/actualites/2026/05/31/ma-candidature-ira-jusquau-bout/",
@@ -3371,15 +3371,14 @@ const PARTIES_DATA = [
       "https://republicains.fr/nos-idees/",
       "https://republicains.fr/actualites/2026/05/02/priorite-travail-france-35h-salaires-retraites/",
       "https://republicains.fr/nos-idees/",
-      "https://republicains.fr/nos-idees/",
-      "https://republicains.fr/actualites/2026/05/31/ma-candidature-ira-jusquau-bout/"
+      "https://republicains.fr/nos-idees/"
     ],
     "axisScores": {
       "economy": 5.1440329218107,
-      "authority": 3.3840947546531313,
+      "authority": 3.384094754653131,
       "europe": -0.7526881720430108,
       "ecology": -3.803921568627451,
-      "immigration": -7.123655913978496,
+      "immigration": -6.854838709677418,
       "democracy": -2.3076923076923075
     },
     "averageConfidence": 2.090909090909091
@@ -3409,9 +3408,10 @@ const PARTIES_DATA = [
       -1,
       3,
       3,
+      3,
+      1,
+      3,
       -3,
-      1,
-      1,
       3,
       3,
       3,
@@ -3477,8 +3477,7 @@ const PARTIES_DATA = [
       -3,
       2,
       -3,
-      1,
-      3
+      1
     ],
     "confidence": [
       3,
@@ -3501,7 +3500,8 @@ const PARTIES_DATA = [
       2,
       3,
       2,
-      2,
+      3,
+      3,
       3,
       3,
       2,
@@ -3567,8 +3567,7 @@ const PARTIES_DATA = [
       2,
       2,
       3,
-      2,
-      3
+      2
     ],
     "justifications": [
       "Accord très fort : Nouvelle Énergie privilégie la baisse des prélèvements sur le travail et le capital et accepte de rechercher en contrepartie des économies dans la dépense publique. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
@@ -3589,9 +3588,10 @@ const PARTIES_DATA = [
       "Désaccord modéré : Nouvelle Énergie privilégie l’égalité devant la loi et les mesures universalistes et se montre hostile aux politiques correctrices ciblant explicitement des groupes. La réserve est réelle mais partielle ou insuffisamment générale pour retenir un désaccord plus fort, d’où -1.",
       "Accord très fort : Nouvelle Énergie propose explicitement un transfert massif de compétences aux collectivités et une autonomie du pouvoir réglementaire local permettant d’adapter les politiques publiques et les normes aux réalités territoriales.",
       "Accord très fort : Nouvelle Énergie accorde une valeur politique à la transmission du patrimoine culturel, des traditions ou d’un cadre commun même lorsque ces références évoluent lentement. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
-      "Désaccord très fort : Nouvelle Énergie veut réserver les prestations sociales non contributives aux étrangers justifiant d’au moins cinq années de résidence régulière. Un titre de séjour valide ne suffirait donc pas à ouvrir les mêmes droits qu’à un citoyen français ; la position est directement opposée à l’énoncé.",
+      "Accord très fort : Nouvelle Énergie propose de diviser par huit la délivrance annuelle de titres de séjour, de supprimer plusieurs voies de régularisation et de renforcer les conditions d'admission familiale. L'objectif porte explicitement sur le nombre et l'accès aux titres ; +3 est directement documenté.",
       "Accord modéré : Nouvelle Énergie considère la main-d’œuvre immigrée comme utile à la croissance, aux secteurs en pénurie ou aux finances publiques et soutient une immigration économique organisée. L’orientation va dans ce sens mais reste partielle, conditionnelle ou moins ambitieuse que l’énoncé, d’où +1.",
-      "Accord modéré : Nouvelle Énergie conditionne les prestations sociales non contributives à au moins cinq ans de résidence régulière. Après ce délai, la logique est compatible avec l’égalité de droits, mais le parti ne tranche pas clairement l’absence de toute priorité nationale, notamment pour le logement.",
+      "Accord très fort : Nouvelle Énergie réserve ses délais de carence aux étrangers et présente la démarche de naturalisation comme le passage vers la pleine appartenance nationale. Le programme ne maintient aucune différence de prestations entre un Français naturalisé et un Français de naissance ; +3 est adapté.",
+      "Désaccord très fort : Nouvelle Énergie veut conditionner les prestations sociales non contributives à cinq années de résidence régulière. Les détenteurs récents d'un titre seraient donc traités différemment des nationaux malgré un séjour légal ; la proposition d'égalité générale est directement rejetée, d'où -3.",
       "Accord très fort : Nouvelle Énergie veut renforcer les critères de résidence, de langue, d’intégration ou d’adhésion civique nécessaires à l’obtention de la nationalité. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
       "Accord très fort : Nouvelle Énergie veut faciliter et accélérer l’éloignement des étrangers condamnés pour des crimes graves et lever plusieurs obstacles pratiques ou juridiques aux expulsions. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
       "Accord très fort : Nouvelle Énergie considère que la capacité d’intégration et la cohésion culturelle peuvent justifier de limiter certains flux même lorsque ceux-ci ont une utilité économique. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
@@ -3657,8 +3657,7 @@ const PARTIES_DATA = [
       "Désaccord très fort : Nouvelle Énergie accepte durablement la présence d’opérateurs privés lucratifs dans les EHPAD, éventuellement sous davantage de contrôle et de transparence. Cette position est presque entièrement opposée à l’arbitrage posé, ce qui justifie -3.",
       "Accord net : Nouvelle Énergie défend le caractère universel des allocations familiales en fonction du nombre d’enfants et refuse leur diminution avec le revenu. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
       "Désaccord très fort : Nouvelle Énergie qualifie l’interdiction des réseaux sociaux aux moins de 15 ans d’aveu d’impuissance publique et lui préfère la responsabilisation des plateformes et une régulation de leurs modèles addictifs.",
-      "Accord modéré : Nouvelle Énergie défend une souveraineté technologique française et européenne dans l’IA, les données et les infrastructures critiques ; le parti ne dit toutefois pas qu’il faudrait systématiquement accepter des modèles moins performants ou plus coûteux.",
-      "Accord très fort : Nouvelle Énergie propose explicitement de diviser par huit la délivrance de titres de séjour, d’imposer des quotas de main-d’œuvre et de renforcer les critères de ressources et d’intégration. L’objectif de rendre l’accès au séjour nettement plus exigeant est central."
+      "Accord modéré : Nouvelle Énergie défend une souveraineté technologique française et européenne dans l’IA, les données et les infrastructures critiques ; le parti ne dit toutefois pas qu’il faudrait systématiquement accepter des modèles moins performants ou plus coûteux."
     ],
     "sources": [
       "https://www.unenouvelleenergie.fr/notre-programme/reussir-une-nouvelle-ambition-francaise/",
@@ -3679,6 +3678,7 @@ const PARTIES_DATA = [
       "https://www.unenouvelleenergie.fr/decouvrir-notre-parti/notre-credo/",
       "https://www.unenouvelleenergie.fr/notre-programme/generer-un-renouveau-civique/",
       "https://www.unenouvelleenergie.fr/decouvrir-notre-parti/notre-credo/",
+      "https://www.unenouvelleenergie.fr/notre-programme/immigration/",
       "https://www.unenouvelleenergie.fr/notre-programme/immigration/",
       "https://www.unenouvelleenergie.fr/notre-programme/immigration/",
       "https://www.unenouvelleenergie.fr/notre-programme/immigration/",
@@ -3747,18 +3747,17 @@ const PARTIES_DATA = [
       "https://www.unenouvelleenergie.fr/notre-programme/sante/",
       "https://www.unenouvelleenergie.fr/notre-programme/sante/",
       "https://www.unenouvelleenergie.fr/reseaux-sociaux-linterdiction-est-le-dernier-refuge-de-limpuissance-publique/",
-      "https://www.unenouvelleenergie.fr/notre-programme/",
-      "https://www.unenouvelleenergie.fr/notre-programme/immigration/"
+      "https://www.unenouvelleenergie.fr/notre-programme/"
     ],
     "axisScores": {
       "economy": 5.912208504801097,
-      "authority": 1.4213197969543157,
+      "authority": 1.4213197969543154,
       "europe": -1.182795698924731,
       "ecology": -4.392156862745098,
-      "immigration": -7.849462365591397,
+      "immigration": -7.311827956989247,
       "democracy": 1.0683760683760688
     },
-    "averageConfidence": 2.25
+    "averageConfidence": 2.2613636363636362
   },
   {
     "id": "udr",
@@ -3785,8 +3784,9 @@ const PARTIES_DATA = [
       -2,
       1,
       3,
-      -3,
+      3,
       -2,
+      3,
       -3,
       3,
       3,
@@ -3853,8 +3853,7 @@ const PARTIES_DATA = [
       -2,
       3,
       0,
-      -1,
-      3
+      -1
     ],
     "confidence": [
       3,
@@ -3877,6 +3876,7 @@ const PARTIES_DATA = [
       2,
       3,
       2,
+      2,
       3,
       3,
       3,
@@ -3943,8 +3943,7 @@ const PARTIES_DATA = [
       1,
       3,
       3,
-      1,
-      3
+      1
     ],
     "justifications": [
       "Accord très fort : UDR privilégie la baisse des prélèvements sur le travail et le capital et accepte de rechercher en contrepartie des économies dans la dépense publique. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
@@ -3965,9 +3964,10 @@ const PARTIES_DATA = [
       "Désaccord net : UDR privilégie l’égalité devant la loi et les mesures universalistes et se montre hostile aux politiques correctrices ciblant explicitement des groupes. Le désaccord est net, mais tous les termes de l’énoncé ne sont pas nécessairement rejetés avec la même intensité, d’où -2.",
       "Accord modéré : UDR accepte une différenciation territoriale importante et davantage de pouvoir normatif local ou régional dans des domaines économiques, sociaux ou environnementaux. L’orientation va dans ce sens mais reste partielle, conditionnelle ou moins ambitieuse que l’énoncé, d’où +1.",
       "Accord très fort : UDR accorde une valeur politique à la transmission du patrimoine culturel, des traditions ou d’un cadre commun même lorsque ces références évoluent lentement. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
-      "Désaccord très fort : l’UDR veut supprimer les aides sociales pour les étrangers présents depuis moins de cinq ans. Le parti assume ainsi une différence durable fondée sur la nationalité ou la durée de présence malgré un séjour régulier, ce qui s’oppose directement à la proposition.",
+      "Accord très fort : l'UDR veut supprimer le regroupement familial automatique, instaurer des quotas annuels et renforcer fortement les conditions d'admission et de maintien au séjour. Restreindre les titres est donc explicitement au cœur de ses priorités ; +3 est adapté.",
       "Désaccord net : UDR met davantage l’accent sur les coûts, la concurrence sur le travail ou la pression sur les services publics et conteste un bénéfice économique global. Le désaccord est net, mais tous les termes de l’énoncé ne sont pas nécessairement rejetés avec la même intensité, d’où -2.",
-      "Désaccord très fort : UDR défend une priorité ou des restrictions durables liées à la nationalité même pour des étrangers installés légalement de longue date. Cette position est presque entièrement opposée à l’arbitrage posé, ce qui justifie -3.",
+      "Accord très fort : l'UDR cible explicitement les étrangers dans sa proposition de délai pour les allocations. Une personne naturalisée n'étant plus étrangère mais française, aucune restriction publiée ne la distingue d'une personne française de naissance ; +3 est le codage cohérent, avec une confiance de 2 car le cas n'est pas traité explicitement.",
+      "Désaccord très fort : l'UDR propose de supprimer les allocations sociales pour les étrangers ne résidant pas régulièrement en France depuis au moins cinq ans. Le parti assume donc une différence de droits fondée sur l'ancienneté du séjour légal ; cela contredit directement l'égalité proposée et justifie -3.",
       "Accord très fort : UDR veut renforcer les critères de résidence, de langue, d’intégration ou d’adhésion civique nécessaires à l’obtention de la nationalité. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
       "Accord très fort : UDR veut faciliter et accélérer l’éloignement des étrangers condamnés pour des crimes graves et lever plusieurs obstacles pratiques ou juridiques aux expulsions. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
       "Accord très fort : UDR considère que la capacité d’intégration et la cohésion culturelle peuvent justifier de limiter certains flux même lorsque ceux-ci ont une utilité économique. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
@@ -4033,8 +4033,7 @@ const PARTIES_DATA = [
       "Désaccord net : UDR accepte durablement la présence d’opérateurs privés lucratifs dans les EHPAD, éventuellement sous davantage de contrôle et de transparence. Le désaccord est net, mais tous les termes de l’énoncé ne sont pas nécessairement rejetés avec la même intensité, d’où -2.",
       "Accord très fort : UDR défend le caractère universel des allocations familiales en fonction du nombre d’enfants et refuse leur diminution avec le revenu. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
       "Position intermédiaire : UDR soutient une forte vérification d’âge et des restrictions pour les mineurs sans aller clairement jusqu’à l’interdiction générale avant 15 ans. La note 0 traduit cette combinaison plutôt qu’une absence artificielle de position.",
-      "Désaccord modéré : UDR privilégie la performance, le coût ou l’ouverture technologique et refuse une préférence européenne qui dégraderait significativement le service public. La réserve est réelle mais partielle ou insuffisamment générale pour retenir un désaccord plus fort, d’où -1.",
-      "Accord très fort : l’UDR propose des quotas migratoires, la suppression du regroupement familial et un contrôle beaucoup plus restrictif des admissions et du maintien au séjour. Cette ligne correspond directement à un durcissement général des titres de séjour."
+      "Désaccord modéré : UDR privilégie la performance, le coût ou l’ouverture technologique et refuse une préférence européenne qui dégraderait significativement le service public. La réserve est réelle mais partielle ou insuffisamment générale pour retenir un désaccord plus fort, d’où -1."
     ],
     "sources": [
       "https://www.udr.fr/grandforumlibertes",
@@ -4054,6 +4053,7 @@ const PARTIES_DATA = [
       "https://www.udr.fr/priorites",
       "https://www.udr.fr/priorites",
       "https://www.udr.fr/livretactei",
+      "https://www.udr.fr/priorites",
       "https://www.udr.fr/priorites",
       "https://www.udr.fr/priorites",
       "https://www.udr.fr/priorites",
@@ -4123,18 +4123,17 @@ const PARTIES_DATA = [
       "https://www.udr.fr/priorites",
       "https://www.udr.fr/priorites",
       "https://www.assemblee-nationale.fr/dyn/17/scrutins/8431",
-      "https://www.udr.fr/priorites",
       "https://www.udr.fr/priorites"
     ],
     "axisScores": {
       "economy": 5.98079561042524,
-      "authority": 2.4534686971235202,
+      "authority": 2.4534686971235207,
       "europe": -4.731182795698924,
       "ecology": -5.96078431372549,
-      "immigration": -8.70967741935484,
+      "immigration": -7.096774193548388,
       "democracy": 0.8547008547008548
     },
-    "averageConfidence": 1.875
+    "averageConfidence": 1.8636363636363635
   },
   {
     "id": "rn",
@@ -4161,8 +4160,9 @@ const PARTIES_DATA = [
       -1,
       -2,
       3,
-      -3,
+      3,
       -2,
+      3,
       -3,
       3,
       3,
@@ -4229,8 +4229,7 @@ const PARTIES_DATA = [
       1,
       3,
       0,
-      -1,
-      3
+      -1
     ],
     "confidence": [
       2,
@@ -4257,6 +4256,7 @@ const PARTIES_DATA = [
       3,
       3,
       3,
+      3,
       2,
       2,
       1,
@@ -4319,8 +4319,7 @@ const PARTIES_DATA = [
       1,
       3,
       2,
-      2,
-      3
+      2
     ],
     "justifications": [
       "Accord modéré : RN privilégie la baisse des prélèvements sur le travail et le capital et accepte de rechercher en contrepartie des économies dans la dépense publique. L’orientation va dans ce sens mais reste partielle, conditionnelle ou moins ambitieuse que l’énoncé, d’où +1.",
@@ -4341,9 +4340,10 @@ const PARTIES_DATA = [
       "Désaccord modéré : RN privilégie l’égalité devant la loi et les mesures universalistes et se montre hostile aux politiques correctrices ciblant explicitement des groupes. La réserve est réelle mais partielle ou insuffisamment générale pour retenir un désaccord plus fort, d’où -1.",
       "Désaccord net : RN privilégie l’uniformité des règles nationales et l’égalité territoriale et se méfie des dérogations régionales importantes. Le désaccord est net, mais tous les termes de l’énoncé ne sont pas nécessairement rejetés avec la même intensité, d’où -2.",
       "Accord très fort : RN accorde une valeur politique à la transmission du patrimoine culturel, des traditions ou d’un cadre commun même lorsque ces références évoluent lentement. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
-      "Désaccord très fort : le RN veut réserver les aides sociales aux Français et conditionner l’accès des étrangers aux prestations de solidarité à cinq années de travail en France. Cette préférence nationale est directement contraire à l’égalité d’accès proposée.",
+      "Accord très fort : le RN veut réduire drastiquement l'immigration légale, supprimer ou limiter plusieurs catégories d'admission et donner la priorité aux besoins nationaux pour les titres de travail. La restriction du volume et des conditions de séjour correspond directement à sa ligne ; +3 est adapté.",
       "Désaccord net : RN met davantage l’accent sur les coûts, la concurrence sur le travail ou la pression sur les services publics et conteste un bénéfice économique global. Le désaccord est net, mais tous les termes de l’énoncé ne sont pas nécessairement rejetés avec la même intensité, d’où -2.",
-      "Désaccord très fort : RN défend une priorité ou des restrictions durables liées à la nationalité même pour des étrangers installés légalement de longue date. Cette position est presque entièrement opposée à l’arbitrage posé, ce qui justifie -3.",
+      "Accord très fort : le RN veut rendre la naturalisation plus difficile, mais reconnaît explicitement qu'une fois la nationalité acquise, la personne obtient tous les droits et avantages correspondants, dont les prestations sociales et familiales. Sa priorité nationale oppose Français et étrangers, non Français de naissance et Français naturalisés ; +3 est donc adapté.",
+      "Désaccord très fort : le RN défend la priorité nationale pour les aides et le logement social et veut conditionner plusieurs prestations à une durée minimale de travail ou de résidence. Il refuse donc explicitement l'égalité générale entre simples titulaires d'un titre et nationaux ; -3 est adapté.",
       "Accord très fort : RN veut renforcer les critères de résidence, de langue, d’intégration ou d’adhésion civique nécessaires à l’obtention de la nationalité. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
       "Accord très fort : RN veut faciliter et accélérer l’éloignement des étrangers condamnés pour des crimes graves et lever plusieurs obstacles pratiques ou juridiques aux expulsions. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
       "Accord très fort : RN considère que la capacité d’intégration et la cohésion culturelle peuvent justifier de limiter certains flux même lorsque ceux-ci ont une utilité économique. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
@@ -4409,8 +4409,7 @@ const PARTIES_DATA = [
       "Accord modéré : RN veut exclure progressivement les groupes privés lucratifs de la gestion des EHPAD au profit du public ou du non-lucratif. L’orientation va dans ce sens mais reste partielle, conditionnelle ou moins ambitieuse que l’énoncé, d’où +1.",
       "Accord très fort : RN défend le caractère universel des allocations familiales en fonction du nombre d’enfants et refuse leur diminution avec le revenu. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
       "Position intermédiaire : RN soutient une forte vérification d’âge et des restrictions pour les mineurs sans aller clairement jusqu’à l’interdiction générale avant 15 ans. La note 0 traduit cette combinaison plutôt qu’une absence artificielle de position.",
-      "Désaccord modéré : RN privilégie la performance, le coût ou l’ouverture technologique et refuse une préférence européenne qui dégraderait significativement le service public. La réserve est réelle mais partielle ou insuffisamment générale pour retenir un désaccord plus fort, d’où -1.",
-      "Accord très fort : le RN veut mettre fin à l’immigration de peuplement et au regroupement familial, traiter l’asile à l’étranger et retirer l’autorisation de séjour à tout étranger n’ayant pas travaillé depuis un an. Ces mesures rendent directement l’obtention et le maintien du séjour plus exigeants."
+      "Désaccord modéré : RN privilégie la performance, le coût ou l’ouverture technologique et refuse une préférence européenne qui dégraderait significativement le service public. La réserve est réelle mais partielle ou insuffisamment générale pour retenir un désaccord plus fort, d’où -1."
     ],
     "sources": [
       "https://rassemblementnational.fr/22-mesures",
@@ -4431,9 +4430,10 @@ const PARTIES_DATA = [
       "https://rassemblementnational.fr/22-mesures",
       "https://www.assemblee-nationale.fr/dyn/docs/RINFANR5L16B2463.raw",
       "https://rassemblementnational.fr/22-mesures",
-      "https://rassemblementnational.fr/22-mesures",
+      "https://rassemblementnational.fr/discours/discours-de-jordan-bardella-a-menton",
       "https://rassemblementnational.fr/livrets-thematiques",
-      "https://rassemblementnational.fr/livrets-thematiques",
+      "https://rassemblementnational.fr/communiques/nationalite-francaise-la-grande-braderie",
+      "https://rassemblementnational.fr/discours/discours-de-jordan-bardella-a-menton",
       "https://rassemblementnational.fr/22-mesures",
       "https://rassemblementnational.fr/22-mesures",
       "https://rassemblementnational.fr/22-mesures",
@@ -4499,15 +4499,14 @@ const PARTIES_DATA = [
       "https://rassemblementnational.fr/22-mesures",
       "https://rassemblementnational.fr/22-mesures",
       "https://rassemblementnational.fr/22-mesures",
-      "https://rassemblementnational.fr/22-mesures",
       "https://rassemblementnational.fr/22-mesures"
     ],
     "axisScores": {
       "economy": 0.8367626886145402,
-      "authority": 3.637901861252116,
+      "authority": 3.637901861252115,
       "europe": -6.129032258064517,
       "ecology": -5.8431372549019605,
-      "immigration": -9.462365591397848,
+      "immigration": -7.849462365591397,
       "democracy": 1.794871794871795
     },
     "averageConfidence": 2.034090909090909
@@ -4537,8 +4536,9 @@ const PARTIES_DATA = [
       -2,
       0,
       3,
-      -3,
+      3,
       -2,
+      3,
       -3,
       3,
       3,
@@ -4605,8 +4605,7 @@ const PARTIES_DATA = [
       -2,
       2,
       0,
-      -2,
-      3
+      -2
     ],
     "confidence": [
       2,
@@ -4631,6 +4630,7 @@ const PARTIES_DATA = [
       2,
       2,
       3,
+      3,
       2,
       3,
       2,
@@ -4695,8 +4695,7 @@ const PARTIES_DATA = [
       1,
       2,
       1,
-      2,
-      3
+      2
     ],
     "justifications": [
       "Accord très fort : Reconquête privilégie la baisse des prélèvements sur le travail et le capital et accepte de rechercher en contrepartie des économies dans la dépense publique. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
@@ -4717,9 +4716,10 @@ const PARTIES_DATA = [
       "Désaccord net : Reconquête privilégie l’égalité devant la loi et les mesures universalistes et se montre hostile aux politiques correctrices ciblant explicitement des groupes. Le désaccord est net, mais tous les termes de l’énoncé ne sont pas nécessairement rejetés avec la même intensité, d’où -2.",
       "Position intermédiaire : Reconquête défend le rôle des communes et de l’État et souhaite revoir la répartition des compétences territoriales, mais aucune position directe et suffisamment précise n’a été identifiée en faveur ou contre la possibilité pour les régions d’adopter des normes économiques, sociales ou environnementales différentes.",
       "Accord très fort : Reconquête accorde une valeur politique à la transmission du patrimoine culturel, des traditions ou d’un cadre commun même lorsque ces références évoluent lentement. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
-      "Désaccord très fort : Reconquête défend la suppression des prestations sociales non contributives pour les étrangers et une préférence nationale étendue. La détention d’un titre de séjour ne donnerait donc pas accès aux mêmes prestations que la nationalité française ; l’opposition à l’énoncé est maximale.",
+      "Accord très fort : le programme de Reconquête veut supprimer le regroupement familial, réduire fortement les titres accordés et réserver l'immigration de travail à des besoins strictement sélectionnés. La proposition correspond directement à ce durcissement quantitatif et qualitatif ; +3 est adapté.",
       "Désaccord net : Reconquête met davantage l’accent sur les coûts, la concurrence sur le travail ou la pression sur les services publics et conteste un bénéfice économique global. Le désaccord est net, mais tous les termes de l’énoncé ne sont pas nécessairement rejetés avec la même intensité, d’où -2.",
-      "Désaccord très fort : Reconquête défend une priorité ou des restrictions durables liées à la nationalité même pour des étrangers installés légalement de longue date. Cette position est presque entièrement opposée à l’arbitrage posé, ce qui justifie -3.",
+      "Accord très fort : Reconquête veut supprimer les prestations non contributives pour les étrangers extra-européens et, séparément, durcir la naturalisation. Cette architecture ne prévoit pas de différence sociale après l'acquisition de la nationalité : une personne naturalisée entre dans la catégorie des Français bénéficiaires de la préférence nationale ; +3 est cohérent, avec une confiance de 2 car l'implication n'est pas formulée mot pour mot.",
+      "Désaccord très fort : Reconquête veut réserver aux Français les prestations sociales non contributives et revendique une préférence nationale durable. La possession d'un titre de séjour ne suffirait donc pas à ouvrir les mêmes droits sociaux ; l'opposition à la proposition est maximale, d'où -3.",
       "Accord très fort : Reconquête veut renforcer les critères de résidence, de langue, d’intégration ou d’adhésion civique nécessaires à l’obtention de la nationalité. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
       "Accord très fort : Reconquête veut faciliter et accélérer l’éloignement des étrangers condamnés pour des crimes graves et lever plusieurs obstacles pratiques ou juridiques aux expulsions. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
       "Accord très fort : Reconquête considère que la capacité d’intégration et la cohésion culturelle peuvent justifier de limiter certains flux même lorsque ceux-ci ont une utilité économique. Cette position reprend directement l’essentiel de l’arbitrage posé, ce qui justifie +3.",
@@ -4785,8 +4785,7 @@ const PARTIES_DATA = [
       "Désaccord net : Reconquête accepte durablement la présence d’opérateurs privés lucratifs dans les EHPAD, éventuellement sous davantage de contrôle et de transparence. Le désaccord est net, mais tous les termes de l’énoncé ne sont pas nécessairement rejetés avec la même intensité, d’où -2.",
       "Accord net : Reconquête défend le caractère universel des allocations familiales en fonction du nombre d’enfants et refuse leur diminution avec le revenu. L’orientation est nette, mais une partie de l’arbitrage ou son intensité reste plus nuancée que dans l’énoncé, d’où +2.",
       "Position intermédiaire : Reconquête soutient une forte vérification d’âge et des restrictions pour les mineurs sans aller clairement jusqu’à l’interdiction générale avant 15 ans. La note 0 traduit cette combinaison plutôt qu’une absence artificielle de position.",
-      "Désaccord net : Reconquête privilégie la performance, le coût ou l’ouverture technologique et refuse une préférence européenne qui dégraderait significativement le service public. Le désaccord est net, mais tous les termes de l’énoncé ne sont pas nécessairement rejetés avec la même intensité, d’où -2.",
-      "Accord très fort : Reconquête vise une immigration quasi nulle, la forte réduction des visas et titres et un maintien au séjour plus étroitement lié au travail et à l’assimilation. Cette ligne correspond directement à un durcissement très marqué des conditions de séjour."
+      "Désaccord net : Reconquête privilégie la performance, le coût ou l’ouverture technologique et refuse une préférence européenne qui dégraderait significativement le service public. Le désaccord est net, mais tous les termes de l’énoncé ne sont pas nécessairement rejetés avec la même intensité, d’où -2."
     ],
     "sources": [
       "https://programme.ericzemmour.fr/",
@@ -4809,7 +4808,8 @@ const PARTIES_DATA = [
       "https://programme.ericzemmour.fr/",
       "https://programme.ericzemmour.fr/immigration",
       "https://programme.ericzemmour.fr/immigration",
-      "https://fede33.parti-reconquete.fr/communique-de-presse/logements-etudiants-reserves-aux-etudiants-senegalais-contre-la-preference-etrangere-la-preference-nationale",
+      "https://fede32.parti-reconquete.fr/article/operation-contre-l-immigration-clandestine-a-mayotte-et-en-metropole",
+      "https://fede79.parti-reconquete.fr/communique-de-presse/le-conseil-departemental-des-deux-sevres-met-en-place-un-dispositif-pour-que-des-migrants-clandestins-vivent-avec-des-personnes-agees",
       "https://programme.ericzemmour.fr/immigration",
       "https://programme.ericzemmour.fr/immigration",
       "https://programme.ericzemmour.fr/immigration",
@@ -4875,15 +4875,14 @@ const PARTIES_DATA = [
       "https://programme.ericzemmour.fr/",
       "https://programme.ericzemmour.fr/",
       "https://programme.ericzemmour.fr/",
-      "https://programme.ericzemmour.fr/",
-      "https://programme.ericzemmour.fr/immigration"
+      "https://programme.ericzemmour.fr/"
     ],
     "axisScores": {
       "economy": 5.857338820301782,
-      "authority": 2.8087986463620993,
+      "authority": 2.808798646362099,
       "europe": -6.559139784946238,
       "ecology": -6.117647058823529,
-      "immigration": -9.650537634408604,
+      "immigration": -8.037634408602152,
       "democracy": 1.4529914529914532
     },
     "averageConfidence": 1.7954545454545454

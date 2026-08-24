@@ -1,4 +1,4 @@
-// Calibration finale de Q48 après reformulation de la question.
+// Calibration finale de Q49 après reformulation de la question.
 // Cette couche est chargée après les autres overrides afin que les scores,
 // justifications et sources répondent bien au relèvement de l'âge légal,
 // et non à l'ancienne indexation automatique sur l'espérance de vie.
@@ -6,12 +6,12 @@
 (() => {
   if (typeof DATA === 'undefined' || !Array.isArray(DATA.questions) || !Array.isArray(DATA.entities)) return;
 
-  const questionIndex = DATA.questions.findIndex(item => item.id === 48);
+  const questionIndex = DATA.questions.findIndex(item => item.id === 49);
   if (questionIndex < 0) return;
 
   DATA.questions[questionIndex].text = "L'âge légal de départ à la retraite devrait être augmenté afin d'assurer plus facilement le financement du système de retraite.";
 
-  const Q48_OVERRIDES = {
+  const Q49_OVERRIDES = {
     lfi: {
       response: -3,
       justification: "Désaccord très fort : LFI combat le relèvement de l'âge légal à 64 ans et défend le retour vers une retraite à 60 ans, en proposant de financer le système par davantage de cotisations sur les revenus du travail et du capital et par l'emploi. Utiliser une hausse de l'âge légal comme levier d'équilibre va donc directement à l'encontre de sa ligne ; -3 est adapté.",
@@ -135,7 +135,7 @@
     entity.axisScores = scores;
   };
 
-  Object.entries(Q48_OVERRIDES).forEach(([entityId, override]) => {
+  Object.entries(Q49_OVERRIDES).forEach(([entityId, override]) => {
     const entity = DATA.entities.find(item => item.id === entityId);
     if (!entity) return;
 

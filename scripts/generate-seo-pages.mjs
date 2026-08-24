@@ -51,19 +51,19 @@ const QUESTION_SEO_TITLES = {
   8: 'Concurrence ou réglementation',
   12: 'Choix individuel ou protection obligatoire',
   17: 'Règles régionales ou nationales',
-  27: 'Prévention, réinsertion ou sanctions',
-  32: 'TVA sociale et cotisations',
-  36: 'Compétences nationales et européennes',
-  38: 'Bilan de l’euro pour la France',
-  41: 'Suppression de l’IFI',
-  47: 'Retraite par répartition et capitalisation',
-  49: 'Prestations sociales et durée de cotisation',
-  50: 'Aides publiques, dividendes et dirigeants',
-  62: 'Taxe carbone et compensation',
-  71: 'Proportionnelle intégrale',
-  76: 'Assurance maladie et complémentaires santé',
-  78: 'Recrutement local des enseignants',
-  79: 'Financement du privé et mixité sociale'
+  28: 'Prévention, réinsertion ou sanctions',
+  33: 'TVA sociale et cotisations',
+  37: 'Compétences nationales et européennes',
+  39: 'Bilan de l’euro pour la France',
+  42: 'Suppression de l’IFI',
+  48: 'Retraite par répartition et capitalisation',
+  50: 'Prestations sociales et durée de cotisation',
+  51: 'Aides publiques, dividendes et dirigeants',
+  63: 'Taxe carbone et compensation',
+  72: 'Proportionnelle intégrale',
+  77: 'Assurance maladie et complémentaires santé',
+  79: 'Recrutement local des enseignants',
+  80: 'Financement du privé et mixité sociale'
 };
 
 const productionDataFiles = [
@@ -78,7 +78,8 @@ const productionDataFiles = [
   'data/danemark-overrides.js',
   'data/suisse-overrides.js',
   'data/finlande-overrides.js',
-  'data/allemagne-overrides.js'
+  'data/allemagne-overrides.js',
+  'data/residence-permit-overrides.js'
 ];
 
 function read(relativePath) {
