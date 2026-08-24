@@ -464,6 +464,7 @@ function generateSitemap(questionIds, parties) {
     ['/', lastModified],
     ['/quel-parti-politique-me-correspond/', lastModified],
     ['/test-gauche-droite/', lastModified],
+    ['/theories-economiques/', lastModified],
     ['/methodologie/', lastModified],
     ['/questions/', lastModified],
     ...questionIds.map((id) => [`/questions/q${id}/`, lastModified]),
