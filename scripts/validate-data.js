@@ -54,7 +54,7 @@ assert(
 );
 assert(
   allQuestionIds.every((id, index) => id === index + 1),
-  `Les identifiants doivent être continus et correspondre à la position ordinale des questions (1 à ${questionCount + openQuestionCount}).`
+  'Les identifiants doivent être continus et correspondre à la position ordinale des questions (1 à 92).'
 );
 assert(
   Math.max(...questionIds) < Math.min(...openQuestionIds),
