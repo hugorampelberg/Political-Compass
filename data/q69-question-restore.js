@@ -1,4 +1,4 @@
-// Applique les formulations validées de Q8 et Q48 et restaure la formulation historique de Q69.
+// Applique les formulations validées de Q8, Q21 et Q48 et restaure la formulation historique de Q69.
 // Les scores, confiances, justifications et sources restent inchangés.
 (() => {
   if (typeof DATA === 'undefined' || !Array.isArray(DATA.questions)) return;
@@ -6,6 +6,11 @@
   const q8 = DATA.questions.find(item => item.id === 8);
   if (q8) {
     q8.text = "La concurrence est généralement préférable à l'encadrement par des normes pour améliorer les prix, la qualité et l'innovation.";
+  }
+
+  const q21 = DATA.questions.find(item => item.id === 21);
+  if (q21) {
+    q21.text = "Un étranger résidant légalement en France depuis de nombreuses années (par exemple avec un titre de séjour) devrait, à situation économique comparable, bénéficier des mêmes prestations sociales et du même accès au logement social qu’un citoyen français, sans priorité fondée sur la nationalité.";
   }
 
   const q48 = DATA.questions.find(item => item.id === 48);
