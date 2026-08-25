@@ -79,6 +79,10 @@ const productionDataFiles = [
   'data/suisse-overrides.js',
   'data/finlande-overrides.js',
   'data/allemagne-overrides.js',
+  'data/government-final-overrides.js',
+  'data/q69-overrides.js',
+  'data/q69-question-restore.js',
+  'data/q48-overrides.js',
   'data/q19-immigration-volume-overrides.js'
 ];
 
