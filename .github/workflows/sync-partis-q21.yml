@@ -1,0 +1,46 @@
+name: Synchroniser les fiches partis Q21
+
+on:
+  push:
+    branches:
+      - codex/synchroniser-partis-q21
+
+permissions:
+  contents: write
+
+jobs:
+  regenerate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: codex/synchroniser-partis-q21
+          fetch-depth: 0
+
+      - name: Node 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Synchroniser le générateur avec les données finales du test
+        run: node scripts/patch-seo-runtime-sync.mjs
+
+      - name: Régénérer les pages SEO
+        run: npm run generate:seo
+
+      - name: Vérifier les données et les pages
+        run: npm test
+
+      - name: Committer les fiches régénérées
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- scripts/generate-seo-pages.mjs partis-politiques/profils
+          if git diff --cached --quiet; then
+            echo "Aucune modification générée"
+            exit 0
+          fi
+          git commit -m "Synchroniser les fiches partis avec les données finales"
+          git push origin HEAD:codex/synchroniser-partis-q21
