@@ -77,6 +77,10 @@ const MODEM_OVERRIDES = {
     "justification": "Accord modéré : le MoDem valorise l'héritage culturel, la langue, les territoires et des repères communs, mais considère aussi que ces appartenances peuvent évoluer et se combiner avec d'autres identités. La préservation des traditions compte sans primer systématiquement sur l'évolution sociale ; +1 reste approprié.",
     "source": "https://www.mouvementdemocrate.fr/une-societe-unie-et-solidaire-7924"
   },
+  "19": {
+    "justification": "Position intermédiaire : François Bayrou défend une immigration maîtrisée et proportionnée aux capacités d'accueil, mais ne fixe pas comme doctrine une baisse générale du nombre total d'immigrants. Le contrôle des flux est affirmé sans objectif quantitatif global de réduction ; 0 reste justifié.",
+    "source": "https://www.mouvementdemocrate.fr/actualites/francois-bayrou-le-droit-dasile-que-nous-defendons-est-completement-devoye-video-6608"
+  },
   "20": {
     "justification": "Accord net : le MoDem reconnaît l'utilité économique d'une immigration de travail organisée, notamment pour les secteurs en tension et l'activité productive. Cette utilité reste conditionnée à la maîtrise des flux et à l'intégration ; +2 est donc préférable à un accord maximal.",
     "source": "https://www.mouvementdemocrate.fr/actualites/francois-bayrou-le-droit-dasile-que-nous-defendons-est-completement-devoye-video-6608"

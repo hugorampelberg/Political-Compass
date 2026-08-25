@@ -66,6 +66,10 @@ const HORIZONS_OVERRIDES = {
     "justification": "Accord net : Horizons accorde une valeur importante à la transmission de l'histoire, de la culture, de l'autorité et des repères communs. Il accepte néanmoins l'évolution des droits et des normes sociales ; +2 traduit mieux cette hiérarchie qu'un accord maximal.",
     "source": "https://horizonsleparti.fr/le-manifeste/"
   },
+  "19": {
+    "justification": "Accord net : Édouard Philippe veut réduire l'immigration familiale et mieux maîtriser les flux tout en conservant une immigration économique choisie. Il ne propose donc pas une fermeture générale, mais l'objectif de réduction de plusieurs catégories d'entrées est clair ; +2 reste adapté.",
+    "source": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure"
+  },
   "20": {
     "justification": "Accord net : Horizons considère qu'une immigration économique choisie peut répondre aux besoins de compétences et de main-d'œuvre. Cette utilité est conditionnée à la sélection et à l'intégration, ce qui justifie +2 plutôt qu'un accord inconditionnel.",
     "source": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure"

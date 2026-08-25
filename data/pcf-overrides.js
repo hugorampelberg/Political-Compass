@@ -159,6 +159,11 @@ Object.assign(PCF_RESPONSE_OVERRIDES, {
     justification: "Position intermédiaire : le PCF valorise le patrimoine, la culture et certains héritages collectifs, mais son projet est simultanément progressiste sur les droits et les transformations sociales. Aucune doctrine générale ne permet d'affirmer qu'il faudrait ralentir les évolutions sociales au nom des traditions ; 0 évite donc une extrapolation artificielle.",
     source: "https://www.pcf.fr/pacte_2025_republique"
   },
+  19: {
+    response: -3,
+    justification: "Désaccord très fort : le PCF défend l'ouverture de voies légales de migration, une politique d'accueil et le respect de la libre circulation, et rejette l'objectif consistant à réduire les migrations comme réponse générale. Sa position est donc frontalement opposée à une baisse volontaire du nombre d'immigrants accueillis chaque année ; -3 est adapté.",
+    source: "https://www.pcf.fr/mediapart_la_gauche_et_l_immigration_les_r_ponses_et_propositions_du_pcf"
+  },
   20: {
     response: 3,
     justification: "Accord très fort : le PCF affirme explicitement que la France a bénéficié de l'apport des migrations sur le plan économique et conteste que l'immigration soit responsable de la dégradation des salaires ou de l'emploi. Cette prise de position répond presque mot pour mot à l'idée que l'immigration économique est globalement bénéfique pour l'économie française ; +3 est donc plus précis que +2.",

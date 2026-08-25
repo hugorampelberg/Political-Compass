@@ -66,6 +66,10 @@ const PS_OVERRIDES = {
     "justification": "Désaccord modéré : le PS accorde une place au patrimoine culturel et aux repères communs, mais privilégie l’évolution des droits et des normes sociales lorsque les traditions entrent en tension avec l’égalité ou l’autonomie individuelle. La tradition n’est donc pas rejetée en soi, sans pour autant bénéficier d’une présomption forte de préservation.",
     "source": "https://projet-socialiste.fr/projet/refaire-societe/"
   },
+  "19": {
+    "justification": "Désaccord net : le PS ne fixe pas comme objectif général de réduire le nombre d’immigrés entrant en France. Il défend des voies légales, le droit d’asile, des régularisations encadrées et une politique d’intégration, tout en acceptant le contrôle des frontières et des règles d’admission. Le désaccord est donc net mais pas maximal.",
+    "source": "https://projet-socialiste.fr/projet/refaire-societe/"
+  },
   "20": {
     "justification": "Accord net : le PS souligne la contribution des travailleurs étrangers à l’économie, aux métiers en tension et au financement collectif et refuse de présenter l’immigration comme un coût global. L’argument économique existe clairement, mais il n’est pas le seul fondement de sa politique migratoire.",
     "source": "https://projet-socialiste.fr/projet/refaire-societe/"

@@ -6,9 +6,10 @@ const QUESTION_SIMILARITY_SHARE = 1;
 const AXIS_COORDINATE_SIMILARITY_SHARE = 0;
 const QUICK_QUESTION_IDS = new Set([1,3,5,7,8,9,10,13,14,16,19,21,23,24,28,29,30,33,36,40,44,46,47,48,53,58,60,62,63,64,68,70,71,76,78,80,81,82,83,86]);
 const TECHNICAL_QUESTION_IDS = new Set([5,6,8,12,17,27,32,36,38,41,47,49,50,62,71,76,78,79]);
+const QUESTIONNAIRE_SCHEMA_VERSION = 'questionnaire-87-restored-2026-08-24';
 const OPEN_QUESTION_ID_MIGRATIONS = {
-  legacy: { from:[94,95,96,97,98], to:[89,90,91,92,93] },
-  previous: { from:[88,89,90,91,92], to:[89,90,91,92,93] }
+  legacy: { from:[94,95,96,97,98], to:[88,89,90,91,92] },
+  questionnaire88: { from:[89,90,91,92,93], to:[88,89,90,91,92] }
 };
 const AXIS_COLORS = { economy:'#d96c57', authority:'#6f63a8', europe:'#4e77a7', ecology:'#2d8c87', immigration:'#d7a744', democracy:'#40556a' };
 const PRIORITY_LABELS = {
@@ -22,7 +23,7 @@ const PRIORITY_LABELS = {
 const SCALE_LABELS = { '-3':'Pas du tout d’accord', '-2':'Plutôt pas d’accord', '-1':'Légèrement pas d’accord', '0':'Neutre / partagé', '1':'Légèrement d’accord', '2':'Plutôt d’accord', '3':'Tout à fait d’accord' };
 const ICONS = { economy:'€', authority:'§', europe:'E', ecology:'◉', immigration:'↔', democracy:'◇' };
 
-const initialState = (mode=QUIZ_MODES.FULL) => ({ mode, priority: null, answers: Array(DATA.questions.length).fill(null), questionComments:Array(DATA.questions.length).fill(''), openAnswers:{}, current:0, completed:false, updatedAt:Date.now() });
+const initialState = (mode=QUIZ_MODES.FULL) => ({ schemaVersion:QUESTIONNAIRE_SCHEMA_VERSION, mode, priority: null, answers: Array(DATA.questions.length).fill(null), questionComments:Array(DATA.questions.length).fill(''), openAnswers:{}, current:0, completed:false, updatedAt:Date.now() });
 let state = loadState() || initialState();
 if(!Object.values(QUIZ_MODES).includes(state.mode)) state.mode=QUIZ_MODES.FULL;
 if(!Array.isArray(state.answers) || state.answers.length!==DATA.questions.length) state.answers=Array(DATA.questions.length).fill(null);
@@ -43,24 +44,27 @@ function loadState(){
     if(!raw) return null;
     const saved=JSON.parse(raw);
     const previousQuestionCount=Array.isArray(saved.answers)?saved.answers.length:null;
-    if(previousQuestionCount===87){
-      saved.answers=[...saved.answers,null];
+    const comesFromQuestionnaire88=previousQuestionCount===88;
+    if(comesFromQuestionnaire88){
+      saved.answers=saved.answers.slice(0,87);
       saved.answers[18]=null;
       const comments=Array.isArray(saved.questionComments)?saved.questionComments.slice(0,87):Array(87).fill('');
-      saved.questionComments=[...comments,''];
-      saved.questionComments[18]='';
+      while(comments.length<87) comments.push('');
+      comments[18]='';
+      saved.questionComments=comments;
+      saved.current=Math.min(Number.isInteger(saved.current)?saved.current:0,86);
       saved.completed=false;
     }
     if(saved.openAnswers && typeof saved.openAnswers==='object' && !Array.isArray(saved.openAnswers)){
       const hasLegacyIds=OPEN_QUESTION_ID_MIGRATIONS.legacy.from.some(id=>saved.openAnswers[id]!==undefined);
       const migration=hasLegacyIds
         ? OPEN_QUESTION_ID_MIGRATIONS.legacy
-        : previousQuestionCount===87
-          ? OPEN_QUESTION_ID_MIGRATIONS.previous
+        : comesFromQuestionnaire88
+          ? OPEN_QUESTION_ID_MIGRATIONS.questionnaire88
           : null;
       if(migration){
         const source={...saved.openAnswers};
-        const knownIds=new Set(Object.values(OPEN_QUESTION_ID_MIGRATIONS).flatMap(({from,to})=>[...from,...to]));
+        const knownIds=new Set([...migration.from,...migration.to]);
         const migrated=Object.fromEntries(Object.entries(source).filter(([id])=>!knownIds.has(Number(id))));
         migration.from.forEach((oldId,index)=>{
           if(source[oldId]!==undefined) migrated[migration.to[index]]=source[oldId];
@@ -68,7 +72,7 @@ function loadState(){
         saved.openAnswers=migrated;
       }
     }
-    return {...initialState(), ...saved};
+    return {...initialState(), ...saved, schemaVersion:QUESTIONNAIRE_SCHEMA_VERSION};
   } catch(e){ return null; }
 }
 function activeQuestionIndexes(forState=state){

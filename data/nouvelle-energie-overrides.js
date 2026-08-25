@@ -57,6 +57,11 @@ const NOUVELLE_ENERGIE_RESPONSE_OVERRIDES = {
     justification: "Accord très fort : Nouvelle Énergie fait de la transmission de la culture, de l'histoire, de l'identité nationale et de valeurs communes un pilier explicite de son projet. Le programme éducatif oppose notamment la transmission et le mérite aux doctrines de déconstruction ; la volonté de préserver certaines traditions et références culturelles est donc centrale, ce qui justifie +3.",
     source: "https://www.unenouvelleenergie.fr/notre-programme/education/"
   },
+  19: {
+    response: 3,
+    justification: "Accord très fort : le programme immigration prévoit explicitement de diviser par huit la délivrance de titres de séjour et de reprendre le contrôle quantitatif des flux. L'objectif est donc bien de réduire très fortement le nombre d'immigrés admis chaque année, ce qui correspond directement à la question et justifie +3.",
+    source: "https://www.unenouvelleenergie.fr/notre-programme/immigration/"
+  },
   24: {
     response: 3,
     justification: "Accord très fort : Nouvelle Énergie lie explicitement la maîtrise de l'immigration à la cohésion nationale, à l'assimilation, aux tests d'intégration et à la capacité du pays à maîtriser son peuplement. Le parti accepte donc que la cohésion culturelle constitue en elle-même un motif de limitation des flux, y compris lorsqu'une immigration peut avoir une utilité économique ; +3 est adapté.",

@@ -13,6 +13,7 @@ const PARTY_RESPONSE_OVERRIDES = {
     1: { source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere" },
     9: { source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere" },
     12: { source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere" },
+    19: { source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure" },
     20: { source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure" },
     23: { source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure" },
     24: { source: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure" },
