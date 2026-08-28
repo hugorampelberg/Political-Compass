@@ -911,7 +911,11 @@ function openEntity(id){
   }
   $('#modal-backdrop').classList.remove('hidden'); document.body.style.overflow='hidden';
 }
-function closeModal(){ $('#modal-backdrop').classList.add('hidden'); document.body.style.overflow=''; }
+function closeModal(){
+  $('#modal-backdrop').classList.add('hidden');
+  $('#modal-backdrop .modal')?.classList.remove('notes-expanded','export-modal');
+  document.body.style.overflow='';
+}
 function formatAnswer(v){ return `${v>0?'+':''}${v}`; }
 function documentaryConfidencePercent(entity){
   const raw=Number(entity?.averageConfidence);
@@ -1091,6 +1095,196 @@ function exportResults(){
   const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}); const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download='resultats-boussole-politique.json'; a.click(); URL.revokeObjectURL(url); toast('Résultats exportés');
 }
 
+function roundedRectPath(ctx,x,y,width,height,radius){
+  const r=Math.min(radius,width/2,height/2);
+  ctx.beginPath();
+  ctx.moveTo(x+r,y);
+  ctx.arcTo(x+width,y,x+width,y+height,r);
+  ctx.arcTo(x+width,y+height,x,y+height,r);
+  ctx.arcTo(x,y+height,x,y,r);
+  ctx.arcTo(x,y,x+width,y,r);
+  ctx.closePath();
+}
+
+function fillRoundedRect(ctx,x,y,width,height,radius,fillStyle){
+  roundedRectPath(ctx,x,y,width,height,radius);
+  ctx.fillStyle=fillStyle;
+  ctx.fill();
+}
+
+function drawFittedText(ctx,text,x,y,maxWidth,startSize,minSize,{weight=800,color='#ffffff',align='left'}={}){
+  let size=startSize;
+  ctx.textAlign=align;
+  ctx.textBaseline='alphabetic';
+  while(size>minSize){
+    ctx.font=`${weight} ${size}px Inter, "Segoe UI", Arial, sans-serif`;
+    if(ctx.measureText(text).width<=maxWidth) break;
+    size-=2;
+  }
+  ctx.fillStyle=color;
+  ctx.fillText(text,x,y,maxWidth);
+}
+
+function buildResultsShareCanvas(){
+  if(!results) return null;
+  const canvas=document.createElement('canvas');
+  canvas.width=1080; canvas.height=1350;
+  const ctx=canvas.getContext('2d');
+  const width=canvas.width, height=canvas.height;
+  const background=ctx.createLinearGradient(0,0,width,height);
+  background.addColorStop(0,'#20364d');
+  background.addColorStop(.58,'#2d5b64');
+  background.addColorStop(1,'#3b7672');
+  ctx.fillStyle=background; ctx.fillRect(0,0,width,height);
+
+  ctx.fillStyle='rgba(255,255,255,.055)';
+  ctx.beginPath(); ctx.arc(1050,-15,300,0,Math.PI*2); ctx.fill();
+  ctx.beginPath(); ctx.arc(-40,1160,230,0,Math.PI*2); ctx.fill();
+
+  ctx.strokeStyle='#74c7bc'; ctx.lineWidth=5;
+  ctx.beginPath(); ctx.arc(92,78,27,0,Math.PI*2); ctx.stroke();
+  ctx.strokeStyle='#d7a744'; ctx.lineWidth=6;
+  ctx.beginPath(); ctx.moveTo(100,64); ctx.lineTo(87,87); ctx.lineTo(76,94); ctx.lineTo(87,72); ctx.closePath(); ctx.stroke();
+  drawFittedText(ctx,'BOUSSOLE POLITIQUE',138,91,520,31,24,{weight:850,color:'#ffffff'});
+  drawFittedText(ctx,`${modeLabel()} · ${activeQuestionCount()} questions`,1000,88,310,24,20,{weight:700,color:'#cbd9de',align:'right'});
+
+  drawFittedText(ctx,'MON PROFIL SUR SIX AXES',80,170,920,28,22,{weight:850,color:'#74c7bc'});
+  drawFittedText(ctx,'Un profil nuancé',80,230,920,54,42,{weight:900,color:'#d7a744'});
+  drawFittedText(ctx,'Chaque score est compris entre −10 et +10.',80,270,920,25,21,{weight:600,color:'#cbd9de'});
+
+  const axisStartY=320;
+  const axisRowHeight=103;
+  const trackX=80, trackWidth=920, trackHeight=15;
+  DATA.axes.forEach((axis,index)=>{
+    const value=results.userScores[axis.key];
+    const rowY=axisStartY+index*axisRowHeight;
+    drawFittedText(ctx,axis.name,trackX,rowY,700,29,23,{weight:800,color:'#ffffff'});
+    drawFittedText(ctx,`${value>0?'+':''}${fmt(value)}`,trackX+trackWidth,rowY,160,30,24,{weight:900,color:'#ffffff',align:'right'});
+
+    const trackY=rowY+25;
+    const trackGradient=ctx.createLinearGradient(trackX,0,trackX+trackWidth,0);
+    trackGradient.addColorStop(0,'#e49b8c');
+    trackGradient.addColorStop(.5,'#d9d9d2');
+    trackGradient.addColorStop(1,'#74c7bc');
+    fillRoundedRect(ctx,trackX,trackY,trackWidth,trackHeight,trackHeight/2,trackGradient);
+    ctx.fillStyle='rgba(32,54,77,.42)'; ctx.fillRect(trackX+trackWidth/2-1,trackY-6,2,trackHeight+12);
+    const markerX=trackX+clamp((value+10)/20,0,1)*trackWidth;
+    ctx.beginPath(); ctx.arc(markerX,trackY+trackHeight/2,17,0,Math.PI*2);
+    ctx.fillStyle='#ffffff'; ctx.fill();
+    ctx.lineWidth=8; ctx.strokeStyle=AXIS_COLORS[axis.key]||'#20364d'; ctx.stroke();
+
+    drawFittedText(ctx,axis.negative,trackX,rowY+75,420,20,17,{weight:600,color:'#cbd9de'});
+    drawFittedText(ctx,axis.positive,trackX+trackWidth,rowY+75,420,20,17,{weight:600,color:'#cbd9de',align:'right'});
+  });
+
+  const topParty=results.parties[0];
+  const topGovernment=results.governments[0];
+  const matchX=80, matchWidth=920, matchHeight=92;
+  const drawMatch=(y,label,entity,highlight=false)=>{
+    fillRoundedRect(ctx,matchX,y,matchWidth,matchHeight,22,highlight?'#fbfaf6':'rgba(255,255,255,.10)');
+    drawFittedText(ctx,label.toUpperCase(),matchX+24,y+31,360,19,16,{weight:850,color:highlight?'#65747f':'#bce5df'});
+    drawFittedText(ctx,entity.shortName||entity.name,matchX+24,y+70,690,31,23,{weight:850,color:highlight?'#20364d':'#ffffff'});
+    drawFittedText(ctx,`${fmt(entity.global)} %`,matchX+matchWidth-24,y+65,190,38,29,{weight:900,color:highlight?'#2d8c87':'#d7a744',align:'right'});
+  };
+  drawMatch(950,'Parti le plus proche',topParty,true);
+  drawMatch(1056,'Pays le plus proche',topGovernment,false);
+
+  ctx.strokeStyle='rgba(255,255,255,.18)'; ctx.lineWidth=2;
+  ctx.beginPath(); ctx.moveTo(80,1190); ctx.lineTo(1000,1190); ctx.stroke();
+  drawFittedText(ctx,'Proximité mathématique, pas une recommandation de vote.',80,1240,720,22,18,{weight:600,color:'#cbd9de'});
+  drawFittedText(ctx,'frenchpoliticalcompass.com',1000,1240,360,22,18,{weight:850,color:'#ffffff',align:'right'});
+  drawFittedText(ctx,'Résultat généré sans nom ni réponses détaillées.',80,1280,920,19,17,{weight:600,color:'#9fb4bc'});
+
+  return canvas;
+}
+
+function canvasToPngBlob(canvas){
+  return new Promise((resolve,reject)=>canvas.toBlob(blob=>blob?resolve(blob):reject(new Error('Création de l’image impossible.')),'image/png'));
+}
+
+function downloadBlob(blob,filename){
+  const url=URL.createObjectURL(blob);
+  const link=document.createElement('a');
+  link.href=url; link.download=filename; link.click();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+
+async function shareResultsCard(){
+  if(!results) return;
+  const button=$('#share-card-btn');
+  const initialLabel=button?.textContent;
+  if(button){ button.disabled=true; button.textContent='Création de la fiche…'; }
+  try{
+    await document.fonts?.ready;
+    const canvas=buildResultsShareCanvas();
+    const blob=await canvasToPngBlob(canvas);
+    const file=new File([blob],'mon-profil-politique.png',{type:'image/png'});
+    if(navigator.share && navigator.canShare?.({files:[file]})){
+      await navigator.share({files:[file],title:'Mon profil politique',text:'Voici mon résultat au test de la Boussole politique.'});
+      toast('Fiche partagée');
+    }else{
+      downloadBlob(blob,file.name);
+      toast('Fiche téléchargée');
+    }
+  }catch(error){
+    if(error?.name!=='AbortError'){
+      try{
+        const canvas=buildResultsShareCanvas();
+        const blob=await canvasToPngBlob(canvas);
+        downloadBlob(blob,'mon-profil-politique.png');
+        toast('Fiche téléchargée');
+      }catch{
+        toast('La fiche n’a pas pu être générée.');
+      }
+    }
+  }finally{
+    if(button){ button.disabled=false; button.textContent=initialLabel; }
+  }
+}
+
+function openResultsExport(){
+  if(!results) return;
+  const topParty=results.parties[0], topGovernment=results.governments[0];
+  const axes=DATA.axes.map(axis=>{
+    const value=results.userScores[axis.key];
+    const position=clamp((value+10)/20*100,0,100);
+    return `<div class="share-preview-axis"><span>${esc(axis.name)}</span><div class="share-preview-track"><i style="left:${position}%;border-color:${AXIS_COLORS[axis.key]}"></i></div><strong>${value>0?'+':''}${fmt(value)}</strong></div>`;
+  }).join('');
+  $('#modal-title').textContent='Enregistrer ou partager mes résultats';
+  $('#modal-subtitle').textContent='Choisissez une fiche condensée ou le rapport complet.';
+  $('#modal-body').innerHTML=`
+    <div class="export-choice-grid">
+      <section class="export-choice-card featured">
+        <span class="export-choice-label">Recommandé pour les réseaux sociaux</span>
+        <div class="share-preview-card" aria-label="Aperçu de la fiche condensée">
+          <span class="share-preview-kicker">Mon profil sur six axes</span>
+          <h3>Un profil nuancé</h3>
+          <div class="share-preview-axes">${axes}</div>
+          <div class="share-preview-match"><span><small>Parti le plus proche</small><b>${esc(topParty.shortName)}</b></span><strong>${fmt(topParty.global)} %</strong></div>
+          <div class="share-preview-match country"><span><small>Pays le plus proche</small><b>${esc(topGovernment.shortName)}</b></span><strong>${fmt(topGovernment.global)} %</strong></div>
+        </div>
+        <p>Une image PNG verticale avec vos six axes, votre premier parti et votre premier pays. Aucun commentaire ni réponse détaillée n’y figure.</p>
+        <button class="btn btn-primary" id="share-card-btn" type="button">Partager ou télécharger la fiche</button>
+      </section>
+      <section class="export-choice-card">
+        <span class="export-choice-label">Rapport complet</span>
+        <div class="full-report-icon" aria-hidden="true">A4</div>
+        <h3>Enregistrer ou imprimer tous les résultats</h3>
+        <p>Ouvre la mise en page complète : six axes, classements, boussole, détails et méthode. Vous pourrez l’imprimer ou l’enregistrer en PDF.</p>
+        <button class="btn btn-secondary" id="print-full-results-btn" type="button">Ouvrir le rapport complet</button>
+      </section>
+    </div>
+    <div class="raw-export-row"><div><strong>Besoin d’une sauvegarde technique ?</strong><span>Le fichier JSON contient vos réponses et peut aussi contenir vos commentaires libres. Ne le partagez pas publiquement.</span></div><button class="btn btn-ghost" id="raw-export-btn" type="button">Exporter mes données brutes (.json)</button></div>`;
+  const modal=$('#modal-backdrop .modal');
+  modal?.classList.remove('notes-expanded');
+  modal?.classList.add('export-modal');
+  $('#share-card-btn').addEventListener('click',shareResultsCard);
+  $('#print-full-results-btn').addEventListener('click',()=>{ closeModal(); setTimeout(()=>window.print(),80); });
+  $('#raw-export-btn').addEventListener('click',exportResults);
+  $('#modal-backdrop').classList.remove('hidden');
+  document.body.style.overflow='hidden';
+}
+
 function demoResults(){
   if(!demoMode) stateBeforeDemo=JSON.parse(JSON.stringify(state));
   const demoState=initialState(QUIZ_MODES.FULL);
@@ -1113,7 +1307,7 @@ $('#prev-btn').addEventListener('click',prevQuestion); $('#next-btn').addEventLi
 $('#open-back').addEventListener('click',()=>{ state.current=activeQuestionCount()-1; showScreen('quiz'); renderQuestion(); });
 $('#finish-btn').addEventListener('click',finish);
 $('#edit-answers-btn').addEventListener('click',()=>{ if(demoMode){ restoreRealState(); startFresh(); return; } state.completed=false; state.current=0; aiAnalysisResult=null; saveState(); showScreen('quiz'); renderQuestion(); });
-$('#export-btn').addEventListener('click',exportResults); $('#print-btn').addEventListener('click',()=>window.print());
+$('#save-share-btn').addEventListener('click',openResultsExport);
 $('#ai-analysis-btn').addEventListener('click',generateAIAnalysis);
 $('#ai-consent').addEventListener('change',refreshAIButton);
 $('#ai-age-confirm').addEventListener('change',refreshAIButton);
