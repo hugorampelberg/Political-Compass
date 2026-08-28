@@ -354,6 +354,24 @@ function descriptors(scores){
   return DATA.axes.map(a=>({key:a.key,value:scores[a.key],text:scores[a.key]>2?defs[a.key].pos:scores[a.key]<-2?defs[a.key].neg:defs[a.key].mid}));
 }
 function makeProfileTitle(scores){ const d=descriptors(scores).sort((a,b)=>Math.abs(b.value)-Math.abs(a.value)).slice(0,3); return d.map(x=>x.text).join(', '); }
+function capitalizeFirst(value){ return value ? value.charAt(0).toUpperCase()+value.slice(1) : ''; }
+function makeShareCardTitle(scores){
+  const ranked=descriptors(scores)
+    .map(descriptor=>({...descriptor,intensity:Math.abs(descriptor.value)}))
+    .sort((a,b)=>b.intensity-a.intensity);
+  const strongest=ranked[0];
+  const averageIntensity=ranked.reduce((sum,descriptor)=>sum+descriptor.intensity,0)/ranked.length;
+  const marked=ranked.filter(descriptor=>descriptor.intensity>=3);
+
+  if(strongest.intensity<2.25 && averageIntensity<1.5) return 'Un profil globalement modéré';
+  if(marked.length===0) return `Un profil nuancé, plutôt ${strongest.text}`;
+  if(marked.length===1){
+    return strongest.intensity>=6
+      ? `Conviction forte : ${strongest.text}`
+      : `Une dominante : ${strongest.text}`;
+  }
+  return `${capitalizeFirst(ranked[0].text)} · ${ranked[1].text}`;
+}
 function makeSummary(scores, topParty, topGov){
   const d=descriptors(scores).sort((a,b)=>Math.abs(b.value)-Math.abs(a.value));
   return `Votre profil se distingue surtout par une orientation ${d[0].text}, complétée par une sensibilité ${d[1].text}. Votre meilleure correspondance parmi les partis est ${topParty.shortName} (${fmt(topParty.global)} %), tandis que le gouvernement le plus proche est ${topGov.shortName} (${fmt(topGov.global)} %).`;
@@ -1127,6 +1145,7 @@ function drawFittedText(ctx,text,x,y,maxWidth,startSize,minSize,{weight=800,colo
 
 function buildResultsShareCanvas(){
   if(!results) return null;
+  const shareCardTitle=makeShareCardTitle(results.userScores);
   const canvas=document.createElement('canvas');
   canvas.width=1080; canvas.height=1350;
   const ctx=canvas.getContext('2d');
@@ -1149,7 +1168,7 @@ function buildResultsShareCanvas(){
   drawFittedText(ctx,`${modeLabel()} · ${activeQuestionCount()} questions`,1000,88,310,24,20,{weight:700,color:'#cbd9de',align:'right'});
 
   drawFittedText(ctx,'MON PROFIL SUR SIX AXES',80,170,920,28,22,{weight:850,color:'#74c7bc'});
-  drawFittedText(ctx,'Un profil nuancé',80,230,920,54,42,{weight:900,color:'#d7a744'});
+  drawFittedText(ctx,shareCardTitle,80,230,920,54,42,{weight:900,color:'#d7a744'});
   drawFittedText(ctx,'Chaque score est compris entre −10 et +10.',80,270,920,25,21,{weight:600,color:'#cbd9de'});
 
   const axisStartY=320;
@@ -1245,6 +1264,7 @@ async function shareResultsCard(){
 function openResultsExport(){
   if(!results) return;
   const topParty=results.parties[0], topGovernment=results.governments[0];
+  const shareCardTitle=makeShareCardTitle(results.userScores);
   const axes=DATA.axes.map(axis=>{
     const value=results.userScores[axis.key];
     const position=clamp((value+10)/20*100,0,100);
@@ -1258,7 +1278,7 @@ function openResultsExport(){
         <span class="export-choice-label">Recommandé pour les réseaux sociaux</span>
         <div class="share-preview-card" aria-label="Aperçu de la fiche condensée">
           <span class="share-preview-kicker">Mon profil sur six axes</span>
-          <h3>Un profil nuancé</h3>
+          <h3>${esc(shareCardTitle)}</h3>
           <div class="share-preview-axes">${axes}</div>
           <div class="share-preview-match"><span><small>Parti le plus proche</small><b>${esc(topParty.shortName)}</b></span><strong>${fmt(topParty.global)} %</strong></div>
           <div class="share-preview-match country"><span><small>Pays le plus proche</small><b>${esc(topGovernment.shortName)}</b></span><strong>${fmt(topGovernment.global)} %</strong></div>
