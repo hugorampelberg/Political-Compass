@@ -49,6 +49,19 @@ for (const file of walkHtml(projectRoot)) {
   }
 }
 
+// Le calibrage retenu pour les axes est 70 % de poids commun et 30 % de masse
+// structurelle. Le fichier historique utilisait encore 40 % de masse structurelle ;
+// on synchronise la version réellement déployée afin de ne pas surpondérer les axes
+// qui comportent naturellement davantage de questions, notamment Économie.
+const appPath = path.join(projectRoot, 'scripts', 'app.js');
+let appSource = fs.readFileSync(appPath, 'utf8');
+const structuralWeightPattern = /const STRUCTURAL_WEIGHT_SHARE = (?:0\.3|0\.4);/;
+if (!structuralWeightPattern.test(appSource)) {
+  throw new Error('Constante STRUCTURAL_WEIGHT_SHARE introuvable dans scripts/app.js.');
+}
+appSource = appSource.replace(structuralWeightPattern, 'const STRUCTURAL_WEIGHT_SHARE = 0.3;');
+fs.writeFileSync(appPath, appSource, 'utf8');
+
 // L'accueil historique ne chargeait pas ce correctif final. On l'insère juste
 // avant le moteur de l'application afin que Q88 soit réellement présente dans
 // DATA avant l'initialisation du questionnaire et du calcul des résultats.
@@ -97,6 +110,9 @@ if (!home.includes('88 questions') || home.includes('40 ou 87')) {
 if (!home.includes('<script src="/data/q69-question-restore.js"></script>')) {
   throw new Error("Le correctif de données qui ajoute Q88 n'est pas chargé par l'accueil.");
 }
+if (!fs.readFileSync(appPath, 'utf8').includes('const STRUCTURAL_WEIGHT_SHARE = 0.3;')) {
+  throw new Error('Le calibrage 70/30 des axes n’est pas appliqué au moteur.');
+}
 
 // Le projet Vercel attend un dossier de sortie "public". On y copie le site
 // statique préparé, tout en laissant /api à la racine pour que Vercel continue
@@ -132,5 +148,9 @@ const publicHomeHtml = fs.readFileSync(publicHome, 'utf8');
 if (!publicHomeHtml.includes('/data/q69-question-restore.js')) {
   throw new Error('La sortie public ne charge pas le correctif Q88.');
 }
+const publicApp = fs.readFileSync(path.join(outputRoot, 'scripts', 'app.js'), 'utf8');
+if (!publicApp.includes('const STRUCTURAL_WEIGHT_SHARE = 0.3;')) {
+  throw new Error('La sortie public n’utilise pas le calibrage 70/30 des axes.');
+}
 
-console.log(`Préparation du site OK : 88 questions, 13 profils régénérés, ${patchedFiles} pages éditoriales synchronisées, sortie public/ créée.`);
+console.log(`Préparation du site OK : 88 questions, 13 profils régénérés, ${patchedFiles} pages éditoriales synchronisées, pondération axes 70/30, sortie public/ créée.`);
