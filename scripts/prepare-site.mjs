@@ -15,7 +15,7 @@ function walkHtml(directory) {
   const entries = fs.readdirSync(directory, { withFileTypes: true });
   const files = [];
   for (const entry of entries) {
-    if (entry.name === 'node_modules' || entry.name === '.git') continue;
+    if (entry.name === 'node_modules' || entry.name === '.git' || entry.name === 'public') continue;
     const absolute = path.join(directory, entry.name);
     if (entry.isDirectory()) files.push(...walkHtml(absolute));
     else if (entry.isFile() && entry.name.endsWith('.html')) files.push(absolute);
@@ -77,4 +77,35 @@ if (!home.includes('88 questions') || home.includes('40 ou 87')) {
   throw new Error("Le nombre de questions affiché sur la page d'accueil n'est pas synchronisé à 88.");
 }
 
-console.log(`Préparation du site OK : 88 questions, 13 profils régénérés, ${patchedFiles} pages éditoriales synchronisées.`);
+// Le projet Vercel attend un dossier de sortie "public". On y copie le site
+// statique préparé, tout en laissant /api à la racine pour que Vercel continue
+// à construire les fonctions serveur séparément.
+const outputRoot = path.join(projectRoot, 'public');
+fs.rmSync(outputRoot, { recursive: true, force: true });
+fs.mkdirSync(outputRoot, { recursive: true });
+
+const excludedRootNames = new Set([
+  '.git',
+  '.github',
+  '.vercel',
+  'node_modules',
+  'public',
+  'api',
+  'package.json',
+  'package-lock.json',
+  'vercel.json'
+]);
+
+for (const entry of fs.readdirSync(projectRoot, { withFileTypes: true })) {
+  if (excludedRootNames.has(entry.name) || entry.name.endsWith('.md')) continue;
+  const source = path.join(projectRoot, entry.name);
+  const destination = path.join(outputRoot, entry.name);
+  fs.cpSync(source, destination, { recursive: true });
+}
+
+const publicHome = path.join(outputRoot, 'index.html');
+if (!fs.existsSync(publicHome)) {
+  throw new Error('Le build statique public/index.html est absent.');
+}
+
+console.log(`Préparation du site OK : 88 questions, 13 profils régénérés, ${patchedFiles} pages éditoriales synchronisées, sortie public/ créée.`);
