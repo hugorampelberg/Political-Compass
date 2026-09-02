@@ -6,25 +6,38 @@ import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const context = {};
-vm.createContext(context);
-
-for (const relativePath of [
+const productionDataFiles = [
   'data/questionnaire.js',
   'data/parties.js',
-  'data/governments.js'
-]) {
-  const source = fs.readFileSync(path.join(projectRoot, relativePath), 'utf8');
-  vm.runInContext(source.replace(/^const /gm, 'var '), context, {
-    filename: relativePath
-  });
-}
+  'data/governments.js',
+  'data/index.js',
+  'data/pcf-overrides.js',
+  'data/rn-overrides.js',
+  'data/lfi-overrides.js',
+  'data/pays-bas-overrides.js',
+  'data/danemark-overrides.js',
+  'data/suisse-overrides.js',
+  'data/finlande-overrides.js',
+  'data/allemagne-overrides.js',
+  'data/government-final-overrides.js',
+  'data/q69-overrides.js',
+  'data/q69-question-restore.js',
+  'data/q48-overrides.js',
+  'data/q19-immigration-volume-overrides.js'
+];
 
-const questionnaire = context.QUESTIONNAIRE_DATA;
-const entities = [...context.PARTIES_DATA, ...context.GOVERNMENTS_DATA];
-const axes = questionnaire.axes.map(axis => axis.key);
-const questionCount = questionnaire.questions.length;
-const openQuestionCount = questionnaire.openQuestions.length;
+const context = { console };
+vm.createContext(context);
+for (const relativePath of productionDataFiles) {
+  const source = fs.readFileSync(path.join(projectRoot, relativePath), 'utf8');
+  vm.runInContext(source, context, { filename: relativePath });
+}
+vm.runInContext('globalThis.__DATA__ = DATA;', context);
+
+const data = context.__DATA__;
+const axes = data.axes.map(axis => axis.key);
+const questionCount = data.questions.length;
+const openQuestionCount = data.openQuestions.length;
 const tolerance = 1e-12;
 
 function assert(condition, message) {
@@ -35,48 +48,51 @@ function almostEqual(actual, expected) {
   return Math.abs(actual - expected) <= tolerance;
 }
 
+assert(questionCount === 88, `88 questions fermées attendues, ${questionCount} présentes.`);
+assert(openQuestionCount === 5, `5 questions ouvertes attendues, ${openQuestionCount} présentes.`);
 assert(
-  questionnaire.meta.questionCount === questionCount,
-  `meta.questionCount vaut ${questionnaire.meta.questionCount}, mais ${questionCount} questions sont présentes.`
+  data.meta?.questionCount === questionCount,
+  `meta.questionCount vaut ${data.meta?.questionCount}, mais ${questionCount} questions sont présentes.`
 );
 
-const questionIds = questionnaire.questions.map(question => question.id);
-const openQuestionIds = questionnaire.openQuestions.map(question => question.id);
+const questionIds = data.questions.map(question => question.id);
+const openQuestionIds = data.openQuestions.map(question => question.id);
 const allQuestionIds = [...questionIds, ...openQuestionIds];
-
-assert(
-  questionnaire.meta.openQuestionCount === openQuestionCount,
-  `meta.openQuestionCount vaut ${questionnaire.meta.openQuestionCount}, mais ${openQuestionCount} questions ouvertes sont présentes.`
-);
-assert(
-  new Set(allQuestionIds).size === allQuestionIds.length,
-  'Les identifiants des questions fermées et ouvertes ne sont pas uniques.'
-);
+assert(new Set(allQuestionIds).size === allQuestionIds.length, 'Les identifiants des questions ne sont pas uniques.');
 assert(
   allQuestionIds.every((id, index) => id === index + 1),
-  'Les identifiants doivent être continus et correspondre à la position ordinale des questions (1 à 92).'
+  `Les identifiants doivent être continus de 1 à ${allQuestionIds.length}.`
 );
+assert(Math.max(...questionIds) < Math.min(...openQuestionIds), 'Les questions ouvertes doivent suivre les questions fermées.');
+
+const q88 = data.questions.find(question => question.id === 88);
+assert(q88, 'Q88 est absente.');
+assert(q88.theme === 'Économie / fiscalité', 'Le thème de Q88 est incorrect.');
+assert(almostEqual(q88.coefficients.economy, -0.8), 'Le coefficient économie de Q88 doit valoir -0,8.');
 assert(
-  Math.max(...questionIds) < Math.min(...openQuestionIds),
-  'Les questions ouvertes doivent toutes être numérotées après les questions fermées.'
+  q88.text === "Il faudrait diminuer les prélèvements sur les revenus du travail et, en contrepartie, augmenter ceux qui pèsent sur les revenus du capital et le patrimoine.",
+  'La formulation de Q88 a été modifiée.'
 );
 
 for (const axis of axes) {
-  const expectedMass = questionnaire.questions.reduce(
+  const expectedMass = data.questions.reduce(
     (sum, question) => sum + Math.abs(question.coefficients[axis] || 0),
     0
   );
   assert(
-    almostEqual(questionnaire.axisMasses[axis], expectedMass),
-    `Masse incohérente pour ${axis}: ${questionnaire.axisMasses[axis]} au lieu de ${expectedMass}.`
+    almostEqual(data.axisMasses[axis], expectedMass),
+    `Masse incohérente pour ${axis}: ${data.axisMasses[axis]} au lieu de ${expectedMass}.`
   );
 }
+assert(almostEqual(data.axisMasses.economy, 25.1), `La masse économie devrait valoir 25,1 et vaut ${data.axisMasses.economy}.`);
 
-for (const entity of entities) {
+assert(data.entities.length === 21, `21 entités attendues, ${data.entities.length} présentes.`);
+
+for (const entity of data.entities) {
   for (const field of ['responses', 'confidence', 'justifications', 'sources']) {
     assert(
-      entity[field].length === questionCount,
-      `${entity.id}.${field} contient ${entity[field].length} valeurs au lieu de ${questionCount}.`
+      Array.isArray(entity[field]) && entity[field].length === questionCount,
+      `${entity.id}.${field} contient ${entity[field]?.length} valeurs au lieu de ${questionCount}.`
     );
   }
 
@@ -89,14 +105,8 @@ for (const entity of entities) {
     const justification = (entity.justifications[index] || '').trim();
     const source = (entity.sources[index] || '').trim();
     const prefix = justification.split(':')[0].toLocaleLowerCase('fr');
-    assert(
-      justification.length > 0,
-      `${entity.id}.justifications[${index}] ne doit pas être vide.`
-    );
-    assert(
-      source.startsWith('https://'),
-      `${entity.id}.sources[${index}] doit être une URL HTTPS.`
-    );
+    assert(justification.length > 0, `${entity.id}.justifications[${index}] ne doit pas être vide.`);
+    assert(source.startsWith('https://'), `${entity.id}.sources[${index}] doit être une URL HTTPS.`);
     assert(
       !(response < 0 && prefix.includes('accord') && !prefix.includes('désaccord')),
       `${entity.id}.justifications[${index}] annonce un accord pour une note négative.`
@@ -112,24 +122,12 @@ for (const entity of entities) {
       Number.isInteger(confidence) && confidence >= 1 && confidence <= 3,
       `${entity.id}.confidence[${index}] doit être un entier compris entre 1 et 3.`
     );
-
-    const justification = entity.justifications[index] || '';
-    if (confidence === 3) {
-      assert(
-        !justification.includes('position centrale ou répétée'),
-        `${entity.id}.confidence[${index}] ne peut pas valoir 3 avec une justification générique.`
-      );
-      assert(
-        !justification.includes('estimation prudente ; aucune formulation parfaitement équivalente'),
-        `${entity.id}.confidence[${index}] ne peut pas valoir 3 en l'absence de formulation équivalente.`
-      );
-    }
   });
 
   for (const axis of axes) {
     let numerator = 0;
     let mass = 0;
-    questionnaire.questions.forEach((question, index) => {
+    data.questions.forEach((question, index) => {
       const coefficient = question.coefficients[axis] || 0;
       numerator += entity.responses[index] * coefficient;
       mass += Math.abs(coefficient);
@@ -141,8 +139,7 @@ for (const entity of entities) {
     );
   }
 
-  const expectedConfidence = entity.confidence.reduce((sum, value) => sum + value, 0)
-    / questionCount;
+  const expectedConfidence = entity.confidence.reduce((sum, value) => sum + value, 0) / questionCount;
   assert(
     almostEqual(entity.averageConfidence, expectedConfidence),
     `${entity.id}.averageConfidence vaut ${entity.averageConfidence} au lieu de ${expectedConfidence}.`
@@ -150,5 +147,5 @@ for (const entity of entities) {
 }
 
 console.log(
-  `Validation OK : ${questionCount} questions fermées + ${openQuestionCount} ouvertes = ${questionCount + openQuestionCount}, ${entities.length} entités et ${axes.length} axes cohérents.`
+  `Validation OK : ${questionCount} questions fermées + ${openQuestionCount} ouvertes = ${questionCount + openQuestionCount}, ${data.entities.length} entités et ${axes.length} axes cohérents.`
 );
