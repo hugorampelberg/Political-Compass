@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const siteOrigin = 'https://www.frenchpoliticalcompass.com';
+const q88Text = "Il faudrait diminuer les prélèvements sur les revenus du travail et, en contrepartie, augmenter ceux qui pèsent sur les revenus du capital et le patrimoine.";
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -66,7 +67,9 @@ const profileEditorialTexts = new Set();
 for (const url of profilePages) {
   const html = read(pathnameToFile(new URL(url).pathname));
   const rowCount = (html.match(/class="evidence-question-meta"/g) || []).length;
-  assert(rowCount === 87, `${url} devrait contenir 87 questions statiques, pas ${rowCount}.`);
+  assert(rowCount === 88, `${url} devrait contenir 88 questions statiques, pas ${rowCount}.`);
+  assert(html.includes('Q88 · Économie / fiscalité'), `Q88 absente du profil : ${url}`);
+  assert(html.includes(q88Text), `Formulation Q88 absente ou altérée : ${url}`);
   assert(!html.includes('Chargement des données documentaires'), `Profil encore dépendant du JavaScript : ${url}`);
 
   const editorialBody = html.match(/<div class="profile-editorial-body">([\s\S]*?)<\/div>/)?.[1];
@@ -86,5 +89,11 @@ assert((questionHub.match(/class="question-index-card"/g) || []).length === 18, 
 
 const partyIndex = read('partis-politiques/index.html');
 assert(!partyIndex.includes('/profils/#'), 'Les anciens liens de profils avec fragments sont encore présents.');
+assert(partyIndex.includes('88 affirmations'), 'La page Partis comparés n’annonce pas les 88 affirmations.');
+assert(partyIndex.includes('88 justifications et sources'), 'Les liens de la page Partis comparés ne sont pas synchronisés à 88 questions.');
 
-console.log(`Validation SEO OK : ${urls.length} URL canoniques, ${questionPages.length} fiches statiques et ${profilePages.length} profils statiques.`);
+const home = read('index.html');
+assert(home.includes('88 questions'), "L'accueil n'affiche pas 88 questions.");
+assert(!home.includes('40 ou 87'), "L'accueil contient encore l'ancien total de 87 questions.");
+
+console.log(`Validation SEO OK : ${urls.length} URL canoniques, ${questionPages.length} fiches statiques et ${profilePages.length} profils statiques de 88 questions.`);
