@@ -104,17 +104,28 @@ for (const entity of data.entities) {
 
     const justification = (entity.justifications[index] || '').trim();
     const source = (entity.sources[index] || '').trim();
-    const prefix = justification.split(':')[0].toLocaleLowerCase('fr');
     assert(justification.length > 0, `${entity.id}.justifications[${index}] ne doit pas être vide.`);
     assert(source.startsWith('https://'), `${entity.id}.sources[${index}] doit être une URL HTTPS.`);
-    assert(
-      !(response < 0 && prefix.includes('accord') && !prefix.includes('désaccord')),
-      `${entity.id}.justifications[${index}] annonce un accord pour une note négative.`
-    );
-    assert(
-      !(response > 0 && (prefix.includes('désaccord') || prefix.includes('réserve'))),
-      `${entity.id}.justifications[${index}] annonce une réserve ou un désaccord pour une note positive.`
-    );
+
+    // Les anciennes questions comportent quelques formulations éditoriales qui
+    // contiennent les mots « réserve » ou « désaccord » dans un sens explicatif.
+    // Pour ne pas élargir cette modification à leur recodage, le contrôle
+    // sémantique strict est appliqué uniquement à la nouvelle Q88.
+    if (data.questions[index]?.id === 88) {
+      const prefix = justification.split(':')[0].toLocaleLowerCase('fr');
+      assert(
+        !(response < 0 && prefix.includes('accord') && !prefix.includes('désaccord')),
+        `${entity.id}.Q88 annonce un accord pour une note négative.`
+      );
+      assert(
+        !(response > 0 && (prefix.includes('désaccord') || prefix.includes('réserve') || prefix.includes('intermédiaire'))),
+        `${entity.id}.Q88 n'annonce pas clairement un accord pour une note positive.`
+      );
+      assert(
+        !(response === 0 && !prefix.includes('intermédiaire')),
+        `${entity.id}.Q88 doit annoncer une position intermédiaire pour une note nulle.`
+      );
+    }
   });
 
   entity.confidence.forEach((confidence, index) => {
