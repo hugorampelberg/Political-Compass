@@ -49,6 +49,24 @@ for (const file of walkHtml(projectRoot)) {
   }
 }
 
+// L'accueil historique ne chargeait pas ce correctif final. On l'insère juste
+// avant le moteur de l'application afin que Q88 soit réellement présente dans
+// DATA avant l'initialisation du questionnaire et du calcul des résultats.
+const homePath = path.join(projectRoot, 'index.html');
+let home = fs.readFileSync(homePath, 'utf8');
+if (!home.includes('/data/q69-question-restore.js')) {
+  const appScript = '  <script src="/scripts/app.js"></script>';
+  if (!home.includes(appScript)) {
+    throw new Error("Impossible de trouver le chargement de /scripts/app.js dans l'accueil.");
+  }
+  home = home.replace(
+    appScript,
+    '  <script src="/data/q69-question-restore.js"></script>\n' + appScript
+  );
+  fs.writeFileSync(homePath, home, 'utf8');
+  patchedFiles += 1;
+}
+
 const profileRoot = path.join(projectRoot, 'partis-politiques', 'profils');
 const profileDirectories = fs.readdirSync(profileRoot, { withFileTypes: true })
   .filter(entry => entry.isDirectory())
@@ -72,9 +90,12 @@ for (const slug of profileDirectories) {
   }
 }
 
-const home = fs.readFileSync(path.join(projectRoot, 'index.html'), 'utf8');
+home = fs.readFileSync(homePath, 'utf8');
 if (!home.includes('88 questions') || home.includes('40 ou 87')) {
   throw new Error("Le nombre de questions affiché sur la page d'accueil n'est pas synchronisé à 88.");
+}
+if (!home.includes('<script src="/data/q69-question-restore.js"></script>')) {
+  throw new Error("Le correctif de données qui ajoute Q88 n'est pas chargé par l'accueil.");
 }
 
 // Le projet Vercel attend un dossier de sortie "public". On y copie le site
@@ -106,6 +127,10 @@ for (const entry of fs.readdirSync(projectRoot, { withFileTypes: true })) {
 const publicHome = path.join(outputRoot, 'index.html');
 if (!fs.existsSync(publicHome)) {
   throw new Error('Le build statique public/index.html est absent.');
+}
+const publicHomeHtml = fs.readFileSync(publicHome, 'utf8');
+if (!publicHomeHtml.includes('/data/q69-question-restore.js')) {
+  throw new Error('La sortie public ne charge pas le correctif Q88.');
 }
 
 console.log(`Préparation du site OK : 88 questions, 13 profils régénérés, ${patchedFiles} pages éditoriales synchronisées, sortie public/ créée.`);
