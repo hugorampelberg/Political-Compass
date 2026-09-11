@@ -23,6 +23,10 @@ function walkHtml(directory) {
   return files;
 }
 
+const ADSENSE_CLIENT = 'ca-pub-6201499207692945';
+const ADSENSE_SCRIPT = `  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}"
+     crossorigin="anonymous"></script>`;
+
 // Quelques pages éditoriales (dont l'accueil et /partis-politiques/) contiennent
 // le nombre de questions en texte statique. On les synchronise avec le nouveau
 // total sans toucher aux nombres sans rapport avec le questionnaire.
@@ -37,16 +41,58 @@ const countReplacements = [
 ];
 
 let patchedFiles = 0;
+let adsenseInjectedFiles = 0;
 for (const file of walkHtml(projectRoot)) {
   const original = fs.readFileSync(file, 'utf8');
   let updated = original;
   for (const [before, after] of countReplacements) {
     updated = updated.replaceAll(before, after);
   }
+
+  // Le tag AdSense doit être présent sur toutes les vraies pages HTML du site.
+  // Les pages déjà générées avec le tag ne sont pas modifiées une seconde fois.
+  if (updated.includes('<head>') && !updated.includes(ADSENSE_CLIENT)) {
+    updated = updated.replace('<head>', `<head>\n${ADSENSE_SCRIPT}`);
+    adsenseInjectedFiles += 1;
+  }
+
+  // La page de confidentialité disait historiquement qu'aucun code publicitaire
+  // n'y était chargé. Ce n'est plus exact puisque le tag AdSense y est désormais
+  // présent afin que le message de consentement Google puisse fonctionner partout.
+  if (path.relative(projectRoot, file) === 'confidentialite.html') {
+    updated = updated
+      .replace(
+        "  <!-- Aucun outil de mesure ou de publicité n'est chargé sur cette page. -->",
+        "  <!-- Le tag Google AdSense est chargé afin d'assurer une configuration cohérente du consentement Google sur l'ensemble du site. -->"
+      )
+      .replace(
+        `      Cette page de confidentialité ne charge volontairement aucun outil de\n      mesure ou de publicité. Sur les pages qui utilisent ces services, leur\n      fonctionnement dépend de la configuration appliquée et, lorsqu’il est\n      requis, des choix exprimés dans le message de consentement Google.`,
+        `      Le tag Google AdSense est chargé sur cette page comme sur les autres\n      pages du site, notamment pour permettre l’affichage et la gestion du message\n      de consentement Google. La diffusion d’annonces et l’utilisation de cookies\n      ou technologies similaires dépendent ensuite de la configuration appliquée,\n      de la localisation et, lorsqu’il est requis, des choix exprimés dans ce message.`
+      )
+      .replace(
+        '      Le code Google AdSense est présent sur certaines pages éditoriales du site.',
+        '      Le code Google AdSense est présent sur les pages du site.'
+      );
+  }
+
   if (updated !== original) {
     fs.writeFileSync(file, updated, 'utf8');
     patchedFiles += 1;
   }
+}
+
+// Sécurité de build : toute page HTML utilisateur possédant un <head> doit avoir
+// le tag AdSense. Le petit fichier de validation Google, qui n'est pas une page
+// utilisateur et ne possède pas de <head>, est naturellement ignoré.
+const pagesMissingAdsense = walkHtml(projectRoot)
+  .filter(file => {
+    const html = fs.readFileSync(file, 'utf8');
+    return html.includes('<head>') && !html.includes(ADSENSE_CLIENT);
+  })
+  .map(file => path.relative(projectRoot, file));
+
+if (pagesMissingAdsense.length > 0) {
+  throw new Error(`Tag AdSense absent de : ${pagesMissingAdsense.join(', ')}`);
 }
 
 // Le calibrage retenu pour les axes est 70 % de poids commun et 30 % de masse
@@ -153,4 +199,15 @@ if (!publicApp.includes('const STRUCTURAL_WEIGHT_SHARE = 0.3;')) {
   throw new Error('La sortie public n’utilise pas le calibrage 70/30 des axes.');
 }
 
-console.log(`Préparation du site OK : 88 questions, 13 profils régénérés, ${patchedFiles} pages éditoriales synchronisées, pondération axes 70/30, sortie public/ créée.`);
+const publicPagesMissingAdsense = walkHtml(outputRoot)
+  .filter(file => {
+    const html = fs.readFileSync(file, 'utf8');
+    return html.includes('<head>') && !html.includes(ADSENSE_CLIENT);
+  })
+  .map(file => path.relative(outputRoot, file));
+
+if (publicPagesMissingAdsense.length > 0) {
+  throw new Error(`Sortie public : tag AdSense absent de : ${publicPagesMissingAdsense.join(', ')}`);
+}
+
+console.log(`Préparation du site OK : 88 questions, 13 profils régénérés, ${patchedFiles} pages éditoriales synchronisées, ${adsenseInjectedFiles} tags AdSense ajoutés, pondération axes 70/30, sortie public/ créée.`);
