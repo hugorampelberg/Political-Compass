@@ -6,6 +6,7 @@
     pcf: 'Parti communiste français (PCF)',
     'les-ecologistes': 'Les Écologistes',
     ps: 'Parti socialiste (PS)',
+    'place-publique': 'Place publique (Raphaël Glucksmann)',
     renaissance: 'Renaissance',
     modem: 'Mouvement démocrate (MoDem)',
     horizons: 'Horizons',

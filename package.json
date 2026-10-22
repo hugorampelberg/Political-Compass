@@ -12,7 +12,8 @@
     "generate:seo": "node scripts/generate-seo-pages.mjs",
     "check:data": "node scripts/validate-data.js",
     "check:seo": "node scripts/validate-seo.mjs",
-    "test": "npm run check:data && npm run check:seo"
+    "check:matching": "node scripts/validate-matching.mjs",
+    "test": "npm run check:data && npm run check:seo && npm run check:matching"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1"

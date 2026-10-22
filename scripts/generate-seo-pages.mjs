@@ -3,10 +3,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
+import { productionDataFiles } from './data-files.mjs';
 import { fileURLToPath } from 'node:url';
 import {
   PARTY_EDITORIAL_CONTENT,
-  PROFILE_EDITORIAL_REVIEW_DATE
+  PROFILE_EDITORIAL_REVIEW_DATE,
+  PARTY_EDITORIAL_REVIEW_DATES
 } from '../data/party-editorial-content.mjs';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -18,6 +20,7 @@ const PARTY_LABELS = {
   pcf: 'Parti communiste français (PCF)',
   'les-ecologistes': 'Les Écologistes',
   ps: 'Parti socialiste (PS)',
+  'place-publique': 'Place publique (Raphaël Glucksmann)',
   renaissance: 'Renaissance',
   modem: 'Mouvement démocrate (MoDem)',
   horizons: 'Horizons',
@@ -34,6 +37,7 @@ const PARTY_SEO_LABELS = {
   pcf: 'PCF',
   'les-ecologistes': 'Les Écologistes',
   ps: 'PS',
+  'place-publique': 'Place publique',
   renaissance: 'Renaissance',
   modem: 'MoDem',
   horizons: 'Horizons',
@@ -66,25 +70,7 @@ const QUESTION_SEO_TITLES = {
   79: 'Financement du privé et mixité sociale'
 };
 
-const productionDataFiles = [
-  'data/questionnaire.js',
-  'data/parties.js',
-  'data/governments.js',
-  'data/index.js',
-  'data/pcf-overrides.js',
-  'data/rn-overrides.js',
-  'data/lfi-overrides.js',
-  'data/pays-bas-overrides.js',
-  'data/danemark-overrides.js',
-  'data/suisse-overrides.js',
-  'data/finlande-overrides.js',
-  'data/allemagne-overrides.js',
-  'data/government-final-overrides.js',
-  'data/q69-overrides.js',
-  'data/q69-question-restore.js',
-  'data/q48-overrides.js',
-  'data/q19-immigration-volume-overrides.js'
-];
+
 
 function read(relativePath) {
   return fs.readFileSync(path.join(projectRoot, relativePath), 'utf8');
@@ -93,7 +79,7 @@ function read(relativePath) {
 function write(relativePath, content) {
   const absolutePath = path.join(projectRoot, relativePath);
   fs.mkdirSync(path.dirname(absolutePath), { recursive: true });
-  fs.writeFileSync(absolutePath, `${content.trim()}\n`, 'utf8');
+  fs.writeFileSync(absolutePath, `${content.trim().split('\n').map(line => line.trimEnd()).join('\n')}\n`, 'utf8');
 }
 
 function escapeHtml(value = '') {
@@ -367,7 +353,7 @@ function partyEditorialSection(partyId, label, questionCount) {
       <span class="profile-editorial-kicker">Repères de lecture</span>
       <h2 id="profile-editorial-title">Lecture d’ensemble du profil</h2>
       <div class="profile-editorial-body">${paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</div>
-      <p class="profile-editorial-note"><strong>Méthode et date.</strong> Synthèse éditoriale vérifiée le ${escapeHtml(PROFILE_EDITORIAL_REVIEW_DATE)}, à partir des ${questionCount} positions et des sources publiques présentées ci-dessous. Elle décrit le corpus retenu pour ${escapeHtml(label)} et ne constitue ni une prise de position du site, ni une communication officielle du parti. <a href="/methodologie/">Voir la méthode de codage et de comparaison.</a></p>
+      <p class="profile-editorial-note"><strong>Méthode et date.</strong> Synthèse éditoriale vérifiée le ${escapeHtml(PARTY_EDITORIAL_REVIEW_DATES[partyId] || PROFILE_EDITORIAL_REVIEW_DATE)}, à partir des ${questionCount} positions et des sources publiques présentées ci-dessous. Elle décrit le corpus retenu pour ${escapeHtml(label)} et ne constitue ni une prise de position du site, ni une communication officielle du parti. <a href="/methodologie/">Voir la méthode de codage et de comparaison.</a></p>
     </section>`;
 }
 
@@ -390,7 +376,7 @@ function generatePartyProfilePages(data) {
       { name: 'Profils documentés', url: `${siteOrigin}/partis-politiques/profils/` },
       { name: label, url: canonical }
     ];
-    const rows = data.questions.map((question, index) => `<tr><td data-label="Question"><span class="evidence-question-meta">Q${question.id} · ${escapeHtml(question.theme)}</span><strong class="evidence-question">${escapeHtml(question.text)}</strong></td><td data-label="Justification">${escapeHtml(party.justifications?.[index] || 'Justification non renseignée.')}</td><td data-label="Source">${sourceLink(party.sources?.[index], question.id)}</td></tr>`).join('');
+    const rows = data.questions.map((question, index) => `<tr><td data-label="Question"><span class="evidence-question-meta">Q${question.id} · ${escapeHtml(question.theme)}</span><strong class="evidence-question">${escapeHtml(question.text)}</strong></td><td data-label="Justification">${escapeHtml(party.justifications?.[index] || 'Justification non renseignée.')}${party.positionStatus ? `<p><small>Confiance documentaire : ${party.confidence[index]}/3${party.positionStatus[index] === 'undocumented' ? ' · exclue du calcul' : ''}</small></p>` : ''}</td><td data-label="Source">${party.positionStatus?.[index] === 'undocumented' ? sourceLink(party.sources?.[index], question.id).replace('Source de la position', 'Document consulté pour') : sourceLink(party.sources?.[index], question.id)}</td></tr>`).join('');
     const otherParties = parties.filter((candidate) => candidate.id !== party.id).map((candidate) => `<a href="/partis-politiques/profils/${escapeHtml(candidate.id)}/">${escapeHtml(PARTY_LABELS[candidate.id] || candidate.name)}</a>`).join('');
 
     write(`partis-politiques/profils/${party.id}/index.html`, `<!DOCTYPE html>
@@ -407,6 +393,7 @@ function generatePartyProfilePages(data) {
     <h1>${escapeHtml(label)} : justifications et sources</h1>
     <p class="lead">Retrouvez la position documentaire de ${escapeHtml(label)} pour chacune des ${data.questions.length} questions du test politique.</p>
     ${partyEditorialSection(party.id, label, data.questions.length)}
+    ${party.positionStatus ? `<p class="profile-summary">${party.positionStatus.filter(status => status !== 'undocumented').length} réponses codées ; ${party.positionStatus.filter(status => status === 'undocumented').length} positions non documentées, exclues du calcul. L'intensité politique et la confiance documentaire sont deux informations distinctes. Pour une position non documentée, le lien indique le document consulté, pas une preuve de neutralité.</p>` : ''}
     <p class="profile-summary">Ce tableau affiche uniquement les questions, les justifications et les sources publiques utilisées. Il ne contient ni votre score ni la note attribuée au parti.</p>
     <div class="evidence-table-wrap">
       <table class="evidence-table">

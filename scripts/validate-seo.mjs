@@ -2,6 +2,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { PROFILE_EDITORIAL_REVIEW_DATE, PARTY_EDITORIAL_REVIEW_DATES } from '../data/party-editorial-content.mjs';
 import { fileURLToPath } from 'node:url';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -62,7 +63,7 @@ for (const url of questionPages) {
 }
 
 const profilePages = urls.filter((url) => /\/partis-politiques\/profils\/[^/]+\/$/.test(url));
-assert(profilePages.length === 13, `Le sitemap devrait contenir 13 profils de partis, pas ${profilePages.length}.`);
+assert(profilePages.length === 14, `Le sitemap devrait contenir 14 profils de partis, pas ${profilePages.length}.`);
 const profileEditorialTexts = new Set();
 for (const url of profilePages) {
   const html = read(pathnameToFile(new URL(url).pathname));
@@ -80,7 +81,8 @@ for (const url of profilePages) {
   assert(!profileEditorialTexts.has(editorialText), `Synthèse éditoriale dupliquée : ${url}`);
   profileEditorialTexts.add(editorialText);
   assert(html.includes('profile-editorial-note'), `Note méthodologique absente : ${url}`);
-  assert(html.includes('16 août 2026'), `Date de vérification éditoriale absente : ${url}`);
+  const partyId = new URL(url).pathname.split('/').filter(Boolean).at(-1);
+  assert(html.includes(PARTY_EDITORIAL_REVIEW_DATES[partyId] || PROFILE_EDITORIAL_REVIEW_DATE), `Date de vérification éditoriale absente : ${url}`);
 }
 
 const questionHub = read('questions/index.html');

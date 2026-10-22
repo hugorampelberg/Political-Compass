@@ -2,11 +2,12 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { productionDataFiles } from './data-files.mjs';
 import { fileURLToPath } from 'node:url';
 
 // La génération SEO charge la même pile de données que l'application, y compris
 // l'ajout final de Q88 dans data/q69-question-restore.js. Elle régénère donc les
-// treize pages statiques de profils avec les 88 questions documentées.
+// quatorze pages statiques de profils avec les 88 questions documentées.
 await import('./generate-seo-pages.mjs');
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -108,20 +109,15 @@ if (!structuralWeightPattern.test(appSource)) {
 appSource = appSource.replace(structuralWeightPattern, 'const STRUCTURAL_WEIGHT_SHARE = 0.3;');
 fs.writeFileSync(appPath, appSource, 'utf8');
 
-// L'accueil historique ne chargeait pas ce correctif final. On l'insère juste
-// avant le moteur de l'application afin que Q88 soit réellement présente dans
-// DATA avant l'initialisation du questionnaire et du calcul des résultats.
+// Le navigateur charge exactement les mêmes données que les fiches et les tests.
 const homePath = path.join(projectRoot, 'index.html');
 let home = fs.readFileSync(homePath, 'utf8');
-if (!home.includes('/data/q69-question-restore.js')) {
-  const appScript = '  <script src="/scripts/app.js"></script>';
-  if (!home.includes(appScript)) {
-    throw new Error("Impossible de trouver le chargement de /scripts/app.js dans l'accueil.");
-  }
-  home = home.replace(
-    appScript,
-    '  <script src="/data/q69-question-restore.js"></script>\n' + appScript
-  );
+const dataBlockPattern = /(?:  <script src="\/data\/[^"\n]+"><\/script>\n)+/g;
+const dataBlocks = [...home.matchAll(dataBlockPattern)];
+if (dataBlocks.length !== 1) throw new Error("Bloc unique de données introuvable dans l'accueil.");
+const dataScripts = productionDataFiles.map(file => `  <script src="/${file}"></script>\n`).join('');
+if (dataBlocks[0][0] !== dataScripts) {
+  home = home.replace(dataBlockPattern, () => dataScripts);
   fs.writeFileSync(homePath, home, 'utf8');
   patchedFiles += 1;
 }
@@ -133,8 +129,8 @@ const profileDirectories = fs.readdirSync(profileRoot, { withFileTypes: true })
 
 const expectedQuestion = "Il faudrait diminuer les prélèvements sur les revenus du travail et, en contrepartie, augmenter ceux qui pèsent sur les revenus du capital et le patrimoine.";
 
-if (profileDirectories.length !== 13) {
-  throw new Error(`13 profils de partis attendus, ${profileDirectories.length} trouvés.`);
+if (profileDirectories.length !== 14) {
+  throw new Error(`14 profils de partis attendus, ${profileDirectories.length} trouvés.`);
 }
 
 for (const slug of profileDirectories) {
@@ -210,4 +206,4 @@ if (publicPagesMissingAdsense.length > 0) {
   throw new Error(`Sortie public : tag AdSense absent de : ${publicPagesMissingAdsense.join(', ')}`);
 }
 
-console.log(`Préparation du site OK : 88 questions, 13 profils régénérés, ${patchedFiles} pages éditoriales synchronisées, ${adsenseInjectedFiles} tags AdSense ajoutés, pondération axes 70/30, sortie public/ créée.`);
+console.log(`Préparation du site OK : 88 questions, 14 profils régénérés, ${patchedFiles} pages éditoriales synchronisées, ${adsenseInjectedFiles} tags AdSense ajoutés, pondération axes 70/30, sortie public/ créée.`);

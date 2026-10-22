@@ -3,28 +3,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
+import { productionDataFiles } from './data-files.mjs';
 import { fileURLToPath } from 'node:url';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const productionDataFiles = [
-  'data/questionnaire.js',
-  'data/parties.js',
-  'data/governments.js',
-  'data/index.js',
-  'data/pcf-overrides.js',
-  'data/rn-overrides.js',
-  'data/lfi-overrides.js',
-  'data/pays-bas-overrides.js',
-  'data/danemark-overrides.js',
-  'data/suisse-overrides.js',
-  'data/finlande-overrides.js',
-  'data/allemagne-overrides.js',
-  'data/government-final-overrides.js',
-  'data/q69-overrides.js',
-  'data/q69-question-restore.js',
-  'data/q48-overrides.js',
-  'data/q19-immigration-volume-overrides.js'
-];
+
 
 const context = { console };
 vm.createContext(context);
@@ -86,7 +69,17 @@ for (const axis of axes) {
 }
 assert(almostEqual(data.axisMasses.economy, 25.1), `La masse économie devrait valoir 25,1 et vaut ${data.axisMasses.economy}.`);
 
-assert(data.entities.length === 21, `21 entités attendues, ${data.entities.length} présentes.`);
+assert(data.entities.length === 22, `22 entités attendues, ${data.entities.length} présentes.`);
+assert(new Set(data.entities.map(entity => entity.id)).size === data.entities.length, 'Identifiants des entités dupliqués.');
+assert(data.entities.filter(entity => entity.category === 'party').length === 14, '14 partis attendus.');
+
+// Empêche le test interactif de diverger à nouveau des fiches générées.
+const home = fs.readFileSync(path.join(projectRoot, 'index.html'), 'utf8');
+const browserFiles = [...home.matchAll(/<script src="\/(data\/[^\"]+)"><\/script>/g)].map(match => match[1]);
+assert(JSON.stringify(browserFiles) === JSON.stringify(productionDataFiles), 'Le test et les fiches ne chargent pas les mêmes données dans le même ordre.');
+assert(home.indexOf('/data/place-publique.js') < home.indexOf('/scripts/app.js'), 'Les données doivent précéder le moteur.');
+const nouvelleEnergie = data.entities.find(entity => entity.id === 'nouvelle-energie');
+assert(nouvelleEnergie.responses[data.questions.findIndex(question => question.id === 48)] === 1, 'La correction finale NE Q48 (+1) doit être conservée.');
 
 for (const entity of data.entities) {
   for (const field of ['responses', 'confidence', 'justifications', 'sources']) {
@@ -106,6 +99,16 @@ for (const entity of data.entities) {
     const source = (entity.sources[index] || '').trim();
     assert(justification.length > 0, `${entity.id}.justifications[${index}] ne doit pas être vide.`);
     assert(source.startsWith('https://'), `${entity.id}.sources[${index}] doit être une URL HTTPS.`);
+    if (entity.positionStatus) {
+      const status = entity.positionStatus[index];
+      assert(['documented', 'inferred', 'undocumented'].includes(status), `${entity.id}.Q${index + 1} : statut documentaire invalide.`);
+      if (status === 'undocumented') {
+        assert(response === 0 && entity.confidence[index] === 1 && justification.includes('non documentée'), 'Une position inconnue doit être explicitement distinguée du centre.');
+      } else {
+        const prefix = justification.split(':')[0];
+        assert(response > 0 ? prefix.startsWith('Accord') : response < 0 ? prefix.startsWith('Désaccord') : prefix.startsWith('Position intermédiaire'), `Signe incohérent dans ${entity.id}.Q${index + 1}.`);
+      }
+    }
 
     // Les anciennes questions comportent quelques formulations éditoriales qui
     // contiennent les mots « réserve » ou « désaccord » dans un sens explicatif.
@@ -139,6 +142,7 @@ for (const entity of data.entities) {
     let numerator = 0;
     let mass = 0;
     data.questions.forEach((question, index) => {
+      if (entity.positionStatus?.[index] === 'undocumented') return;
       const coefficient = question.coefficients[axis] || 0;
       numerator += entity.responses[index] * coefficient;
       mass += Math.abs(coefficient);

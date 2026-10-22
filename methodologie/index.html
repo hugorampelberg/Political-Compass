@@ -21,7 +21,7 @@
     <a class="cta" href="/">Faire le test politique</a>
 
     <h2>1. Deux versions du questionnaire</h2>
-    <p>La version complète comporte 87 affirmations et prend environ quinze minutes. La version rapide retient 40 affirmations réparties entre les grands thèmes et prend environ six minutes. Dans les deux cas, l’utilisateur répond sur une échelle de sept niveaux, de −3 (« pas du tout d’accord ») à +3 (« tout à fait d’accord »).</p>
+    <p>La version complète comporte 88 affirmations et prend environ quinze minutes. La version rapide retient 40 affirmations réparties entre les grands thèmes et prend environ six minutes. Dans les deux cas, l’utilisateur répond sur une échelle de sept niveaux, de −3 (« pas du tout d’accord ») à +3 (« tout à fait d’accord »).</p>
     <p>Les cinq questions ouvertes proposées après le questionnaire sont facultatives. Elles ne modifient jamais les scores ni le classement.</p>
 
     <h2>2. Six axes politiques</h2>
@@ -37,6 +37,8 @@
 
     <h2>3. Codage des partis et des gouvernements</h2>
     <p>Les entités répondent aux mêmes questions et sur la même échelle que l’utilisateur. Le codage repose principalement sur les programmes officiels et les prises de position publiques documentées. Selon la question, les sources peuvent inclure des déclarations, amendements, textes institutionnels, votes ou documents gouvernementaux.</p>
+    <p><strong>Intensité et confiance sont distinctes.</strong> Le signe indique l'accord ou le désaccord ; 1 signifie modéré, 2 net et 3 très fort. Le niveau de confiance documentaire, de 1 à 3, décrit la solidité des sources et de leur interprétation : une source indirecte ne transforme pas automatiquement une position forte en position modérée.</p>
+    <p>Lorsqu'une position est explicitement marquée « non documentée », elle ne reçoit pas de note politique et est exclue du calcul de proximité, des coordonnées du parti et des principaux accords ou désaccords. Le nombre de positions comparées est alors affiché. Un vrai 0 reste une position partagée ou intermédiaire. Une couverture incomplète limite la comparabilité des classements.</p>
     <p>Chaque note est accompagnée d’une justification, d’une source et d’un niveau de confiance documentaire. Le détail complet est consultable dans l’interface de résultats en ouvrant la fiche d’un parti ou d’un gouvernement.</p>
 
     <h2>4. Calcul des scores par axe</h2>
@@ -44,10 +46,10 @@
 
     <h2>5. Calcul de la proximité</h2>
     <p>Pour chaque question, le moteur mesure la distance politique entre la réponse de l’utilisateur et celle de l’entité. Il tient compte de l’écart d’intensité et du sens : deux réponses situées de part et d’autre de la neutralité sont davantage pénalisées que deux nuances allant dans la même direction.</p>
-    <p>Les distances sont mises au carré, puis pondérées par le coefficient de la question et le niveau de confiance documentaire. Une forte divergence est ainsi difficilement compensée par une succession de très petits accords. Si l’utilisateur choisit un axe prioritaire, le poids de celui-ci reçoit un bonus de 30 %.</p>
+    <p>Les distances sont mises au carré, puis pondérées par le coefficient de la question. La confiance documentaire est une information distincte et ne pondère pas le pourcentage global de proximité. Une forte divergence est ainsi difficilement compensée par une succession de très petits accords. Si l’utilisateur choisit un axe prioritaire, le poids de celui-ci reçoit un bonus de 30 %.</p>
 
     <h2>6. Comparabilité des modes rapide et complet</h2>
-    <p>Dans le mode rapide, les scores de l’utilisateur, des partis et des gouvernements sont tous recalculés sur les mêmes 40 questions. La comparaison reste donc cohérente à l’intérieur de ce mode. Elle est toutefois moins nuancée que celle issue des 87 questions et peut produire un ordre différent.</p>
+    <p>Dans le mode rapide, les scores de l’utilisateur, des partis et des gouvernements sont tous recalculés sur les mêmes 40 questions. La comparaison reste donc cohérente à l’intérieur de ce mode. Elle est toutefois moins nuancée que celle issue des 88 questions et peut produire un ordre différent.</p>
 
     <h2>7. Limites</h2>
     <div class="card-grid">

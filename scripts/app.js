@@ -1,7 +1,7 @@
 // deployment-sync: documentary-justification-audit-2026-08-11
 const STORAGE_KEY = 'boussole-politique-state-v4';
 const QUIZ_MODES = { FULL:'full', QUICK:'quick' };
-const STRUCTURAL_WEIGHT_SHARE = 0.4;
+const STRUCTURAL_WEIGHT_SHARE = 0.3;
 const QUESTION_SIMILARITY_SHARE = 1;
 const AXIS_COORDINATE_SIMILARITY_SHARE = 0;
 const QUICK_QUESTION_IDS = new Set([1,3,5,7,8,9,10,13,14,16,19,21,23,24,28,29,30,33,36,40,44,46,47,48,53,58,60,62,63,64,68,70,71,76,78,80,81,82,83,86]);
@@ -234,8 +234,14 @@ function axisWeights(){
   });
   return out;
 }
-function axisScoresFromAnswers(answers){
-  const out={}; const selected=activeQuestions();
+function hasDocumentedPosition(entity, index){ return entity.positionStatus?.[index] !== 'undocumented'; }
+function positionCoverage(entity){
+  const selected=activeQuestions();
+  const count=selected.filter(({i})=>hasDocumentedPosition(entity,i)).length;
+  return count===selected.length ? '' : `${count}/${selected.length} positions comparées · profil incomplet`;
+}
+function axisScoresFromAnswers(answers, entity=null){
+  const out={}; const selected=activeQuestions().filter(({i})=>!entity || hasDocumentedPosition(entity,i));
   DATA.axes.forEach(a=>{
     const den=3*selected.reduce((sum,{q})=>sum+Math.abs(q.coefficients[a.key]),0);
     const num=selected.reduce((sum,{q,i})=>sum+(answers[i]??0)*q.coefficients[a.key],0);
@@ -244,7 +250,7 @@ function axisScoresFromAnswers(answers){
   return out;
 }
 function userAxisScores(){ return axisScoresFromAnswers(state.answers); }
-function entityAxisScores(entity){ return state.mode===QUIZ_MODES.FULL ? {...entity.axisScores} : axisScoresFromAnswers(entity.responses); }
+function entityAxisScores(entity){ return state.mode===QUIZ_MODES.FULL ? {...entity.axisScores} : axisScoresFromAnswers(entity.responses,entity); }
 function politicalDistance(user, party) {
   const raw = Math.abs(user - party) / 6;
 
@@ -272,6 +278,7 @@ function detailedAxisSimilarity(entity, axisKey) {
   let den = 0;
 
   activeQuestions().forEach(({ q, i }) => {
+if (!hasDocumentedPosition(entity, i)) return;
 const w = Math.abs(q.coefficients[axisKey]);
 const c = 1;
 
@@ -412,7 +419,7 @@ function renderMatches(category){
   activeMatchTab=category;
   $$('.tab').forEach(t=>t.classList.toggle('active',t.dataset.tab===category));
   const arr=category==='party'?results.parties:results.governments;
-  $('#match-grid').innerHTML=arr.map((e,i)=>`<article class="match-card ${i===0?'top':''}"><div class="match-rank">${i===0?'Meilleure correspondance':'Rang '+(i+1)}</div><h3>${esc(e.name)}</h3><div class="score-row"><span class="score-number">${fmt(e.global)} %</span><span style="color:var(--muted);font-size:.78rem">confiance documentaire ${documentaryConfidencePercent(e)} %</span></div><div class="mini-bar"><span style="width:${e.global}%"></span></div><button class="btn btn-secondary entity-detail" data-id="${e.id}" type="button">Voir le détail</button></article>`).join('');
+  $('#match-grid').innerHTML=arr.map((e,i)=>`<article class="match-card ${i===0?'top':''}"><div class="match-rank">${i===0?'Meilleure correspondance':'Rang '+(i+1)}</div><h3>${esc(e.name)}</h3>${positionCoverage(e) ? `<p class="match-coverage">${esc(positionCoverage(e))}</p>` : ''}<div class="score-row"><span class="score-number">${fmt(e.global)} %</span><span style="color:var(--muted);font-size:.78rem">confiance documentaire ${documentaryConfidencePercent(e)} %</span></div><div class="mini-bar"><span style="width:${e.global}%"></span></div><button class="btn btn-secondary entity-detail" data-id="${e.id}" type="button">Voir le détail</button></article>`).join('');
   $$('.entity-detail').forEach(btn=>btn.addEventListener('click',()=>openEntity(btn.dataset.id)));
 }
 
@@ -777,7 +784,7 @@ function renderBestDetail(entity){
 
 function questionImportance(q){ return Math.max(...DATA.axes.map(a=>Math.abs(q.coefficients[a.key])*(state.priority===a.key?1.3:1))); }
 function driversFor(entity){
-  const items=activeQuestions().map(({q,i})=>{
+  const items=activeQuestions().filter(({i})=>hasDocumentedPosition(entity,i)).map(({q,i})=>{
     const user = state.answers[i] ?? 0;
 const party = entity.responses[i];
 
@@ -821,9 +828,9 @@ function renderAllNotesSection(entity){
     return `<tr>
       <td data-label="Question"><span class="all-notes-question-meta">Q${q.id} · ${esc(q.theme)}</span><strong>${esc(q.text)}</strong></td>
       <td data-label="Votre note" class="all-notes-score-cell">${detailedAnswerMarkup(state.answers[i],'is-user',unansweredCopy)}</td>
-      <td data-label="${esc(entity.shortName)}" class="all-notes-score-cell">${detailedAnswerMarkup(entity.responses?.[i],'is-entity')}</td>
-      <td data-label="Justification"><span class="all-notes-justification">${esc(justification)}</span></td>
-      <td data-label="Source">${source?`<a class="all-notes-source" href="${esc(source)}" target="_blank" rel="noopener">Voir la source</a>`:'<span class="all-notes-no-source">—</span>'}</td>
+      <td data-label="${esc(entity.shortName)}" class="all-notes-score-cell">${detailedAnswerMarkup(hasDocumentedPosition(entity,i) ? entity.responses?.[i] : null,'is-entity','Non documentée · exclue du calcul')}</td>
+      <td data-label="Justification"><span class="all-notes-justification">${esc(justification)}</span><small>Confiance documentaire : ${entity.confidence[i]}/3</small></td>
+      <td data-label="Source">${source?`<a class="all-notes-source" href="${esc(source)}" target="_blank" rel="noopener">${hasDocumentedPosition(entity,i) ? 'Voir la source' : 'Document consulté'}</a>`:'<span class="all-notes-no-source">—</span>'}</td>
     </tr>`;
   }).join('');
   return `<section class="all-notes-section">
@@ -833,6 +840,7 @@ function renderAllNotesSection(entity){
     </button>
     <div class="all-notes-panel hidden" id="entity-notes-panel">
       <p class="all-notes-intro">Comparaison question par question sur les ${DATA.questions.length} questions du questionnaire. Les questions non posées en mode rapide sont indiquées comme non répondues.</p>
+      ${positionCoverage(entity) ? '<p>Les positions non documentées sont exclues des similitudes et des coordonnées du parti. Elles ne sont pas traitées comme des réponses neutres.</p>' : ''}
       <div class="all-notes-table-wrap">
         <table class="all-notes-table">
           <thead><tr><th>Question</th><th>Votre note</th><th>${esc(entity.shortName)}</th><th>Justification de la note</th><th>Source</th></tr></thead>
@@ -847,7 +855,7 @@ function openEntity(id){
   const e=results.entities.find(x=>x.id===id); if(!e) return;
   const {agree,disagree}=driversFor(e);
   $('#modal-title').textContent=e.name;
-  $('#modal-subtitle').textContent=`Similitude globale : ${fmt(e.global)} % · Confiance documentaire moyenne : ${documentaryConfidencePercent(e)} %`;
+  $('#modal-subtitle').textContent=`Similitude globale : ${fmt(e.global)} % · Confiance documentaire moyenne : ${documentaryConfidencePercent(e)} %${positionCoverage(e) ? ` · ${positionCoverage(e)}` : ''}`;
   const axisRows = DATA.axes.map(a => {
   const u = results.userScores[a.key];
   const v = e.axisScores[a.key];
