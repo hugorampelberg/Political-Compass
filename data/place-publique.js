@@ -1,6 +1,7 @@
-// Place publique : codage indépendant du PS, vérifié le 22 octobre 2026.
+// Place publique : codage vérifié le 23 octobre 2026.
 // response = intensité politique ; confidence = solidité documentaire (1 à 3).
-// Le 0 stocké pour une position inconnue est un marqueur exclu du calcul, pas une note.
+// Onze positions sans source propre reprennent le PS par choix de codage explicite.
+// Le statut assumed et la confiance 1 distinguent cette hypothèse des sources PP.
 // Charger après les corrections du questionnaire, notamment l'ajout de Q88.
 (() => {
   'use strict';
@@ -53,7 +54,7 @@
     19: [-2, 3, "Désaccord net (−2) : nouvelles voies légales et contrôle des séjours sont associés, sans objectif général de réduction des entrées.", S.immigration],
     20: [3, 3, "Accord très fort (+3) : contribution économique, emplois et cotisations sont explicitement valorisés.", S.immigration],
     21: [3, 2, "Accord très fort (+3), inféré : l'accès au droit commun contredit une priorité fondée sur la nationalité.", S.immigration],
-    22: [0, 1, "Position non documentée (sans note) : clarifier la naturalisation ne signifie pas la durcir.", S.immigration, 'undocumented'],
+    22: 'ps',
     23: [0, 2, "Position intermédiaire (0) : le parti veut exécuter les décisions de retour justifiées, mais combat l'affaiblissement des garanties juridiques. Cela n'établit pas un soutien à un durcissement général des expulsions de condamnés.", S.retour],
     24: [-2, 2, "Désaccord net (−2), inféré : la cohésion repose sur l'intégration et les droits, plutôt que sur l'homogénéité culturelle.", S.immigration],
     25: [2, 2, "Accord net (+2), par interprétation : la défense du droit d'asile et le refus d'externalisations sans garanties soutiennent l'accueil. Le volume supplémentaire et son financement ne sont toutefois pas fixés dans ce texte.", S.retour],
@@ -74,11 +75,11 @@
     40: [-2, 2, "Désaccord net (−2), par interprétation : réformer les politiques européennes collectivement est privilégié. Cela se distingue d'un droit général de désobéissance nationale dès qu'un intérêt économique entre en conflit avec une règle.", S.europe],
     41: [-3, 3, "Désaccord très fort (−3) : maintenir l'IFI et accroître la contribution des grands patrimoines contredit directement sa suppression.", S.budget],
     42: [3, 3, "Accord très fort (+3) : supprimer les avantages des grandes transmissions correspond au ciblage des héritages élevés prévu ici.", S.budget],
-    43: [0, 1, "Position non documentée (sans note) : taxer la fortune n'établit pas une imposition mondiale après expatriation.", S.budget, 'undocumented'],
-    44: [0, 1, "Position non documentée (sans note) : défendre la dignité des chômeurs ne tranche pas les sanctions pour refus répétés d'offres adaptées.", S.charte, 'undocumented'],
+    43: 'ps',
+    44: 'ps',
     45: [2, 3, "Accord net (+2) : plafonds de prix ultramarins (p. 65).", S.projet],
     46: [-2, 2, "Désaccord net (−2), inféré : protections collectives renforcées (p. 41).", S.projet],
-    47: [0, 1, "Position non documentée (sans note) : capitalisation non arbitrée (p. 43).", S.projet, 'undocumented'],
+    47: 'ps',
     48: [-2, 3, "Désaccord net (−2) : le parti salue la suspension de la réforme et recherche un autre compromis sur les retraites. Il refuse le recul général comme réponse privilégiée, sans promettre un même âge de départ abaissé pour tous.", S.social],
     49: [-2, 2, "Désaccord net (−2), inféré : couverture universelle défendue (p. 53).", S.projet],
     50: [2, 2, "Accord net (+2), par interprétation : le refus d'aides sans contreparties soutient un encadrement des bénéficiaires. Le plafonnement conjoint des dividendes et rémunérations pendant toute l'aide reste une extrapolation, signalée par la confiance moyenne.", S.industrie],
@@ -87,16 +88,16 @@
     53: [3, 3, "Accord très fort (+3) : faciliter la régularisation des travailleurs sans papiers est explicitement proposé.", S.immigration],
     54: [-2, 2, "Désaccord net (−2), inféré : l'accès au droit commun pour intégrer les arrivants s'oppose à une restriction générale prolongée.", S.immigration],
     55: [-2, 2, "Désaccord net (−2), inféré : les besoins du bâtiment et de l'agriculture excluent une sélection réduite aux hautes qualifications.", S.immigration],
-    56: [0, 1, "Position non documentée (sans note) : l'automaticité à la majorité n'est pas arbitrée dans le document consulté.", S.immigration, 'undocumented'],
+    56: 'ps',
     57: [-2, 2, "Désaccord net (−2), inféré : liberté de conscience et égalité s'opposent à une exclusion fondée sur une différence culturelle présumée.", S.charte],
     58: [3, 2, "Accord très fort (+3), par interprétation : la diversité des identités et des parcours est compatible avec l'appartenance nationale et les règles communes. Le respect des lois, déjà exigé par la question, répond à cette limite républicaine.", S.egalite],
-    59: [0, 1, "Position non documentée (sans note) : ni les seuils ni les garanties d'une surveillance antiterroriste sans poursuites ne sont précisés.", S.charte, 'undocumented'],
+    59: 'ps',
     60: [2, 2, "Accord net (+2), inféré : le pluralisme protège la critique, sans établir une immunité pour tout propos offensant susceptible de porter atteinte aux droits d'autrui.", S.charte],
     61: [-3, 3, "Désaccord très fort (−3) : Place publique défend la nécessité et la proportionnalité des tirs et combat l'assouplissement de leur contrôle. Le simple refus d'obtempérer ne justifie donc pas une autorisation générale d'ouvrir le feu.", S.police],
-    62: [0, 1, "Position non documentée (sans note) : les aides ciblées face à la hausse du pétrole ne prouvent pas un soutien au maintien d'une taxe carbone nationale. Ce mécanisme fiscal précis reste à documenter.", S.petrole, 'undocumented'],
+    62: 'ps',
     63: [2, 2, "Accord net (+2), par interprétation : la substitution des véhicules électriques aux thermiques est soutenue, avec un leasing social pour contenir le coût. Cette source établit la direction, mais pas à elle seule le calendrier d'interdiction des ventes.", S.petrole],
     64: [-2, 3, "Désaccord net (−2) : Place publique soutient à la fois le nucléaire et l'investissement dans les renouvelables. L'opposition porte sur le sacrifice des renouvelables, et ne doit pas être lue comme une hostilité au nucléaire.", S.energie],
-    65: [0, 1, "Position non documentée (sans note) : aucun engagement identifié sur cet échange chiffré entre émissions, PIB et absence d'effort étranger. Une priorité écologique générale ne suffit pas à lui attribuer l'acceptation de ce scénario précis.", S.energie, 'undocumented'],
+    65: 'ps',
     66: [-2, 2, "Désaccord net (−2), par interprétation : l'expertise éclaire une démocratie parlementaire et participative. Elle n'est pas présentée comme un substitut au pouvoir de décision des élus.", S.democratie],
     67: [1, 2, "Accord modéré (+1), par interprétation : le compromis budgétaire accepté malgré ses limites traduit une capacité à décider sans accord populaire immédiat. Cela ne justifie ni un pouvoir sans contrôle ni l'abandon du dialogue parlementaire.", S.social],
     68: [2, 3, "Accord net (+2) : référendums d'initiative citoyenne et conventions sont proposés ensemble. La délibération et l'information encadrent l'accord ; le vote immédiat sans préparation n'est pas un idéal revendiqué.", S.democratie],
@@ -106,31 +107,40 @@
     72: [1, 2, "Accord modéré (+1), inféré : français et parcours civique sont soutenus ; conditionner le séjour durable dépasse cet engagement.", S.immigration],
     73: [2, 2, "Accord net (+2), inféré : prévention et cohésion sociale structurent l'approche, sans comparaison causale explicite avec les facteurs culturels.", S.charte],
     74: [2, 3, "Accord net (+2) : le refus de réautoriser des pesticides contestés privilégie la santé et l'environnement. Les demandes parallèles de protection commerciale limitent toutefois l'acceptation d'un désavantage compétitif durable.", S.pesticides],
-    75: [0, 1, "Position non documentée (sans note) : conventionnement non précisé (p. 50).", S.projet, 'undocumented'],
+    75: 'ps',
     76: [0, 3, "Position intermédiaire (0) : complémentarité des assurances maintenue (p. 50).", S.projet],
     77: [-1, 2, "Désaccord modéré (−1), inféré : proximité et réorganisation (p. 50).", S.projet],
-    78: [0, 1, "Position non documentée (sans note) : recrutement non arbitré (p. 68).", S.projet, 'undocumented'],
+    78: 'ps',
     79: [2, 2, "Accord net (+2), inféré : mixité du privé (p. 68).", S.projet],
     80: [2, 3, "Accord net (+2) : locations touristiques réglementées (p. 64).", S.projet],
     81: [3, 3, "Accord très fort (+3) : le soutien durable à l'Ukraine est présenté comme une condition de la sécurité européenne. La prolongation du conflit ne constitue pas, en elle-même, un motif de retrait.", S.ukraine],
     82: [3, 3, "Accord très fort (+3) : dissuasion européenne, décision française (p. 11).", S.projet],
     83: [3, 2, "Accord très fort (+3) : Aurélien Rousseau et Sacha Houlié, élus de Place publique, ont voté pour le droit à l'aide à mourir le 15 juillet 2026. Le codage s'appuie sur ces votes ; il ne leur substitue pas une déclaration personnelle de Glucksmann.", S.finDeVie],
     84: [3, 3, "Accord très fort (+3) : la lettre de candidature annonce la démarchandisation des EHPAD. La sortie du but lucratif demandée dans la question correspond directement à cet objectif, même si les modalités de conversion restent à préciser.", S.lettre],
-    85: [0, 1, "Position non documentée (sans note) : aucune position précise identifiée sur la suppression de la modulation des allocations familiales selon le revenu. Une défense générale de la protection sociale ne suffit pas à conclure.", S.social, 'undocumented'],
+    85: 'ps',
     86: [3, 3, "Accord très fort (+3) : interdiction avant quinze ans (p. 21).", S.projet],
     87: [2, 2, "Accord net (+2), inféré : souveraineté numérique privilégiée (p. 20–21).", S.projet],
     88: [3, 3, "Accord très fort (+3) : fiscalité rééquilibrée travail/patrimoine (p. 40).", S.projet]
   };
 
-  const entries = DATA.questions.map(question => {
+  const ps = DATA.entities.find(entity => entity.id === 'ps');
+  if (!ps) throw new Error('Le profil final du PS est requis pour les réponses reprises par défaut.');
+  const entries = DATA.questions.map((question, index) => {
     const entry = positions[question.id];
     if (!entry) throw new Error(`Place publique : Q${question.id} absente.`);
+    if (entry === 'ps') {
+      const response = ps.responses[index];
+      const intensity = { 1: 'modéré', 2: 'net', 3: 'très fort' }[Math.abs(response)];
+      const label = response === 0 ? 'Position intermédiaire' : `${response > 0 ? 'Accord' : 'Désaccord'} ${intensity}`;
+      const score = response > 0 ? `+${response}` : String(response).replace('-', '−');
+      return [response, 1, `${label} (${score}), note reprise du Parti socialiste par défaut : aucune position propre suffisamment précise de Place publique n'a été établie. Cette valeur est une hypothèse de codage incluse dans la comparaison, et non une déclaration de Place publique. Justification du PS : ${ps.justifications[index]}`, ps.sources[index], 'assumed'];
+    }
     return entry;
   });
   if (Object.keys(positions).length !== DATA.questions.length) throw new Error('Questions Place publique désynchronisées.');
   const party = {
     id: 'place-publique', sheet: 'Place publique', name: 'Place publique', shortName: 'Place publique', category: 'party',
-    reviewedAt: '2026-10-22',
+    reviewedAt: '2026-10-23',
     responses: entries.map(entry => entry[0]),
     confidence: entries.map(entry => entry[1]),
     justifications: entries.map(entry => entry[2]),

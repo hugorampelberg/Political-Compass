@@ -48,3 +48,17 @@ test, l'invariance des similitudes aux réponses non documentées, le maintien
 des vrais zéros, les résultats finis dans l'intervalle 0–100 et les 88 lignes
 des fiches. La méthodologie décrit le comportement effectif : la confiance est
 affichée séparément et ne pondère pas le pourcentage global.
+
+
+## Mise à jour du 23 octobre 2026 — reprise du PS à la demande de l'utilisateur
+
+Les onze positions initialement exclues (Q22, Q43, Q44, Q47, Q56, Q59, Q62,
+Q65, Q75, Q78, Q85) reprennent désormais les notes finales du PS. Les 88
+réponses de Place publique participent au calcul, y compris Q59 dont la note
+reprise est un vrai zéro.
+
+Le statut `assumed` et la mention « note reprise du Parti socialiste par défaut »
+distinguent ce choix des positions propres du parti. La confiance reste à 1/3 ;
+la justification et la source de référence proviennent du PS. Les 77 autres
+réponses et les profils des autres entités sont conservés. Les synthèses et
+l'interface indiquent explicitement cette convention de codage.

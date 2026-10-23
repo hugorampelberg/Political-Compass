@@ -101,7 +101,13 @@ for (const entity of data.entities) {
     assert(source.startsWith('https://'), `${entity.id}.sources[${index}] doit être une URL HTTPS.`);
     if (entity.positionStatus) {
       const status = entity.positionStatus[index];
-      assert(['documented', 'inferred', 'undocumented'].includes(status), `${entity.id}.Q${index + 1} : statut documentaire invalide.`);
+      assert(['documented', 'inferred', 'undocumented', 'assumed'].includes(status), `${entity.id}.Q${index + 1} : statut documentaire invalide.`);
+      if (status === 'assumed') {
+        const ps = data.entities.find(candidate => candidate.id === 'ps');
+        assert(entity.id === 'place-publique' && entity.confidence[index] === 1, 'Une note reprise du PS doit garder une confiance faible pour Place publique.');
+        assert(response === ps.responses[index] && source === ps.sources[index], 'Une note reprise du PS doit correspondre à sa fiche finale.');
+        assert(justification.includes('note reprise du Parti socialiste par défaut'), 'La reprise du PS doit être explicite.');
+      }
       if (status === 'undocumented') {
         assert(response === 0 && entity.confidence[index] === 1 && justification.includes('non documentée'), 'Une position inconnue doit être explicitement distinguée du centre.');
       } else {

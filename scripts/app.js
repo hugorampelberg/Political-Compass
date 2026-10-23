@@ -238,7 +238,8 @@ function hasDocumentedPosition(entity, index){ return entity.positionStatus?.[in
 function positionCoverage(entity){
   const selected=activeQuestions();
   const count=selected.filter(({i})=>hasDocumentedPosition(entity,i)).length;
-  return count===selected.length ? '' : `${count}/${selected.length} positions comparées · profil incomplet`;
+  const assumed=selected.filter(({i})=>entity.positionStatus?.[i]==='assumed').length;
+  return [count===selected.length ? '' : `${count}/${selected.length} positions comparées · profil incomplet`, assumed ? `${assumed} réponses reprises du PS par défaut` : ''].filter(Boolean).join(' · ');
 }
 function axisScoresFromAnswers(answers, entity=null){
   const out={}; const selected=activeQuestions().filter(({i})=>!entity || hasDocumentedPosition(entity,i));
@@ -829,8 +830,8 @@ function renderAllNotesSection(entity){
       <td data-label="Question"><span class="all-notes-question-meta">Q${q.id} · ${esc(q.theme)}</span><strong>${esc(q.text)}</strong></td>
       <td data-label="Votre note" class="all-notes-score-cell">${detailedAnswerMarkup(state.answers[i],'is-user',unansweredCopy)}</td>
       <td data-label="${esc(entity.shortName)}" class="all-notes-score-cell">${detailedAnswerMarkup(hasDocumentedPosition(entity,i) ? entity.responses?.[i] : null,'is-entity','Non documentée · exclue du calcul')}</td>
-      <td data-label="Justification"><span class="all-notes-justification">${esc(justification)}</span><small>Confiance documentaire : ${entity.confidence[i]}/3</small></td>
-      <td data-label="Source">${source?`<a class="all-notes-source" href="${esc(source)}" target="_blank" rel="noopener">${hasDocumentedPosition(entity,i) ? 'Voir la source' : 'Document consulté'}</a>`:'<span class="all-notes-no-source">—</span>'}</td>
+      <td data-label="Justification"><span class="all-notes-justification">${esc(justification)}</span><small>Confiance documentaire : ${entity.confidence[i]}/3${entity.positionStatus?.[i]==='assumed' ? ' · reprise du PS par défaut' : ''}</small></td>
+      <td data-label="Source">${source?`<a class="all-notes-source" href="${esc(source)}" target="_blank" rel="noopener">${entity.positionStatus?.[i]==='assumed' ? 'Source du PS' : hasDocumentedPosition(entity,i) ? 'Voir la source' : 'Document consulté'}</a>`:'<span class="all-notes-no-source">—</span>'}</td>
     </tr>`;
   }).join('');
   return `<section class="all-notes-section">
@@ -840,7 +841,8 @@ function renderAllNotesSection(entity){
     </button>
     <div class="all-notes-panel hidden" id="entity-notes-panel">
       <p class="all-notes-intro">Comparaison question par question sur les ${DATA.questions.length} questions du questionnaire. Les questions non posées en mode rapide sont indiquées comme non répondues.</p>
-      ${positionCoverage(entity) ? '<p>Les positions non documentées sont exclues des similitudes et des coordonnées du parti. Elles ne sont pas traitées comme des réponses neutres.</p>' : ''}
+      ${entity.positionStatus?.includes('undocumented') ? '<p>Les positions non documentées sont exclues des similitudes et des coordonnées du parti. Elles ne sont pas traitées comme des réponses neutres.</p>' : ''}
+      ${entity.positionStatus?.includes('assumed') ? '<p>Les réponses reprises du PS par défaut participent au calcul. Leur confiance documentaire reste faible : la source liée documente le PS et ne constitue pas une prise de position propre de Place publique.</p>' : ''}
       <div class="all-notes-table-wrap">
         <table class="all-notes-table">
           <thead><tr><th>Question</th><th>Votre note</th><th>${esc(entity.shortName)}</th><th>Justification de la note</th><th>Source</th></tr></thead>

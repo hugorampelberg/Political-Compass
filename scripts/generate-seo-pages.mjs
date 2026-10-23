@@ -376,7 +376,13 @@ function generatePartyProfilePages(data) {
       { name: 'Profils documentés', url: `${siteOrigin}/partis-politiques/profils/` },
       { name: label, url: canonical }
     ];
-    const rows = data.questions.map((question, index) => `<tr><td data-label="Question"><span class="evidence-question-meta">Q${question.id} · ${escapeHtml(question.theme)}</span><strong class="evidence-question">${escapeHtml(question.text)}</strong></td><td data-label="Justification">${escapeHtml(party.justifications?.[index] || 'Justification non renseignée.')}${party.positionStatus ? `<p><small>Confiance documentaire : ${party.confidence[index]}/3${party.positionStatus[index] === 'undocumented' ? ' · exclue du calcul' : ''}</small></p>` : ''}</td><td data-label="Source">${party.positionStatus?.[index] === 'undocumented' ? sourceLink(party.sources?.[index], question.id).replace('Source de la position', 'Document consulté pour') : sourceLink(party.sources?.[index], question.id)}</td></tr>`).join('');
+    const rows = data.questions.map((question, index) => {
+      const status = party.positionStatus?.[index];
+      const source = sourceLink(party.sources?.[index], question.id)
+        .replace('Source de la position', status === 'assumed' ? 'Source de la position du PS' : status === 'undocumented' ? 'Document consulté pour' : 'Source de la position');
+      const confidenceSuffix = status === 'undocumented' ? ' · exclue du calcul' : status === 'assumed' ? ' · reprise du PS par défaut' : '';
+      return `<tr><td data-label="Question"><span class="evidence-question-meta">Q${question.id} · ${escapeHtml(question.theme)}</span><strong class="evidence-question">${escapeHtml(question.text)}</strong></td><td data-label="Justification">${escapeHtml(party.justifications?.[index] || 'Justification non renseignée.')}${party.positionStatus ? `<p><small>Confiance documentaire : ${party.confidence[index]}/3${confidenceSuffix}</small></p>` : ''}</td><td data-label="Source">${source}</td></tr>`;
+    }).join('');
     const otherParties = parties.filter((candidate) => candidate.id !== party.id).map((candidate) => `<a href="/partis-politiques/profils/${escapeHtml(candidate.id)}/">${escapeHtml(PARTY_LABELS[candidate.id] || candidate.name)}</a>`).join('');
 
     write(`partis-politiques/profils/${party.id}/index.html`, `<!DOCTYPE html>
@@ -393,7 +399,7 @@ function generatePartyProfilePages(data) {
     <h1>${escapeHtml(label)} : justifications et sources</h1>
     <p class="lead">Retrouvez la position documentaire de ${escapeHtml(label)} pour chacune des ${data.questions.length} questions du test politique.</p>
     ${partyEditorialSection(party.id, label, data.questions.length)}
-    ${party.positionStatus ? `<p class="profile-summary">${party.positionStatus.filter(status => status !== 'undocumented').length} réponses codées ; ${party.positionStatus.filter(status => status === 'undocumented').length} positions non documentées, exclues du calcul. L'intensité politique et la confiance documentaire sont deux informations distinctes. Pour une position non documentée, le lien indique le document consulté, pas une preuve de neutralité.</p>` : ''}
+    ${party.positionStatus ? `<p class="profile-summary">${party.positionStatus.filter(status => status !== 'undocumented').length} réponses prises en compte, dont ${party.positionStatus.filter(status => status === 'assumed').length} notes reprises du Parti socialiste par défaut.${party.positionStatus.includes('undocumented') ? ` ${party.positionStatus.filter(status => status === 'undocumented').length} positions non documentées sont exclues du calcul.` : ''} L'intensité politique et la confiance documentaire sont deux informations distinctes. Pour une note reprise du PS, le lien documente la position du PS, sans établir une prise de position propre de Place publique.</p>` : ''}
     <p class="profile-summary">Ce tableau affiche uniquement les questions, les justifications et les sources publiques utilisées. Il ne contient ni votre score ni la note attribuée au parti.</p>
     <div class="evidence-table-wrap">
       <table class="evidence-table">
